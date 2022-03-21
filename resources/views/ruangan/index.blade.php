@@ -19,7 +19,6 @@
                            <th>KODE RUANGAN</th>
                            <th>NAMA RUANGAN</th>
                            <th>KATEGORI</th>
-                           <th>LANTAI</th>
                            <th>GEDUNG</th>
                            <th>AKSI</th>
                         </tr>
@@ -30,7 +29,6 @@
                            <td>R001</td>
                            <td>Ruang Laboraturium 1</td>
                            <td>Laboraturium</td>
-                           <td>1</td>
                            <td>Gedung A</td>
                            <td></td>
                         </tr>
@@ -39,7 +37,6 @@
                            <td>R002</td>
                            <td>Ruang Produksi</td>
                            <td>Produksi</td>
-                           <td>2</td>
                            <td>Gedung B</td>
                            <td></td>
                         </tr>
@@ -48,7 +45,6 @@
                            <td>R003</td>
                            <td>Gudang 1</td>
                            <td>Gudang</td>
-                           <td>1</td>
                            <td>Gedung C</td>
                            <td></td>
                         </tr>
@@ -57,7 +53,6 @@
                            <td>R004</td>
                            <td>Ruang Meeting</td>
                            <td>Meeting</td>
-                           <td>3</td>
                            <td>Gedung D</td>
                            <td></td>
                         </tr>
@@ -66,7 +61,6 @@
                            <td>R005</td>
                            <td>Ruang Tamu</td>
                            <td>Guest Room</td>
-                           <td>2</td>
                            <td>Gedung E</td>
                            <td></td>
                         </tr>
