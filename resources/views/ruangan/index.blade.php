@@ -64,7 +64,8 @@
                            <td>Gedung E</td>
                            <td></td>
                         </tr>
-                  </table>
+                  </table><br>
+                  <button type="button" class="btn btn-primary">Print</button>
                 </div>
             </div>
          </div>

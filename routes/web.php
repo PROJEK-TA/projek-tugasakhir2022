@@ -44,4 +44,8 @@ Route::get('/gedung', function () {
     return view('ruangan.gedung');
 });
 
-// Route::resource('barang',BarangController::class);
+Route::get('/peminjaman', function () {
+    return view('ruangan.peminjaman');
+});
+
+Route::resource('barang',BarangController::class);
