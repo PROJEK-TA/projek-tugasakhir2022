@@ -27,8 +27,13 @@ Route::get('/user', function () {
 Route::get('/barang', function () {
     return view('barangs.index');
 });
+
 Route::get('/katbarang', function () {
     return view('barangs.kategoribarang');
+});
+
+Route::get('/statusbarang', function () {
+    return view('barangs.statusbarang');
 });
 
 // Ruangan
@@ -54,4 +59,4 @@ Route::get('/departemen', function () {
     return view('departemen.index');
 });
 
-Route::resource('barang',BarangController::class);
+// Route::resource('barang',BarangController::class);
