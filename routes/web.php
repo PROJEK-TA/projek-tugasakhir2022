@@ -48,4 +48,10 @@ Route::get('/peminjaman', function () {
     return view('ruangan.peminjaman');
 });
 
+// Ruangan
+
+Route::get('/departemen', function () {
+    return view('departemen.index');
+});
+
 Route::resource('barang',BarangController::class);
