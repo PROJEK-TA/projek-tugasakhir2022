@@ -22,4 +22,8 @@ Route::get('/user', function () {
     return view('users.index');
 });
 
+Route::get('/ruangan', function () {
+    return view('ruangan.index');
+});
+
 Route::resource('barang',BarangController::class);
