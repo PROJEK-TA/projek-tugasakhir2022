@@ -160,7 +160,8 @@
                                  <td>30/10/2020/12:25</td>
                                  <td>Selesai</td>
                              </tr>
-                        </table>
+                        </table><br>
+                        <button type="button" class="btn btn-primary">Print</button>
                     </div>
             </div>
          </div>
