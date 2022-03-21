@@ -10,6 +10,7 @@
                </div>
             </div>
             <div class="card-body">
+               <button type="button" class="btn btn-success">Tambah Ruangan</button><br><br>
                <div class="table-responsive">
                   <table id="datatable" class="table table-striped" data-toggle="data-table">
                      <thead>
@@ -69,9 +70,8 @@
                            <td>Gedung E</td>
                            <td></td>
                         </tr>
-                     </tfoot>
                   </table>
-               </div>
+                </div>
             </div>
          </div>
       </div>
