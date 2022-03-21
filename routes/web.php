@@ -36,6 +36,10 @@ Route::get('/statusbarang', function () {
     return view('barangs.statusbarang');
 });
 
+Route::get('/peminjamanbarang', function () {
+    return view('barangs.peminjamanbarang');
+});
+
 // Ruangan
 Route::get('/ruangan', function () {
     return view('ruangan.index');
@@ -53,7 +57,6 @@ Route::get('/peminjaman', function () {
     return view('ruangan.peminjaman');
 });
 
-// Ruangan
 
 Route::get('/departemen', function () {
     return view('departemen.index');
