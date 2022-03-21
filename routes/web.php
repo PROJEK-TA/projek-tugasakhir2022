@@ -30,4 +30,8 @@ Route::get('/kategori', function () {
     return view('ruangan.kategori');
 });
 
+Route::get('/gedung', function () {
+    return view('ruangan.gedung');
+});
+
 Route::resource('barang',BarangController::class);
