@@ -21,10 +21,17 @@ Route::get('/', function () {
 Route::get('/user', function () {
     return view('users.index');
 });
+
+//Barang
+
 Route::get('/barang', function () {
     return view('barangs.index');
 });
+Route::get('/katbarang', function () {
+    return view('barangs.kategoribarang');
+});
 
+// Ruangan
 Route::get('/ruangan', function () {
     return view('ruangan.index');
 });
@@ -37,4 +44,4 @@ Route::get('/gedung', function () {
     return view('ruangan.gedung');
 });
 
-Route::resource('barang',BarangController::class);
+// Route::resource('barang',BarangController::class);
