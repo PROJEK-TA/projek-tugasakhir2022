@@ -25,4 +25,12 @@ Route::get('/barang', function () {
     return view('barangs.index');
 });
 
-// Route::resource('barang',BarangController::class);
+Route::get('/ruangan', function () {
+    return view('ruangan.index');
+});
+
+Route::get('/kategori', function () {
+    return view('ruangan.kategori');
+});
+
+Route::resource('barang',BarangController::class);
