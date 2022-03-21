@@ -345,7 +345,7 @@
                                         fill="currentColor"></path>
                                 </svg>
                             </i>
-                            <span class="item-name">Authentication</span>
+                            <span class="item-name">Ruangan</span>
                             <i class="right-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor">
@@ -366,7 +366,7 @@
                                         </svg>
                                     </i>
                                     <i class="sidenav-mini-icon"> L </i>
-                                    <span class="item-name">Login</span>
+                                    <span class="item-name">Kategori Ruangan</span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -380,7 +380,7 @@
                                         </svg>
                                     </i>
                                     <i class="sidenav-mini-icon"> R </i>
-                                    <span class="item-name">Register</span>
+                                    <span class="item-name">Lantai</span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -394,7 +394,7 @@
                                         </svg>
                                     </i>
                                     <i class="sidenav-mini-icon"> C </i>
-                                    <span class="item-name">Confirm Mail</span>
+                                    <span class="item-name">Gedung</span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -408,21 +408,7 @@
                                         </svg>
                                     </i>
                                     <i class="sidenav-mini-icon"> L </i>
-                                    <span class="item-name">Lock Screen</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/template/dashboard/auth/recoverpw.html">
-                                    <i class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
-                                            fill="currentColor">
-                                            <g>
-                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                    <i class="sidenav-mini-icon"> R </i>
-                                    <span class="item-name">Recover password</span>
+                                    <span class="item-name">Peminjaman</span>
                                 </a>
                             </li>
                         </ul>
@@ -452,7 +438,7 @@
                                         fill="currentColor"></path>
                                 </svg>
                             </i>
-                            <span class="item-name">Users</span>
+                            <span class="item-name">Departemen</span>
                             <i class="right-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor">
@@ -473,35 +459,7 @@
                                         </svg>
                                     </i>
                                     <i class="sidenav-mini-icon"> U </i>
-                                    <span class="item-name">User Profile</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="/template/dashboard/app/user-add.html">
-                                    <i class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
-                                            fill="currentColor">
-                                            <g>
-                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                    <i class="sidenav-mini-icon"> A </i>
-                                    <span class="item-name">Add User</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="/template/dashboard/app/user-list.html">
-                                    <i class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
-                                            fill="currentColor">
-                                            <g>
-                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                    <i class="sidenav-mini-icon"> U </i>
-                                    <span class="item-name">User List</span>
+                                    <span class="item-name">Daftar Departemen</span>
                                 </a>
                             </li>
                         </ul>
@@ -519,7 +477,7 @@
                                         fill="currentColor"></path>
                                 </svg>
                             </i>
-                            <span class="item-name">Utilities</span>
+                            <span class="item-name">Users</span>
                             <i class="right-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewBox="0 0 24 24"
                                     stroke="currentColor">
@@ -539,7 +497,7 @@
                                             </g>
                                         </svg>
                                     </i>
-                                    <span class="item-name">Error 404</span>
+                                    <span class="item-name">Daftar Users</span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -552,7 +510,7 @@
                                             </g>
                                         </svg>
                                     </i>
-                                    <span class="item-name">Error 500</span>
+                                    <span class="item-name">Roles</span>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -565,7 +523,7 @@
                                             </g>
                                         </svg>
                                     </i>
-                                    <span class="item-name">Maintence</span>
+                                    <span class="item-name">Kelola Users</span>
                                 </a>
                             </li>
                         </ul>
@@ -582,7 +540,7 @@
                                         fill="currentColor"></path>
                                 </svg>
                             </i>
-                            <span class="item-name">Admin</span>
+                            <span class="item-name">Panduan Aplikasi</span>
                         </a>
                     </li>
                     <li>
