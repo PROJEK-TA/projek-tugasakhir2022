@@ -24,8 +24,12 @@ Route::get('/user', function () {
     return view('users.index');
 });
 
-Route::get('/role', function () {
+Route::get('/roles', function () {
     return view('users.roles');
+});
+
+Route::get('/kelolausers', function () {
+    return view('users.kelolausers');
 });
 
 // Barang
