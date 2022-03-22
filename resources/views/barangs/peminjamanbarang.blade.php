@@ -56,7 +56,7 @@
                         </tr>
                         <tr>
                             <td>3</td>
-                            <td>PMB00003</td>
+                            <td>PMB000003</td>
                             <td>AC</td>
                             <td>Panasonic</td>
                             <td>Ruang IT</td>
@@ -65,6 +65,32 @@
                             <td>Raisa Anggraini</td>
                             <td>9/11/2021/15:40</td>
                             <td>19/11/2021/07:40</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>PMB000004</td>
+                            <td>Mobil</td>
+                            <td>Pajero Sport</td>
+                            <td>Parkir 1</td>
+                            <td>Departemen D</td>
+                            <td>1</td>
+                            <td>Abdullah</td>
+                            <td>15/11/2021/15:40</td>
+                            <td>18/11/2021/07:40</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>PMB000005</td>
+                            <td>Pompa Air</td>
+                            <td>Sanyo</td>
+                            <td>Gudang A</td>
+                            <td>Departemen E</td>
+                            <td>3</td>
+                            <td>Yoga Saputra</td>
+                            <td>12/11/2021/15:40</td>
+                            <td>17/11/2021/07:40</td>
                             <td></td>
                         </tr>
                     </table>
@@ -81,70 +107,82 @@
                             <tr>
                                 <th>NO</th>
                                 <th>KODE PINJAM</th>
-                                <th>NAMA RUANGAN</th>
-                                <th>GEDUNG</th>
-                                <th>DESKRIPSI</th>
+                                <th>NAMA BARANG</th>
+                                <th>MERK</th>
+                                <th>LOKASI</th>
+                                <th>OWNER</th>
+                                <th>JUMLAH</th>
                                 <th>NAMA PEMINJAM</th>
                                 <th>TANGGAL PINJAM</th>
-                                <th>TANGGAL SELESAI</th>
+                                <th>TANGGAL KEMBALI</th>
                                 <th>STATUS</th>
                              </tr>
                           </thead>
                           <tbody>
                              <tr>
                                  <td>1</td>
-                                 <td>PM0000001</td>
+                                 <td>PMB0000001</td>
+                                 <td>Laptop</td>
+                                 <td>Lenovo</td>
                                  <td>Ruang Meeting</td>
-                                 <td>Gedung A</td>
-                                 <td>Meeting bersama mahasiswa POLINEMA</td>
-                                 <td>Ricky Wijaya</td>
-                                 <td>20/11/2021/13:11</td>
-                                 <td>25/11/2021/15:11</td>
-                                 <td>Dipinjam</td>
-                             </tr>
-                             <tr>
+                                 <td>Departemen A</td>
                                  <td>2</td>
-                                 <td>PM0000002</td>
-                                 <td>Ruang Laboraturium</td>
-                                 <td>Gedung B</td>
-                                 <td>Praktik pengolahan tembakau</td>
-                                 <td>Ignatius Lintang</td>
-                                 <td>21/11/2021/15:40</td>
-                                 <td>24/11/2021/07:40</td>
-                                 <td>Dipinjam</td>
+                                 <td>Ricky Wijaya</td>
+                                 <td>20/11/2021/15:40</td>
+                                 <td>27/11/2021/07:40</td>
+                                 <td><span class="badge rounded-pill bg-success">Dipinjam</span></td>
                              </tr>
                              <tr>
-                                 <td>3</td>
-                                 <td>PM0000003</td>
-                                 <td>Ruang Produksi</td>
-                                 <td>Gedung C</td>
-                                 <td>Praktik produksi tembakau</td>
+                                <td>2</td>
+                                 <td>PMB0000002</td>
+                                 <td>Kursi Kantor</td>
+                                 <td>Ikea</td>
+                                 <td>Ruang Meeting</td>
+                                 <td>Departemen B</td>
+                                 <td>7</td>
+                                 <td>Munaroh</td>
+                                 <td>7/11/2021/15:40</td>
+                                 <td>17/11/2021/07:40</td>
+                                 <td><span class="badge rounded-pill bg-success">Dipinjam</span></td>
+                             </tr>
+                             <tr>
+                                <td>3</td>
+                                 <td>PMB0000003</td>
+                                 <td>AC</td>
+                                 <td>Panasonic</td>
+                                 <td>Ruang Laboratorium</td>
+                                 <td>Departemen C</td>
+                                 <td>1</td>
                                  <td>Elizabeth Teresa</td>
-                                 <td>24/10/2020/17:25</td>
-                                 <td>29/10/2020/17:25</td>
-                                 <td>Dipinjam</td>
+                                 <td>08/11/2021/15:40</td>
+                                 <td>20/11/2021/07:40</td>
+                                 <td><span class="badge rounded-pill bg-success">Dipinjam</span></td>
                              </tr>
                              <tr>
-                                 <td>4</td>
-                                 <td>PM0000004</td>
-                                 <td>Gudang</td>
-                                 <td>Gedung D</td>
-                                 <td>Penyimpanan Barang</td>
-                                 <td>Famboyan Dwi Cahyo</td>
-                                 <td>24/10/2020/17:25</td>
-                                 <td>01/11/2020/10:25</td>
-                                 <td>Selesai</td>
+                                <td>4</td>
+                                 <td>PMB0000004</td>
+                                 <td>Mobil</td>
+                                 <td>Toyota</td>
+                                 <td>Parkir 1</td>
+                                 <td>Departemen D</td>
+                                 <td>1</td>
+                                 <td>Elizabeth Subagio</td>
+                                 <td>18/11/2021/15:40</td>
+                                 <td>26/11/2021/07:40</td>
+                                 <td><span class="badge rounded-pill bg-primary">Selesai</span></td>
                              </tr>
                              <tr>
-                                 <td>5</td>
-                                 <td>PM0000005</td>
-                                 <td>Ruang Tamu</td>
-                                 <td>Gedung E</td>
-                                 <td>Pertemuan dengan mahasiswa POLINEMA</td>
-                                 <td>Ahmad Benaya</td>
-                                 <td>24/10/2020/17:25</td>
-                                 <td>30/10/2020/12:25</td>
-                                 <td>Selesai</td>
+                                <td>5</td>
+                                 <td>PMB0000005</td>
+                                 <td>Pompa Air</td>
+                                 <td>Sanyo</td>
+                                 <td>Gudang A</td>
+                                 <td>Departemen E</td>
+                                 <td>3</td>
+                                 <td>Teresa Subagio</td>
+                                 <td>15/11/2021/15:40</td>
+                                 <td>30/11/2021/07:40</td>
+                                 <td><span class="badge rounded-pill bg-primary">Selesai</span></td>
                              </tr>
                         </table><br>
                         <button type="button" class="btn btn-primary">Print</button>
