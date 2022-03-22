@@ -1,5 +1,5 @@
 @extends('layouts.index')
-@section('title','Data Ruangan')
+@section('title','Data Kategori Ruangan')
 
 @section('content')
 <div class="col-sm-12">

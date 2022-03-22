@@ -114,7 +114,7 @@
                                  <td>Ricky Wijaya</td>
                                  <td>20/11/2021/13:11</td>
                                  <td>25/11/2021/15:11</td>
-                                 <td>Dipinjam</td>
+                                 <td><div class="text-info">Dipinjam</div></td>
                              </tr>
                              <tr>
                                  <td>2</td>
@@ -125,7 +125,7 @@
                                  <td>Ignatius Lintang</td>
                                  <td>21/11/2021/15:40</td>
                                  <td>24/11/2021/07:40</td>
-                                 <td>Dipinjam</td>
+                                 <td><div class="text-info">Dipinjam</div></td>
                              </tr>
                              <tr>
                                  <td>3</td>
@@ -136,7 +136,7 @@
                                  <td>Elizabeth Teresa</td>
                                  <td>24/10/2020/17:25</td>
                                  <td>29/10/2020/17:25</td>
-                                 <td>Dipinjam</td>
+                                 <td><div class="text-info">Dipinjam</div></td>
                              </tr>
                              <tr>
                                  <td>4</td>
@@ -147,7 +147,7 @@
                                  <td>Famboyan Dwi Cahyo</td>
                                  <td>24/10/2020/17:25</td>
                                  <td>01/11/2020/10:25</td>
-                                 <td>Selesai</td>
+                                 <td><div class="text-success">Selesai</div></td>
                              </tr>
                              <tr>
                                  <td>5</td>
@@ -158,7 +158,7 @@
                                  <td>Ahmad Benaya</td>
                                  <td>24/10/2020/17:25</td>
                                  <td>30/10/2020/12:25</td>
-                                 <td>Selesai</td>
+                                 <td><div class="text-success">Selesai</div></td>
                              </tr>
                         </table><br>
                         <button type="button" class="btn btn-primary">Print</button>
