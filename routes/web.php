@@ -18,11 +18,13 @@ Route::get('/', function () {
     return view('layouts.index');
 });
 
+// User
+
 Route::get('/user', function () {
     return view('users.index');
 });
 
-//Barang
+// Barang
 
 Route::get('/barang', function () {
     return view('barangs.index');
@@ -41,6 +43,7 @@ Route::get('/peminjamanbarang', function () {
 });
 
 // Ruangan
+
 Route::get('/ruangan', function () {
     return view('ruangan.index');
 });
@@ -57,6 +60,7 @@ Route::get('/peminjaman', function () {
     return view('ruangan.peminjaman');
 });
 
+// Departemen
 
 Route::get('/departemen', function () {
     return view('departemen.index');
