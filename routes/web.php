@@ -24,6 +24,10 @@ Route::get('/user', function () {
     return view('users.index');
 });
 
+Route::get('/role', function () {
+    return view('users.roles');
+});
+
 // Barang
 
 Route::get('/barang', function () {
