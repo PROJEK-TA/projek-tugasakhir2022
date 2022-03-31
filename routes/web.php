@@ -68,6 +68,10 @@ Route::get('/peminjaman', function () {
     return view('ruangan.peminjaman');
 });
 
+Route::get('/tambahruangan', function () {
+    return view('ruangan.add');
+});
+
 // Departemen
 
 Route::get('/departemen', function () {
