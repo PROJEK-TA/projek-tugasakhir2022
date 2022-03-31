@@ -78,4 +78,8 @@ Route::get('/departemen', function () {
     return view('departemen.index');
 });
 
+Route::get('/tambahdepartemen', function () {
+    return view('departemen.add');
+});
+
 // Route::resource('barang',BarangController::class);
