@@ -76,6 +76,10 @@ Route::get('/tambahkategori', function () {
     return view('ruangan.addkategori');
 });
 
+Route::get('/tambahgedung', function () {
+    return view('ruangan.addgedung');
+});
+
 // Departemen
 
 Route::get('/departemen', function () {
