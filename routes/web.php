@@ -36,6 +36,10 @@ Route::get('/tambahuser', function () {
     return view('users.add');
 });
 
+Route::get('/tambahroles', function () {
+    return view('users.addroles');
+});
+
 // Barang
 
 Route::get('/barang', function () {
