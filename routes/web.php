@@ -32,6 +32,10 @@ Route::get('/kelolausers', function () {
     return view('users.kelolausers');
 });
 
+Route::get('/tambahuser', function () {
+    return view('users.add');
+});
+
 // Barang
 
 Route::get('/barang', function () {
