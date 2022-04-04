@@ -12,28 +12,28 @@
             <div class="card-body">
                 <form>
                     <div class="form-group">
-                        <label class="form-label" for="id_user">ID User</label>
-                        <input type="text" class="form-control" id="id_user1">
+                        <label class="form-label" for="id_user"><b>ID User</b></label>
+                        <input type="text" class="form-control" id="id_user" placeholder="Input id user...">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="nm_user">Nama User</label>
-                        <input type="text" class="form-control" id="nm_user1">
+                        <label class="form-label" for="nm_user"><b>Nama User</b></label>
+                        <input type="text" class="form-control" id="nm_user" placeholder="Input nama user...">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="email">Email</label>
-                        <input type="email" class="form-control" id="email1">
+                        <label class="form-label" for="email"><b>Email</b></label>
+                        <input type="email" class="form-control" id="email" value="ex: markjhon@gmail.com" placeholder="Input email...">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="alamat">Alamat</label>
-                        <input type="text" class="form-control" id="alamat1">
+                        <label class="form-label" for="alamat"><b>Alamat</b></label>
+                        <input type="text" class="form-control" id="alamat" placeholder="Input alamat...">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="telp">Kontak</label>
-                        <input type="text" class="form-control" id="telp1">
+                        <label class="form-label" for="telp"><b>Kontak</b></label>
+                        <input type="tel" class="form-control" id="telp" value="ex: 087827361234" placeholder="Input kontak...">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="role">Role</label>
-                        <input type="text" class="form-control" id="role1">
+                        <label class="form-label" for="role"><b>Role</b></label>
+                        <input type="text" class="form-control" id="role" placeholder="Input role...">
                     </div><br><br>
                     <button type="submit" class="btn btn-primary">Tambahkan</button>
                 </form>

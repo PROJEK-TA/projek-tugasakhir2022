@@ -12,15 +12,15 @@
             <div class="card-body">
                 <form>
                     <div class="form-group">
-                        <label class="form-label" for="kd_ruang">Kode Ruangan</label>
-                        <input type="text" class="form-control" id="kd_ruang1">
+                        <label class="form-label" for="kd_ruang"><b>Kode Ruangan</b></label>
+                        <input type="text" class="form-control" id="kd_ruang" placeholder="Input kode ruangan...">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="nm_ruang">Nama Ruangan</label>
-                        <input type="text" class="form-control" id="nm_ruang1">
+                        <label class="form-label" for="nm_ruang"><b>Nama Ruangan</b></label>
+                        <input type="text" class="form-control" id="nm_ruang" placeholder="Input nama ruangan...">
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Kategori Ruangan</label>
+                        <label class="form-label"><b>Kategori Ruangan</b></label>
                         <select class="form-select mb-3 shadow-none">
                             <option selected="">Pilih Kategori...</option>
                             <option value="1">Laboraturium</option>
@@ -31,7 +31,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Gedung</label>
+                        <label class="form-label"><b>Gedung</b></label>
                         <select class="form-select mb-3 shadow-none">
                             <option selected="">Pilih Gedung...</option>
                             <option value="1">Gedung A</option>
@@ -40,7 +40,7 @@
                             <option value="4">Gedung D</option>
                             <option value="5">Gedung E</option>
                         </select>
-                    </div><br>
+                    </div><br><br>
                     <button type="submit" class="btn btn-primary">Tambahkan</button>
                 </form>
             </div>

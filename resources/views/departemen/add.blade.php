@@ -12,13 +12,13 @@
             <div class="card-body">
                 <form>
                     <div class="form-group">
-                        <label class="form-label" for="kd_departemen">Kode Departemen</label>
-                        <input type="text" class="form-control" id="kd_departemen1">
+                        <label class="form-label" for="kd_departemen"><b>Kode Departemen</b></label>
+                        <input type="text" class="form-control" id="kd_departemen" placeholder="Input kode departemen...">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="nm_departemen">Nama Departemen</label>
-                        <input type="text" class="form-control" id="nm_departemen1">
-                    </div><br>
+                        <label class="form-label" for="nm_departemen"><b>Nama Departemen</b></label>
+                        <input type="text" class="form-control" id="nm_departemen" placeholder="Input nama departemen...">
+                    </div><br><br>
                     <button type="submit" class="btn btn-primary">Tambahkan</button>
                 </form>
             </div>

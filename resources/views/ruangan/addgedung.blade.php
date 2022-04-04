@@ -12,12 +12,12 @@
             <div class="card-body">
                 <form>
                     <div class="form-group">
-                        <label class="form-label" for="kd_gedung">Kode Gedung</label>
-                        <input type="text" class="form-control" id="kd_gedung1">
+                        <label class="form-label" for="kd_gedung"><b>Kode Gedung</b></label>
+                        <input type="text" class="form-control" id="kd_gedung" placeholder="Input kode gedung...">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="nm_gedung">Nama Gedung</label>
-                        <input type="text" class="form-control" id="nm_gedung1">
+                        <label class="form-label" for="nm_gedung"><b>Nama Gedung</b></label>
+                        <input type="text" class="form-control" id="nm_gedung" placeholder="Input nama gedung...">
                     </div><br><br>
                     <button type="submit" class="btn btn-primary">Tambahkan</button>
                 </form>
