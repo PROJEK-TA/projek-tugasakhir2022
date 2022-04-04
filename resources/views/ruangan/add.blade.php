@@ -12,12 +12,12 @@
             <div class="card-body">
                 <form>
                     <div class="form-group">
-                        <label class="form-label" for="email">Kode Ruangan</label>
-                        <input type="email" class="form-control" id="email1">
+                        <label class="form-label" for="kd_ruang">Kode Ruangan</label>
+                        <input type="text" class="form-control" id="kd_ruang1">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="pwd">Nama Ruangan</label>
-                        <input type="password" class="form-control" id="pwd">
+                        <label class="form-label" for="nm_ruang">Nama Ruangan</label>
+                        <input type="text" class="form-control" id="nm_ruang1">
                     </div>
                     <div class="form-group">
                         <label class="form-label">Kategori Ruangan</label>
