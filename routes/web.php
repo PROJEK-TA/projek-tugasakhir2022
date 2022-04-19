@@ -58,6 +58,14 @@ Route::get('/peminjamanbarang', function () {
     return view('barangs.peminjamanbarang');
 });
 
+Route::get('/servis', function () {
+    return view('barangs.servis');
+});
+
+Route::get('/nonaktif', function () {
+    return view('barangs.nonaktif');
+});
+
 // Ruangan
 
 Route::get('/ruangan', function () {
