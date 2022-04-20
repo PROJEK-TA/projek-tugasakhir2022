@@ -1,5 +1,5 @@
 @extends('layouts.index')
-@section('title','Tambah Data Ruangan')
+@section('title','Tambah Data Barang')
 
 @section('content')
 <div class="col-sm-12">
@@ -70,13 +70,9 @@
                             <option value="4">Dipinjam</option>
                             <option value="5">Hilang</option>
                         </select>
-                        <label class="form-label"><b>Tanggal</b></label>
-                        <div class="bd-example">
-        <div class="input-group">
-            <input type="text" class="form-control vanila-datepicker" placeholder="Input Tanggal">
+                     
         </div>
-    </div>  
-   
+    
                     </div><br><br>
                     <button type="submit" class="btn btn-primary">Tambahkan</button>
                 </form>
