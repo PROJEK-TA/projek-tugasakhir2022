@@ -32,11 +32,11 @@ Route::get('/kelolausers', function () {
     return view('users.kelolausers');
 });
 
-Route::get('/tambahuser', function () {
+Route::get('/adduser', function () {
     return view('users.add');
 });
 
-Route::get('/tambahroles', function () {
+Route::get('/addroles', function () {
     return view('users.addroles');
 });
 
@@ -84,8 +84,8 @@ Route::get('/ruangan', function () {
     return view('ruangan.index');
 });
 
-Route::get('/kategori', function () {
-    return view('ruangan.kategori');
+Route::get('/katruangan', function () {
+    return view('ruangan.kategoriruangan');
 });
 
 Route::get('/gedung', function () {
@@ -96,15 +96,15 @@ Route::get('/peminjaman', function () {
     return view('ruangan.peminjaman');
 });
 
-Route::get('/tambahruangan', function () {
+Route::get('/addruangan', function () {
     return view('ruangan.add');
 });
 
-Route::get('/tambahkategori', function () {
-    return view('ruangan.addkategori');
+Route::get('/addkatruangan', function () {
+    return view('ruangan.addkatruangan');
 });
 
-Route::get('/tambahgedung', function () {
+Route::get('/addgedung', function () {
     return view('ruangan.addgedung');
 });
 
@@ -114,7 +114,7 @@ Route::get('/departemen', function () {
     return view('departemen.index');
 });
 
-Route::get('/tambahdepartemen', function () {
+Route::get('/adddepartemen', function () {
     return view('departemen.add');
 });
 
