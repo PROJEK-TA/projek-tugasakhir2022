@@ -74,6 +74,10 @@ Route::get('/addservis', function () {
     return view('barangs.addservis');
 });
 
+Route::get('/addnonaktif', function () {
+    return view('barangs.addnonaktif');
+});
+
 // Ruangan
 
 Route::get('/ruangan', function () {
