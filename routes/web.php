@@ -70,6 +70,10 @@ Route::get('/addbarang', function () {
     return view('barangs.addbarang');
 });
 
+Route::get('/addservis', function () {
+    return view('barangs.addservis');
+});
+
 // Ruangan
 
 Route::get('/ruangan', function () {
