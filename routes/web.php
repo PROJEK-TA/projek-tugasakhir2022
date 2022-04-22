@@ -126,4 +126,11 @@ Route::get('/adddepartemen', function () {
     return view('departemen.add');
 });
 
+
+// Tambahan untuk halaman user
+
+Route::get('/userpeminjamanbarang', function () {
+    return view('barangs.userpeminjamanbarang');
+});
+
 // Route::resource('barang',BarangController::class);
