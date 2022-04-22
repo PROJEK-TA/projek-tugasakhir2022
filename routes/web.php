@@ -100,8 +100,8 @@ Route::get('/gedung', function () {
     return view('ruangan.gedung');
 });
 
-Route::get('/peminjaman', function () {
-    return view('ruangan.peminjaman');
+Route::get('/peminjamanruangan', function () {
+    return view('ruangan.peminjamanruangan');
 });
 
 Route::get('/addruangan', function () {
