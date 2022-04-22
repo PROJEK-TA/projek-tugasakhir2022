@@ -82,6 +82,9 @@ Route::get('/addstatus', function () {
     return view('barangs.addstatus');
 });
 
+Route::get('/addkatbarang', function () {
+    return view('barangs.addkatbarang');
+});
 
 // Ruangan
 
