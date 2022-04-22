@@ -78,6 +78,11 @@ Route::get('/addnonaktif', function () {
     return view('barangs.addnonaktif');
 });
 
+Route::get('/addstatus', function () {
+    return view('barangs.addstatus');
+});
+
+
 // Ruangan
 
 Route::get('/ruangan', function () {
