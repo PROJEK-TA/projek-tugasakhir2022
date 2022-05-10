@@ -23,11 +23,15 @@ class CreateProductsTable extends Migration
             $table->double('harga_beli');
             $table->double('jumlah');
             $table->string('nama_status');
-            $table->timestamps('tanggal input');
-            $table->foreign('id_kategbarang')->references('id')->on('product_categories');
-            $table->foreign('id_ruangan')->references('id')->on('rooms');
-            $table->foreign('id_departemen')->references('id')->on('departments');
-            $table->foreign('id_status')->references('id')->on('status_products');
+            $table->date('tanggal_input');
+            $table->unsignedBigInteger('id_productcategory');
+            $table->unsignedBigInteger('id_room');
+            $table->unsignedBigInteger('id_department');
+            $table->unsignedBigInteger('id_statusproduct');
+            $table->foreign('id_productcategory')->references('id')->on('product_categories');
+            $table->foreign('id_room')->references('id')->on('rooms');
+            $table->foreign('id_department')->references('id')->on('departments');
+            $table->foreign('id_statusproduct')->references('id')->on('status_products');
         });
     }
 

@@ -10,7 +10,10 @@
                </div>
             </div>
             <div class="card-body">
-               <button type="button" class="btn btn-success">Tambah Kategori</button><br><br>
+            <form action="{{route('kategoribarang.create')}}" method="GET">
+               <button type="submit" class="btn btn-success">Tambah Kategori</button>
+            </form>
+            <br><br>
                <div class="table-responsive">
                   <table id="datatable" class="table table-striped" data-toggle="data-table">
                      <thead>
@@ -22,30 +25,15 @@
                         </tr>
                      </thead>
                      <tbody>
+                        @foreach($kategori as $k)
                         <tr>
-                           <td>1</td>
-                           <td>KB01</td>
-                           <td>Barang Elektronik</td>
+                           <td>{{$loop->iteration}}</td>
+                           <td>{{$k->id}}</td>
+                           <td>{{$k->nama_kategbarang}}</td>
                            <td></td>
                         </tr>
-                        <tr>
-                           <td>2</td>
-                           <td>KB02</td>
-                           <td>Mesin</td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td>3</td>
-                           <td>KB03</td>
-                           <td>Mebel</td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td>4</td>
-                           <td>KB04</td>
-                           <td>Alat Transportasi</td>
-                           <td></td>
-                        </tr>
+                        @endforeach
+                        
                     </table>
                     <br>
                     <button type="button" class="btn btn-primary">Print</button>

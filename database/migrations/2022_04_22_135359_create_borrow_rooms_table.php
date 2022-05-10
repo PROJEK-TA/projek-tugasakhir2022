@@ -21,8 +21,10 @@ class CreateBorrowRoomsTable extends Migration
             $table->string('nama_peminjam');
             $table->date('tanggal_pinjam');
             $table->date('tanggal_kembali');
-            $table->foreign('id_ruangan')->references('id')->on('rooms');
-            $table->foreign('id_gudang')->references('id')->on('warehouses');
+            $table->unsignedBigInteger('id_room');
+            $table->unsignedBigInteger('id_warehouse');
+            $table->foreign('id_room')->references('id')->on('rooms');
+            $table->foreign('id_warehouse')->references('id')->on('warehouses');
           
         });
     }

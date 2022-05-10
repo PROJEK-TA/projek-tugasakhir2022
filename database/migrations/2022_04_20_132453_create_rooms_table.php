@@ -18,8 +18,10 @@ class CreateRoomsTable extends Migration
             $table->string('nama_ruangan');
             $table->string('nama_kategruang');
             $table->string('nama_gudang');
-            $table->foreign('id_kategruang')->references('id')->on('room_categories');
-            $table->foreign('id_gudang')->references('id')->on('warehouses');
+            $table->unsignedBigInteger('id_roomcategory');
+            $table->unsignedBigInteger('id_warehouse');
+            $table->foreign('id_roomcategory')->references('id')->on('room_categories');
+            $table->foreign('id_warehouse')->references('id')->on('warehouses');
             $table->timestamps();
         });
     }

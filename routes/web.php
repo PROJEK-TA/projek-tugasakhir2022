@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangController;
-
+use App\Http\Controllers\KategoriBarangController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -137,4 +137,5 @@ Route::get('/userpeminjamanruangan', function () {
     return view('ruangan.userpeminjamanruangan');
 });
 
-// Route::resource('barang',BarangController::class);
+Route::resource('barang', BarangController::class);
+Route::resource('kategoribarang', KategoriBarangController::class);

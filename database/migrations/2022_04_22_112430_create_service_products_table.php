@@ -22,7 +22,8 @@ class CreateServiceProductsTable extends Migration
             $table->string('nama_petugas');
             $table->date('tanggal_servis');
             $table->date('tanggal_kembali');
-            $table->foreign('id_barang')->references('id')->on('products');
+            $table->unsignedBigInteger('id_product');
+            $table->foreign('id_product')->references('id')->on('products');
            
         });
     }

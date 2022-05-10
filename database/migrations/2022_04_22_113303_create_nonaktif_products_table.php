@@ -21,7 +21,8 @@ class CreateNonaktifProductsTable extends Migration
             $table->double('jumlah');
             $table->string('status');
             $table->date('tanggal_nonaktif');
-            $table->foreign('id_barang')->references('id')->on('products');
+            $table->unsignedBigInteger('id_product');
+            $table->foreign('id_product')->references('id')->on('products');
             
         });
     }
