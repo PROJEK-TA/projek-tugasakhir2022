@@ -5,6 +5,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriBarangController;
 use App\Http\Controllers\RuanganController;
 use App\Http\Controllers\KategoriRuanganController;
+use App\Http\Controllers\GedungController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -144,3 +145,4 @@ Route::resource('kategoribarang', KategoriBarangController::class);
 
 Route::resource('ruangan', RuanganController::class);
 Route::resource('kategoriruangan', KategoriRuanganController::class);
+Route::resource('gedung', GedungController::class);
