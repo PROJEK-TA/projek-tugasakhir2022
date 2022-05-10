@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Room;
+use App\Models\RoomCategory;
 use Illuminate\Http\Request;
 
-class RuanganController extends Controller
+class KategoriRuanganController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class RuanganController extends Controller
      */
     public function index()
     {
-        return view ('ruangan.index');
+        $kategori=RoomCategory::all();
+        return view('ruangan.kategoriruangan', compact('kategori'));
     }
 
     /**
@@ -24,7 +25,7 @@ class RuanganController extends Controller
      */
     public function create()
     {
-        return view ('ruangan.add');
+        return view('ruangan.addkatruangan');
     }
 
     /**
@@ -35,16 +36,19 @@ class RuanganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $r=new RoomCategory();
+        $r->nama_kategruangan=$request->kategoriruangan;
+        $r->save();
+        return redirect('/kategoriruangan');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Room  $ruangan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Room $ruangan)
+    public function show($id)
     {
         //
     }
@@ -52,10 +56,10 @@ class RuanganController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Room  $ruangan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Room $ruangan)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +68,10 @@ class RuanganController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Room  $ruangan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Room $ruangan)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +79,10 @@ class RuanganController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Room  $ruangan
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Room $ruangan)
+    public function destroy($id)
     {
         //
     }

@@ -10,7 +10,10 @@
                </div>
             </div>
             <div class="card-body">
-               <button type="button" class="btn btn-success">Tambah Kategori</button><br><br>
+               <form action="{{route('kategoriruangan.create')}}" method="GET">
+                  <button type="submit" class="btn btn-success">Tambah Kategori</button>
+               </form>
+               <br><br>
                <div class="table-responsive">
                   <table id="datatable" class="table table-striped" data-toggle="data-table">
                      <thead>
@@ -22,36 +25,14 @@
                         </tr>
                      </thead>
                      <tbody>
+                        @foreach($kategori as $k)
                         <tr>
-                           <td>1</td>
-                           <td>KR01</td>
-                           <td>Laboraturium</td>
+                           <td>{{$loop->iteration}}</td>
+                           <td>{{$k->id}}</td>
+                           <td>{{$k->nama_kategruangan}}</td>
                            <td></td>
                         </tr>
-                        <tr>
-                           <td>2</td>
-                           <td>KR02</td>
-                           <td>Produksi</td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td>3</td>
-                           <td>KR03</td>
-                           <td>Gudang</td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td>4</td>
-                           <td>KR04</td>
-                           <td>Meeting</td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td>5</td>
-                           <td>KR05</td>
-                           <td>Guest Room</td>
-                           <td></td>
-                        </tr>
+                        @endforeach
                     </table><br>
                     <button type="button" class="btn btn-primary">Print</button>
                 </div>

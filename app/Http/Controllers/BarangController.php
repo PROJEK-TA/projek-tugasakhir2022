@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Barang;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class BarangController extends Controller
@@ -41,10 +41,10 @@ class BarangController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Barang  $barang
+     * @param  \App\Models\Product  $barang
      * @return \Illuminate\Http\Response
      */
-    public function show(Barang $barang)
+    public function show(Product $barang)
     {
         //
     }
@@ -52,10 +52,10 @@ class BarangController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Barang  $barang
+     * @param  \App\Models\Product  $barang
      * @return \Illuminate\Http\Response
      */
-    public function edit(Barang $barang)
+    public function edit(Product $barang)
     {
         //
     }
@@ -64,10 +64,10 @@ class BarangController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Barang  $barang
+     * @param  \App\Models\Product  $barang
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Barang $barang)
+    public function update(Request $request, Product $barang)
     {
         //
     }
@@ -75,10 +75,10 @@ class BarangController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Barang  $barang
+     * @param  \App\Models\Product  $barang
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Barang $barang)
+    public function destroy(Product $barang)
     {
         //
     }

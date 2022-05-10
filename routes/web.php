@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriBarangController;
 use App\Http\Controllers\RuanganController;
+use App\Http\Controllers\KategoriRuanganController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -142,3 +143,4 @@ Route::resource('barang', BarangController::class);
 Route::resource('kategoribarang', KategoriBarangController::class);
 
 Route::resource('ruangan', RuanganController::class);
+Route::resource('kategoriruangan', KategoriRuanganController::class);
