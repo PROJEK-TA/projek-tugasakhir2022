@@ -10,14 +10,11 @@
                </div>
             </div>
             <div class="card-body">
-                <form>
-                    <div class="form-group">
-                        <label class="form-label" for="kd_departemen"><b>Kode Departemen</b></label>
-                        <input type="text" class="form-control" id="kd_departemen" placeholder="Input kode departemen...">
-                    </div>
+                <form action="{{route('departemen.store')}}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label class="form-label" for="nm_departemen"><b>Nama Departemen</b></label>
-                        <input type="text" class="form-control" id="nm_departemen" placeholder="Input nama departemen...">
+                        <input type="text" class="form-control" id="nm_departemen" name="departemen" placeholder="Input nama departemen...">
                     </div><br><br>
                     <button type="submit" class="btn btn-primary">Tambahkan</button>
                 </form>
