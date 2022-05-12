@@ -10,7 +10,10 @@
                </div>
             </div>
             <div class="card-body">
-               <button type="button" class="btn btn-success">Tambah Roles</button><br><br>
+               <form action="{{route('roleuser.create')}}" method="GET">
+                  <button type="submit" class="btn btn-success">Tambah Role</button>
+               </form>
+               <br><br>
                <div class="table-responsive">
                   <table id="datatable" class="table table-striped" data-toggle="data-table">
                      <thead>
@@ -22,36 +25,14 @@
                         </tr>
                      </thead>
                      <tbody>
+                        @foreach($peran as $pr)
                         <tr>
-                           <td>1</td>
-                           <td>RL01</td>
-                           <td>Kepala Bagian</td>
+                           <td>{{$loop->iteration}}</td>
+                           <td>{{$pr->id}}</td>
+                           <td>{{$pr->nama_role}}</td>
                            <td></td>
                         </tr>
-                        <tr>
-                           <td>2</td>
-                           <td>RL02</td>
-                           <td>Sekretaris</td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td>3</td>
-                           <td>RL03</td>
-                           <td>Staf Pengelola Barang</td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td>4</td>
-                           <td>RL04</td>
-                           <td>Staf Pengelola Ruangan</td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td>5</td>
-                           <td>RL05</td>
-                           <td>Admin</td>
-                           <td></td>
-                        </tr>
+                        @endforeach
                     </table><br>
                     <button type="button" class="btn btn-primary">Print</button>
                 </div>

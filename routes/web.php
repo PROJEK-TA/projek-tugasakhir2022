@@ -7,6 +7,9 @@ use App\Http\Controllers\RuanganController;
 use App\Http\Controllers\KategoriRuanganController;
 use App\Http\Controllers\GedungController;
 use App\Http\Controllers\DepartemenController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\KelolaUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -149,3 +152,7 @@ Route::resource('kategoriruangan', KategoriRuanganController::class);
 Route::resource('gedung', GedungController::class);
 
 Route::resource('departemen', DepartemenController::class);
+
+Route::resource('user', UserController::class);
+Route::resource('roleuser', RoleController::class);
+Route::resource('kelolausers', KelolaUserController::class);

@@ -10,7 +10,10 @@
                </div>
             </div>
             <div class="card-body">
-                <button type="button" class="btn btn-success">Tambah User</button><br><br>
+            <form action="{{route('kelolausers.create')}}" method="GET">
+               <button type="submit" class="btn btn-success">Tambah User</button>
+            </form>
+            <br><br>
                 <div class="table-responsive">
                     <table id="datatable" class="table table-striped" data-toggle="data-table">
                     <thead>
