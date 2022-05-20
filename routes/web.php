@@ -47,6 +47,13 @@ Route::get('/addroles', function () {
     return view('users.addroles');
 });
 
+Route::get('/login', function () {
+    return view('users.login');
+});
+
+Route::get('/register', function () {
+    return view('users.register');
+});
 // Barang
 
 Route::get('/barang', function () {
