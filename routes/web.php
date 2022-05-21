@@ -10,6 +10,7 @@ use App\Http\Controllers\DepartemenController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\KelolaUserController;
+use App\Http\Controllers\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,9 +22,14 @@ use App\Http\Controllers\KelolaUserController;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.index');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        return view('layouts.index');
+    });
 });
+
+Route::post('/reg', [UserController::class, 'register'])->name('user.register');
+
 
 // User
 
@@ -47,13 +53,13 @@ Route::get('/addroles', function () {
     return view('users.addroles');
 });
 
-Route::get('/login', function () {
-    return view('users.login');
-});
+// Route::get('/login', function () {
+//     return view('users.login');
+// });
 
-Route::get('/register', function () {
-    return view('users.register');
-});
+// Route::get('/register', function () {
+//     return view('users.register');
+// });
 // Barang
 
 Route::get('/barang', function () {
@@ -163,3 +169,19 @@ Route::resource('departemen', DepartemenController::class);
 Route::resource('user', UserController::class);
 Route::resource('roleuser', RoleController::class);
 Route::resource('kelolausers', KelolaUserController::class);
+Route::resource('register', RegisterController::class);
+// Route::resource('login', LoginController::class);
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,22 +13,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view ('users.index');
+        return view ('users.login');
     }
 
-    public function register(Request $request)
-    {
-        $u=new User();
-        $u->name=$request->name;
-        $u->email=$request->email;
-        $u->password=Hash::make($request->password);
-        $u->kontak=$request->kontak;
-        $u->alamat=$request->alamat;
-        $u->role=$request->role;
-        $u->jabatan=$request->jabatan;
-        $u->save();
-        return redirect('/login');
-    }
     /**
      * Show the form for creating a new resource.
      *
