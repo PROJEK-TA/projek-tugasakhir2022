@@ -26,7 +26,7 @@ class UserController extends Controller
         $u->password=Hash::make($request->password);
         $u->kontak=$request->kontak;
         $u->alamat=$request->alamat;
-        $u->role=$request->role;
+        $u->role='requestor';
         $u->jabatan=$request->jabatan;
         $u->save();
         return redirect('/login');
