@@ -11,6 +11,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\KelolaUserController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\StatusBarangController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -159,6 +160,7 @@ Route::get('/userpeminjamanruangan', function () {
 
 Route::resource('barang', BarangController::class);
 Route::resource('kategoribarang', KategoriBarangController::class);
+Route::resource('statusbarang', StatusBarangController::class);
 
 Route::resource('ruangan', RuanganController::class);
 Route::resource('kategoriruangan', KategoriRuanganController::class);

@@ -10,14 +10,11 @@
                </div>
             </div>
             <div class="card-body">
-                <form>
-                    <div class="form-group">
-                        <label class="form-label" for="kd_status"><b>Kode Status</b></label>
-                        <input type="text" class="form-control" id="kd_status" placeholder="Input kode status...">
-                    </div>
+                <form action="{{route('statusbarang.store')}}" method="POST">
+                    @csrf
                     <div class="form-group">
                         <label class="form-label" for="nm_status"><b>Nama Status</b></label>
-                        <input type="text" class="form-control" id="nm_status" placeholder="Input nama status...">
+                        <input type="text" class="form-control" id="nm_status" name="statusbarang" placeholder="Input nama status...">
                     </div><br><br>
                     <button type="submit" class="btn btn-primary">Tambahkan</button>
                 </form>

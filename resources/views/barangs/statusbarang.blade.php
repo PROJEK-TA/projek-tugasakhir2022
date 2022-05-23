@@ -10,10 +10,12 @@
                </div>
             </div>
             <div class="card-body">
-               <button type="button" class="btn btn-success">Tambah Status</button><br><br>
+            <form action="{{route('statusbarang.create')}}" method="GET">
+               <button type="submit" class="btn btn-success">Tambah Status</button><br><br>
+            </form>
                <div class="table-responsive">
                   <table id="datatable" class="table table-striped" data-toggle="data-table">
-                     <thead>
+                  <thead>
                         <tr>
                            <th>NO</th>
                            <th>KODE STATUS</th>
@@ -22,36 +24,15 @@
                         </tr>
                      </thead>
                      <tbody>
+                        @foreach($statusprod as $s)
                         <tr>
-                           <td>1</td>
-                           <td>S01</td>
-                           <td><div class="text-success">Tersedia</div></td>
+                           <td>{{$loop->iteration}}</td>
+                           <td>{{$s->id}}</td>
+                           <td>{{$s->nama_statusbarang}}</td>
                            <td></td>
                         </tr>
-                        <tr>
-                           <td>2</td>
-                           <td>S02</td>
-                           <td><div class="text-warning">Rusak</div></td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td>3</td>
-                           <td>S03</td>
-                           <td><div class="text-warning">Diservis</div></td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td>4</td>
-                           <td>S04</td>
-                           <td><div class="text-info">Dipinjam</div></td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td>5</td>
-                           <td>S05</td>
-                           <td><div class="text-danger">Hilang</div></td>
-                           <td></td>
-                        </tr>
+                        @endforeach
+                        
                     </table>
                     <br>
                     <button type="button" class="btn btn-primary">Print</button>

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\StatusProduct;
 use Illuminate\Http\Request;
 
-class LoginController extends Controller
+class StatusBarangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class LoginController extends Controller
      */
     public function index()
     {
-        // return view ('users.login');
+        $statusprod=StatusProduct::all();
+        return view('barangs.statusbarang', compact('statusprod'));
     }
 
     /**
@@ -23,7 +25,7 @@ class LoginController extends Controller
      */
     public function create()
     {
-        //
+        return view('barangs.addstatus');
     }
 
     /**
@@ -34,7 +36,10 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $s=new StatusProduct();
+        $s->nama_statusbarang=$request->statusbarang;
+        $s->save();
+        return redirect('/statusbarang');
     }
 
     /**
