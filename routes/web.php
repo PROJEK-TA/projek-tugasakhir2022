@@ -54,6 +54,14 @@ Route::get('/addroles', function () {
     return view('users.addroles');
 });
 
+Route::get('/editroles', function () {
+    return view('users.editroles');
+});
+
+Route::get('/editusers', function () {
+    return view('users.edit');
+});
+
 // Route::get('/login', function () {
 //     return view('users.login');
 // });
@@ -137,6 +145,18 @@ Route::get('/addgedung', function () {
     return view('ruangan.addgedung');
 });
 
+Route::get('/editruangan', function () {
+    return view('ruangan.edit');
+});
+
+Route::get('/editkatruangan', function () {
+    return view('ruangan.editkatruangan');
+});
+
+Route::get('/editgedung', function () {
+    return view('ruangan.editgedung');
+});
+
 // Departemen
 
 Route::get('/departemen', function () {
@@ -145,6 +165,10 @@ Route::get('/departemen', function () {
 
 Route::get('/adddepartemen', function () {
     return view('departemen.add');
+});
+
+Route::get('/editdepartemen', function () {
+    return view('departemen.edit');
 });
 
 
@@ -157,6 +181,8 @@ Route::get('/userpeminjamanbarang', function () {
 Route::get('/userpeminjamanruangan', function () {
     return view('ruangan.userpeminjamanruangan');
 });
+
+
 
 Route::resource('barang', BarangController::class);
 Route::resource('kategoribarang', KategoriBarangController::class);
