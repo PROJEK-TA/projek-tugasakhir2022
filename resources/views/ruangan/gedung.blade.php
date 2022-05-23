@@ -1,17 +1,17 @@
 @extends('layouts.index')
-@section('title','Data Gedung')
+@section('title','Data Gudang')
 
 @section('content')
 <div class="col-sm-12">
          <div class="card">
             <div class="card-header d-flex justify-content-between">
                <div class="header-title">
-                  <h4 class="card-title">Daftar Gedung</h4>
+                  <h4 class="card-title">Daftar Gudang</h4>
                </div>
             </div>
             <div class="card-body">
                <form action="{{route('gedung.create')}}" method="GET">
-                  <button type="submit" class="btn btn-success">Tambah Gedung</button>
+                  <button type="submit" class="btn btn-success">Tambah Gudang</button>
                </form>
                <br><br>
                <div class="table-responsive">
@@ -19,8 +19,8 @@
                      <thead>
                         <tr>
                            <th>NO</th>
-                           <th>KODE GEDUNG</th>
-                           <th>GEDUNG</th>
+                           <th>KODE GUDANG</th>
+                           <th>GUDANG</th>
                            <th>AKSI</th>
                         </tr>
                      </thead>

@@ -81,7 +81,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/template/dashboard/index.html">
+                        <a class="nav-link active" aria-current="page" href="/">
                             <i class="icon">
                                 <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path opacity="0.4"
@@ -95,7 +95,7 @@
                             <span class="item-name">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#horizontal-menu" role="button"
                             aria-expanded="false" aria-controls="horizontal-menu">
                             <i class="icon">
@@ -217,7 +217,7 @@
                     </li>
                     <li>
                         <hr class="hr-horizontal">
-                    </li>
+                    </li> -->
                     <li class="nav-item static-item">
                         <a class="nav-link static-item disabled" href="#" tabindex="-1">
                             <span class="default-icon">Pages</span>
@@ -290,7 +290,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " href="/template/dashboard/special-pages/pricing.html">
+                                <a class="nav-link " href="/peminjamanbarang">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -395,11 +395,11 @@
                                         </svg>
                                     </i>
                                     <i class="sidenav-mini-icon"> C </i>
-                                    <span class="item-name">Gedung</span>
+                                    <span class="item-name">Gudang</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/">
+                                <a class="nav-link" href="/peminjamanruangan">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -547,13 +547,13 @@
                     <li>
                         <hr class="hr-horizontal">
                     </li>
-                    <li class="nav-item static-item">
+                    <!-- <li class="nav-item static-item">
                         <a class="nav-link static-item disabled" href="#" tabindex="-1">
                             <span class="default-icon">Elements</span>
                             <span class="mini-icon">-</span>
                         </a>
-                    </li>
-                    <li class="nav-item">
+                    </li> -->
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="https://templates.iqonic.design/hope-ui/html/dist/#accordion">
                             <i class="icon">
                                 <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -571,8 +571,8 @@
                             </i>
                             <span class="item-name">Components</span>
                         </a>
-                    </li>
-                    <li class="nav-item">
+                    </li> -->
+                    <!-- <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#sidebar-widget" role="button"
                             aria-expanded="false" aria-controls="sidebar-widget">
                             <i class="icon">
@@ -608,8 +608,8 @@
                                     <i class="sidenav-mini-icon"> W </i>
                                     <span class="item-name">Widget Basic</span>
                                 </a>
-                            </li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-item">
                                 <a class="nav-link " href="/template/dashboard/widget/widgetchart.html">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -622,8 +622,8 @@
                                     <i class="sidenav-mini-icon"> W </i>
                                     <span class="item-name">Widget Chart</span>
                                 </a>
-                            </li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-item">
                                 <a class="nav-link " href="/template/dashboard/widget/widgetcard.html">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -636,8 +636,8 @@
                                     <i class="sidenav-mini-icon"> W </i>
                                     <span class="item-name">Widget Card</span>
                                 </a>
-                            </li>
-                        </ul>
+                            </li> -->
+                        <!-- </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#sidebar-maps" role="button"
@@ -658,8 +658,8 @@
                                         d="M9 5l7 7-7 7" />
                                 </svg>
                             </i>
-                        </a>
-                        <ul class="sub-nav collapse" id="sidebar-maps" data-bs-parent="#sidebar-menu">
+                        </a> -->
+                        <!-- <ul class="sub-nav collapse" id="sidebar-maps" data-bs-parent="#sidebar-menu">
                             <li class="nav-item">
                                 <a class="nav-link " href="/template/dashboard/maps/google.html">
                                     <i class="icon">
@@ -688,8 +688,8 @@
                                     <span class="item-name">Vector</span>
                                 </a>
                             </li>
-                        </ul>
-                    </li>
+                        </ul> -->
+                    <!-- </li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#sidebar-form" role="button"
                             aria-expanded="false" aria-controls="sidebar-form">
@@ -740,8 +740,8 @@
                                     <i class="sidenav-mini-icon"> W </i>
                                     <span class="item-name">Wizard</span>
                                 </a>
-                            </li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-item">
                                 <a class="nav-link " href="/template/dashboard/form/form-validation.html">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -756,8 +756,8 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
-                    <li class="nav-item">
+                    </li> -->
+                    <!-- <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#sidebar-table" role="button"
                             aria-expanded="false" aria-controls="sidebar-table">
                             <i class="icon">
@@ -794,8 +794,8 @@
                                     <i class="sidenav-mini-icon"> B </i>
                                     <span class="item-name">Bootstrap Table</span>
                                 </a>
-                            </li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-item">
                                 <a class="nav-link " href="/template/dashboard/table/table-data.html">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -846,8 +846,8 @@
                                     <i class="sidenav-mini-icon"> S </i>
                                     <span class="item-name">Solid</span>
                                 </a>
-                            </li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-item">
                                 <a class="nav-link " href="/template/dashboard/icons/outline.html">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -859,8 +859,8 @@
                                     </i>
                                     <i class="sidenav-mini-icon"> O </i>
                                     <span class="item-name">Outlined</span></a>
-                            </li>
-                            <li class="nav-item">
+                            </li> -->
+                            <!-- <li class="nav-item">
                                 <a class="nav-link " href="/template/dashboard/icons/dual-tone.html">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -876,7 +876,7 @@
                             </li>
                         </ul>
                     </li>
-                </ul>
+                </ul> -->
                 <!-- Sidebar Menu End -->
             </div>
         </div>

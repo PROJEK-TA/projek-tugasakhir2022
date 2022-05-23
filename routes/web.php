@@ -100,6 +100,8 @@ Route::get('/nonaktif', function () {
     return view('barangs.nonaktif');
 });
 
+
+//add
 Route::get('/addbarang', function () {
     return view('barangs.addbarang');
 });
@@ -120,10 +122,29 @@ Route::get('/addkatbarang', function () {
     return view('barangs.addkatbarang');
 });
 
+//edit
+Route::get('/editbarang', function () {
+    return view('barangs.editbarang');
+});
+
+Route::get('/editservis', function () {
+    return view('barangs.editservisbarang');
+});
+
+Route::get('/editnonaktif', function () {
+    return view('barangs.editnonaktifbarang');
+});
+
+Route::get('/editstatus', function () {
+    return view('barangs.editstatusbarang');
+});
+
+Route::get('/editkatbarang', function () {
+    return view('barangs.editkatbarang');
+});
 
 
 // Ruangan
-
 Route::get('/ruangan', function () {
     return view('ruangan.index');
 });
@@ -140,6 +161,8 @@ Route::get('/peminjamanruangan', function () {
     return view('ruangan.peminjamanruangan');
 });
 
+
+//add
 Route::get('/addruangan', function () {
     return view('ruangan.add');
 });
@@ -152,6 +175,7 @@ Route::get('/addgedung', function () {
     return view('ruangan.addgedung');
 });
 
+//edit
 Route::get('/editruangan', function () {
     return view('ruangan.edit');
 });
@@ -179,7 +203,7 @@ Route::get('/editdepartemen', function () {
 });
 
 
-// Tambahan untuk halaman user
+// Tambahan untuk halaman requestor
 
 Route::get('/userpeminjamanbarang', function () {
     return view('barangs.userpeminjamanbarang');
@@ -189,7 +213,15 @@ Route::get('/userpeminjamanruangan', function () {
     return view('ruangan.userpeminjamanruangan');
 });
 
+Route::get('/statuspeminjamanbarang', function () {
+    return view('barangs.statuspeminjamanbarang');
+});
 
+Route::get('/statuspeminjamanruangan', function () {
+    return view('ruangan.statuspeminjamanruangan');
+});
+
+//CRUD
 //barang
 Route::resource('barang', BarangController::class);
 Route::resource('kategoribarang', KategoriBarangController::class);
