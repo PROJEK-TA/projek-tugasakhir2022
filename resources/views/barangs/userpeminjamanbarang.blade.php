@@ -34,15 +34,7 @@
                             <option value="5">Ruang Tamu</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label class="form-label" for="jm_barang"><b>Jumlah</b></label>
-                        <input type="text" class="form-control" id="jm_barang" placeholder="Input jumlah barang...">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="nm_peminjam"><b>Nama Peminjam</b></label>
-                        <input type="text" class="form-control" id="nm_peminjam" placeholder="Input nama peminjam...">
-                    </div>
-                    <div class="form-group">
+                     <div class="form-group">
                         <label class="form-label"><b>Owner</b></label>
                         <select class="form-select mb-3 shadow-none">
                             <option selected="">Pilih departemen...</option>
@@ -53,6 +45,19 @@
                             <option value="5">Departemen E</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label class="form-label" for="jm_barang"><b>Jumlah</b></label>
+                        <input type="text" class="form-control" id="jm_barang" placeholder="Input jumlah barang...">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="nm_peminjam"><b>Nama Peminjam</b></label>
+                        <input type="text" class="form-control" id="nm_peminjam" placeholder="Input nama peminjam...">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="nm_peminjam"><b>Dari</b></label>
+                        <input type="text" class="form-control" id="nm_peminjam" placeholder="Input asal departemen...">
+                    </div>
+                   
                     <div class="form-group">
                         <label class="form-label" for="tgl_dipinjam"><b>Tanggal Dipinjam</b></label>
                         <input type="date" class="form-control" id="tgl_dipinjam" value="2021-12-18">
