@@ -10,11 +10,12 @@
                </div>
             </div>
             <div class="card-body">
-                <form action="{{route('departemen.store')}}" method="POST">
+                <form action="{{ url('departemen/'.$department->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="_method" value="PATCH">
                     <div class="form-group">
                         <label class="form-label" for="nm_departemen"><b>Nama Departemen</b></label>
-                        <input type="text" class="form-control" id="nm_departemen" name="departemen" placeholder="Input nama departemen...">
+                        <input type="text" class="form-control" id="nm_departemen" name="departemen" value="{{ $department->nama_departemen }}" placeholder="Input nama departemen...">
                     </div><br><br>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>

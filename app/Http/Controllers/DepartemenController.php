@@ -25,7 +25,8 @@ class DepartemenController extends Controller
      */
     public function create()
     {
-        return view ('departemen.add');
+        $department = new Department;
+        return view ('departemen.add', compact('department'));
     }
 
     /**
@@ -36,9 +37,9 @@ class DepartemenController extends Controller
      */
     public function store(Request $request)
     {
-        $d=new Department();
-        $d->nama_departemen=$request->departemen;
-        $d->save();
+        $department=new Department();
+        $department->nama_departemen=$request->departemen;
+        $department->save();
         return redirect('/departemen');
     }
 
@@ -61,7 +62,8 @@ class DepartemenController extends Controller
      */
     public function edit($id)
     {
-        //
+        $department = Department::find($id);
+        return view ('departemen.edit', compact('department'));
     }
 
     /**
@@ -73,7 +75,10 @@ class DepartemenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $department = Department::find($id);
+        $department -> nama_departemen=$request->departemen;
+        $department -> save();
+        return redirect('/departemen');
     }
 
     /**
