@@ -10,7 +10,6 @@
                 </div>
             </div>
             <div class="card-body">
-            <div class="card-body">
             <button type="button" class="btn btn-success">Tambah Servis</button>
             <br><br>
                <div class="table-responsive">

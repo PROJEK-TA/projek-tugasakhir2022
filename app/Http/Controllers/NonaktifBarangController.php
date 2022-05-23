@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NonaktifProduct;
 use Illuminate\Http\Request;
 
 class NonaktifBarangController extends Controller
@@ -13,7 +14,8 @@ class NonaktifBarangController extends Controller
      */
     public function index()
     {
-        //
+        $nonaktif=NonaktifProduct::all();
+        return view('barangs.nonaktif', compact('nonaktif'));
     }
 
     /**

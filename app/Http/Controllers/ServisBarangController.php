@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ServiceProduct;
 use Illuminate\Http\Request;
 
 class ServisBarangController extends Controller
@@ -13,7 +14,9 @@ class ServisBarangController extends Controller
      */
     public function index()
     {
-        //
+        $servis=ServiceProduct::all();
+        return view('barangs.servis', compact('servis'));
+
     }
 
     /**
