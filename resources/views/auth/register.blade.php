@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>Asetku</title>
+      <title>Register</title>
       
       <!-- Favicon -->
       <link rel="shortcut icon" href="/template/assets/images/favicon.ico" />
@@ -58,7 +58,7 @@
                               <!--logo End-->                              <h4 class="logo-title ms-3">Asetku</h4>
                            </a>
                            <h2 class="mb-2 text-center">Sign Up</h2>
-                           <p class="text-center">Create your Hope UI account.</p>
+                           <p class="text-center">Create your account.</p>
                            <form method="POST" action="{{ route('user.register') }}">
                             @csrf
                            
@@ -109,7 +109,7 @@
                                  <div class="col-lg-6">
                                     <div class="form-group">
                                        <label for="role" class="form-label">Jabatan</label>
-                                       <input type="text" class="form-control" id="role"  name="jabatan" placeholder="">
+                                       <input type="text" class="form-control" id="jabatan"  name="jabatan" placeholder="">
                                     </div>
                                  </div>
                                  <!-- <div class="col-lg-12 d-flex justify-content-center">

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ManageUser;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class KelolaUserController extends Controller
 {
@@ -14,7 +15,8 @@ class KelolaUserController extends Controller
      */
     public function index()
     {
-        return view ('users.kelolausers');
+        $user=User::all();
+        return view ('users.kelolausers', compact('user'));
     }
 
     /**
@@ -27,6 +29,7 @@ class KelolaUserController extends Controller
         return view ('users.add');
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -35,7 +38,16 @@ class KelolaUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $u=new User();
+        $u->name=$request->name;
+        $u->email=$request->email;
+        $u->password=Hash::make($request->password);
+        $u->kontak=$request->kontak;
+        $u->alamat=$request->alamat;
+        $u->role='requestor';
+        $u->jabatan=$request->jabatan;
+        $u->save();
+        return redirect('/kelolausers');
     }
 
     /**

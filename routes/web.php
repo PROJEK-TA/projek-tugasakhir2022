@@ -71,6 +71,9 @@ Route::get('/editusers', function () {
 // Route::get('/register', function () {
 //     return view('users.register');
 // });
+
+
+
 // Barang
 
 Route::get('/barang', function () {
@@ -116,6 +119,8 @@ Route::get('/addstatus', function () {
 Route::get('/addkatbarang', function () {
     return view('barangs.addkatbarang');
 });
+
+
 
 // Ruangan
 
@@ -185,7 +190,7 @@ Route::get('/userpeminjamanruangan', function () {
 });
 
 
-
+//barang
 Route::resource('barang', BarangController::class);
 Route::resource('kategoribarang', KategoriBarangController::class);
 Route::resource('statusbarang', StatusBarangController::class);

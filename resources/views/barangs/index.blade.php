@@ -12,8 +12,7 @@
          <div class="card-body">
             <form action="{{route('barang.create')}}" method="GET">
                <button type="submit" class="btn btn-success">Tambah Barang</button>
-         
-         </form>
+            </form>
             <br><br>
                <div class="table-responsive">
                   <table id="datatable" class="table table-striped" data-toggle="data-table">

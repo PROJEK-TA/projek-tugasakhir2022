@@ -1,17 +1,17 @@
 @extends('layouts.index')
-@section('title','Daftar Roles')
+@section('title','Daftar Jabatan')
 
 @section('content')
 <div class="col-sm-12">
          <div class="card">
             <div class="card-header d-flex justify-content-between">
                <div class="header-title">
-                  <h4 class="card-title">Daftar Roles</h4>
+                  <h4 class="card-title">Daftar Jabatan</h4>
                </div>
             </div>
             <div class="card-body">
                <form action="{{route('roleuser.create')}}" method="GET">
-                  <button type="submit" class="btn btn-success">Tambah Role</button>
+                  <button type="submit" class="btn btn-success">Tambah Jabatan</button>
                </form>
                <br><br>
                <div class="table-responsive">
@@ -19,8 +19,8 @@
                      <thead>
                         <tr>
                            <th>NO</th>
-                           <th>ID ROLE</th>
-                           <th>ROLE</th>
+                           <th>ID JABATAN</th>
+                           <th>JABATAN</th>
                            <th>AKSI</th>
                         </tr>
                      </thead>

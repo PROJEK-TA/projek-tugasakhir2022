@@ -511,7 +511,7 @@
                                             </g>
                                         </svg>
                                     </i>
-                                    <span class="item-name">Roles</span>
+                                    <span class="item-name">Jabatan</span>
                                 </a>
                             </li>
                             <li class="nav-item">
