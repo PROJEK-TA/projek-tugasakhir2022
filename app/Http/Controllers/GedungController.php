@@ -25,7 +25,8 @@ class GedungController extends Controller
      */
     public function create()
     {
-        return view ('ruangan.addgedung');
+        $building = new Building;
+        return view ('ruangan.addgedung', compact('building'));
     }
 
     /**
@@ -36,9 +37,9 @@ class GedungController extends Controller
      */
     public function store(Request $request)
     {
-        $b=new Building();
-        $b->nama_gedung=$request->gedung;
-        $b->save();
+        $building=new Building();
+        $building->nama_gedung=$request->gedung;
+        $building->save();
         return redirect('/gedung');
     }
 
@@ -61,7 +62,8 @@ class GedungController extends Controller
      */
     public function edit($id)
     {
-        //
+        $building = Building::find($id);
+        return view ('ruangan.editgedung', compact('building'));
     }
 
     /**
@@ -73,7 +75,10 @@ class GedungController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $building = Building::find($id);
+        $building->nama_gedung=$request->gedung;
+        $building->save();
+        return redirect('/gedung');
     }
 
     /**
