@@ -25,7 +25,8 @@ class KategoriRuanganController extends Controller
      */
     public function create()
     {
-        return view('ruangan.addkatruangan');
+        $kategori = new RoomCategory;
+        return view('ruangan.addkatruangan', compact('kategori'));
     }
 
     /**
@@ -36,9 +37,9 @@ class KategoriRuanganController extends Controller
      */
     public function store(Request $request)
     {
-        $r=new RoomCategory();
-        $r->nama_kategruangan=$request->kategoriruangan;
-        $r->save();
+        $kategori=new RoomCategory();
+        $kategori->nama_kategruangan=$request->kategoriruangan;
+        $kategori->save();
         return redirect('/kategoriruangan');
     }
 
@@ -61,7 +62,8 @@ class KategoriRuanganController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kategori = RoomCategory::find($id);
+        return view('ruangan.editkatruangan', compact('kategori'));
     }
 
     /**
@@ -73,7 +75,10 @@ class KategoriRuanganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kategori = RoomCategory::find($id);
+        $kategori->nama_kategruangan=$request->kategoriruangan;
+        $kategori->save();
+        return redirect('/kategoriruangan');
     }
 
     /**
