@@ -10,11 +10,12 @@
                </div>
             </div>
             <div class="card-body">
-                <form action="{{route('roleuser.store')}}" method="POST">
+                <form action="{{ url('roleuser/'.$peran->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="_method" value="PATCH">
                     <div class="form-group">
                         <label class="form-label" for="nm_roles"><b>Nama Roles</b></label>
-                        <input type="text" class="form-control" id="nm_roles" name="roleuser" placeholder="Input nama roles...">
+                        <input type="text" class="form-control" id="nm_roles" name="roleuser" value="{{ $peran->nama_role }}" placeholder="Input nama roles...">
                     </div><br><br>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>

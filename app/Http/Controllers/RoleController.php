@@ -25,7 +25,8 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view ('users.addroles');
+        $peran = new Role;
+        return view ('users.addroles', compact('peran'));
     }
 
     /**
@@ -36,9 +37,9 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $r=new Role();
-        $r->nama_role=$request->roleuser;
-        $r->save();
+        $peran=new Role();
+        $peran->nama_role=$request->roleuser;
+        $peran->save();
         return redirect('/roleuser');
     }
 
@@ -61,7 +62,8 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $peran = Role::find($id);
+        return view ('users.editroles', compact('peran'));
     }
 
     /**
@@ -73,7 +75,10 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $peran = Role::find($id);
+        $peran->nama_role=$request->roleuser;
+        $peran->save();
+        return redirect('/roleuser');
     }
 
     /**
