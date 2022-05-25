@@ -61,7 +61,8 @@ class StatusBarangController extends Controller
      */
     public function edit($id)
     {
-        //
+        $status = StatusProduct::find($id);
+        return view ('barangs.statusbarang', compact('status'));
     }
 
     /**
@@ -73,7 +74,10 @@ class StatusBarangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $status = StatusProduct::find($id);
+        $status->nama_statusbarang=$request->statusbarang;
+        $status->save();
+        return redirect('/statusbarang');
     }
 
     /**
@@ -84,6 +88,8 @@ class StatusBarangController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $status = StatusProduct::find($id);
+        $status->delete();
+        return redirect()->route('statusbarang.index');
     }
 }
