@@ -89,6 +89,8 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $peran = Role::find($id);
+        $peran->delete();
+        return redirect()->route('roleuser.index');
     }
 }
