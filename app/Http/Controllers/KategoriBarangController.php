@@ -63,7 +63,8 @@ class KategoriBarangController extends Controller
      */
     public function edit($id)
     {
-        //
+        $katbar = ProductCategory::find($id);
+        return view ('barangs.editkatbarang', compact('katbar'));
     }
 
     /**
@@ -75,7 +76,10 @@ class KategoriBarangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $katbar = ProductCategory::find($id);
+        $katbar->nama_kategbarang=$request->kategoribarang;
+        $katbar->save();
+        return redirect('/kategoribarang');
     }
 
     /**
@@ -86,6 +90,8 @@ class KategoriBarangController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $katbar = ProductCategory::find($id);
+        $katbar->delete();
+        return redirect()->route('kategoribarang.index');
     }
 }
