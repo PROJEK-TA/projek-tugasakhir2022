@@ -89,6 +89,8 @@ class KategoriRuanganController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kategori = RoomCategory::find($id);
+        $kategori->delete();
+        return redirect()->route('kategoriruangan.index');
     }
 }
