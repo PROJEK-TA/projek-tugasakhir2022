@@ -24,7 +24,7 @@
                         </tr>
                      </thead>
                      <tbody>
-                        @foreach($statusprod as $s)
+                        @foreach($status as $s)
                         <tr>
                            <td>{{$loop->iteration}}</td>
                            <td>{{$s->id}}</td>

@@ -10,11 +10,12 @@
                </div>
             </div>
             <div class="card-body">
-                <form action="{{route('statusbarang.store')}}" method="POST">
+            <form action="{{ url('statusbarang/'.$status->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="_method" value="PATCH">
                     <div class="form-group">
-                        <label class="form-label" for="nm_status"><b>Nama Status</b></label>
-                        <input type="text" class="form-control" id="nm_status" name="statusbarang" placeholder="Input nama status...">
+                        <label class="form-label" for="nm_kategori"><b>Nama Status</b></label>
+                        <input type="text" class="form-control"  name="statusbarang" value="{{ $status->nama_statusbarang }}" placeholder="Input nama kategori...">
                     </div><br><br>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </form>

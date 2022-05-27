@@ -14,8 +14,8 @@ class StatusBarangController extends Controller
      */
     public function index()
     {
-        $statusprod=StatusProduct::all();
-        return view('barangs.statusbarang', compact('statusprod'));
+        $status=StatusProduct::all();
+        return view('barangs.statusbarang', compact('status'));
     }
 
     /**
@@ -36,9 +36,9 @@ class StatusBarangController extends Controller
      */
     public function store(Request $request)
     {
-        $s=new StatusProduct();
-        $s->nama_statusbarang=$request->statusbarang;
-        $s->save();
+        $status=new StatusProduct();
+        $status->nama_statusbarang=$request->statusbarang;
+        $status->save();
         return redirect('/statusbarang');
     }
 
@@ -62,7 +62,7 @@ class StatusBarangController extends Controller
     public function edit($id)
     {
         $status = StatusProduct::find($id);
-        return view ('barangs.statusbarang', compact('status'));
+        return view ('barangs.editstatusbarang', compact('status'));
     }
 
     /**
