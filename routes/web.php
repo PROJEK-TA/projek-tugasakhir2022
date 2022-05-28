@@ -259,3 +259,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Cetak Data
 Route::get('/exportpdf',[DepartemenController::class, 'exportpdf'])->name('exportpdf');
+Route::get('/exportpdf',[KategoriRuanganController::class, 'exportpdf'])->name('exportpdf');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\RoomCategory;
 use Illuminate\Http\Request;
+use PDF;
 
 class KategoriRuanganController extends Controller
 {
@@ -92,5 +93,14 @@ class KategoriRuanganController extends Controller
         $kategori = RoomCategory::find($id);
         $kategori->delete();
         return redirect()->route('kategoriruangan.index');
+    }
+
+    public function exportpdf()
+    {
+        $kategori = RoomCategory::all();
+
+        view()->share('kategoriruangan', $kategori);
+        $pdf = PDF::loadview('ruangan.kategoriruangan-pdf');
+        return $pdf->stream('data-kategoriruangan.pdf');
     }
 }

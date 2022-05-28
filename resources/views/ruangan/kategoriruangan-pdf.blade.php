@@ -28,20 +28,20 @@
 </head>
 <body>
 
-<center><h1>Laporan Data Departemen</h1></center>
+<center><h1>Laporan Data Kategori Ruangan</h1></center>
 
 <table id="departments">
     <tr>
         <th>No</th>
-        <th>Kode Departemen</th>
-        <th>Nama Departemen</th>
+        <th>Kode Kategori Ruangan</th>
+        <th>Nama Kategori Ruangan</th>
     </tr>
     <tr>
-    @foreach($department as $dp)
+    @foreach($kategoriruangan as $k)
         <tr>
             <td>{{$loop->iteration}}</td>
-            <td>{{$dp->id}}</td>
-            <td>{{$dp->nama_departemen}}</td>
+            <td>{{$k->id}}</td>
+            <td>{{$k->nama_kategruangan}}</td>
         </tr>
     @endforeach
 </table>
