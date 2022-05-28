@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Department;
 use Illuminate\Http\Request;
+use PDF;
 
 class DepartemenController extends Controller
 {
@@ -92,5 +93,14 @@ class DepartemenController extends Controller
         $department = Department::find($id);
         $department->delete();
         return redirect()->route('departemen.index');
+    }
+    
+    public function exportpdf()
+    {
+        $department = Department::all();
+
+        view()->share('department', $department);
+        $pdf = PDF::loadview('departemen.datadepartemen-pdf');
+        return $pdf->stream('data-departemen.pdf');
     }
 }

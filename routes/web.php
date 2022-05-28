@@ -256,3 +256,6 @@ Route::middleware([
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Cetak Data
+Route::get('/exportpdf',[DepartemenController::class, 'exportpdf'])->name('exportpdf');
