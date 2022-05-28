@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Building;
 use Illuminate\Http\Request;
+use PDF;
 
 class GedungController extends Controller
 {
@@ -92,5 +93,14 @@ class GedungController extends Controller
         $building = Building::find($id);
         $building->delete();
         return redirect()->route('gedung.index');
+    }
+
+    public function cetak_gudang()
+    {
+        $building = Building::all();
+
+        view()->share('gedung', $building);
+        $pdf = PDF::loadview('ruangan.gudang-pdf');
+        return $pdf->stream('data-gudang.pdf');
     }
 }

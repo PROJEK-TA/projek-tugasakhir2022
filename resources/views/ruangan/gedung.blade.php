@@ -60,8 +60,8 @@
                            </td>
                         </tr>
                         @endforeach
-                    </table><br>
-                    <button type="button" class="btn btn-primary">Print</button>
+                     </table><br>
+                     <a href="/cetak_gudang" button type="button" class="btn btn-primary">Print</button></a>
                 </div>
             </div>
          </div>
