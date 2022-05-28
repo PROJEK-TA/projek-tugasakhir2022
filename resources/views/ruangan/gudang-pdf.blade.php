@@ -2,22 +2,22 @@
 <html>
 <head>
 <style>
-#roomcategory {
+#buildings {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
 
-#roomcategory td, #roomcategory th {
+#buildings td, #buildings th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#roomcategorys tr:nth-child(even){background-color: #f2f2f2;}
+#buildings tr:nth-child(even){background-color: #f2f2f2;}
 
-#roomcategory tr:hover {background-color: #ddd;}
+#buildings tr:hover {background-color: #ddd;}
 
-#roomcategory th {
+#buildings th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
@@ -30,7 +30,7 @@
 
 <center><h1>Laporan Data Gudang</h1></center>
 
-<table id="roomcategory">
+<table id="buildings">
     <tr>
         <th>No</th>
         <th>Kode Gudang</th>

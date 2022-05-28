@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use Illuminate\Http\Request;
+use PDF;
 
 class RoleController extends Controller
 {
@@ -92,5 +93,14 @@ class RoleController extends Controller
         $peran = Role::find($id);
         $peran->delete();
         return redirect()->route('roleuser.index');
+    }
+
+    public function cetak_jabatan()
+    {
+        $peran = Role::all();
+
+        view()->share('roleuser', $peran);
+        $pdf = PDF::loadview('users.jabatan-pdf');
+        return $pdf->stream('data-jabatan.pdf');
     }
 }
