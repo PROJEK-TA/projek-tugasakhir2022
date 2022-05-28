@@ -61,7 +61,7 @@
                         </tr>
                         @endforeach
                     </table><br>
-                    <a href="/exportpdf" button type="button" class="btn btn-primary">Print</button></a>
+                    <a href="/cetak_kategruangan" button type="button" class="btn btn-primary">Print</button></a>
                 </div>
             </div>
          </div>

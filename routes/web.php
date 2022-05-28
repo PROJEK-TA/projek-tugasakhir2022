@@ -258,5 +258,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Cetak Data
-Route::get('/exportpdf',[DepartemenController::class, 'exportpdf'])->name('exportpdf');
-Route::get('/exportpdf',[KategoriRuanganController::class, 'exportpdf'])->name('exportpdf');
+Route::get('/cetak_departemen',[DepartemenController::class, 'cetak_departemen'])->name('cetak_departemen');
+Route::get('/cetak_kategruangan',[KategoriRuanganController::class, 'cetak_kategruangan'])->name('cetak_kategruangan');

@@ -95,7 +95,7 @@ class KategoriRuanganController extends Controller
         return redirect()->route('kategoriruangan.index');
     }
 
-    public function exportpdf()
+    public function cetak_kategruangan()
     {
         $kategori = RoomCategory::all();
 

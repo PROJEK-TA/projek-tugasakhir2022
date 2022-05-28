@@ -95,7 +95,7 @@ class DepartemenController extends Controller
         return redirect()->route('departemen.index');
     }
     
-    public function exportpdf()
+    public function cetak_departemen()
     {
         $department = Department::all();
 

@@ -2,22 +2,22 @@
 <html>
 <head>
 <style>
-#departments {
+#roomcategory {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
 
-#departments td, #departments th {
+#roomcategory td, #roomcategory th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#departments tr:nth-child(even){background-color: #f2f2f2;}
+#roomcategorys tr:nth-child(even){background-color: #f2f2f2;}
 
-#departments tr:hover {background-color: #ddd;}
+#roomcategory tr:hover {background-color: #ddd;}
 
-#departments th {
+#roomcategory th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
@@ -30,7 +30,7 @@
 
 <center><h1>Laporan Data Kategori Ruangan</h1></center>
 
-<table id="departments">
+<table id="roomcategory">
     <tr>
         <th>No</th>
         <th>Kode Kategori Ruangan</th>
