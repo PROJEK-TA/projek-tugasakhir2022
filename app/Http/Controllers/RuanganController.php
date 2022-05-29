@@ -16,7 +16,7 @@ class RuanganController extends Controller
      */
     public function index()
     {
-        $room = Room::with('roomcategory','building')->paginate(2);
+        $room = Room::with('roomcategory','building')->paginate();
         return view('ruangan.index', compact('room'));
     }
 

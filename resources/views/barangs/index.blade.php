@@ -27,83 +27,31 @@
                            <th>OWNER</th>
                            <th>HARGA BELI</th>
                            <th>JUMLAH</th>
+                           <th>SATUAN</th>
                            <th>STATUS</th>
                            <th>TANGGAL INPUT</th>
                            <th>AKSI</th>
                         </tr>
                      </thead>
                      <tbody>
+                     @foreach($barang as $b)
                         <tr>
-                           <td>1</td>
-                           <td>BR001</td>
-                           <td>Laptop</td>
-                           <td>Lenovo</td>
-                           <td>Barang Elektronik</td>
-                           <td>Ruang Meeting</td>
-                           <td>Departemen A</td>
-                           <td>Rp. 15.000.000</td>
-                           <td>5</td>
-                           <td><span class="badge rounded-pill bg-success">Tersedia</span></td>
-                           <td>20/11/2021/13:11</td>
-                           <td></td>
+                           <td>{{$loop->iteration}}</td>
+                           <td>{{$b->id}}</td>
+                           <td>{{$b->nama_barang}}</td>
+                           <td>{{$b->merk}}</td>
+                           <td>{{$b->productcategory->nama_kategbarang}}</td>
+                           <td>{{$b->ruangan->nama_ruangan}}</td>
+                           <td>{{$b->departemen->nama_departemen}}</td>
+                           <td>{{$b->harga_beli}}</td>
+                           <td>{{$b->jumlah}}</td>
+                           <td>{{$b->satuan}}</td>
+                           <td>{{$b->status->nama_statusbarang}}</td>
+                           <td>{{$b->tanggal_input}}</td>
+                           <td>
+                           </td>
                         </tr>
-                        <tr>
-                           <td>2</td>
-                           <td>BR002</td>
-                           <td>Kursi Kantor</td>
-                           <td>Ikea</td>
-                           <td>Mebel</td>
-                           <td>Ruang Meeting</td>
-                           <td>Departemen A</td>
-                           <td>Rp. 800.000</td>
-                           <td>15</td>
-                           <td><span class="badge rounded-pill bg-warning text-dark">Rusak</span></td>
-                           <td>21/11/2021/13:11</td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td>3</td>
-                           <td>BR003</td>
-                           <td>AC</td>
-                           <td>Panasonic</td>
-                           <td>Barang Elektronik</td>
-                           <td>Ruang Laboratorium</td>
-                           <td>Departemen C</td>
-                           <td>Rp. 2.500.000</td>
-                           <td>10</td>
-                           <td><span class="badge rounded-pill bg-info text-dark">Diservis</span></td>
-                           <td>22/11/2021/13:11</td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td>4</td>
-                           <td>BR004</td>
-                           <td>Mobil</td>
-                           <td>Toyota</td>
-                           <td>Alat Transportasi</td>
-                           <td>Parkir 1</td>
-                           <td>Departemen D</td>
-                           <td>Rp. 50.000.000</td>
-                           <td>4</td>
-                           <td><span class="badge rounded-pill bg-primary">Dipinjam</span></td>
-                           <td>23/11/2021/13:11</td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td>5</td>
-                           <td>BR005</td>
-                           <td>Pompa Air</td>
-                           <td>Sanyo</td>
-                           <td>Mesin</td>
-                           <td>Gudang A</td>
-                           <td>Departemen E</td>
-                           <td>Rp. 1.750.000</td>
-                           <td>10</td>
-                           <td><span class="badge rounded-pill bg-danger">Hilang</span></td>
-                           <td>24/11/2021/13:11</td>
-                           <td></td>
-                        </tr>
-                      
+                        @endforeach
                      </tbody>
          
                   </table>
