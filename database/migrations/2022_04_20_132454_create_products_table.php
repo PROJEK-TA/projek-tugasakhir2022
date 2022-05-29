@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('nama_departemen');
             $table->double('harga_beli');
             $table->double('jumlah');
+            $table->string('satuan');
             $table->string('nama_status');
             $table->date('tanggal_input');
             $table->unsignedBigInteger('id_productcategory');

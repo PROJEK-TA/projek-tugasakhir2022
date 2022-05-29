@@ -8,5 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class RoomCategory extends Model
 {
     use HasFactory;
+    protected $table = "room_categories";
     protected $guarded=['id'];
+    protected $fillable=['id','nama_kategruangan'];
+
+    public function ruangan()
+    {
+        return $this->hasMany(Room::class);
+    }
+
+    
 }

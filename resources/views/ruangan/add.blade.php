@@ -11,10 +11,10 @@
             </div>
             <div class="card-body">
                 <form>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label class="form-label" for="kd_ruang"><b>Kode Ruangan</b></label>
                         <input type="text" class="form-control" id="kd_ruang" placeholder="Input kode ruangan...">
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label class="form-label" for="nm_ruang"><b>Nama Ruangan</b></label>
                         <input type="text" class="form-control" id="nm_ruang" placeholder="Input nama ruangan...">
@@ -31,9 +31,9 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="form-label"><b>Gedung</b></label>
+                        <label class="form-label"><b>Gudang</b></label>
                         <select class="form-select mb-3 shadow-none">
-                            <option selected="">Pilih Gedung...</option>
+                            <option selected="">Pilih Gudang...</option>
                             <option value="1">Gedung A</option>
                             <option value="2">Gedung B</option>
                             <option value="3">Gedung C</option>

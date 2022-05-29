@@ -16,13 +16,11 @@ class CreateRoomsTable extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->string('nama_ruangan');
-            $table->string('nama_kategruang');
-            $table->string('nama_gudang');
-            $table->unsignedBigInteger('id_roomcategory');
-            $table->unsignedBigInteger('id_warehouse');
-            $table->foreign('id_roomcategory')->references('id')->on('room_categories');
-            $table->foreign('id_warehouse')->references('id')->on('warehouses');
+            $table->foreignId('id_roomcategory')->constrained('room_categories')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('id_building')->constrained('buildings')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
+
+            
         });
     }
 
@@ -33,6 +31,8 @@ class CreateRoomsTable extends Migration
      */
     public function down()
     {
+       
+
         Schema::dropIfExists('rooms');
     }
 }

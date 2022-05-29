@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use App\Models\RoomCategory;
+use App\Models\Building;
 use Illuminate\Http\Request;
 
 class RuanganController extends Controller
@@ -14,7 +16,8 @@ class RuanganController extends Controller
      */
     public function index()
     {
-        return view ('ruangan.index');
+        $room = Room::with('roomcategory','building')->paginate(2);
+        return view('ruangan.index', compact('room'));
     }
 
     /**
@@ -24,7 +27,8 @@ class RuanganController extends Controller
      */
     public function create()
     {
-        return view ('ruangan.add');
+        $room = new Room;
+        return view ('ruangan.add', compact('room'));
     }
 
     /**
