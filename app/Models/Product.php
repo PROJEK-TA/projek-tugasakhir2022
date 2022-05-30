@@ -26,9 +26,16 @@ class Product extends Model
     {
         return $this->belongsTo(Department::class, 'id_department');
     }
+
     public function status()
     {
         return $this->belongsTo(StatusProduct::class, 'id_statusproduct');
     }
+
+    public function nonaktif()
+    {
+        return $this->belongsTo(NonaktifProduct::class);
+    }
    
+    
 }

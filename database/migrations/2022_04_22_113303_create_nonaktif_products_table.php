@@ -15,14 +15,13 @@ class CreateNonaktifProductsTable extends Migration
     {
         Schema::create('nonaktif_products', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_barang');
-            $table->string('merk');
-            $table->string('deskripsi');
+            $table->text('deskripsi');
             $table->double('jumlah');
-            $table->string('status');
             $table->date('tanggal_nonaktif');
             $table->unsignedBigInteger('id_product');
             $table->foreign('id_product')->references('id')->on('products');
+            $table->unsignedBigInteger('id_statusbarang');
+            $table->foreign('id_statusbarang')->references('id')->on('status_products');
             
         });
     }

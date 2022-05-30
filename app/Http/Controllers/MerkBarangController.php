@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\NonaktifProduct;
+use App\Models\MerkProduct;
 use Illuminate\Http\Request;
 
-class NonaktifBarangController extends Controller
+class MerkBarangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class NonaktifBarangController extends Controller
      */
     public function index()
     {
-        $nonaktif=NonaktifProduct::with('barang','status')->paginate();
-        return view('barangs.nonaktif', compact('nonaktif'));
+        $merk=MerkProduct::all();
+        return view('barangs.merk', compact('merk'));
     }
 
     /**
@@ -25,7 +25,7 @@ class NonaktifBarangController extends Controller
      */
     public function create()
     {
-        //
+        return view('barangs.addmerk');
     }
 
     /**
@@ -36,7 +36,10 @@ class NonaktifBarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $merk=new MerkProduct();
+        $merk->nama_merkbarang=$request->merk;
+        $merk->save();
+        return redirect('/merkbarang');
     }
 
     /**
@@ -58,7 +61,8 @@ class NonaktifBarangController extends Controller
      */
     public function edit($id)
     {
-        //
+        $merk = MerkProduct::find($id);
+        return view ('barangs.editmerk', compact('merk'));
     }
 
     /**
@@ -70,7 +74,10 @@ class NonaktifBarangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $merk = MerkProduct::find($id);
+        $merk->nama_merkbarang=$request->merk;
+        $merk->save();
+        return redirect('/merkbarang');
     }
 
     /**
@@ -81,6 +88,9 @@ class NonaktifBarangController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $merk = MerkProduct::find($id);
+        $merk->delete();
+        return redirect()->route('merkbarang.index');
     }
 }

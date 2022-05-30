@@ -27,56 +27,19 @@
                         </tr>
                      </thead>
                      <tbody>
+                     @foreach($nonaktif as $n)
                         <tr>
-                           <td>1</td>
-                           <td>NF001</td>
-                           <td>Laptop</td>
-                           <td>Lenovo</td>
-                           <td>2</td>
-                           <td><span class="badge rounded-pill bg-warning">Rusak</span></td>
-                           <td>20/11/2021/13:11</td>
-                           <td></td>
+                           <td>{{$loop->iteration}}</td>
+                           <td>{{$n->id}}</td>
+                           <td>{{$n->barang->nama_barang}}</td>
+                           <td>{{$n->barang->merk}}</td>
+                           <td>{{$n->jumlah}}</td>
+                           <td>{{$n->status->nama_status}}</td>
+                           <td>{{$n->tanggal_nonaktif}}</td>
+                           <td>
+                           </td>
                         </tr>
-                        <tr>
-                           <td>2</td>
-                           <td>NF002</td>
-                           <td>Kursi Kantor</td>
-                           <td>Ikea</td>
-                           <td>2</td>
-                           <td><span class="badge rounded-pill bg-warning">Rusak</span></td>
-                           <td>20/11/2021/13:11</td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td>3</td>
-                           <td>NF003</td>
-                           <td>AC</td>
-                           <td>Panasonic</td>
-                           <td>1</td>
-                           <td><span class="badge rounded-pill bg-warning">Rusak</span></td>
-                           <td>20/11/2021/13:11</td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td>4</td>
-                           <td>NF004</td>
-                           <td>Mobil</td>
-                           <td>Toyota</td>
-                           <td>1</td>
-                           <td><span class="badge rounded-pill bg-warning">Rusak</span></td>
-                           <td>20/11/2021/13:11</td>
-                           <td></td>
-                        </tr>
-                        <tr>
-                           <td>5</td>
-                           <td>NF005</td>
-                           <td>Pompa Air</td>
-                           <td>Sanyo</td>
-                           <td>2</td>
-                           <td><span class="badge rounded-pill bg-warning">Rusak</span></td>
-                           <td>20/11/2021/13:11</td>
-                           <td></td>
-                        </tr>
+                        @endforeach
                      </tbody>
          
                   </table>

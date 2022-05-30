@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriBarangController;
+use App\Http\Controllers\LokasiBarangController;
+use App\Http\Controllers\MerkBarangController;
 use App\Http\Controllers\RuanganController;
 use App\Http\Controllers\KategoriRuanganController;
 use App\Http\Controllers\GedungController;
@@ -225,6 +227,8 @@ Route::get('/statuspeminjamanruangan', function () {
 //barang
 Route::resource('barang', BarangController::class);
 Route::resource('kategoribarang', KategoriBarangController::class);
+Route::resource('lokasibarang', LokasiBarangController::class);
+Route::resource('merkbarang', MerkBarangController::class);
 Route::resource('statusbarang', StatusBarangController::class);
 Route::resource('servis', ServisBarangController::class);
 Route::resource('nonaktif', NonaktifBarangController::class);

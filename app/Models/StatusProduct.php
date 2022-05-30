@@ -16,4 +16,9 @@ class StatusProduct extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function nonaktif()
+    {
+        return $this->belongsTo(NonaktifProduct::class);
+    }
 }

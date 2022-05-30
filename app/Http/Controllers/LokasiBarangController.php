@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\NonaktifProduct;
+use App\Models\LocationProduct;
 use Illuminate\Http\Request;
 
-class NonaktifBarangController extends Controller
+class LokasiBarangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class NonaktifBarangController extends Controller
      */
     public function index()
     {
-        $nonaktif=NonaktifProduct::with('barang','status')->paginate();
-        return view('barangs.nonaktif', compact('nonaktif'));
+        $lokasi=LocationProduct::all();
+        return view('barangs.lokasi', compact('lokasi'));
     }
 
     /**
@@ -25,7 +25,7 @@ class NonaktifBarangController extends Controller
      */
     public function create()
     {
-        //
+        return view('barangs.addlokasi');
     }
 
     /**
@@ -36,7 +36,10 @@ class NonaktifBarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $lokasi=new LocationProduct();
+        $lokasi->nama_lokasibarang=$request->lokasi;
+        $lokasi->save();
+        return redirect('/lokasibarang');
     }
 
     /**
@@ -58,7 +61,8 @@ class NonaktifBarangController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lokasi = LocationProduct::find($id);
+        return view ('barangs.editlokasi', compact('lokasi'));
     }
 
     /**
@@ -70,7 +74,10 @@ class NonaktifBarangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $lokasi = LocationProduct::find($id);
+        $lokasi->nama_lokasibarang=$request->lokasi;
+        $lokasi->save();
+        return redirect('/lokasibarang');
     }
 
     /**
@@ -81,6 +88,8 @@ class NonaktifBarangController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $lokasi = LocationProduct::find($id);
+        $lokasi->delete();
+        return redirect()->route('lokasibarang.index');
     }
 }
