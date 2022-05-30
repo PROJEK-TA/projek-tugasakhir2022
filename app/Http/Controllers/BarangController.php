@@ -14,7 +14,7 @@ class BarangController extends Controller
      */
     public function index()
     {
-        $barang = Product::with('productcategory','ruangan', 'departemen', 'status')->paginate();
+        $barang = Product::with('productcategory', 'merek','lokasi', 'departemen', 'status')->paginate();
         return view('barangs.index', compact('barang'));
     }
 

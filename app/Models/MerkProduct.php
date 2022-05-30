@@ -11,4 +11,9 @@ class MerkProduct extends Model
     protected $table = "merk_products";
     protected $guarded=['id'];
     protected $fillable=['id','nama_merkbarang'];
+
+    public function barang()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

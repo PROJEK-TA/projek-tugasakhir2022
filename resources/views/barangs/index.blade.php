@@ -39,9 +39,9 @@
                            <td>{{$loop->iteration}}</td>
                            <td>{{$b->id}}</td>
                            <td>{{$b->nama_barang}}</td>
-                           <td>{{$b->merk}}</td>
+                           <td>{{$b->merek->nama_merkbarang}}</td>
                            <td>{{$b->productcategory->nama_kategbarang}}</td>
-                           <td>{{$b->ruangan->nama_ruangan}}</td>
+                           <td>{{$b->lokasi->nama_lokasibarang}}</td>
                            <td>{{$b->departemen->nama_departemen}}</td>
                            <td>{{$b->harga_beli}}</td>
                            <td>{{$b->jumlah}}</td>

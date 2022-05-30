@@ -10,7 +10,7 @@ class Product extends Model
     use HasFactory;
     protected $guarded=['id'];
     protected $table = "products";
-    protected $fillable= ['id', 'nama_barang','merk', 'id_productcategory', 'id_room', 'id_department', 'harga_beli', 'jumlah', 'satuan', 'id_statusproduct' ];
+    protected $fillable= ['id', 'nama_barang', 'id_productcategory', 'id_department', 'harga_beli', 'jumlah', 'satuan', 'id_statusproduct', 'id_lokasiproduct', 'id_merkproduct'];
 
     public function productcategory()
     {
@@ -32,10 +32,19 @@ class Product extends Model
         return $this->belongsTo(StatusProduct::class, 'id_statusproduct');
     }
 
-    public function nonaktif()
+    // public function nonaktif()
+    // {
+    //     return $this->belongsTo(NonaktifProduct::class);
+    // }
+   
+    public function lokasi()
     {
-        return $this->belongsTo(NonaktifProduct::class);
+        return $this->belongsTo(LocationProduct::class, 'id_lokasiproduct');
     }
    
-    
+    public function merek()
+    {
+        return $this->belongsTo(MerkProduct::class, 'id_merkproduct');
+    }
+   
 }

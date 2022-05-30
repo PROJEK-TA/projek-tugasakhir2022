@@ -11,4 +11,9 @@ class LocationProduct extends Model
     protected $table = "location_products";
     protected $guarded=['id'];
     protected $fillable=['id','nama_lokasi'];
+
+    public function barang()
+    {
+        return $this->hasMany(Product::class);
+    }
 }
