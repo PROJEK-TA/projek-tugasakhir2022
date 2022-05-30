@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductCategory;
+use App\Models\MerkProduct;
+use App\Models\LocationProduct;
+use App\Models\Department;
+use App\Models\StatusProduct;
 use Illuminate\Http\Request;
 
 class BarangController extends Controller
@@ -25,7 +30,12 @@ class BarangController extends Controller
      */
     public function create()
     {
-        return view ('barangs.addbarang');
+        $prodcat = ProductCategory::all();
+        $merk = MerkProduct::all();
+        $lokasi = LocationProduct::all();
+        $departemen = Department::all();
+        $status = StatusProduct::all();
+        return view ('barangs.addbarang', compact('prodcat', 'merk', 'lokasi', 'departemen', 'status'));
     }
 
     /**
@@ -36,7 +46,21 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Product::create([
+            'nama_barang' => $request->nama_barang,
+            'id_merkproduct' => $request->id_merkbarang,
+            'id_productcategory' => $request->id_kategoribarang,
+            'id_lokasiproduct' => $request->id_lokasibarang,
+            'id_department' => $request->id_departemen,
+            'harga_beli' => $request->hargabeli,
+            'jumlah' => $request->jumlah,
+            'satuan' => $request->satuan,
+            'id_statusproduct' => $request->id_statusbarang,
+            'tanggal_input' => $request->tglinput,
+
+        ]);
+
+        return redirect()->route('barang.index')->with('toast_success', 'Data Berhasil Tersimpan !');
     }
 
     /**
