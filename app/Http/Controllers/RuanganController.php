@@ -6,6 +6,7 @@ use App\Models\Room;
 use App\Models\RoomCategory;
 use App\Models\Building;
 use Illuminate\Http\Request;
+use PDF;
 
 class RuanganController extends Controller
 {
@@ -103,5 +104,14 @@ class RuanganController extends Controller
         $room = Room::with('roomcategory', 'building')->find($id);
         $room->delete();
         return redirect()->route('ruangan.index');
+    }
+
+    public function cetak_ruangan()
+    {
+        $room = Room::all();
+
+        view()->share('ruangan', $room);
+        $pdf = PDF::loadview('ruangan.ruangan-pdf');
+        return $pdf->stream('daftar-ruangan.pdf');
     }
 }

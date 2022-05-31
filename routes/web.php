@@ -266,3 +266,4 @@ Route::get('/cetak_departemen',[DepartemenController::class, 'cetak_departemen']
 Route::get('/cetak_kategruangan',[KategoriRuanganController::class, 'cetak_kategruangan'])->name('cetak_kategruangan');
 Route::get('/cetak_gudang',[GedungController::class, 'cetak_gudang'])->name('cetak_gudang');
 Route::get('/cetak_jabatan',[RoleController::class, 'cetak_jabatan'])->name('cetak_jabatan');
+Route::get('/cetak_ruangan',[RuanganController::class, 'cetak_ruangan'])->name('cetak_ruangan');
