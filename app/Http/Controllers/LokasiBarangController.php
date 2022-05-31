@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LocationProduct;
 use Illuminate\Http\Request;
+use PDF;
 
 class LokasiBarangController extends Controller
 {
@@ -91,5 +92,14 @@ class LokasiBarangController extends Controller
         $lokasi = LocationProduct::find($id);
         $lokasi->delete();
         return redirect()->route('lokasibarang.index');
+    }
+
+    public function cetak_lokasibarang()
+    {
+        $lokasi = LocationProduct::all();
+
+        view()->share('lokasibarang', $lokasi);
+        $pdf = PDF::loadview('barangs.lokasibarang-pdf');
+        return $pdf->stream('data-lokasi.pdf');
     }
 }

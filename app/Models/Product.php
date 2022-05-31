@@ -17,10 +17,10 @@ class Product extends Model
         return $this->belongsTo(ProductCategory::class, 'id_productcategory');
     }
 
-    public function ruangan()
-    {
-        return $this->belongsTo(Room::class, 'id_room');
-    }
+    // public function ruangan()
+    // {
+    //     return $this->belongsTo(Room::class, 'id_room');
+    // }
 
     public function departemen()
     {
