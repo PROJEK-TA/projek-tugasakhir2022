@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
+use PDF;
 
 class KategoriBarangController extends Controller
 {
@@ -93,5 +94,14 @@ class KategoriBarangController extends Controller
         $katbar = ProductCategory::find($id);
         $katbar->delete();
         return redirect()->route('kategoribarang.index');
+    }
+
+    public function cetak_kategbarang()
+    {
+        $katbar = ProductCategory::all();
+
+        view()->share('kategoribarang', $katbar);
+        $pdf = PDF::loadview('barangs.kategoribarang-pdf');
+        return $pdf->stream('data-kategoribarang.pdf');
     }
 }
