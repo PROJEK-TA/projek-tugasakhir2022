@@ -9,6 +9,7 @@ use App\Models\LocationProduct;
 use App\Models\Department;
 use App\Models\StatusProduct;
 use Illuminate\Http\Request;
+use PDF;
 
 class BarangController extends Controller
 {
@@ -130,5 +131,14 @@ class BarangController extends Controller
         $prod = Product::with('productcategory', 'merek','lokasi', 'departemen', 'status')->find($id);
         $prod->delete();
         return redirect()->route('barang.index');
+    }
+
+    public function cetak_barang()
+    {
+        $prod = Product::all();
+
+        view()->share('barang', $prod);
+        $pdf = PDF::loadview('barangs.barang-pdf');
+        return $pdf->stream('daftar-barang.pdf');
     }
 }
