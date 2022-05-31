@@ -20,8 +20,15 @@ class User extends Authenticatable
     protected $table = 'users';
     protected $guarded=['id'];
     protected $fillable = [
-        'name', 'email', 'password', 'kontak', 'alamat', 'jabatan', 'role'
+        'name', 'email', 'password', 'kontak', 'alamat','role', 'id_jabatan'
     ];
+
+
+    public function jabatan()
+    {
+        return $this->belongsTo(Jabatan::class, 'id_jabatan');
+    }
+
 
     /**
      * The attributes that should be hidden for arrays.

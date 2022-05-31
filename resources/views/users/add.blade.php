@@ -44,8 +44,13 @@
                         <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Input alamat...">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="role"><b>Jabatan</b></label>
-                        <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Input jabatan...">
+                        <label class="form-label"><b>Jabatan</b></label>
+                            <select class="form-select mb-3 shadow-none" name="jabatan" id="id_jabatan">
+                                <option selected="">Jabatan...</option>
+                                @foreach ($u as $item)
+                                <option value="{{ $u->id }}">{{ $u->nama_role }}</option>
+                                @endforeach
+                            </select>
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="role"><b>Role</b></label>

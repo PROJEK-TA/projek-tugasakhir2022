@@ -1,5 +1,5 @@
 @extends('layouts.index')
-@section('title','Tambah Data Roles')
+@section('title','Tambah Data Jabatan')
 
 @section('content')
 <div class="col-sm-12">
@@ -10,11 +10,11 @@
                </div>
             </div>
             <div class="card-body">
-                <form action="{{url('roleuser')}}" method="POST">
+                <form action="{{url('jabatanuser')}}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label class="form-label" for="nm_roles"><b>Nama Jabatan</b></label>
-                        <input type="text" class="form-control" id="nm_roles" name="roleuser" placeholder="Input nama jabatan...">
+                        <label class="form-label" for="nm_jabatan"><b>Nama Jabatan</b></label>
+                        <input type="text" class="form-control" id="id_jabatan" name="jabatan" placeholder="Input nama jabatan...">
                     </div><br><br>
                     <button type="submit" class="btn btn-primary">Tambahkan</button>
                 </form>

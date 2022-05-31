@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Role;
+use App\Models\Jabatan;
 use Illuminate\Http\Request;
 use PDF;
 
-class RoleController extends Controller
+class  JabatanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $peran=Role::all();
-        return view ('users.roles', compact('peran'));
+        $peran=Jabatan::all();
+        return view ('users.jabatan', compact('peran'));
     }
 
     /**
@@ -26,8 +26,8 @@ class RoleController extends Controller
      */
     public function create()
     {
-        $peran = new Role;
-        return view ('users.addroles', compact('peran'));
+        $peran = new Jabatan;
+        return view ('users.addjabatan', compact('peran'));
     }
 
     /**
@@ -38,10 +38,10 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $peran=new Role();
-        $peran->nama_role=$request->roleuser;
+        $peran=new Jabatan();
+        $peran->nama_jabatan=$request->jabatan;
         $peran->save();
-        return redirect('/roleuser');
+        return redirect('/jabatanuser');
     }
 
     /**
@@ -63,8 +63,8 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        $peran = Role::find($id);
-        return view ('users.editroles', compact('peran'));
+        $peran = Jabatan::find($id);
+        return view ('users.editjabatan', compact('peran'));
     }
 
     /**
@@ -76,10 +76,10 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $peran = Role::find($id);
-        $peran->nama_role=$request->roleuser;
+        $peran = Jabatan::find($id);
+        $peran->nama_jabatan=$request->jabatan;
         $peran->save();
-        return redirect('/roleuser');
+        return redirect('/jabatanuser');
     }
 
     /**
@@ -90,16 +90,16 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        $peran = Role::find($id);
+        $peran = Jabatan::find($id);
         $peran->delete();
-        return redirect()->route('roleuser.index');
+        return redirect()->route('jabatanuser.index');
     }
 
     public function cetak_jabatan()
     {
-        $peran = Role::all();
+        $peran = Jabatan::all();
 
-        view()->share('roleuser', $peran);
+        view()->share('jabatanuser', $peran);
         $pdf = PDF::loadview('users.jabatan-pdf');
         return $pdf->stream('data-jabatan.pdf');
     }

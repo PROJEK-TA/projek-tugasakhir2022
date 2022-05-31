@@ -10,7 +10,7 @@
                </div>
             </div>
             <div class="card-body">
-               <form action="{{route('roleuser.create')}}" method="GET">
+               <form action="{{route('jabatanuser.create')}}" method="GET">
                   <button type="submit" class="btn btn-success">Tambah Jabatan</button>
                </form>
                <br><br>
@@ -29,10 +29,10 @@
                         <tr>
                            <td>{{$loop->iteration}}</td>
                            <td>{{$pr->id}}</td>
-                           <td>{{$pr->nama_role}}</td>
+                           <td>{{$pr->nama_jabatan}}</td>
                            <td>
                               <div class="flex align-items-center list-user-action">
-                                 <a href="{{ route('roleuser.edit', $pr->id) }}" class="btn btn-sm btn-icon btn-success">
+                                 <a href="{{ route('jabatanuser.edit', $pr->id) }}" class="btn btn-sm btn-icon btn-success">
                                     <span class="btn-inner">
                                        <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                           <path d="M11.4925 2.78906H7.75349C4.67849 2.78906 2.75049 4.96606 2.75049 8.04806V16.3621C2.75049 19.4441 4.66949 21.6211 7.75349 21.6211H16.5775C19.6625 21.6211 21.5815 19.4441 21.5815 16.3621V12.3341" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -42,7 +42,7 @@
                                     </span>
                                  </a>
                                  <a class="btn btn-sm btn-icon">
-                                    <form action="{{ route('roleuser.destroy', $pr->id) }}" method="POST">
+                                    <form action="{{ route('jabatanuser.destroy', $pr->id) }}" method="POST">
                                        @csrf
                                        @method('delete')
                                        <button type="submit" class="btn btn-sm btn-icon btn-danger" onclick="return confirm('Are you sure you want to delete this item?')" >

@@ -10,7 +10,7 @@ use App\Http\Controllers\KategoriRuanganController;
 use App\Http\Controllers\GedungController;
 use App\Http\Controllers\DepartemenController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\RoleController;
+use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\KelolaUserController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StatusBarangController;
@@ -42,8 +42,8 @@ Route::get('/user', function () {
     return view('users.index');
 });
 
-Route::get('/roles', function () {
-    return view('users.roles');
+Route::get('/jabatan', function () {
+    return view('users.jabatan');
 });
 
 Route::get('/kelolausers', function () {
@@ -54,12 +54,12 @@ Route::get('/adduser', function () {
     return view('users.add');
 });
 
-Route::get('/addroles', function () {
-    return view('users.addroles');
+Route::get('/addjabatan', function () {
+    return view('users.addjabatan');
 });
 
-Route::get('/editroles', function () {
-    return view('users.editroles');
+Route::get('/editjabatan', function () {
+    return view('users.editjabatan');
 });
 
 Route::get('/editusers', function () {
@@ -242,7 +242,7 @@ Route::resource('departemen', DepartemenController::class);
 
 //user
 Route::resource('user', UserController::class);
-Route::resource('roleuser', RoleController::class);
+Route::resource('jabatanuser', JabatanController::class);
 Route::resource('kelolausers', KelolaUserController::class);
 Route::resource('register', RegisterController::class);
 // Route::resource('login', LoginController::class);
@@ -261,8 +261,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 //Cetak Data
 Route::get('/cetak_departemen',[DepartemenController::class, 'cetak_departemen'])->name('cetak_departemen');
 Route::get('/cetak_kategruangan',[KategoriRuanganController::class, 'cetak_kategruangan'])->name('cetak_kategruangan');
 Route::get('/cetak_gudang',[GedungController::class, 'cetak_gudang'])->name('cetak_gudang');
-Route::get('/cetak_jabatan',[RoleController::class, 'cetak_jabatan'])->name('cetak_jabatan');
+Route::get('/cetak_jabatan',[JabatanController::class, 'cetak_jabatan'])->name('cetak_jabatan');

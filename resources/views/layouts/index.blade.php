@@ -586,7 +586,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link " href="{{route('roleuser.index')}}">
+                                <a class="nav-link " href="{{route('jabatanuser.index')}}">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -985,7 +985,7 @@
                                 transform="rotate(45 10.5562 -0.556152)" fill="currentColor" />
                         </svg>
                         <!--logo End-->
-                        <h4 class="logo-title">Hope UI</h4>
+                        <h4 class="logo-title">Asetku</h4>
                     </a>
                     <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
                         <i class="icon">
@@ -1017,48 +1017,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="mb-2 navbar-nav ms-auto align-items-center navbar-list mb-lg-0">
-                            <li class="nav-item dropdown">
-                                <a href="#" class="search-toggle nav-link" id="dropdownMenuButton2"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img src="/template/assets/images/Flag/flag001.png" class="img-fluid rounded-circle"
-                                        alt="user" style="height: 30px; min-width: 30px; width: 30px;">
-                                    <span class="bg-primary"></span>
-                                </a>
-                                <div class="p-0 sub-drop dropdown-menu dropdown-menu-end"
-                                    aria-labelledby="dropdownMenuButton2">
-                                    <div class="m-0 border-0 shadow-none card">
-                                        <div class="p-0 ">
-                                            <ul class="p-0 list-group list-group-flush">
-                                                <li class="iq-sub-card list-group-item"><a class="p-0" href="#"><img
-                                                            src="/template/assets/images/Flag/flag-03.png"
-                                                            alt="img-flaf" class="img-fluid me-2"
-                                                            style="width: 15px;height: 15px;min-width: 15px;" />Spanish</a>
-                                                </li>
-                                                <li class="iq-sub-card list-group-item"><a class="p-0" href="#"><img
-                                                            src="/template/assets/images/Flag/flag-04.png"
-                                                            alt="img-flaf" class="img-fluid me-2"
-                                                            style="width: 15px;height: 15px;min-width: 15px;" />Italian</a>
-                                                </li>
-                                                <li class="iq-sub-card list-group-item"><a class="p-0" href="#"><img
-                                                            src="/template/assets/images/Flag/flag-02.png"
-                                                            alt="img-flaf" class="img-fluid me-2"
-                                                            style="width: 15px;height: 15px;min-width: 15px;" />French</a>
-                                                </li>
-                                                <li class="iq-sub-card list-group-item"><a class="p-0" href="#"><img
-                                                            src="/template/assets/images/Flag/flag-05.png"
-                                                            alt="img-flaf" class="img-fluid me-2"
-                                                            style="width: 15px;height: 15px;min-width: 15px;" />German</a>
-                                                </li>
-                                                <li class="iq-sub-card list-group-item"><a class="p-0" href="#"><img
-                                                            src="/template/assets/images/Flag/flag-06.png"
-                                                            alt="img-flaf" class="img-fluid me-2"
-                                                            style="width: 15px;height: 15px;min-width: 15px;" />Japanese</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                            
                             <li class="nav-item dropdown">
                                 <a href="#" class="nav-link" id="notification-drop" data-bs-toggle="dropdown">
                                     <svg width="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1139,91 +1098,6 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link" id="mail-drop" data-bs-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    <svg width="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path opacity="0.4"
-                                            d="M22 15.94C22 18.73 19.76 20.99 16.97 21H16.96H7.05C4.27 21 2 18.75 2 15.96V15.95C2 15.95 2.006 11.524 2.014 9.298C2.015 8.88 2.495 8.646 2.822 8.906C5.198 10.791 9.447 14.228 9.5 14.273C10.21 14.842 11.11 15.163 12.03 15.163C12.95 15.163 13.85 14.842 14.56 14.262C14.613 14.227 18.767 10.893 21.179 8.977C21.507 8.716 21.989 8.95 21.99 9.367C22 11.576 22 15.94 22 15.94Z"
-                                            fill="currentColor"></path>
-                                        <path
-                                            d="M21.4759 5.67351C20.6099 4.04151 18.9059 2.99951 17.0299 2.99951H7.04988C5.17388 2.99951 3.46988 4.04151 2.60388 5.67351C2.40988 6.03851 2.50188 6.49351 2.82488 6.75151L10.2499 12.6905C10.7699 13.1105 11.3999 13.3195 12.0299 13.3195C12.0339 13.3195 12.0369 13.3195 12.0399 13.3195C12.0429 13.3195 12.0469 13.3195 12.0499 13.3195C12.6799 13.3195 13.3099 13.1105 13.8299 12.6905L21.2549 6.75151C21.5779 6.49351 21.6699 6.03851 21.4759 5.67351Z"
-                                            fill="currentColor"></path>
-                                    </svg>
-                                    <span class="bg-primary count-mail"></span>
-                                </a>
-                                <div class="p-0 sub-drop dropdown-menu dropdown-menu-end" aria-labelledby="mail-drop">
-                                    <div class="m-0 shadow-none card">
-                                        <div class="py-3 card-header d-flex justify-content-between bg-primary">
-                                            <div class="header-title">
-                                                <h5 class="mb-0 text-white">All Message</h5>
-                                            </div>
-                                        </div>
-                                        <div class="p-0 card-body ">
-                                            <a href="#" class="iq-sub-card">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="">
-                                                        <img class="p-1 avatar-40 rounded-pill bg-soft-primary"
-                                                            src="/template/assets/images/shapes/01.png" alt="">
-                                                    </div>
-                                                    <div class="ms-3">
-                                                        <h6 class="mb-0 ">Bni Emma Watson</h6>
-                                                        <small class="float-start font-size-12">13 Jun</small>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="iq-sub-card">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="">
-                                                        <img class="p-1 avatar-40 rounded-pill bg-soft-primary"
-                                                            src="/template/assets/images/shapes/02.png" alt="">
-                                                    </div>
-                                                    <div class="ms-3">
-                                                        <h6 class="mb-0 ">Lorem Ipsum Watson</h6>
-                                                        <small class="float-start font-size-12">20 Apr</small>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="iq-sub-card">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="">
-                                                        <img class="p-1 avatar-40 rounded-pill bg-soft-primary"
-                                                            src="/template/assets/images/shapes/03.png" alt="">
-                                                    </div>
-                                                    <div class="ms-3">
-                                                        <h6 class="mb-0 ">Why do we use it?</h6>
-                                                        <small class="float-start font-size-12">30 Jun</small>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="iq-sub-card">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="">
-                                                        <img class="p-1 avatar-40 rounded-pill bg-soft-primary"
-                                                            src="/template/assets/images/shapes/04.png" alt="">
-                                                    </div>
-                                                    <div class="ms-3">
-                                                        <h6 class="mb-0 ">Variations Passages</h6>
-                                                        <small class="float-start font-size-12">12 Sep</small>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="#" class="iq-sub-card">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="">
-                                                        <img class="p-1 avatar-40 rounded-pill bg-soft-primary"
-                                                            src="/template/assets/images/shapes/05.png" alt="">
-                                                    </div>
-                                                    <div class="ms-3">
-                                                        <h6 class="mb-0 ">Lorem Ipsum generators</h6>
-                                                        <small class="float-start font-size-12">5 Dec</small>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
                                 <a class="py-0 nav-link d-flex align-items-center" href="#" id="navbarDropdown"
                                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img src="/template/assets/images/avatars/01.png" alt="User-Profile"
@@ -1279,18 +1153,6 @@
                                     <p>An asset management app that will make admin work easier.</p>
                                 </div>
                                 <div>
-                                    <a href="" class="btn btn-link btn-soft-light">
-                                        <svg width="20" viewBox="0 0 24 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M11.8251 15.2171H12.1748C14.0987 15.2171 15.731 13.985 16.3054 12.2764C16.3887 12.0276 16.1979 11.7713 15.9334 11.7713H14.8562C14.5133 11.7713 14.2362 11.4977 14.2362 11.16C14.2362 10.8213 14.5133 10.5467 14.8562 10.5467H15.9005C16.2463 10.5467 16.5263 10.2703 16.5263 9.92875C16.5263 9.58722 16.2463 9.31075 15.9005 9.31075H14.8562C14.5133 9.31075 14.2362 9.03619 14.2362 8.69849C14.2362 8.35984 14.5133 8.08528 14.8562 8.08528H15.9005C16.2463 8.08528 16.5263 7.8088 16.5263 7.46728C16.5263 7.12575 16.2463 6.84928 15.9005 6.84928H14.8562C14.5133 6.84928 14.2362 6.57472 14.2362 6.23606C14.2362 5.89837 14.5133 5.62381 14.8562 5.62381H15.9886C16.2483 5.62381 16.4343 5.3789 16.3645 5.13113C15.8501 3.32401 14.1694 2 12.1748 2H11.8251C9.42172 2 7.47363 3.92287 7.47363 6.29729V10.9198C7.47363 13.2933 9.42172 15.2171 11.8251 15.2171Z"
-                                                fill="currentColor"></path>
-                                            <path opacity="0.4"
-                                                d="M19.5313 9.82568C18.9966 9.82568 18.5626 10.2533 18.5626 10.7823C18.5626 14.3554 15.6186 17.2627 12.0005 17.2627C8.38136 17.2627 5.43743 14.3554 5.43743 10.7823C5.43743 10.2533 5.00345 9.82568 4.46872 9.82568C3.93398 9.82568 3.5 10.2533 3.5 10.7823C3.5 15.0873 6.79945 18.6413 11.0318 19.1186V21.0434C11.0318 21.5715 11.4648 22.0001 12.0005 22.0001C12.5352 22.0001 12.9692 21.5715 12.9692 21.0434V19.1186C17.2006 18.6413 20.5 15.0873 20.5 10.7823C20.5 10.2533 20.066 9.82568 19.5313 9.82568Z"
-                                                fill="currentColor"></path>
-                                        </svg>
-                                        Announcements
-                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -1318,20 +1180,7 @@
                @yield('content')
             </div>
         </div>
-        <div class="btn-download">
-            <a class="btn btn-danger px-3 py-2"
-                href="https://iqonic.design/product/admin-templates/hope-ui-admin-free-open-source-bootstrap-admin-template/"
-                target="_blank">
-                <svg width="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path opacity="0.4" fill-rule="evenodd" clip-rule="evenodd"
-                        d="M5.91064 20.5886C5.91064 19.7486 6.59064 19.0686 7.43064 19.0686C8.26064 19.0686 8.94064 19.7486 8.94064 20.5886C8.94064 21.4186 8.26064 22.0986 7.43064 22.0986C6.59064 22.0986 5.91064 21.4186 5.91064 20.5886ZM17.1606 20.5886C17.1606 19.7486 17.8406 19.0686 18.6806 19.0686C19.5106 19.0686 20.1906 19.7486 20.1906 20.5886C20.1906 21.4186 19.5106 22.0986 18.6806 22.0986C17.8406 22.0986 17.1606 21.4186 17.1606 20.5886Z"
-                        fill="currentColor"></path>
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M20.1907 6.34909C20.8007 6.34909 21.2007 6.55909 21.6007 7.01909C22.0007 7.47909 22.0707 8.13909 21.9807 8.73809L21.0307 15.2981C20.8507 16.5591 19.7707 17.4881 18.5007 17.4881H7.59074C6.26074 17.4881 5.16074 16.4681 5.05074 15.1491L4.13074 4.24809L2.62074 3.98809C2.22074 3.91809 1.94074 3.52809 2.01074 3.12809C2.08074 2.71809 2.47074 2.44809 2.88074 2.50809L5.26574 2.86809C5.60574 2.92909 5.85574 3.20809 5.88574 3.54809L6.07574 5.78809C6.10574 6.10909 6.36574 6.34909 6.68574 6.34909H20.1907ZM14.1307 11.5481H16.9007C17.3207 11.5481 17.6507 11.2081 17.6507 10.7981C17.6507 10.3781 17.3207 10.0481 16.9007 10.0481H14.1307C13.7107 10.0481 13.3807 10.3781 13.3807 10.7981C13.3807 11.2081 13.7107 11.5481 14.1307 11.5481Z"
-                        fill="currentColor"></path>
-                </svg>
-            </a>
-        </div>
+        
         <!-- Footer Section Start -->
         <footer class="footer">
             <div class="footer-body">
