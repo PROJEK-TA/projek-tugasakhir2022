@@ -127,6 +127,8 @@ class BarangController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $prod = Product::with('productcategory', 'merek','lokasi', 'departemen', 'status')->find($id);
+        $prod->delete();
+        return redirect()->route('barang.index');
     }
 }
