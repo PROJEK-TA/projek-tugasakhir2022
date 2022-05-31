@@ -16,8 +16,8 @@ class RuanganController extends Controller
      */
     public function index()
     {
-        $room = Room::with('roomcategory','building')->paginate();
-        return view('ruangan.index', compact('room'));
+        $ruangan = Room::with('roomcategory','building')->paginate();
+        return view('ruangan.index', compact('ruangan'));
     }
 
     /**
@@ -27,8 +27,9 @@ class RuanganController extends Controller
      */
     public function create()
     {
-        $room = new Room;
-        return view ('ruangan.add', compact('room'));
+        $roomcat = RoomCategory::all();
+        $building = Building::all();
+        return view ('ruangan.add', compact('roomcat', 'building'));
     }
 
     /**
@@ -39,7 +40,13 @@ class RuanganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Room::create([
+            'nama_ruangan' => $request->nama_ruangan,
+            'id_roomcategory' => $request->id_kategoriruangan,
+            'id_building' => $request->id_gudang,
+        ]);
+
+        return redirect()->route('ruangan.index')->with('toast_success', 'Data Berhasil Tersimpan !');
     }
 
     /**
@@ -48,7 +55,7 @@ class RuanganController extends Controller
      * @param  \App\Models\Room  $ruangan
      * @return \Illuminate\Http\Response
      */
-    public function show(Room $ruangan)
+    public function show($id)
     {
         //
     }
@@ -59,9 +66,13 @@ class RuanganController extends Controller
      * @param  \App\Models\Room  $ruangan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Room $ruangan)
+    public function edit($id)
     {
-        //
+        $roomcat = RoomCategory::all();
+        $gudang = Building::all();
+        $room = Room::with('roomcategory','building')->find($id);
+
+        return view ('ruangan.edit', compact('room', 'roomcat', 'gudang'));
     }
 
     /**
@@ -71,9 +82,14 @@ class RuanganController extends Controller
      * @param  \App\Models\Room  $ruangan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Room $ruangan)
+    public function update(Request $request, $id)
     {
-        //
+        $room = Room::with('roomcategory','building')->find($id);
+        $room->nama_ruangan=$request->nama_ruangan;
+        $room->id_roomcategory=$request->id_kategoriruangan;
+        $room->id_building=$request->id_gudang;
+        $room->save();
+        return redirect('/ruangan');
     }
 
     /**
@@ -82,8 +98,10 @@ class RuanganController extends Controller
      * @param  \App\Models\Room  $ruangan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Room $ruangan)
+    public function destroy($id)
     {
-        //
+        $room = Room::with('roomcategory', 'building')->find($id);
+        $room->delete();
+        return redirect()->route('ruangan.index');
     }
 }
