@@ -10,69 +10,74 @@
                </div>
             </div>
             <div class="card-body">
-                <form>
-                    <div class="form-group">
-                        <label class="form-label" for="kd_barang"><b>Kode Barang</b></label>
-                        <input type="text" class="form-control" id="kd_barang" placeholder="Input kode barang...">
-                    </div>
+            <form action="{{ url('barang/'.$prod->id)}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="_method" value="PATCH">
                     <div class="form-group">
                         <label class="form-label" for="nm_barang"><b>Nama Barang</b></label>
-                        <input type="text" class="form-control" id="nm_barang" placeholder="Input nama barang...">
+                        <input type="text" class="form-control" id="nama_barang" name="nama_barang" value="{{ $prod->nama_barang }}" placeholder="Input nama barang...">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="mr_barang"><b>Merek Barang</b></label>
-                        <input type="text" class="form-control" id="mr_barang" placeholder="Input merk barang...">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label"><b>Kategori Barang</b></label>
-                        <select class="form-select mb-3 shadow-none">
-                            <option selected="">Pilih Kategori...</option>
-                            <option value="1">Barang Elektronik</option>
-                            <option value="2">Mebel</option>
-                            <option value="3">Alat Transportasi</option>
-                            <option value="4">Mesin</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label"><b>Lokasi</b></label>
-                        <select class="form-select mb-3 shadow-none">
-                            <option selected="">Pilih Ruangan...</option>
-                            <option value="1">Ruang Laboratorium 1</option>
-                            <option value="2">Ruang Produksi</option>
-                            <option value="3">Gudang 1</option>
-                            <option value="4">Ruang Meeting</option>
-                            <option value="5">Ruang Tamu</option>
+                        <label class="form-label"><b>Merek Barang</b></label>
+                        <select class="form-select mb-3 shadow-none" name="id_merkbarang" id="id_merkbarang">
+                            <option disabled value>Pilih Merk...</option>
+                            <option value="{{ $prod->id_merkproduct }}">{{ $prod->merek->nama_merkbarang }}</option>
+                            @foreach ($merk as $m)
+                            <option value="{{ $m->id }}">{{ $m->nama_merkbarang }}</option>
+                            @endforeach
                         </select>
                         <div class="form-group">
-                        <label class="form-label"><b>Owner</b></label>
-                        <select class="form-select mb-3 shadow-none">
-                            <option selected="">Pilih Departemen...</option>
-                            <option value="1">Departemen A</option>
-                            <option value="2">Departemen B</option>
-                            <option value="3">Departemen C</option>
-                            <option value="4">Departemen D</option>
-                            <option value="5">Departemen E</option>
+                        <label class="form-label"><b>Kategori Barang</b></label>
+                        <select class="form-select mb-3 shadow-none" name="id_kategoribarang" id="id_kategoribarang">
+                        <option disabled value>Pilih Kategori...</option>
+                            <option value="{{ $prod->id_productcategory }}">{{ $prod->productcategory->nama_kategbarang }}</option>
+                            @foreach ($prodcat as $p)
+                            <option value="{{ $p->id }}">{{ $p->nama_kategbarang }}</option>
+                            @endforeach
+                        </select>
+                        <div class="form-group">
+                        <label class="form-label"><b>Lokasi Barang</b></label>
+                        <select class="form-select mb-3 shadow-none" name="id_lokasibarang" id="id_lokasibarang">
+                        <option disabled value>Pilih Lokasi...</option>
+                            <option value="{{ $prod->id_lokasiproduct }}">{{ $prod->lokasi->nama_lokasibarang }}</option>
+                            @foreach ($lokasi as $l)
+                            <option value="{{ $l->id }}">{{ $l->nama_lokasibarang }}</option>
+                            @endforeach
+                        </select>
+                        <div class="form-group">
+                        <label class="form-label"><b>Milik</b></label>
+                        <select class="form-select mb-3 shadow-none" name="id_departemen" id="id_departemen">
+                        <option disabled value>Pilih Departemen...</option>
+                            <option value="{{ $prod->id_department }}">{{ $prod->departemen->nama_departemen }}</option>
+                            @foreach ($departemen as $d)
+                            <option value="{{ $d->id }}">{{ $d->nama_departemen }}</option>
+                            @endforeach
                         </select>
                         <div class="form-group">
                         <label class="form-label" for="hb_barang"><b>Harga Beli</b></label>
-                        <input type="text" class="form-control" id="hb_barang" placeholder="Input harga barang...">
+                        <input type="text" class="form-control" id="hargabeli" name="hargabeli" value="{{ $prod->harga_beli }}" placeholder="Input harga barang...">
                         </div>
                         <div class="form-group">
                         <label class="form-label" for="jm_barang"><b>Jumlah</b></label>
-                        <input type="text" class="form-control" id="jm_barang" placeholder="Input jumlah barang...">
+                        <input type="text" class="form-control" id="jumlah" name="jumlah" value="{{ $prod->jumlah }}" placeholder="Input jumlah barang...">
                         </div> 
+                        <div class="form-group">
+                        <label class="form-label" for="jm_barang"><b>Satuan</b></label>
+                        <input type="text" class="form-control" id="satuan" name="satuan" value="{{ $prod->satuan }}" placeholder="Input satuan barang...">
+                        </div> 
+                        <div class="form-group">
                         <label class="form-label"><b>Status</b></label>
-                        <select class="form-select mb-3 shadow-none">
-                            <option selected="">Pilih Status...</option>
-                            <option value="1">Tersedia</option>
-                            <option value="2">Rusak</option>
-                            <option value="3">Diservis</option>
-                            <option value="4">Dipinjam</option>
-                            <option value="5">Hilang</option>
+                        <select class="form-select mb-3 shadow-none" name="id_statusbarang" id="id_statusbarang">
+                        <option disabled value>Pilih Status...</option>
+                            <option value="{{ $prod->id_statusproduct }}">{{ $prod->status->nama_statusbarang }}</option>
+                            @foreach ($status as $s)
+                            <option value="{{ $s->id }}">{{ $s->nama_statusbarang }}</option>
+                            @endforeach
                         </select>
-                     
-        </div>
-    
+                        <div class="form-group">
+                        <label class="form-label" for="tgl_kembali"><b>Tanggal Input</b></label>
+                        <input type="date" class="form-control" id="tglinput" name="tglinput" value="{{ $prod->tanggal_input }}">
+                        </div>
                     </div><br><br>
                     <button type="submit" class="btn btn-primary">Update</button>
                 </form>

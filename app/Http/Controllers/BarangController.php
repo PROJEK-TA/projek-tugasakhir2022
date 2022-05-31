@@ -69,7 +69,7 @@ class BarangController extends Controller
      * @param  \App\Models\Product  $barang
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $barang)
+    public function show($id)
     {
         //
     }
@@ -80,9 +80,16 @@ class BarangController extends Controller
      * @param  \App\Models\Product  $barang
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $barang)
+    public function edit($id)
     {
-        //
+        $prodcat = ProductCategory::all();
+        $merk = MerkProduct::all();
+        $lokasi = LocationProduct::all();
+        $departemen = Department::all();
+        $status = StatusProduct::all();
+        $prod = Product::with('productcategory', 'merek','lokasi', 'departemen', 'status')->find($id);
+
+        return view ('barangs.editbarang', compact('prod', 'prodcat', 'merk', 'lokasi', 'departemen', 'status'));
     }
 
     /**
@@ -92,9 +99,24 @@ class BarangController extends Controller
      * @param  \App\Models\Product  $barang
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $barang)
+    public function update(Request $request, $id)
     {
-        //
+        $prod = Product::with('productcategory', 'merek','lokasi', 'departemen', 'status')->find($id);
+        $prod->nama_barang=$request->nama_barang;
+        $prod->id_merkproduct=$request->id_merkbarang;
+        $prod->id_productcategory=$request->id_kategoribarang;
+        $prod->id_lokasiproduct=$request->id_lokasibarang;
+        $prod->id_department=$request->id_departemen;
+        $prod->harga_beli=$request->hargabeli;
+        $prod->jumlah=$request->jumlah;
+        $prod->satuan=$request->satuan;
+        $prod->id_statusproduct=$request->id_statusbarang;
+        $prod->tanggal_input=$request->tglinput;
+        $prod->save();
+        return redirect('/barang');
+      
+       
+        
     }
 
     /**
@@ -103,7 +125,7 @@ class BarangController extends Controller
      * @param  \App\Models\Product  $barang
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $barang)
+    public function destroy($id)
     {
         //
     }
