@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Jabatan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -15,23 +16,29 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user=User::all();
+        $user=User::with('jabatan');
         return view ('users.index', compact('user'));
     }
     
 
     public function register(Request $request)
     {
+     
         $u=new User();
+        $jab=Jabatan::all();
         $u->name=$request->name;
         $u->email=$request->email;
         $u->password=Hash::make($request->password);
         $u->kontak=$request->kontak;
         $u->alamat=$request->alamat;
         $u->role='requestor';
-        $u->jabatan=$request->jabatan;
+        $u->id_jabatan=$request->id_jabatan;
         $u->save();
+        
         return redirect('/login');
+        
+
+       
     }
     /**
      * Show the form for creating a new resource.

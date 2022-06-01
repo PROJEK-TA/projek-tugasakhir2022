@@ -66,14 +66,6 @@ Route::get('/editusers', function () {
     return view('users.edit');
 });
 
-// Route::get('/login', function () {
-//     return view('users.login');
-// });
-
-// Route::get('/register', function () {
-//     return view('users.register');
-// });
-
 
 
 // Barang
@@ -244,8 +236,8 @@ Route::resource('departemen', DepartemenController::class);
 Route::resource('user', UserController::class);
 Route::resource('jabatanuser', JabatanController::class);
 Route::resource('kelolausers', KelolaUserController::class);
-Route::resource('register', RegisterController::class);
-// Route::resource('login', LoginController::class);
+
+
 
 Route::middleware([
     'auth:sanctum',

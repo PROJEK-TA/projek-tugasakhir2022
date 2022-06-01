@@ -59,7 +59,7 @@
                            </a>
                            <h2 class="mb-2 text-center">Sign Up</h2>
                            <p class="text-center">Create your account.</p>
-                           <form method="POST" action="{{ route('user.register') }}">
+                           <form method="POST" action="{{route('user.register')}}">
                             @csrf
                            
                               <div class="row">
@@ -106,12 +106,17 @@
                                     </div>
                                     <!-- <input id="password-confirm" type="hidden" class="form-control" value="{{request('password')}}" name="password_confirmation"  required autocomplete="new-password"> -->
                                  </div>
-                                 <div class="col-lg-6">
-                                    <div class="form-group">
-                                       <label for="role" class="form-label">Jabatan</label>
-                                       <input type="text" class="form-control" id="jabatan"  name="jabatan" placeholder="">
-                                    </div>
-                                 </div>
+                                 <div class="form-group">
+                              <label class="form-label"><b>Jabatan</b></label>
+                                 <select class="form-select mb-3 shadow-none" name="jabatan" id="id_jabatan">
+                                    <option selected="">Pilih Jabatan...</option>
+                                    <?php 
+                                    $jab = DB::table('jabatan')->get();
+                                    ?>
+                                    @foreach ($jab as $j)
+                                    <option value="{{ $j->id }}">{{ $j->nama_jabatan }}</option>
+                                    @endforeach
+                                 </select>
                                  <!-- <div class="col-lg-12 d-flex justify-content-center">
                                     <div class="form-check mb-3">
                                        <input type="checkbox" class="form-check-input" id="customCheck1">
