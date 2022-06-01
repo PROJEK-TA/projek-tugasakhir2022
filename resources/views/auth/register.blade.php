@@ -108,7 +108,7 @@
                                  </div>
                                  <div class="form-group">
                               <label class="form-label"><b>Jabatan</b></label>
-                                 <select class="form-select mb-3 shadow-none" name="jabatan" id="id_jabatan">
+                                 <select class="form-select mb-3 shadow-none"  id="id_jabatan" name="id_jabatan">
                                     <option selected="">Pilih Jabatan...</option>
                                     <?php 
                                     $jab = DB::table('jabatan')->get();

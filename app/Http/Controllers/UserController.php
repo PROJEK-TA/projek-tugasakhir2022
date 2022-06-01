@@ -35,6 +35,7 @@ class UserController extends Controller
         $u->id_jabatan=$request->id_jabatan;
         $u->save();
         
+        // return $request;
         return redirect('/login');
         
 
