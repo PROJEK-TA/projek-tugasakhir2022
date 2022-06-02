@@ -33,7 +33,7 @@
                            <td>{{$us->email}}</td>
                            <td>{{$us->kontak}}</td>
                            <td>{{$us->alamat}}</td>
-                           <td>{{$us->jabatan}}</td>
+                           <td>{{$us->jabatan->nama_jabatan}}</td>
                            <td>{{$us->role}}</td>
                         </tr>
                      @endforeach

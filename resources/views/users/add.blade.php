@@ -37,7 +37,7 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="telp"><b>Kontak</b></label>
-                        <input type="tel" class="form-control" id="telp" value="ex: 087827361234" name="kontak" placeholder="Input kontak...">
+                        <input type="tel" class="form-control" id="telp"  name="kontak" placeholder="ex: 087827361234">
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="alamat"><b>Alamat</b></label>
@@ -45,17 +45,17 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label"><b>Jabatan</b></label>
-                            <select class="form-select mb-3 shadow-none" name="jabatan" id="id_jabatan">
+                            <select class="form-select mb-3 shadow-none" name="id_jabatan" id="id_jabatan">
                                 <option selected="">Jabatan...</option>
-                                @foreach ($u as $item)
-                                <option value="{{ $u->id }}">{{ $u->nama_role }}</option>
+                                <?php 
+                                    $jab = DB::table('jabatan')->get();
+                                ?>
+                                @foreach ($jab as $item)
+                                <option value="{{ $item->id }}">{{ $item->nama_jabatan }}</option>
                                 @endforeach
                             </select>
                     </div>
-                    <div class="form-group">
-                        <label class="form-label" for="role"><b>Role</b></label>
-                        <input type="text" class="form-control" id="role" name="role" placeholder="Input role...">
-                    </div><br><br>
+                   <br><br>
                     <button type="submit" class="btn btn-primary">Tambahkan</button>
                 </form>
             </div>

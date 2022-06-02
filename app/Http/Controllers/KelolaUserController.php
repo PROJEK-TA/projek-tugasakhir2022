@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Jabatan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -15,7 +16,7 @@ class KelolaUserController extends Controller
      */
     public function index()
     {
-        $user=User::all();
+        $user=User::with('jabatan')->paginate();
         return view ('users.kelolausers', compact('user'));
     }
 
@@ -26,6 +27,7 @@ class KelolaUserController extends Controller
      */
     public function create()
     {
+        $jab = Jabatan::all();
         return view ('users.add');
     }
 
@@ -39,13 +41,14 @@ class KelolaUserController extends Controller
     public function store(Request $request)
     {
         $u=new User();
+        $jab=Jabatan::all();
         $u->name=$request->name;
         $u->email=$request->email;
         $u->password=Hash::make($request->password);
         $u->kontak=$request->kontak;
         $u->alamat=$request->alamat;
         $u->role='requestor';
-        $u->jabatan=$request->jabatan;
+        $u->id_jabatan=$request->id_jabatan;
         $u->save();
         return redirect('/kelolausers');
     }
@@ -69,7 +72,10 @@ class KelolaUserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::with('jabatan')->find($id);
+        $jab = Jabatan::all();
+
+        return view ('users.edit', compact('user', 'jab'));
     }
 
     /**
@@ -81,7 +87,16 @@ class KelolaUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::with('jabatan')->find($id);
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=$request->password;
+        $user->kontak=$request->kontak;
+        $user->alamat=$request->alamat;
+        $user->id_jabatan=$request->id_jabatan;
+        $user->save();
+        return redirect('/kelolausers');
+      
     }
 
     /**
@@ -92,6 +107,8 @@ class KelolaUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::with('jabatan')->find($id);
+        $user->delete();
+        return redirect()->route('kelolausers.index');
     }
 }

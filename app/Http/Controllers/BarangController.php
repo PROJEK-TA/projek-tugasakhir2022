@@ -83,12 +83,13 @@ class BarangController extends Controller
      */
     public function edit($id)
     {
+        $prod = Product::with('productcategory', 'merek','lokasi', 'departemen', 'status')->find($id);
         $prodcat = ProductCategory::all();
         $merk = MerkProduct::all();
         $lokasi = LocationProduct::all();
         $departemen = Department::all();
         $status = StatusProduct::all();
-        $prod = Product::with('productcategory', 'merek','lokasi', 'departemen', 'status')->find($id);
+       
 
         return view ('barangs.editbarang', compact('prod', 'prodcat', 'merk', 'lokasi', 'departemen', 'status'));
     }

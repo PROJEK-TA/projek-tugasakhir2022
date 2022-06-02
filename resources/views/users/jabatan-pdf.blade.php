@@ -37,11 +37,11 @@
         <th>Nama Jabatan</th>
     </tr>
     <tr>
-        @foreach($roleuser as $pr)
+        @foreach($jabatanuser as $pr)
         <tr>
             <td>{{$loop->iteration}}</td>
             <td>{{$pr->id}}</td>
-            <td>{{$pr->nama_role}}</td>
+            <td>{{$pr->nama_jabatan}}</td>
         </tr>
     @endforeach
 </table>
