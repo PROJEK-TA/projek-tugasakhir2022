@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use PDF;
 
 class KategoriBarangController extends Controller
@@ -103,5 +104,14 @@ class KategoriBarangController extends Controller
         view()->share('kategoribarang', $katbar);
         $pdf = PDF::loadview('barangs.kategoribarang-pdf');
         return $pdf->stream('data-kategoribarang.pdf');
+    }
+
+    public function __construct()
+    {
+        //$this->middleware('auth');
+        $this->middleware(function($request, $next){
+        if(Gate::allows('kategbarang')) return $next($request);
+        abort(403, 'Anda tidak memiliki cukup hak akses!');
+        });
     }
 }

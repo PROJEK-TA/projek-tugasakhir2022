@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MerkProduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class MerkBarangController extends Controller
 {
@@ -92,5 +93,14 @@ class MerkBarangController extends Controller
         $merk = MerkProduct::find($id);
         $merk->delete();
         return redirect()->route('merkbarang.index');
+    }
+
+    public function __construct()
+    {
+        //$this->middleware('auth');
+        $this->middleware(function($request, $next){
+        if(Gate::allows('merkbarang')) return $next($request);
+        abort(403, 'Anda tidak memiliki cukup hak akses!');
+        });
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Jabatan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use PDF;
 
 class  JabatanController extends Controller
@@ -102,5 +103,14 @@ class  JabatanController extends Controller
         view()->share('jabatanuser', $peran);
         $pdf = PDF::loadview('users.jabatan-pdf');
         return $pdf->stream('data-jabatan.pdf');
+    }
+
+    public function __construct()
+    {
+        //$this->middleware('auth');
+        $this->middleware(function($request, $next){
+        if(Gate::allows('users')) return $next($request);
+        abort(403, 'Anda tidak memiliki cukup hak akses!');
+        });
     }
 }

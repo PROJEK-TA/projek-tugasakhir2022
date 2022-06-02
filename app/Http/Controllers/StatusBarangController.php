@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\StatusProduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class StatusBarangController extends Controller
 {
@@ -91,5 +92,14 @@ class StatusBarangController extends Controller
         $status = StatusProduct::find($id);
         $status->delete();
         return redirect()->route('statusbarang.index');
+    }
+
+    public function __construct()
+    {
+        //$this->middleware('auth');
+        $this->middleware(function($request, $next){
+        if(Gate::allows('statusbarang')) return $next($request);
+        abort(403, 'Anda tidak memiliki cukup hak akses!');
+        });
     }
 }

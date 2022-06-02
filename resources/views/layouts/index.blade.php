@@ -248,10 +248,10 @@
                         </a>
                         <ul class="sub-nav collapse" id="sidebar-special" data-bs-parent="#sidebar-menu">
                             <li class="nav-item">
+                                @can('barang')
                                 <a class="nav-link " href="{{route('barang.index')}}">
                                     <i class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
-                                            fill="currentColor">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
                                             <g>
                                                 <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
                                             </g>
@@ -260,8 +260,10 @@
                                     <i class="sidenav-mini-icon"> B </i>
                                     <span class="item-name">Daftar Barang </span>
                                 </a>
+                                @endcan
                             </li>
                             <li class="nav-item">
+                                @can('kategbarang')
                                 <a class="nav-link " href="{{route('kategoribarang.index')}}">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -274,8 +276,10 @@
                                     <i class="sidenav-mini-icon"> C </i>
                                     <span class="item-name">Kategori Barang</span>
                                 </a>
+                                @endcan
                             </li>
                             <li class="nav-item">
+                                @can('lokbarang')
                                 <a class="nav-link " href="{{route('lokasibarang.index')}}">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -288,8 +292,10 @@
                                     <i class="sidenav-mini-icon"> C </i>
                                     <span class="item-name">Lokasi Barang</span>
                                 </a>
+                                @endcan
                             </li>
                             <li class="nav-item">
+                                @can('merkbarang')
                                 <a class="nav-link " href="{{route('merkbarang.index')}}">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -302,8 +308,10 @@
                                     <i class="sidenav-mini-icon"> C </i>
                                     <span class="item-name">Merek Barang</span>
                                 </a>
+                                @endcan
                             </li>
                             <li class="nav-item">
+                                @can('statusbarang')
                                 <a class="nav-link " href="{{route('statusbarang.index')}}">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -316,8 +324,10 @@
                                     <i class="sidenav-mini-icon"> K </i>
                                     <span class="item-name">Status Barang</span>
                                 </a>
+                                @endcan
                             </li>
                             <li class="nav-item">
+                                @can('statuspinjambarang')
                                 <a class="nav-link " href="/statuspeminjamanbarang">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -330,8 +340,10 @@
                                     <i class="sidenav-mini-icon"> K </i>
                                     <span class="item-name">Status Peminjaman</span>
                                 </a>
+                                @endcan
                             </li>
                             <li class="nav-item">
+                                @can('ajukanpinjambarang')
                                 <a class="nav-link " href="/userpeminjamanbarang">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -344,8 +356,10 @@
                                     <i class="sidenav-mini-icon"> K </i>
                                     <span class="item-name">Ajukan Peminjaman</span>
                                 </a>
+                                @endcan
                             </li>
                             <li class="nav-item">
+                                @can('peminjamanbarang')
                                 <a class="nav-link " href="/peminjamanbarang">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -358,8 +372,10 @@
                                     <i class="sidenav-mini-icon"> P </i>
                                     <span class="item-name">Peminjaman</span>
                                 </a>
+                                @endcan
                             </li>
                             <li class="nav-item">
+                                @can('servis')
                                 <a class="nav-link " href="{{route('servis.index')}}">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -372,8 +388,10 @@
                                     <i class="sidenav-mini-icon"> R </i>
                                     <span class="item-name">Servis</span>
                                 </a>
+                                @endcan
                             </li>
                             <li class="nav-item">
+                                @can('nonaktif')
                                 <a class="nav-link " href="{{route('nonaktif.index')}}">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -386,6 +404,7 @@
                                     <i class="sidenav-mini-icon"> T </i>
                                     <span class="item-name">Nonaktif</span>
                                 </a>
+                                @endcan
                             </li>
                         </ul>
                     </li>
@@ -413,6 +432,7 @@
                         </a>
                         <ul class="sub-nav collapse" id="sidebar-auth" data-bs-parent="#sidebar-menu">
                             <li class="nav-item">
+                                @can('ruangan')
                                 <a class="nav-link " href="{{route('ruangan.index')}}">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -425,8 +445,10 @@
                                     <i class="sidenav-mini-icon"> B </i>
                                     <span class="item-name">Daftar Ruangan </span>
                                 </a>
+                                @endcan
                             </li>
                             <li class="nav-item">
+                                @can('kategruangan')
                                 <a class="nav-link " href="{{route('kategoriruangan.index')}}">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -439,8 +461,10 @@
                                     <i class="sidenav-mini-icon"> L </i>
                                     <span class="item-name">Kategori Ruangan</span>
                                 </a>
+                                @endcan
                             </li>
                             <li class="nav-item">
+                                @can('gudang')
                                 <a class="nav-link " href="{{route('gedung.index')}}">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -453,8 +477,10 @@
                                     <i class="sidenav-mini-icon"> C </i>
                                     <span class="item-name">Gudang</span>
                                 </a>
+                                @endcan
                             </li>
                             <li class="nav-item">
+                                @can('peminjamanruangan')
                                 <a class="nav-link" href="/peminjamanruangan">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -467,8 +493,10 @@
                                     <i class="sidenav-mini-icon"> L </i>
                                     <span class="item-name">Peminjaman</span>
                                 </a>
+                                @endcan
                             </li>
                             <li class="nav-item">
+                                @can('statuspinjamruangan')
                                 <a class="nav-link " href="/statuspeminjamanruangan">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -481,8 +509,10 @@
                                     <i class="sidenav-mini-icon"> K </i>
                                     <span class="item-name">Status Peminjaman</span>
                                 </a>
+                                @endcan
                             </li>
                             <li class="nav-item">
+                                @can('ajukanpinjamruangan')
                                 <a class="nav-link " href="/userpeminjamanruangan">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -495,10 +525,12 @@
                                     <i class="sidenav-mini-icon"> K </i>
                                     <span class="item-name">Ajukan Peminjaman</span>
                                 </a>
+                                @endcan
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item">
+                        @can('departemen')
                         <a class="nav-link" data-bs-toggle="collapse" href="#sidebar-user" role="button"
                             aria-expanded="false" aria-controls="sidebar-user">
                             <i class="icon">
@@ -548,8 +580,10 @@
                                 </a>
                             </li>
                         </ul>
+                        @endcan
                     </li>
                     <li class="nav-item">
+                        @can('users')
                         <a class="nav-link" data-bs-toggle="collapse" href="#utilities-error" role="button"
                             aria-expanded="false" aria-controls="utilities-error">
                             <i class="icon">
@@ -612,6 +646,7 @@
                                 </a>
                             </li>
                         </ul>
+                        @endcan
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/template/dashboard/admin.html">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\NonaktifProduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class NonaktifBarangController extends Controller
 {
@@ -82,5 +83,14 @@ class NonaktifBarangController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function __construct()
+    {
+        //$this->middleware('auth');
+        $this->middleware(function($request, $next){
+        if(Gate::allows('nonaktif')) return $next($request);
+        abort(403, 'Anda tidak memiliki cukup hak akses!');
+        });
     }
 }

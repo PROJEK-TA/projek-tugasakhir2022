@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\RoomCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use PDF;
 
 class KategoriRuanganController extends Controller
@@ -102,5 +103,14 @@ class KategoriRuanganController extends Controller
         view()->share('kategoriruangan', $kategori);
         $pdf = PDF::loadview('ruangan.kategoriruangan-pdf');
         return $pdf->stream('data-kategoriruangan.pdf');
+    }
+
+    public function __construct()
+    {
+        //$this->middleware('auth');
+        $this->middleware(function($request, $next){
+        if(Gate::allows('kategruangan')) return $next($request);
+        abort(403, 'Anda tidak memiliki cukup hak akses!');
+        });
     }
 }

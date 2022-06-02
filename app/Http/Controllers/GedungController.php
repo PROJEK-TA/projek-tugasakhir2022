@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Building;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use PDF;
 
 class GedungController extends Controller
@@ -102,5 +103,14 @@ class GedungController extends Controller
         view()->share('gedung', $building);
         $pdf = PDF::loadview('ruangan.gudang-pdf');
         return $pdf->stream('data-gudang.pdf');
+    }
+
+    public function __construct()
+    {
+        //$this->middleware('auth');
+        $this->middleware(function($request, $next){
+        if(Gate::allows('gudang')) return $next($request);
+        abort(403, 'Anda tidak memiliki cukup hak akses!');
+        });
     }
 }
