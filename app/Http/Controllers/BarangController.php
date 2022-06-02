@@ -140,7 +140,7 @@ class BarangController extends Controller
         $prod = Product::all();
 
         view()->share('barang', $prod);
-        $pdf = PDF::loadview('barangs.barang-pdf');
+        $pdf = PDF::loadview('barangs.barang-pdf')->setPaper('a4', 'landscape');
         return $pdf->stream('daftar-barang.pdf');
     }
 

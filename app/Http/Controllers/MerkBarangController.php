@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\MerkProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use PDF;
 
 class MerkBarangController extends Controller
 {
@@ -93,6 +94,15 @@ class MerkBarangController extends Controller
         $merk = MerkProduct::find($id);
         $merk->delete();
         return redirect()->route('merkbarang.index');
+    }
+
+    public function cetak_merk()
+    {
+        $merk = MerkProduct::all();
+
+        view()->share('merk', $merk);
+        $pdf = PDF::loadview('barangs.merk-pdf');
+        return $pdf->stream('daftar-merkbarang.pdf');
     }
 
     public function __construct()

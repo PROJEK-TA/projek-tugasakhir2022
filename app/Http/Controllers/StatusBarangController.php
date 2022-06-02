@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\StatusProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use PDF;
 
 class StatusBarangController extends Controller
 {
@@ -92,6 +93,15 @@ class StatusBarangController extends Controller
         $status = StatusProduct::find($id);
         $status->delete();
         return redirect()->route('statusbarang.index');
+    }
+
+    public function cetak_statusbarang()
+    {
+        $status = StatusProduct::all();
+
+        view()->share('status', $status);
+        $pdf = PDF::loadview('barangs.statusbarang-pdf');
+        return $pdf->stream('daftar-statusbarang.pdf');
     }
 
     public function __construct()

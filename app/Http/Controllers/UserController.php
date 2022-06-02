@@ -7,6 +7,7 @@ use App\Models\Jabatan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Gate;
+use PDF;
 
 class UserController extends Controller
 {
@@ -106,6 +107,15 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function cetak_daftaruser()
+    {
+        $user = User::all();
+
+        view()->share('user', $user);
+        $pdf = PDF::loadview('users.daftaruser-pdf')->setPaper('a4', 'landscape');
+        return $pdf->stream('daftar-users.pdf');
     }
 
     public function __construct()
