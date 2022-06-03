@@ -248,7 +248,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/cetak_departemen',[DepartemenController::class, 'cetak_departemen'])->name('cetak_departemen');
 Route::get('/cetak_kategruangan',[KategoriRuanganController::class, 'cetak_kategruangan'])->name('cetak_kategruangan');
 Route::get('/cetak_gudang',[GedungController::class, 'cetak_gudang'])->name('cetak_gudang');
-Route::get('/cetak_jabatan',[RoleController::class, 'cetak_jabatan'])->name('cetak_jabatan');
+Route::get('/cetak_jabatan',[JabatanController::class, 'cetak_jabatan'])->name('cetak_jabatan');
 Route::get('/cetak_ruangan',[RuanganController::class, 'cetak_ruangan'])->name('cetak_ruangan');
 Route::get('/cetak_barang',[BarangController::class, 'cetak_barang'])->name('cetak_barang');
 Route::get('/cetak_kategbarang',[KategoriBarangController::class, 'cetak_kategbarang'])->name('cetak_kategbarang');
