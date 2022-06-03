@@ -14,7 +14,7 @@ class ServisBarangController extends Controller
      */
     public function index()
     {
-        $servis=ServiceProduct::all();
+        $servis=ServiceProduct::with('user', 'barang');
         return view('barangs.servis', compact('servis'));
 
     }
