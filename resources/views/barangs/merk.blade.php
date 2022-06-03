@@ -63,7 +63,7 @@
                         
                     </table>
                     <br>
-                    <button type="button" class="btn btn-primary">Print</button>
+                    <a href="/cetak_merk" button type="button" class="btn btn-primary">Print</button></a>
                 </div>
             </div>
          </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Department;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use PDF;
 
 class DepartemenController extends Controller
@@ -95,12 +96,12 @@ class DepartemenController extends Controller
         return redirect()->route('departemen.index');
     }
     
-    public function cetak_departemen()
+    public function __construct()
     {
-        $department = Department::all();
-
-        view()->share('department', $department);
-        $pdf = PDF::loadview('departemen.datadepartemen-pdf');
-        return $pdf->stream('data-departemen.pdf');
+        //$this->middleware('auth');
+        $this->middleware(function($request, $next){
+        if(Gate::allows('departemen')) return $next($request);
+        abort(403, 'Anda tidak memiliki cukup hak akses!');
+        });
     }
 }

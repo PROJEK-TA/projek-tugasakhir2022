@@ -62,7 +62,7 @@
                         
                     </table>
                     <br>
-                    <button type="button" class="btn btn-primary">Print</button>
+                    <a href="/cetak_statusbarang" button type="button" class="btn btn-primary">Print</button></a>
                 </div>
             </div>
          </div>

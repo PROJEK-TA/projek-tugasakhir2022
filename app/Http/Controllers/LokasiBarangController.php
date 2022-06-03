@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LocationProduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use PDF;
 
 class LokasiBarangController extends Controller
@@ -101,5 +102,14 @@ class LokasiBarangController extends Controller
         view()->share('lokasibarang', $lokasi);
         $pdf = PDF::loadview('barangs.lokasibarang-pdf');
         return $pdf->stream('data-lokasi.pdf');
+    }
+
+    public function __construct()
+    {
+        //$this->middleware('auth');
+        $this->middleware(function($request, $next){
+        if(Gate::allows('lokbarang')) return $next($request);
+        abort(403, 'Anda tidak memiliki cukup hak akses!');
+        });
     }
 }

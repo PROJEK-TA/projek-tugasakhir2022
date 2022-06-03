@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Jabatan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Gate;
 
 class KelolaUserController extends Controller
 {
@@ -110,5 +111,14 @@ class KelolaUserController extends Controller
         $user = User::with('jabatan')->find($id);
         $user->delete();
         return redirect()->route('kelolausers.index');
+    }
+
+    public function __construct()
+    {
+        //$this->middleware('auth');
+        $this->middleware(function($request, $next){
+        if(Gate::allows('users')) return $next($request);
+        abort(403, 'Anda tidak memiliki cukup hak akses!');
+        });
     }
 }

@@ -9,6 +9,7 @@ use App\Models\LocationProduct;
 use App\Models\Department;
 use App\Models\StatusProduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use PDF;
 
 class BarangController extends Controller
@@ -139,7 +140,16 @@ class BarangController extends Controller
         $prod = Product::all();
 
         view()->share('barang', $prod);
-        $pdf = PDF::loadview('barangs.barang-pdf');
+        $pdf = PDF::loadview('barangs.barang-pdf')->setPaper('a4', 'landscape');
         return $pdf->stream('daftar-barang.pdf');
+    }
+
+    public function __construct()
+    {
+        //$this->middleware('auth');
+        $this->middleware(function($request, $next){
+        if(Gate::allows('barang')) return $next($request);
+        abort(403, 'Anda tidak memiliki cukup hak akses!');
+        });
     }
 }

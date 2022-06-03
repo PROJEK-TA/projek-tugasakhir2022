@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ServiceProduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ServisBarangController extends Controller
 {
@@ -83,5 +84,14 @@ class ServisBarangController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function __construct()
+    {
+        //$this->middleware('auth');
+        $this->middleware(function($request, $next){
+        if(Gate::allows('servis')) return $next($request);
+        abort(403, 'Anda tidak memiliki cukup hak akses!');
+        });
     }
 }

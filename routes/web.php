@@ -239,16 +239,6 @@ Route::resource('kelolausers', KelolaUserController::class);
 
 
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -263,3 +253,6 @@ Route::get('/cetak_ruangan',[RuanganController::class, 'cetak_ruangan'])->name('
 Route::get('/cetak_barang',[BarangController::class, 'cetak_barang'])->name('cetak_barang');
 Route::get('/cetak_kategbarang',[KategoriBarangController::class, 'cetak_kategbarang'])->name('cetak_kategbarang');
 Route::get('/cetak_lokasibarang',[LokasiBarangController::class, 'cetak_lokasibarang'])->name('cetak_lokasibarang');
+Route::get('/cetak_daftaruser',[UserController::class, 'cetak_daftaruser'])->name('cetak_daftaruser');
+Route::get('/cetak_merk',[MerkBarangController::class, 'cetak_merk'])->name('cetak_merk');
+Route::get('/cetak_statusbarang',[StatusBarangController::class, 'cetak_statusbarang'])->name('cetak_statusbarang');
