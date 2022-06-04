@@ -15,8 +15,6 @@ class CreateServiceProductsTable extends Migration
     {
         Schema::create('service_products', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_barang');
-            $table->string('merk');
             $table->string('deskripsi');
             $table->double('jumlah');
             $table->string('nama_petugas');
@@ -24,7 +22,8 @@ class CreateServiceProductsTable extends Migration
             $table->date('tanggal_kembali');
             $table->unsignedBigInteger('id_product');
             $table->foreign('id_product')->references('id')->on('products');
-           
+            $table->unsignedBigInteger('id_merk');
+            $table->foreign('id_merk')->references('id')->on('merk_products');
         });
     }
 

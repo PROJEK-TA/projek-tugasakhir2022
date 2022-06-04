@@ -47,4 +47,8 @@ class Product extends Model
         return $this->belongsTo(MerkProduct::class, 'id_merkproduct');
     }
    
+    public function servis()
+    {
+        return $this->hasMany(ServiceProduct::class);
+    }
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\ServiceProduct;
+use App\Models\Product;
+use App\Models\MerkProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -15,7 +17,7 @@ class ServisBarangController extends Controller
      */
     public function index()
     {
-        $servis=ServiceProduct::with('user', 'barang');
+        $servis=ServiceProduct::with('barang', 'merk')->paginate();
         return view('barangs.servis', compact('servis'));
 
     }
@@ -27,7 +29,10 @@ class ServisBarangController extends Controller
      */
     public function create()
     {
-        //
+        $barang = Product::all();
+        $merk = MerkProduct::all();
+
+        return view ('barangs.addservis', compact('barang','merk'));
     }
 
     /**
@@ -38,7 +43,19 @@ class ServisBarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ServiceProduct::create([
+            'deskripsi' => $request->deskripsi,
+            'jumlah' => $request->jumlah,
+            'nama_petugas' => $request->nama_petugas,
+            'tanggal_servis' => $request->tanggal_servis,
+            'tanggal_kembali' => $request->tanggal_kembali,
+            'id_product' => $request->id_product,
+            'id_merk' => $request->id_merk,
+
+
+        ]);
+
+        return redirect()->route('servis.index')->with('toast_success', 'Data Berhasil Tersimpan !');
     }
 
     /**
@@ -60,7 +77,7 @@ class ServisBarangController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -83,7 +100,9 @@ class ServisBarangController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $servis = ServiceProduct::with('barang', 'merk')->find($id);
+        $servis->delete();
+        return redirect()->route('servis.index');
     }
 
     public function __construct()
