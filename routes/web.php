@@ -7,6 +7,7 @@ use App\Http\Controllers\KategoriBarangController;
 use App\Http\Controllers\LokasiBarangController;
 use App\Http\Controllers\MerkBarangController;
 use App\Http\Controllers\RuanganController;
+use App\Http\Controllers\RuanganRequestorController;
 use App\Http\Controllers\KategoriRuanganController;
 use App\Http\Controllers\GedungController;
 use App\Http\Controllers\DepartemenController;
@@ -161,6 +162,11 @@ Route::get('/peminjamanruangan', function () {
     return view('ruangan.peminjamanruangan');
 });
 
+Route::get('/requestorruangan', function () {
+    return view('ruangan.index_requestor');
+});
+Route::resource('requestorruangan', RuanganRequestorController::class);
+
 
 //add
 Route::get('/addruangan', function () {
@@ -263,3 +269,4 @@ Route::get('/cetak_daftaruser',[UserController::class, 'cetak_daftaruser'])->nam
 Route::get('/cetak_merk',[MerkBarangController::class, 'cetak_merk'])->name('cetak_merk');
 Route::get('/cetak_statusbarang',[StatusBarangController::class, 'cetak_statusbarang'])->name('cetak_statusbarang');
 Route::get('/cetak_barangrequestor',[BarangRequestorController::class, 'cetak_barangrequestor'])->name('cetak_barangrequestor');
+Route::get('/cetak_ruanganrequestor',[RuanganRequestorController::class, 'cetak_ruanganrequestor'])->name('cetak_ruanganrequestor');
