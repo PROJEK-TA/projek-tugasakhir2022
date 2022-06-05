@@ -69,6 +69,9 @@ class AuthServiceProvider extends ServiceProvider
         });
 
 
+        Gate::define('requestorbarang', function($user){
+            return $user->role == "requestor";
+        });
         Gate::define('statuspinjambarang', function($user){
             return $user->role == "requestor";
         });
