@@ -15,4 +15,9 @@ class Department extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function peminjaman()
+    {
+        return $this->hasMany(BorrowProduct::class);
+    }
 }

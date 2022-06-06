@@ -11,9 +11,13 @@
             </div>
             <div class="card-body">
                 <form>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label class="form-label" for="kd_peminjaman"><b>Kode Peminjaman</b></label>
                         <input type="text" class="form-control" id="kd_peminjaman" placeholder="Input kode peminjaman...">
+                    </div> -->
+                    <div class="form-group">
+                        <label class="form-label" for="nm_barang"><b>Nama Peminjam</b></label>
+                        <input type="text" class="form-control" id="nm_barang" placeholder="Input nama barang...">
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="nm_barang"><b>Nama Barang</b></label>
@@ -35,7 +39,7 @@
                         </select>
                     </div>
                      <div class="form-group">
-                        <label class="form-label"><b>Owner</b></label>
+                        <label class="form-label"><b>Milik</b></label>
                         <select class="form-select mb-3 shadow-none">
                             <option selected="">Pilih departemen...</option>
                             <option value="1">Departemen A</option>
@@ -53,15 +57,15 @@
                         <label class="form-label" for="nm_peminjam"><b>Nama Peminjam</b></label>
                         <input type="text" class="form-control" id="nm_peminjam" placeholder="Input nama peminjam...">
                     </div>
-                    <div class="form-group">
-                        <label class="form-label" for="nm_peminjam"><b>Dari</b></label>
-                        <input type="text" class="form-control" id="nm_peminjam" placeholder="Input asal departemen...">
-                    </div>
                    
                     <div class="form-group">
                         <label class="form-label" for="tgl_dipinjam"><b>Tanggal Dipinjam</b></label>
                         <input type="date" class="form-control" id="tgl_dipinjam" value="2021-12-18">
                     </div>
+                    <!-- <div class="form-group">
+                        <label class="form-label" for="tgl_dipinjam"><b>Jatuh Tempo</b></label>
+                        <input type="date" class="form-control" id="tgl_dipinjam" value="2021-12-18">
+                    </div> -->
                     <div class="form-group">
                         <label class="form-label" for="tgl_kembali"><b>Tanggal Dikembalikan</b></label>
                         <input type="date" class="form-control" id="tgl_kembali" value="2021-12-20">

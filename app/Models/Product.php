@@ -51,4 +51,9 @@ class Product extends Model
     {
         return $this->hasMany(ServiceProduct::class);
     }
+
+    public function peminjaman()
+    {
+        return $this->hasMany(BorrowProduct::class);
+    }
 }

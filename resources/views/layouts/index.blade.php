@@ -343,22 +343,6 @@
                                 @endcan
                             </li>
                             <li class="nav-item">
-                                @can('statuspinjambarang')
-                                <a class="nav-link " href="/statuspeminjamanbarang">
-                                    <i class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
-                                            fill="currentColor">
-                                            <g>
-                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                    <i class="sidenav-mini-icon"> K </i>
-                                    <span class="item-name">Status Peminjaman</span>
-                                </a>
-                                @endcan
-                            </li>
-                            <li class="nav-item">
                                 @can('ajukanpinjambarang')
                                 <a class="nav-link " href="/userpeminjamanbarang">
                                     <i class="icon">
@@ -371,6 +355,22 @@
                                     </i>
                                     <i class="sidenav-mini-icon"> K </i>
                                     <span class="item-name">Ajukan Peminjaman</span>
+                                </a>
+                                @endcan
+                            </li>
+                            <li class="nav-item">
+                                @can('statuspinjambarang')
+                                <a class="nav-link " href="{{route('statuspinjambarang.index')}}">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> K </i>
+                                    <span class="item-name">Status Peminjaman</span>
                                 </a>
                                 @endcan
                             </li>
@@ -528,22 +528,6 @@
                                 @endcan
                             </li>
                             <li class="nav-item">
-                                @can('statuspinjamruangan')
-                                <a class="nav-link " href="/statuspeminjamanruangan">
-                                    <i class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
-                                            fill="currentColor">
-                                            <g>
-                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                                            </g>
-                                        </svg>
-                                    </i>
-                                    <i class="sidenav-mini-icon"> K </i>
-                                    <span class="item-name">Status Peminjaman</span>
-                                </a>
-                                @endcan
-                            </li>
-                            <li class="nav-item">
                                 @can('ajukanpinjamruangan')
                                 <a class="nav-link " href="/userpeminjamanruangan">
                                     <i class="icon">
@@ -556,6 +540,22 @@
                                     </i>
                                     <i class="sidenav-mini-icon"> K </i>
                                     <span class="item-name">Ajukan Peminjaman</span>
+                                </a>
+                                @endcan
+                            </li>
+                            <li class="nav-item">
+                                @can('statuspinjamruangan')
+                                <a class="nav-link " href="/statuspeminjamanruangan">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> K </i>
+                                    <span class="item-name">Status Peminjaman</span>
                                 </a>
                                 @endcan
                             </li>
@@ -1062,7 +1062,7 @@
                             </svg>
                         </i>
                     </div>
-                    <div class="input-group search-input">
+                    <!-- <div class="input-group search-input">
                         <span class="input-group-text" id="search-input">
                             <svg width="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <circle cx="11.7669" cy="11.7666" r="8.98856" stroke="currentColor" stroke-width="1.5"
@@ -1072,7 +1072,7 @@
                             </svg>
                         </span>
                         <input type="search" class="form-control" placeholder="Search...">
-                    </div>
+                    </div> -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -1188,10 +1188,10 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item"
-                                            href="/template/dashboard/app/user-profile.html">Profile</a></li>
-                                    <li><a class="dropdown-item"
+                                            href="/profil">Profile</a></li>
+                                    <!-- <li><a class="dropdown-item"
                                             href="/template/dashboard/app/user-privacy-setting.html">Privacy Setting</a>
-                                    </li>
+                                    </li> -->
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>

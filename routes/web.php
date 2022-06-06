@@ -16,6 +16,7 @@ use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\KelolaUserController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StatusBarangController;
+use App\Http\Controllers\PinjamBarangController;
 use App\Http\Controllers\ServisBarangController;
 use App\Http\Controllers\NonaktifBarangController;
 /*
@@ -68,6 +69,9 @@ Route::get('/editusers', function () {
     return view('users.edit');
 });
 
+Route::get('/profil', function () {
+    return view('users.userprofile');
+});
 
 
 // Barang
@@ -236,6 +240,10 @@ Route::resource('merkbarang', MerkBarangController::class);
 Route::resource('statusbarang', StatusBarangController::class);
 Route::resource('servis', ServisBarangController::class);
 Route::resource('nonaktif', NonaktifBarangController::class);
+
+
+//requestor
+Route::resource('statuspinjambarang', PinjamBarangController::class);
 
 //ruangan
 Route::resource('ruangan', RuanganController::class);
