@@ -77,7 +77,11 @@ class ServisBarangController extends Controller
      */
     public function edit($id)
     {
-        
+        $servis = ServiceProduct::with('barang', 'merk')->find($id);
+        $barang=Product::all();
+        $merk=MerkProduct::all();
+
+        return view('barangs.editservisbarang', compact('servis','barang','merk'));
     }
 
     /**
@@ -89,7 +93,18 @@ class ServisBarangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $servis=ServiceProduct::with('barang', 'merk')->find($id);
+        $servis->deskripsi=$request->deskripsi;
+        $servis->jumlah=$request->jumlah;
+        $servis->nama_petugas=$request->nama_petugas;
+        $servis->tanggal_servis=$request->tanggal_servis;
+        $servis->tanggal_kembali=$request->tanggal_kembali;
+        $servis->id_product=$request->id_product;
+        $servis->id_merk=$request->id_merk;
+        $servis->save();
+        return redirect('/servis'); 
+
+        // return $request; 
     }
 
     /**
