@@ -82,7 +82,13 @@ class PinjamBarangController extends Controller
      */
     public function edit($id)
     {
-        //
+        $reqpinjam=BorrowProduct::with('barang','merk','lokasi','departemen')->find($id);
+        $barang = Product::all();
+        $merk = MerkProduct::all();
+        $lokasi = LocationProduct::all();
+        $departemen = Department::all();
+
+        return view('barangs.editajukanpeminjaman', compact('reqpinjam','barang', 'merk', 'lokasi', 'departemen'));
     }
 
     /**
@@ -94,7 +100,19 @@ class PinjamBarangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $reqpinjam = BorrowProduct::with('barang','merk','lokasi','departemen')->find($id);
+        // $reqpinjam->id->id;
+        $reqpinjam->id_product=$request->nama_barang;
+        $reqpinjam->id_merk=$request->merk_barang;
+        $reqpinjam->id_lokasi=$request->nama_lokasi;
+        $reqpinjam->id_department=$request->departemen;
+        $reqpinjam->jumlah=$request->jumlah;
+        $reqpinjam->deskripsi=$request->deskripsi;
+        $reqpinjam->tanggal_pinjam=$request->tanggal_pinjam;
+        $reqpinjam->tanggal_kembali=$request->tanggal_kembali;
+        $reqpinjam->save();
+        return redirect('/statuspinjambarang');
+        // return $request;
     }
 
     /**
@@ -105,6 +123,9 @@ class PinjamBarangController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $reqpinjam=BorrowProduct::with('barang','merk','lokasi','departemen')->find($id);
+        $reqpinjam->delete();
+        return redirect()->route('statuspinjambarang.index');
+
     }
 }
