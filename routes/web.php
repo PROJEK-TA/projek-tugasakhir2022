@@ -244,6 +244,7 @@ Route::resource('nonaktif', NonaktifBarangController::class);
 
 //requestor
 Route::resource('statuspinjambarang', PinjamBarangController::class);
+Route::resource('ajukanpinjambarang', PinjamBarangController::class);
 
 //ruangan
 Route::resource('ruangan', RuanganController::class);

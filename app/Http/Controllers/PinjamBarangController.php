@@ -29,12 +29,12 @@ class PinjamBarangController extends Controller
      */
     public function create()
     {
-        $product = Product::all();
+        $barang = Product::all();
         $merk = MerkProduct::all();
         $lokasi = LocationProduct::all();
         $departemen = Department::all();
 
-        return view('barangs.ajukanpeminjamanbarang', compact('product', 'merk', 'lokasi', 'departemen'));
+        return view('barangs.userpeminjamanbarang', compact('barang', 'merk', 'lokasi', 'departemen'));
     }
 
     /**
@@ -45,7 +45,22 @@ class PinjamBarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        BorrowProduct::create([
+            'id' => $request->id,
+            'nama_peminjam' => $request->nama_peminjam,
+            'id_product' => $request->nama_barang,
+            'id_merk' => $request->merk_barang,
+            'id_lokasi' => $request->nama_lokasi,
+            'id_department' => $request->departemen,
+            'jumlah' => $request->jumlah,
+            'deskripsi' => $request->deskripsi,
+            'tanggal_pinjam' => $request->tanggal_pinjam,
+            'tanggal_kembali' => $request->tanggal_kembali,
+            'status' => $request->status,
+
+        ]);
+
+        return redirect()->route('statuspinjambarang.index')->with('toast_success', 'Data Berhasil Tersimpan !');
     }
 
     /**
