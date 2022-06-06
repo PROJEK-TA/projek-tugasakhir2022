@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\Jabatan;
+use App\Models\Room;
+use App\Models\RoomCategory;
+use App\Models\Building;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-// use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Gate;
 use PDF;
 
-class UserController extends Controller
+class RuanganRequestorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,31 +18,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user=User::with('jabatan')->paginate();
-        return view ('users.index', compact('user'));
+        $requestorruangan = Room::with('roomcategory','building')->paginate();
+        return view('ruangan.index_requestor', compact('requestorruangan'));
     }
-    
 
-    public function register(Request $request)
-    {
-     
-        $u=new User();
-        $jab=Jabatan::all();
-        $u->name=$request->name;
-        $u->email=$request->email;
-        $u->password=Hash::make($request->password);
-        $u->kontak=$request->kontak;
-        $u->alamat=$request->alamat;
-        $u->role='requestor';
-        $u->id_jabatan=$request->id_jabatan;
-        $u->save();
-        
-        // return $request;
-        return redirect('/login');
-        
-
-       
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -109,21 +88,21 @@ class UserController extends Controller
         //
     }
 
-    public function cetak_daftaruser()
+    public function cetak_ruanganrequestor()
     {
-        $user = User::all();
+        $room = Room::all();
 
-        view()->share('user', $user);
-        $pdf = PDF::loadview('users.daftaruser-pdf')->setPaper('a4', 'landscape');
-        return $pdf->stream('daftar-users.pdf');
+        view()->share('ruanganrequestor', $room);
+        $pdf = PDF::loadview('ruangan.ruanganrequestor-pdf');
+        return $pdf->stream('daftar-ruanganrequestor.pdf');
     }
 
-    // public function __construct()
-    // {
-    //     //$this->middleware('auth');
-    //     $this->middleware(function($request, $next){
-    //     if(Gate::allows('users')) return $next($request);
-    //     abort(403, 'Anda tidak memiliki cukup hak akses!');
-    //     });
-    // }
+    public function __construct()
+    {
+        //$this->middleware('auth');
+        $this->middleware(function($request, $next){
+        if(Gate::allows('requestorruangan')) return $next($request);
+        abort(403, 'Anda tidak memiliki cukup hak akses!');
+        });
+    }
 }

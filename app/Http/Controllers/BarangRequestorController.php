@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\Jabatan;
+use App\Models\Product;
+use App\Models\ProductCategory;
+use App\Models\MerkProduct;
+use App\Models\LocationProduct;
+use App\Models\Department;
+use App\Models\StatusProduct;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-// use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Gate;
 use PDF;
 
-class UserController extends Controller
+class BarangRequestorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,31 +21,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user=User::with('jabatan')->paginate();
-        return view ('users.index', compact('user'));
+        $requestorbarang = Product::with('productcategory', 'merek','lokasi', 'departemen', 'status')->paginate();
+        return view('barangs.index_requestor', compact('requestorbarang'));
     }
-    
 
-    public function register(Request $request)
-    {
-     
-        $u=new User();
-        $jab=Jabatan::all();
-        $u->name=$request->name;
-        $u->email=$request->email;
-        $u->password=Hash::make($request->password);
-        $u->kontak=$request->kontak;
-        $u->alamat=$request->alamat;
-        $u->role='requestor';
-        $u->id_jabatan=$request->id_jabatan;
-        $u->save();
-        
-        // return $request;
-        return redirect('/login');
-        
-
-       
-    }
     /**
      * Show the form for creating a new resource.
      *
@@ -109,21 +91,21 @@ class UserController extends Controller
         //
     }
 
-    public function cetak_daftaruser()
+    public function cetak_barangrequestor()
     {
-        $user = User::all();
+        $prod = Product::all();
 
-        view()->share('user', $user);
-        $pdf = PDF::loadview('users.daftaruser-pdf')->setPaper('a4', 'landscape');
-        return $pdf->stream('daftar-users.pdf');
+        view()->share('barangrequestor', $prod);
+        $pdf = PDF::loadview('barangs.barangrequestor-pdf')->setPaper('a4', 'landscape');
+        return $pdf->stream('daftar-barangrequestor.pdf');
     }
 
-    // public function __construct()
-    // {
-    //     //$this->middleware('auth');
-    //     $this->middleware(function($request, $next){
-    //     if(Gate::allows('users')) return $next($request);
-    //     abort(403, 'Anda tidak memiliki cukup hak akses!');
-    //     });
-    // }
+    public function __construct()
+    {
+        //$this->middleware('auth');
+        $this->middleware(function($request, $next){
+        if(Gate::allows('requestorbarang')) return $next($request);
+        abort(403, 'Anda tidak memiliki cukup hak akses!');
+        });
+    }
 }
