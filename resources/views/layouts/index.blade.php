@@ -44,7 +44,7 @@
 
     <aside class="sidebar sidebar-default navs-rounded-all ">
         <div class="sidebar-header d-flex align-items-center justify-content-start">
-            <a href="/template/dashboard/index.html" class="navbar-brand">
+            <a href="/" class="navbar-brand">
                 <!--Logo start-->
                 <!-- <svg width="30" class="" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="-0.757324" y="19.2427" width="28" height="4" rx="2"
@@ -83,7 +83,7 @@
                     </li>
                     <li class="nav-item">
                    
-                        <a class="nav-link active" aria-current="page" href="/home">
+                        <a class="nav-link active" aria-current="page" href="/">
                             <i class="icon">
                                 <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path opacity="0.4"
