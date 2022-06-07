@@ -22,22 +22,10 @@ class BarangController extends Controller
      */
     public function index()
     {
-        $q = DB::table('products')->select(DB::raw('MAX(RIGHT(kode_barang,4)) as kode'));
-        $kd="";
-        if($q->count()>0)
-        {
-            foreach($q->get() as $k)
-            {
-                $tmp = ((int)$k->kode)+1;
-                $kd = sprintf("%04s", $tmp);
-            }
-        }
-        else{
-            $kd = "0001";
-        }
+        
 
         $barang = Product::with('productcategory', 'merek','lokasi', 'departemen', 'status')->paginate();
-        return view('barangs.index', compact('barang','kd'));
+        return view('barangs.index', compact('barang'));
     }
 
     /**
