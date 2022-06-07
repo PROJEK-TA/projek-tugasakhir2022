@@ -17,6 +17,7 @@ use App\Http\Controllers\KelolaUserController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StatusBarangController;
 use App\Http\Controllers\PinjamBarangController;
+use App\Http\Controllers\PinjamRuanganController;
 use App\Http\Controllers\ServisBarangController;
 use App\Http\Controllers\NonaktifBarangController;
 /*
@@ -245,6 +246,8 @@ Route::resource('nonaktif', NonaktifBarangController::class);
 //requestor
 Route::resource('statuspinjambarang', PinjamBarangController::class);
 Route::resource('ajukanpinjambarang', PinjamBarangController::class);
+Route::resource('statuspinjamruangan', PinjamRuanganController::class);
+Route::resource('ajukanpinjamruangan', PinjamRuanganController::class);
 
 //ruangan
 Route::resource('ruangan', RuanganController::class);
