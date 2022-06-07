@@ -25,6 +25,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        Gate::define('dashboard', function($user){
+            return $user->role == "approval";
+        });
         Gate::define('barang', function($user){
             return $user->role == "approval";
         });

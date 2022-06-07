@@ -2,6 +2,16 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Product;
+use App\Models\Room;
+use App\Models\User;
+use App\Models\Building;
+use App\Models\LocationProduct;
+use App\Models\BorrowProduct;
+use App\Models\BorrowRoom;
+use DB;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +33,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+       $barang = Product::count();
+       $ruangan = Room::count();
+       $lokasi = LocationProduct::count();
+       $gudang = Building::count();
+       $user = User::count();
+       $pembarang = BorrowProduct::count();
+       $pemruangan = BorrowRoom::count();
+       
+        return view('/home', compact('barang', 'ruangan', 'lokasi','gudang','user','pembarang','pemruangan'));
     }
 }
