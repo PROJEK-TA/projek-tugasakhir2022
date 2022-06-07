@@ -266,16 +266,18 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 //Cetak Data
-Route::get('/cetak_departemen',[DepartemenController::class, 'cetak_departemen'])->name('cetak_departemen');
-Route::get('/cetak_kategruangan',[KategoriRuanganController::class, 'cetak_kategruangan'])->name('cetak_kategruangan');
-Route::get('/cetak_gudang',[GedungController::class, 'cetak_gudang'])->name('cetak_gudang');
-Route::get('/cetak_jabatan',[JabatanController::class, 'cetak_jabatan'])->name('cetak_jabatan');
-Route::get('/cetak_ruangan',[RuanganController::class, 'cetak_ruangan'])->name('cetak_ruangan');
 Route::get('/cetak_barang',[BarangController::class, 'cetak_barang'])->name('cetak_barang');
 Route::get('/cetak_kategbarang',[KategoriBarangController::class, 'cetak_kategbarang'])->name('cetak_kategbarang');
 Route::get('/cetak_lokasibarang',[LokasiBarangController::class, 'cetak_lokasibarang'])->name('cetak_lokasibarang');
-Route::get('/cetak_daftaruser',[UserController::class, 'cetak_daftaruser'])->name('cetak_daftaruser');
 Route::get('/cetak_merk',[MerkBarangController::class, 'cetak_merk'])->name('cetak_merk');
 Route::get('/cetak_statusbarang',[StatusBarangController::class, 'cetak_statusbarang'])->name('cetak_statusbarang');
+Route::get('/cetak_servisbarang',[ServisBarangController::class, 'cetak_servisbarang'])->name('cetak_servisbarang');
+// routenya cetak nonaktif
+Route::get('/cetak_ruangan',[RuanganController::class, 'cetak_ruangan'])->name('cetak_ruangan');
+Route::get('/cetak_kategruangan',[KategoriRuanganController::class, 'cetak_kategruangan'])->name('cetak_kategruangan');
+Route::get('/cetak_gudang',[GedungController::class, 'cetak_gudang'])->name('cetak_gudang');
+Route::get('/cetak_departemen',[DepartemenController::class, 'cetak_departemen'])->name('cetak_departemen');
+Route::get('/cetak_daftaruser',[UserController::class, 'cetak_daftaruser'])->name('cetak_daftaruser');
+Route::get('/cetak_jabatan',[JabatanController::class, 'cetak_jabatan'])->name('cetak_jabatan');
 Route::get('/cetak_barangrequestor',[BarangRequestorController::class, 'cetak_barangrequestor'])->name('cetak_barangrequestor');
 Route::get('/cetak_ruanganrequestor',[RuanganRequestorController::class, 'cetak_ruanganrequestor'])->name('cetak_ruanganrequestor');

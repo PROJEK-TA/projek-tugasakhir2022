@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\MerkProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use PDF;
 
 class ServisBarangController extends Controller
 {
@@ -118,6 +119,15 @@ class ServisBarangController extends Controller
         $servis = ServiceProduct::with('barang', 'merk')->find($id);
         $servis->delete();
         return redirect()->route('servis.index');
+    }
+
+    public function cetak_servisbarang()
+    {
+        $servis = ServiceProduct::all();
+
+        view()->share('servisbarang', $servis);
+        $pdf = PDF::loadview('barangs.servis-pdf')->setPaper('a4', 'landscape');
+        return $pdf->stream('data-servisbarang.pdf');
     }
 
     public function __construct()

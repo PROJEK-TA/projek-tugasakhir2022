@@ -68,18 +68,16 @@
                                  </button>
                               </form>
                               </a>
-                              </div>
-                           </td>
-                        </tr>
-                        @endforeach
-                     </tbody>
-                        
-                    </table>
-                </div><br>
-              
-                        <button type="button" class="btn btn-primary">Print</button>
-                    </div>
+                           </div>
+                        </td>
+                     </tr>
+                     @endforeach
+                  </tbody>
+                  </table>
+               </div><br>
+               <a href="/cetak_servisbarang" button type="button" class="btn btn-primary">Print</button></a>
             </div>
          </div>
       </div>
+   </div>
 @endsection
