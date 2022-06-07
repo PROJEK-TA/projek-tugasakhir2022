@@ -17,6 +17,7 @@ use App\Http\Controllers\KelolaUserController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StatusBarangController;
 use App\Http\Controllers\PinjamBarangController;
+use App\Http\Controllers\PinjamRuanganController;
 use App\Http\Controllers\ServisBarangController;
 use App\Http\Controllers\NonaktifBarangController;
 /*
@@ -249,6 +250,8 @@ Route::resource('nonaktif', NonaktifBarangController::class);
 //requestor
 Route::resource('statuspinjambarang', PinjamBarangController::class);
 Route::resource('ajukanpinjambarang', PinjamBarangController::class);
+Route::resource('statuspinjamruangan', PinjamRuanganController::class);
+Route::resource('ajukanpinjamruangan', PinjamRuanganController::class);
 
 //ruangan
 Route::resource('ruangan', RuanganController::class);
@@ -275,7 +278,7 @@ Route::get('/cetak_lokasibarang',[LokasiBarangController::class, 'cetak_lokasiba
 Route::get('/cetak_merk',[MerkBarangController::class, 'cetak_merk'])->name('cetak_merk');
 Route::get('/cetak_statusbarang',[StatusBarangController::class, 'cetak_statusbarang'])->name('cetak_statusbarang');
 Route::get('/cetak_servisbarang',[ServisBarangController::class, 'cetak_servisbarang'])->name('cetak_servisbarang');
-// routenya cetak nonaktif
+
 Route::get('/cetak_ruangan',[RuanganController::class, 'cetak_ruangan'])->name('cetak_ruangan');
 Route::get('/cetak_kategruangan',[KategoriRuanganController::class, 'cetak_kategruangan'])->name('cetak_kategruangan');
 Route::get('/cetak_gudang',[GedungController::class, 'cetak_gudang'])->name('cetak_gudang');
@@ -284,3 +287,4 @@ Route::get('/cetak_daftaruser',[UserController::class, 'cetak_daftaruser'])->nam
 Route::get('/cetak_jabatan',[JabatanController::class, 'cetak_jabatan'])->name('cetak_jabatan');
 Route::get('/cetak_barangrequestor',[BarangRequestorController::class, 'cetak_barangrequestor'])->name('cetak_barangrequestor');
 Route::get('/cetak_ruanganrequestor',[RuanganRequestorController::class, 'cetak_ruanganrequestor'])->name('cetak_ruanganrequestor');
+Route::get('/cetak_pinjamruangan',[PinjamRuanganController::class, 'cetak_pinjamruangan'])->name('cetak_pinjamruangan');

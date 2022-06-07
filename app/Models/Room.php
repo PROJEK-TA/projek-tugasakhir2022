@@ -22,6 +22,11 @@ class Room extends Model
         return $this->belongsTo(Building::class, 'id_building');
     }
 
+    public function peminjaman()
+    {
+        return $this->hasMany(BorrowRoom::class);
+    }
+
     // public function barang()
     // {
     //     return $this->hasMany(Product::class);
