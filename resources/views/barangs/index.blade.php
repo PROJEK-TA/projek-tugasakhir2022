@@ -37,7 +37,7 @@
                      @foreach($barang as $b)
                         <tr>
                            <td>{{$loop->iteration}}</td>
-                           <td>{{$b->id}}</td>
+                           <td>{{$b->kode_barang}}</td>
                            <td>{{$b->nama_barang}}</td>
                            <td>{{$b->merek->nama_merkbarang}}</td>
                            <td>{{$b->productcategory->nama_kategbarang}}</td>

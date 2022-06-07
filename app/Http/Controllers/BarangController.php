@@ -11,6 +11,7 @@ use App\Models\StatusProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use PDF;
+use DB;
 
 class BarangController extends Controller
 {
@@ -21,8 +22,22 @@ class BarangController extends Controller
      */
     public function index()
     {
+        $q = DB::table('products')->select(DB::raw('MAX(RIGHT(kode_barang,4)) as kode'));
+        $kd="";
+        if($q->count()>0)
+        {
+            foreach($q->get() as $k)
+            {
+                $tmp = ((int)$k->kode)+1;
+                $kd = sprintf("%04s", $tmp);
+            }
+        }
+        else{
+            $kd = "0001";
+        }
+
         $barang = Product::with('productcategory', 'merek','lokasi', 'departemen', 'status')->paginate();
-        return view('barangs.index', compact('barang'));
+        return view('barangs.index', compact('barang','kd'));
     }
 
     /**
@@ -37,7 +52,23 @@ class BarangController extends Controller
         $lokasi = LocationProduct::all();
         $departemen = Department::all();
         $status = StatusProduct::all();
-        return view ('barangs.addbarang', compact('prodcat', 'merk', 'lokasi', 'departemen', 'status'));
+
+
+        $q = DB::table('products')->select(DB::raw('MAX(RIGHT(kode_barang,4)) as kode'));
+        $kd="";
+        if($q->count()>0)
+        {
+            foreach($q->get() as $k)
+            {
+                $tmp = ((int)$k->kode)+1;
+                $kd = sprintf("%04s", $tmp);
+            }
+        }
+        else{
+            $kd = "0001";
+        }
+
+        return view ('barangs.addbarang', compact('prodcat', 'merk', 'lokasi', 'departemen', 'status', 'kd'));
     }
 
     /**
@@ -49,6 +80,7 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         Product::create([
+            'kode_barang' => $request->kode_barang,
             'nama_barang' => $request->nama_barang,
             'id_merkproduct' => $request->id_merkbarang,
             'id_productcategory' => $request->id_kategoribarang,
@@ -105,6 +137,7 @@ class BarangController extends Controller
     public function update(Request $request, $id)
     {
         $prod = Product::with('productcategory', 'merek','lokasi', 'departemen', 'status')->find($id);
+        $prod->kode_barang=$request->kode_barang;
         $prod->nama_barang=$request->nama_barang;
         $prod->id_merkproduct=$request->id_merkbarang;
         $prod->id_productcategory=$request->id_kategoribarang;
