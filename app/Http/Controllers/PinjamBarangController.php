@@ -8,6 +8,7 @@ use App\Models\BorrowProduct;
 use App\Models\MerkProduct;
 use App\Models\LocationProduct;
 use App\Models\Department;
+use PDF;
 
 class PinjamBarangController extends Controller
 {
@@ -127,5 +128,14 @@ class PinjamBarangController extends Controller
         $reqpinjam->delete();
         return redirect()->route('statuspinjambarang.index');
 
+    }
+
+    public function cetak_pinjambarang()
+    {
+        $reqpinjam = BorrowProduct::all();
+
+        view()->share('pinjambarang', $reqpinjam);
+        $pdf = PDF::loadview('barangs.pinjambarang-pdf')->setPaper('a4', 'landscape');
+        return $pdf->stream('data-pinjambarang.pdf');
     }
 }

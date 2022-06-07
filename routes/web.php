@@ -287,4 +287,5 @@ Route::get('/cetak_daftaruser',[UserController::class, 'cetak_daftaruser'])->nam
 Route::get('/cetak_jabatan',[JabatanController::class, 'cetak_jabatan'])->name('cetak_jabatan');
 Route::get('/cetak_barangrequestor',[BarangRequestorController::class, 'cetak_barangrequestor'])->name('cetak_barangrequestor');
 Route::get('/cetak_ruanganrequestor',[RuanganRequestorController::class, 'cetak_ruanganrequestor'])->name('cetak_ruanganrequestor');
+Route::get('/cetak_pinjambarang',[PinjamBarangController::class, 'cetak_pinjambarang'])->name('cetak_pinjambarang');
 Route::get('/cetak_pinjamruangan',[PinjamRuanganController::class, 'cetak_pinjamruangan'])->name('cetak_pinjamruangan');

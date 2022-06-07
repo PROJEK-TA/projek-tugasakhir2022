@@ -78,7 +78,7 @@
                   </tbody>
                     </table>
                     <br>
-                    <button type="button" class="btn btn-primary">Print</button>
+                    <a href="/cetak_pinjambarang" button type="button" class="btn btn-primary">Print</button></a>
                 </div>
             </div>
          </div>
