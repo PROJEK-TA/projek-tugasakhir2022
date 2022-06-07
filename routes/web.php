@@ -32,11 +32,15 @@ use App\Http\Controllers\NonaktifBarangController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
-        return view('layouts.index');
+        return view('home');
     });
 });
 
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::post('/reg', [UserController::class, 'register'])->name('user.register');
+
+
 
 
 // User
@@ -262,7 +266,6 @@ Route::resource('kelolausers', KelolaUserController::class);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 //Cetak Data
