@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\Building;
 use App\Models\BorrowRoom;
+use PDF;
 
 class PinjamRuanganController extends Controller
 {
@@ -115,6 +116,15 @@ class PinjamRuanganController extends Controller
         $reqpinjam->delete();
         return redirect()->route('statuspinjamruangan.index');
 
+    }
+
+    public function cetak_pinjamruangan()
+    {
+        $reqpinjam = BorrowRoom::all();
+
+        view()->share('pinjamruangan', $reqpinjam);
+        $pdf = PDF::loadview('ruangan.pinjamruangan-pdf')->setPaper('a4', 'landscape');
+        return $pdf->stream('data-pinjamruangan.pdf');
     }
 }
 
