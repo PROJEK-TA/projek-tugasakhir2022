@@ -38,7 +38,7 @@
                            <td>{{$rp->nama_peminjam}}</td>
                            <td>{{$rp->barang->nama_barang}}</td>
                            <td>{{$rp->merk->nama_merkbarang}}</td>
-                           <td>{{$rp->lokasi->nama_lokasi}}</td>
+                           <td>{{$rp->lokasi->nama_lokasibarang}}</td>
                            <td>{{$rp->departemen->nama_departemen}}</td>
                            <td>{{$rp->jumlah}}</td>
                            <td>{{$rp->deskripsi}}</td>
