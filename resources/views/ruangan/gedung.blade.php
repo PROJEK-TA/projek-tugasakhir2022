@@ -21,6 +21,7 @@
                            <th>NO</th>
                            <th>KODE GUDANG</th>
                            <th>GUDANG</th>
+                           <th>ALAMAT</th>
                            <th>AKSI</th>
                         </tr>
                      </thead>
@@ -30,6 +31,7 @@
                            <td>{{$loop->iteration}}</td>
                            <td>{{$bd->id}}</td>
                            <td>{{$bd->nama_gedung}}</td>
+                           <td>{{$bd->alamat}}</td>
                            <td>
                               <div class="flex align-items-center list-user-action">
                                  <a href="{{ route('gedung.edit', $bd->id) }}" class="btn btn-sm btn-icon btn-success">

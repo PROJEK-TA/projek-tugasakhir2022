@@ -10,7 +10,7 @@ class Building extends Model
     use HasFactory;
     protected $table = "buildings";
     protected $guarded=['id'];
-    protected $fillable=['id','nama_gedung'];
+    protected $fillable=['id','nama_gedung', 'alamat'];
 
     public function ruangan()
     {

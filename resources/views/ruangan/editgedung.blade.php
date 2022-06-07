@@ -14,8 +14,12 @@
                     @csrf
                     <input type="hidden" name="_method" value="PATCH">
                     <div class="form-group">
-                        <label class="form-label" for="nm_gedung"><b>Nama Gedung</b></label>
+                        <label class="form-label" for="nm_gedung"><b>Nama Gudang</b></label>
                         <input type="text" class="form-control" id="nm_gedung" name="gedung" value="{{ $building->nama_gedung }}" placeholder="Input nama gedung...">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="nm_gedung"><b>Alamat</b></label>
+                        <input type="text" class="form-control" id="nm_gedung" name="alamat" value="{{ $building->alamat}}" placeholder="Input alamat gedung...">
                     </div><br><br>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>

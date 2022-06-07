@@ -12,9 +12,13 @@
             <div class="card-body">
                 <form action="{{url('gedung')}}" method="POST">
                     @csrf
-                    <div class="form-group">
+                     <div class="form-group">
                         <label class="form-label" for="nm_gedung"><b>Nama Gudang</b></label>
                         <input type="text" class="form-control" id="nm_gedung" name="gedung" placeholder="Input nama gudang...">
+                    </div>
+                     <div class="form-group">
+                        <label class="form-label" for="nm_gedung"><b>Alamat</b></label>
+                        <input type="text" class="form-control" id="nm_gedung" name="alamat" placeholder="Input alamat gudang...">
                     </div><br><br>
                     <button type="submit" class="btn btn-primary">Tambahkan</button>
                 </form>
