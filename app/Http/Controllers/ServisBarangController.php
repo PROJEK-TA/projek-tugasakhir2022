@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ServiceProduct;
 use App\Models\Product;
 use App\Models\MerkProduct;
+use App\Models\LocationProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use PDF;
@@ -33,6 +34,7 @@ class ServisBarangController extends Controller
     {
         $barang = Product::all();
         $merk = MerkProduct::all();
+        $lokasi = LocationProduct::all();
 
         
         $q = DB::table('service_products')->select(DB::raw('MAX(RIGHT(kode_servis,4)) as kode'));
@@ -52,7 +54,7 @@ class ServisBarangController extends Controller
         
         
         
-        return view ('barangs.addservis', compact('barang','merk','kd'));
+        return view ('barangs.addservis', compact('barang','merk','lokasi','kd'));
     }
 
     /**
@@ -72,6 +74,7 @@ class ServisBarangController extends Controller
             'tanggal_kembali' => $request->tanggal_kembali,
             'id_product' => $request->id_product,
             'id_merk' => $request->id_merk,
+            'id_lokasi' => $request->id_lokasi,
 
 
         ]);
@@ -98,11 +101,12 @@ class ServisBarangController extends Controller
      */
     public function edit($id)
     {
-        $servis = ServiceProduct::with('barang', 'merk')->find($id);
+        $servis = ServiceProduct::with('barang', 'merk','lokasi')->find($id);
         $barang=Product::all();
         $merk=MerkProduct::all();
+        $lokasi=LocationProduct::all();
 
-        return view('barangs.editservisbarang', compact('servis','barang','merk'));
+        return view('barangs.editservisbarang', compact('servis','barang','merk','lokasi'));
     }
 
     /**
@@ -114,7 +118,7 @@ class ServisBarangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $servis=ServiceProduct::with('barang', 'merk')->find($id);
+        $servis=ServiceProduct::with('barang', 'merk','lokasi')->find($id);
         $servis->kode_servis=$request->kode_servis;
         $servis->deskripsi=$request->deskripsi;
         $servis->jumlah=$request->jumlah;
@@ -123,6 +127,7 @@ class ServisBarangController extends Controller
         $servis->tanggal_kembali=$request->tanggal_kembali;
         $servis->id_product=$request->id_product;
         $servis->id_merk=$request->id_merk;
+        $servis->id_lokasi=$request->id_lokasi;
         $servis->save();
         return redirect('/servis'); 
 
@@ -137,7 +142,7 @@ class ServisBarangController extends Controller
      */
     public function destroy($id)
     {
-        $servis = ServiceProduct::with('barang', 'merk')->find($id);
+        $servis = ServiceProduct::with('barang', 'merk','lokasi')->find($id);
         $servis->delete();
         return redirect()->route('servis.index');
     }
