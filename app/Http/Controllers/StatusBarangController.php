@@ -6,6 +6,7 @@ use App\Models\StatusProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use PDF;
+use DB;
 
 class StatusBarangController extends Controller
 {
@@ -27,7 +28,21 @@ class StatusBarangController extends Controller
      */
     public function create()
     {
-        return view('barangs.addstatus');
+        $q = DB::table('status_products')->select(DB::raw('MAX(RIGHT(kode_status,4)) as kode'));
+        $kd="";
+        if($q->count()>0)
+        {
+            foreach($q->get() as $k)
+            {
+                $tmp = ((int)$k->kode)+1;
+                $kd = sprintf("%04s", $tmp);
+            }
+        }
+        else{
+            $kd = "0001";
+        }
+       
+        return view('barangs.addstatus', compact('kd'));
     }
 
     /**
@@ -39,6 +54,7 @@ class StatusBarangController extends Controller
     public function store(Request $request)
     {
         $status=new StatusProduct();
+        $status->kode_status=$request->kode_status;
         $status->nama_statusbarang=$request->statusbarang;
         $status->save();
         return redirect('/statusbarang');
@@ -77,6 +93,7 @@ class StatusBarangController extends Controller
     public function update(Request $request, $id)
     {
         $status = StatusProduct::find($id);
+        $status->kode_status=$request->kode_status;
         $status->nama_statusbarang=$request->statusbarang;
         $status->save();
         return redirect('/statusbarang');

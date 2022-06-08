@@ -14,6 +14,10 @@
                     @csrf
                     <input type="hidden" name="_method" value="PATCH">
                     <div class="form-group">
+                        <label class="form-label" for="nm_kategori"><b>Kode Status</b></label>
+                        <input type="text" class="form-control"  name="kode_status" value="{{ $status->kode_status }}" readonly>
+                    </div>
+                    <div class="form-group">
                         <label class="form-label" for="nm_kategori"><b>Nama Status</b></label>
                         <input type="text" class="form-control"  name="statusbarang" value="{{ $status->nama_statusbarang }}" placeholder="Input nama kategori...">
                     </div><br><br>

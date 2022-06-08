@@ -13,6 +13,10 @@
                 <form action="{{route('statusbarang.store')}}" method="POST">
                     @csrf
                     <div class="form-group">
+                        <label class="form-label" for="nm_barang"><b>Kode Status</b></label>
+                        <input type="text" class="form-control" id="nama_barang" name="kode_status" value="{{ 'STS-'.$kd }}" readonly>
+                    </div>
+                    <div class="form-group">
                         <label class="form-label" for="nm_status"><b>Nama Status</b></label>
                         <input type="text" class="form-control" id="nm_status" name="statusbarang" placeholder="Input nama status...">
                     </div><br><br>
