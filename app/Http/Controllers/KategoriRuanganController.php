@@ -6,6 +6,7 @@ use App\Models\RoomCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use PDF;
+use DB;
 
 class KategoriRuanganController extends Controller
 {
@@ -27,8 +28,21 @@ class KategoriRuanganController extends Controller
      */
     public function create()
     {
-        $kategori = new RoomCategory;
-        return view('ruangan.addkatruangan', compact('kategori'));
+        $q = DB::table('room_categories')->select(DB::raw('MAX(RIGHT(kode_kategruangan,4)) as kode'));
+        $kd="";
+        if($q->count()>0)
+        {
+            foreach($q->get() as $k)
+            {
+                $tmp = ((int)$k->kode)+1;
+                $kd = sprintf("%04s", $tmp);
+            }
+        }
+        else{
+            $kd = "0001";
+        }
+
+        return view('ruangan.addkatruangan', compact('kd'));
     }
 
     /**
@@ -40,6 +54,7 @@ class KategoriRuanganController extends Controller
     public function store(Request $request)
     {
         $kategori=new RoomCategory();
+        $kategori->kode_kategruangan=$request->kode_kategruangan;
         $kategori->nama_kategruangan=$request->kategoriruangan;
         $kategori->save();
         return redirect('/kategoriruangan');
@@ -78,6 +93,7 @@ class KategoriRuanganController extends Controller
     public function update(Request $request, $id)
     {
         $kategori = RoomCategory::find($id);
+        $kategori->kode_kategruangan=$request->kode_kategruangan;
         $kategori->nama_kategruangan=$request->kategoriruangan;
         $kategori->save();
         return redirect('/kategoriruangan');

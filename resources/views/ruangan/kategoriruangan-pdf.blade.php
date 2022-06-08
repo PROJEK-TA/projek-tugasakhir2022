@@ -21,7 +21,7 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: #3383F1;
   color: white;
 }
 </style>
@@ -33,14 +33,14 @@
 <table id="roomcategory">
     <tr>
         <th>No</th>
-        <th>Kode Kategori Ruangan</th>
+        <th>Kode Kategori</th>
         <th>Nama Kategori Ruangan</th>
     </tr>
     <tr>
     @foreach($kategoriruangan as $k)
         <tr>
             <td>{{$loop->iteration}}</td>
-            <td>{{$k->id}}</td>
+            <td>{{$k->kode_kategruangan}}</td>
             <td>{{$k->nama_kategruangan}}</td>
         </tr>
     @endforeach
