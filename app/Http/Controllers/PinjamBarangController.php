@@ -9,6 +9,7 @@ use App\Models\MerkProduct;
 use App\Models\LocationProduct;
 use App\Models\Department;
 use PDF;
+use DB;
 
 class PinjamBarangController extends Controller
 {
@@ -35,7 +36,26 @@ class PinjamBarangController extends Controller
         $lokasi = LocationProduct::all();
         $departemen = Department::all();
 
-        return view('barangs.userpeminjamanbarang', compact('barang', 'merk', 'lokasi', 'departemen'));
+
+        
+        $q = DB::table('borrow_products')->select(DB::raw('MAX(RIGHT(kode_peminjaman,4)) as kode'));
+        $kd="";
+        if($q->count()>0)
+        {
+            foreach($q->get() as $k)
+            {
+                $tmp = ((int)$k->kode)+1;
+                $kd = sprintf("%04s", $tmp);
+            }
+        }
+        else{
+            $kd = "0001";
+        }
+        
+        
+        
+
+        return view('barangs.userpeminjamanbarang', compact('barang', 'merk', 'lokasi', 'departemen','kd'));
     }
 
     /**
@@ -48,6 +68,7 @@ class PinjamBarangController extends Controller
     {
         BorrowProduct::create([
             'id' => $request->id,
+            'kode_peminjaman' => $request->kode_peminjaman,
             'nama_peminjam' => $request->nama_peminjam,
             'id_product' => $request->nama_barang,
             'id_merk' => $request->merk_barang,
@@ -60,6 +81,21 @@ class PinjamBarangController extends Controller
             'status' => $request->status,
 
         ]);
+
+        $q = DB::table('borrow_products')->select(DB::raw('MAX(RIGHT(kode_peminjaman,4)) as kode'));
+        $kd="";
+        if($q->count()>0)
+        {
+            foreach($q->get() as $k)
+            {
+                $tmp = ((int)$k->kode)+1;
+                $kd = sprintf("%04s", $tmp);
+            }
+        }
+        else{
+            $kd = "0001";
+        }
+        
 
         return redirect()->route('statuspinjambarang.index')->with('toast_success', 'Data Berhasil Tersimpan !');
     }
@@ -102,7 +138,6 @@ class PinjamBarangController extends Controller
     public function update(Request $request, $id)
     {
         $reqpinjam = BorrowProduct::with('barang','merk','lokasi','departemen')->find($id);
-        // $reqpinjam->id->id;
         $reqpinjam->id_product=$request->nama_barang;
         $reqpinjam->id_merk=$request->merk_barang;
         $reqpinjam->id_lokasi=$request->nama_lokasi;

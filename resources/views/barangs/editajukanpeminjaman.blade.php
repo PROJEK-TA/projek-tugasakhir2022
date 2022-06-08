@@ -15,7 +15,7 @@
                     <input type="hidden" name="_method" value="PATCH">
                     <div class="form-group">
                         <label class="form-label" for="kd_peminjaman"><b>Kode Peminjaman</b></label>
-                        <input type="text" class="form-control" id="kd_peminjaman" name="id" value="{{ $reqpinjam->id }}" placeholder="dibangkitkan otomatis" readonly>
+                        <input type="text" class="form-control" id="kd_peminjaman" name="kode_peminjaman" value="{{ $reqpinjam->kode_peminjaman }}"  readonly>
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="nm_barang"><b>Nama Peminjam</b></label>

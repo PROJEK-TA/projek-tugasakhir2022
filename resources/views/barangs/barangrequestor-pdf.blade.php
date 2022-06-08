@@ -21,7 +21,7 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: #3383F1;
   color: white;
 }
 </style>
@@ -48,7 +48,7 @@
         @foreach($barangrequestor as $br)
             <tr>
                 <td>{{$loop->iteration}}</td>
-                <td>{{$br->id}}</td>
+                <td>{{$br->kode_barang}}</td>
                 <td>{{$br->nama_barang}}</td>
                 <td>{{$br->merek->nama_merkbarang}}</td>
                 <td>{{$br->productcategory->nama_kategbarang}}</td>

@@ -10,7 +10,7 @@ class BorrowProduct extends Model
     use HasFactory;
     protected $guarded=['id'];
     protected $table = "borrow_products";
-    protected $fillable= ['nama_peminjam', 'jumlah', 'deskripsi', 'tanggal_pinjam', 'tanggal_kembali','status', 'id_product', 'id_lokasi', 'id_merk', 'id_department'];
+    protected $fillable= ['kode_peminjaman','nama_peminjam', 'jumlah', 'deskripsi', 'tanggal_pinjam', 'tanggal_kembali','status', 'id_product', 'id_lokasi', 'id_merk', 'id_department'];
 
     public function barang() 
     {

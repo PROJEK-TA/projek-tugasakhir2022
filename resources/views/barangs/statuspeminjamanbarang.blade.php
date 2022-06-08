@@ -34,7 +34,7 @@
                      @foreach($reqpinjam as $rp)
                         <tr>
                            <td>{{$loop->iteration}}</td>
-                           <td>{{$rp->id}}</td>
+                           <td>{{$rp->kode_peminjaman}}</td>
                            <td>{{$rp->nama_peminjam}}</td>
                            <td>{{$rp->barang->nama_barang}}</td>
                            <td>{{$rp->merk->nama_merkbarang}}</td>
