@@ -8,6 +8,7 @@ use App\Models\MerkProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use PDF;
+use DB;
 
 class ServisBarangController extends Controller
 {
@@ -33,7 +34,25 @@ class ServisBarangController extends Controller
         $barang = Product::all();
         $merk = MerkProduct::all();
 
-        return view ('barangs.addservis', compact('barang','merk'));
+        
+        $q = DB::table('service_products')->select(DB::raw('MAX(RIGHT(kode_servis,4)) as kode'));
+        $kd="";
+        if($q->count()>0)
+        {
+            foreach($q->get() as $k)
+            {
+                $tmp = ((int)$k->kode)+1;
+                $kd = sprintf("%04s", $tmp);
+            }
+        }
+        else{
+            $kd = "0001";
+        }
+        
+        
+        
+        
+        return view ('barangs.addservis', compact('barang','merk','kd'));
     }
 
     /**
@@ -45,6 +64,7 @@ class ServisBarangController extends Controller
     public function store(Request $request)
     {
         ServiceProduct::create([
+            'kode_servis' => $request->kode_servis,
             'deskripsi' => $request->deskripsi,
             'jumlah' => $request->jumlah,
             'nama_petugas' => $request->nama_petugas,
@@ -95,6 +115,7 @@ class ServisBarangController extends Controller
     public function update(Request $request, $id)
     {
         $servis=ServiceProduct::with('barang', 'merk')->find($id);
+        $servis->kode_servis=$request->kode_servis;
         $servis->deskripsi=$request->deskripsi;
         $servis->jumlah=$request->jumlah;
         $servis->nama_petugas=$request->nama_petugas;

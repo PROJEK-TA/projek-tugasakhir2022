@@ -34,7 +34,7 @@
                      @foreach($servis as $s)
                         <tr>
                            <td>{{$loop->iteration}}</td>
-                           <td>{{$s->id}}</td>
+                           <td>{{$s->kode_servis}}</td>
                            <td>{{$s->barang->nama_barang}}</td>
                            <td>{{$s->merk->nama_merkbarang}}</td>
                            <td>{{$s->deskripsi}}</td>

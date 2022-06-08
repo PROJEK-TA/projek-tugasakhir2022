@@ -13,10 +13,10 @@
             <form action="{{ url('servis/'.$servis->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="_method" value="PATCH">
-                    <!-- <div class="form-group">
+                    <div class="form-group">
                         <label class="form-label" for="kd_servis"><b>Kode Servis</b></label>
-                        <input type="text" class="form-control" id="kd_servis" placeholder="Input kode servis...">
-                    </div> -->
+                        <input type="text" class="form-control" id="kd_servis" name="kode_servis" value="{{ $servis->kode_servis }}" readonly>
+                    </div>
                     <div class="form-group">
                         <label class="form-label"><b>Nama Barang</b></label>
                         <select class="form-select mb-3 shadow-none" name="id_product" id="id_product">
@@ -60,4 +60,6 @@
             </div>
          </div>
       </div>
+</div>
+</div>
 @endsection
