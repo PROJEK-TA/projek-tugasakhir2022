@@ -145,6 +145,15 @@ class NonaktifBarangController extends Controller
         return redirect()->route('nonaktif.index');
     }
 
+    public function cetak_barangnonaktif()
+    {
+        $nonaktif = NonaktifProduct::all();
+
+        view()->share('barangnonaktif', $nonaktif);
+        $pdf = PDF::loadview('barangs.nonaktif-pdf')->setPaper('a4', 'landscape');
+        return $pdf->stream('data-barangnonaktif.pdf');
+    }
+
     public function __construct()
     {
         //$this->middleware('auth');

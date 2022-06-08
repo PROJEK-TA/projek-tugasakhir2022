@@ -74,10 +74,12 @@ Route::get('/editusers', function () {
     return view('users.edit');
 });
 
-Route::get('/profil', function () {
+Route::get('/userprofile', function () {
     return view('users.userprofile');
 });
 
+//userprofile
+// Route::get('userprofile', 'UserProfileController@index');
 
 // Barang
 
@@ -278,7 +280,7 @@ Route::get('/cetak_lokasibarang',[LokasiBarangController::class, 'cetak_lokasiba
 Route::get('/cetak_merk',[MerkBarangController::class, 'cetak_merk'])->name('cetak_merk');
 Route::get('/cetak_statusbarang',[StatusBarangController::class, 'cetak_statusbarang'])->name('cetak_statusbarang');
 Route::get('/cetak_servisbarang',[ServisBarangController::class, 'cetak_servisbarang'])->name('cetak_servisbarang');
-
+Route::get('/cetak_barangnonaktif',[NonaktifBarangController::class, 'cetak_barangnonaktif'])->name('cetak_barangnonaktif');
 Route::get('/cetak_ruangan',[RuanganController::class, 'cetak_ruangan'])->name('cetak_ruangan');
 Route::get('/cetak_kategruangan',[KategoriRuanganController::class, 'cetak_kategruangan'])->name('cetak_kategruangan');
 Route::get('/cetak_gudang',[GedungController::class, 'cetak_gudang'])->name('cetak_gudang');
