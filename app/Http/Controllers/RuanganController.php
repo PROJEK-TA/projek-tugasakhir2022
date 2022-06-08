@@ -8,6 +8,7 @@ use App\Models\Building;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use PDF;
+use DB;
 
 class RuanganController extends Controller
 {
@@ -18,8 +19,22 @@ class RuanganController extends Controller
      */
     public function index()
     {
+        $q = DB::table('rooms')->select(DB::raw('MAX(RIGHT(kode_ruangan,4)) as kode'));
+        $kd="";
+        if($q->count()>0)
+        {
+            foreach($q->get() as $k)
+            {
+                $tmp = ((int)$k->kode)+1;
+                $kd = sprintf("%04s", $tmp);
+            }
+        }
+        else{
+            $kd = "0001";
+        }
+
         $ruangan = Room::with('roomcategory','building')->paginate();
-        return view('ruangan.index', compact('ruangan'));
+        return view('ruangan.index', compact('ruangan', 'kd'));
     }
 
     /**
@@ -29,9 +44,23 @@ class RuanganController extends Controller
      */
     public function create()
     {
+        $q = DB::table('rooms')->select(DB::raw('MAX(RIGHT(kode_ruangan,4)) as kode'));
+        $kd="";
+        if($q->count()>0)
+        {
+            foreach($q->get() as $k)
+            {
+                $tmp = ((int)$k->kode)+1;
+                $kd = sprintf("%04s", $tmp);
+            }
+        }
+        else{
+            $kd = "0001";
+        }
+
         $roomcat = RoomCategory::all();
         $building = Building::all();
-        return view ('ruangan.add', compact('roomcat', 'building'));
+        return view ('ruangan.add', compact('roomcat', 'building', 'kd'));
     }
 
     /**
@@ -43,6 +72,7 @@ class RuanganController extends Controller
     public function store(Request $request)
     {
         Room::create([
+            'kode_ruangan' => $request->kode_ruangan,
             'nama_ruangan' => $request->nama_ruangan,
             'id_roomcategory' => $request->id_kategoriruangan,
             'id_building' => $request->id_gudang,
@@ -87,6 +117,7 @@ class RuanganController extends Controller
     public function update(Request $request, $id)
     {
         $room = Room::with('roomcategory','building')->find($id);
+        $room->kode_ruangan=$request->kode_ruangan;
         $room->nama_ruangan=$request->nama_ruangan;
         $room->id_roomcategory=$request->id_kategoriruangan;
         $room->id_building=$request->id_gudang;

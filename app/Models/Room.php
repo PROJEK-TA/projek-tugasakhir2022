@@ -10,7 +10,7 @@ class Room extends Model
     use HasFactory;
     protected $guarded=['id'];
     protected $table = "rooms";
-    protected $fillable= ['id', 'nama_ruangan', 'id_roomcategory', 'id_building'];
+    protected $fillable= ['kode_ruangan', 'nama_ruangan', 'id_roomcategory', 'id_building'];
 
     public function roomcategory()
     {
