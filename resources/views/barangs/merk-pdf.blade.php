@@ -21,7 +21,7 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: #3383F1;
   color: white;
 }
 </style>
@@ -40,7 +40,7 @@
         @foreach($merk as $m)
             <tr>
                 <td>{{$loop->iteration}}</td>
-                <td>{{$m->id}}</td>
+                <td>{{$m->kode_merk}}</td>
                 <td>{{$m->nama_merkbarang}}</td>
             </tr>
         @endforeach
