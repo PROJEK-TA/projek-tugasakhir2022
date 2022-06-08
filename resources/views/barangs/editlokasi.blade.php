@@ -14,7 +14,11 @@
                     @csrf
                     <input type="hidden" name="_method" value="PATCH">
                     <div class="form-group">
-                        <label class="form-label" for="nm_kategori"><b>Nama Kategori</b></label>
+                        <label class="form-label" for="nm_barang"><b>Kode Lokasi</b></label>
+                        <input type="text" class="form-control" id="nama_barang" name="kode_lokasi" value="{{ $lokasi->kode_lokasi }}" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="nm_kategori"><b>Nama Lokasi</b></label>
                         <input type="text" class="form-control" id="nm_kategori" name="lokasi" value="{{ $lokasi->nama_lokasibarang }}" placeholder="Input lokasi...">
                     </div><br><br>
                     <button type="submit" class="btn btn-primary">Update</button>

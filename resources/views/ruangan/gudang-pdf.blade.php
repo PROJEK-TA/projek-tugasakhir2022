@@ -35,6 +35,7 @@
         <th>No</th>
         <th>Kode Gudang</th>
         <th>Nama Gudang</th>
+        <th>Alamat</th>
     </tr>
     <tr>
       @foreach($gedung as $bd)
@@ -42,6 +43,7 @@
           <td>{{$loop->iteration}}</td>
           <td>{{$bd->id}}</td>
           <td>{{$bd->nama_gedung}}</td>
+          <td>{{$bd->alamat}}</td>
         </tr>
     @endforeach
 </table>

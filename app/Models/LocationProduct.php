@@ -10,7 +10,7 @@ class LocationProduct extends Model
     use HasFactory;
     protected $table = "location_products";
     protected $guarded=['id'];
-    protected $fillable=['id','nama_lokasibarang'];
+    protected $fillable=['kode_lokasi','nama_lokasibarang'];
 
     public function barang()
     {

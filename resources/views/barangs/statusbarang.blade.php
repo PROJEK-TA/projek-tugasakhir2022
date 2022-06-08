@@ -27,7 +27,7 @@
                         @foreach($status as $s)
                         <tr>
                            <td>{{$loop->iteration}}</td>
-                           <td>{{$s->id}}</td>
+                           <td>{{$s->kode_status}}</td>
                            <td>{{$s->nama_statusbarang}}</td>
                            <td>
                            <div class="flex align-items-center list-user-action">

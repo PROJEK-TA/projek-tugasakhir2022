@@ -21,7 +21,7 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: #3383F1;
   color: white;
 }
 </style>
@@ -36,6 +36,7 @@
         <th>KODE SERVIS</th>
         <th>NAMA BARANG</th>
         <th>MERK</th>
+        <th>LOKASI</th>
         <th>DESKRIPSI</th>
         <th>JUMLAH</th>
         <th>NAMA PETUGAS</th>
@@ -46,9 +47,10 @@
         @foreach($servisbarang as $s)
             <tr>
                 <td>{{$loop->iteration}}</td>
-                <td>{{$s->id}}</td>
+                <td>{{$s->kode_servis}}</td>
                 <td>{{$s->barang->nama_barang}}</td>
                 <td>{{$s->merk->nama_merkbarang}}</td>
+                <td>{{$s->lokasi->nama_lokasibarang}}</td>
                 <td>{{$s->deskripsi}}</td>
                 <td>{{$s->jumlah}}</td>
                 <td>{{$s->nama_petugas}}</td>

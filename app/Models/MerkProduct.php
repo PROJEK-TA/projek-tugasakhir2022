@@ -10,7 +10,7 @@ class MerkProduct extends Model
     use HasFactory;
     protected $table = "merk_products";
     protected $guarded=['id'];
-    protected $fillable=['id','nama_merkbarang'];
+    protected $fillable=['kode_merk','nama_merkbarang'];
 
     public function barang()
     {

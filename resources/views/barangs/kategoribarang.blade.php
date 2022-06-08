@@ -28,7 +28,7 @@
                         @foreach($kategori as $k)
                         <tr>
                            <td>{{$loop->iteration}}</td>
-                           <td>{{$k->id}}</td>
+                           <td>{{$k->kode_kategori}}</td>
                            <td>{{$k->nama_kategbarang}}</td>
                            <td>
                            <div class="flex align-items-center list-user-action">

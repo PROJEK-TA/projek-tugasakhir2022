@@ -28,7 +28,7 @@
                         @foreach($lokasi as $l)
                         <tr>
                            <td>{{$loop->iteration}}</td>
-                           <td>{{$l->id}}</td>
+                           <td>{{$l->kode_lokasi}}</td>
                            <td>{{$l->nama_lokasibarang}}</td>
                            <td>
                            <div class="flex align-items-center list-user-action">

@@ -13,10 +13,10 @@
             <form action="{{ url('servis/'.$servis->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="_method" value="PATCH">
-                    <!-- <div class="form-group">
+                    <div class="form-group">
                         <label class="form-label" for="kd_servis"><b>Kode Servis</b></label>
-                        <input type="text" class="form-control" id="kd_servis" placeholder="Input kode servis...">
-                    </div> -->
+                        <input type="text" class="form-control" id="kd_servis" name="kode_servis" value="{{ $servis->kode_servis }}" readonly>
+                    </div>
                     <div class="form-group">
                         <label class="form-label"><b>Nama Barang</b></label>
                         <select class="form-select mb-3 shadow-none" name="id_product" id="id_product">
@@ -30,9 +30,18 @@
                         <label class="form-label"><b>Merek Barang</b></label>
                         <select class="form-select mb-3 shadow-none" name="id_merk" id="id_merk">
                             <option disabled value>Pilih Merk...</option>
-                            <option value="{{ $servis->id_merkproduct }}">{{ $servis->merk->nama_merkbarang }}</option>
+                            <option value="{{ $servis->id_merk }}">{{ $servis->merk->nama_merkbarang }}</option>
                             @foreach ($merk as $m)
                             <option value="{{ $m->id }}">{{ $m->nama_merkbarang }}</option>
+                            @endforeach
+                        </select>
+                        <div class="form-group">
+                        <label class="form-label"><b>Lokasi Barang</b></label>
+                        <select class="form-select mb-3 shadow-none" name="id_lokasi" id="id_lokasi">
+                            <option disabled value>Pilih Lokasi...</option>
+                            <option value="{{ $servis->id_lokasi }}">{{ $servis->lokasi->nama_lokasibarang }}</option>
+                            @foreach ($lokasi as $l)
+                            <option value="{{ $l->id }}">{{ $l->nama_lokasibarang }}</option>
                             @endforeach
                         </select>
                     <div class="form-group">
@@ -60,4 +69,7 @@
             </div>
          </div>
       </div>
+</div>
+</div>
+</div>
 @endsection

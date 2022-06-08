@@ -6,6 +6,8 @@ use App\Models\LocationProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use PDF;
+use DB;
+
 
 class LokasiBarangController extends Controller
 {
@@ -27,7 +29,23 @@ class LokasiBarangController extends Controller
      */
     public function create()
     {
-        return view('barangs.addlokasi');
+       
+        $q = DB::table('location_products')->select(DB::raw('MAX(RIGHT(kode_lokasi,4)) as kode'));
+        $kd="";
+        if($q->count()>0)
+        {
+            foreach($q->get() as $k)
+            {
+                $tmp = ((int)$k->kode)+1;
+                $kd = sprintf("%04s", $tmp);
+            }
+        }
+        else{
+            $kd = "0001";
+        }
+       
+    
+        return view('barangs.addlokasi', compact('kd'));
     }
 
     /**
@@ -39,6 +57,7 @@ class LokasiBarangController extends Controller
     public function store(Request $request)
     {
         $lokasi=new LocationProduct();
+        $lokasi->kode_lokasi=$request->kode_lokasi;
         $lokasi->nama_lokasibarang=$request->lokasi;
         $lokasi->save();
         return redirect('/lokasibarang');
@@ -63,6 +82,9 @@ class LokasiBarangController extends Controller
      */
     public function edit($id)
     {
+       
+       
+
         $lokasi = LocationProduct::find($id);
         return view ('barangs.editlokasi', compact('lokasi'));
     }
@@ -77,6 +99,7 @@ class LokasiBarangController extends Controller
     public function update(Request $request, $id)
     {
         $lokasi = LocationProduct::find($id);
+        $lokasi->kode_lokasi=$request->kode_lokasi;
         $lokasi->nama_lokasibarang=$request->lokasi;
         $lokasi->save();
         return redirect('/lokasibarang');

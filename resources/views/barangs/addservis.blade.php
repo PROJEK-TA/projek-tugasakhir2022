@@ -12,10 +12,10 @@
             <div class="card-body">
                 <form action="{{route('servis.store')}}" method="POST">
                     @csrf
-                    <!-- <div class="form-group">
+                    <div class="form-group">
                         <label class="form-label" for="kd_servis"><b>Kode Servis</b></label>
-                        <input type="text" class="form-control" id="kd_servis" placeholder="Input kode servis...">
-                    </div> -->
+                        <input type="text" class="form-control" id="kd_servis" name="kode_servis"  value="{{ 'SRV-'.date('dmY').'-'.$kd }}" readonly>
+                    </div>
                     <div class="form-group">
                         <label class="form-label" for="nm_barang"><b>Nama Barang</b></label>
                         <select class="form-select mb-3 shadow-none" name="id_product" id="id_product">
@@ -31,6 +31,15 @@
                             <option selected="">Pilih Merk...</option>
                             @foreach ($merk as $m)
                             <option value="{{ $m->id }}">{{ $m->nama_merkbarang }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="mr_barang"><b>Lokasi Barang</b></label>
+                        <select class="form-select mb-3 shadow-none" name="id_lokasi" id="id_lokasi">
+                            <option selected="">Pilih Lokasi...</option>
+                            @foreach ($lokasi as $l)
+                            <option value="{{ $l->id }}">{{ $l->nama_lokasibarang }}</option>
                             @endforeach
                         </select>
                     </div>

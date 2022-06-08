@@ -41,6 +41,7 @@ class GedungController extends Controller
     {
         $building=new Building();
         $building->nama_gedung=$request->gedung;
+        $building->alamat=$request->alamat;
         $building->save();
         return redirect('/gedung');
     }
@@ -79,6 +80,7 @@ class GedungController extends Controller
     {
         $building = Building::find($id);
         $building->nama_gedung=$request->gedung;
+        $building->alamat=$request->alamat;
         $building->save();
         return redirect('/gedung');
     }

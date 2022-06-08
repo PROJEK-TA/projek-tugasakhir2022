@@ -6,6 +6,7 @@ use App\Models\MerkProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use PDF;
+use DB;
 
 class MerkBarangController extends Controller
 {
@@ -27,7 +28,24 @@ class MerkBarangController extends Controller
      */
     public function create()
     {
-        return view('barangs.addmerk');
+        
+        $q = DB::table('merk_products')->select(DB::raw('MAX(RIGHT(kode_merk,4)) as kode'));
+        $kd="";
+        if($q->count()>0)
+        {
+            foreach($q->get() as $k)
+            {
+                $tmp = ((int)$k->kode)+1;
+                $kd = sprintf("%04s", $tmp);
+            }
+        }
+        else{
+            $kd = "0001";
+        }
+        
+        
+        
+        return view('barangs.addmerk', compact('kd'));
     }
 
     /**
@@ -39,6 +57,7 @@ class MerkBarangController extends Controller
     public function store(Request $request)
     {
         $merk=new MerkProduct();
+        $merk->kode_merk=$request->kode_merk;
         $merk->nama_merkbarang=$request->merk;
         $merk->save();
         return redirect('/merkbarang');
@@ -77,6 +96,7 @@ class MerkBarangController extends Controller
     public function update(Request $request, $id)
     {
         $merk = MerkProduct::find($id);
+        $merk->kode_merk=$request->kode_merk;
         $merk->nama_merkbarang=$request->merk;
         $merk->save();
         return redirect('/merkbarang');

@@ -10,7 +10,7 @@ class StatusProduct extends Model
     use HasFactory;
     protected $table = "status_products";
     protected $guarded=['id'];
-    protected $fillable=['id','nama_statusbarang'];
+    protected $fillable=['kode_status','nama_statusbarang'];
     
     public function barang()
     {

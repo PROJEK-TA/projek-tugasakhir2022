@@ -28,7 +28,7 @@
                         @foreach($merk as $m)
                         <tr>
                            <td>{{$loop->iteration}}</td>
-                           <td>{{$m->id}}</td>
+                           <td>{{$m->kode_merk}}</td>
                            <td>{{$m->nama_merkbarang}}</td>
                            <td>
                            <div class="flex align-items-center list-user-action">
