@@ -74,10 +74,12 @@ Route::get('/editusers', function () {
     return view('users.edit');
 });
 
-Route::get('/profil', function () {
+Route::get('/userprofile', function () {
     return view('users.userprofile');
 });
 
+//userprofile
+// Route::get('userprofile', 'UserProfileController@index');
 
 // Barang
 
