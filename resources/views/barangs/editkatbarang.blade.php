@@ -14,6 +14,10 @@
                     @csrf
                     <input type="hidden" name="_method" value="PATCH">
                     <div class="form-group">
+                        <label class="form-label" for="nm_kategori"><b>Kode Kategori</b></label>
+                        <input type="text" class="form-control" id="nm_kategori" name="kode_kategori" value="{{ $katbar->kode_kategori }}" readonly>
+                    </div>
+                    <div class="form-group">
                         <label class="form-label" for="nm_kategori"><b>Nama Kategori</b></label>
                         <input type="text" class="form-control" id="nm_kategori" name="kategoribarang" value="{{ $katbar->nama_kategbarang }}" placeholder="Input nama kategori...">
                     </div><br><br>

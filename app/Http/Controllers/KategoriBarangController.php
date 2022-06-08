@@ -7,6 +7,8 @@ use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use PDF;
+use DB;
+
 
 class KategoriBarangController extends Controller
 {
@@ -29,7 +31,22 @@ class KategoriBarangController extends Controller
      */
     public function create()
     {
-        return view('barangs.addkatbarang');
+        $q = DB::table('product_categories')->select(DB::raw('MAX(RIGHT(kode_kategori,4)) as kode'));
+        $kd="";
+        if($q->count()>0)
+        {
+            foreach($q->get() as $k)
+            {
+                $tmp = ((int)$k->kode)+1;
+                $kd = sprintf("%04s", $tmp);
+            }
+        }
+        else{
+            $kd = "0001";
+        }
+        
+        
+        return view('barangs.addkatbarang', compact('kd'));
     }
 
     /**
@@ -41,6 +58,7 @@ class KategoriBarangController extends Controller
     public function store(Request $request)
     {
         $p=new ProductCategory();
+        $p->kode_kategori=$request->kode_kategori;
         $p->nama_kategbarang=$request->kategoribarang;
         $p->save();
         return redirect('/kategoribarang');
@@ -79,6 +97,7 @@ class KategoriBarangController extends Controller
     public function update(Request $request, $id)
     {
         $katbar = ProductCategory::find($id);
+        $katbar->kode_kategori=$request->kode_kategori;
         $katbar->nama_kategbarang=$request->kategoribarang;
         $katbar->save();
         return redirect('/kategoribarang');
