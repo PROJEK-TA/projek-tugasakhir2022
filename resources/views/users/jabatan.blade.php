@@ -28,7 +28,7 @@
                         @foreach($peran as $pr)
                         <tr>
                            <td>{{$loop->iteration}}</td>
-                           <td>{{$pr->id}}</td>
+                           <td>{{$pr->kode_jabatan}}</td>
                            <td>{{$pr->nama_jabatan}}</td>
                            <td>
                               <div class="flex align-items-center list-user-action">

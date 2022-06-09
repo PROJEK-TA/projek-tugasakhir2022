@@ -6,6 +6,7 @@ use App\Models\Jabatan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use PDF;
+use DB;
 
 class  JabatanController extends Controller
 {
@@ -27,8 +28,21 @@ class  JabatanController extends Controller
      */
     public function create()
     {
-        $peran = new Jabatan;
-        return view ('users.addjabatan', compact('peran'));
+        $q = DB::table('jabatan')->select(DB::raw('MAX(RIGHT(kode_jabatan,4)) as kode'));
+        $kd="";
+        if($q->count()>0)
+        {
+            foreach($q->get() as $k)
+            {
+                $tmp = ((int)$k->kode)+1;
+                $kd = sprintf("%04s", $tmp);
+            }
+        }
+        else{
+            $kd = "0001";
+        }
+
+        return view ('users.addjabatan', compact('kd'));
     }
 
     /**
@@ -40,6 +54,7 @@ class  JabatanController extends Controller
     public function store(Request $request)
     {
         $peran=new Jabatan();
+        $peran->kode_jabatan=$request->kode_jabatan;
         $peran->nama_jabatan=$request->jabatan;
         $peran->save();
         return redirect('/jabatanuser');
@@ -78,6 +93,7 @@ class  JabatanController extends Controller
     public function update(Request $request, $id)
     {
         $peran = Jabatan::find($id);
+        $peran->kode_jabatan=$request->kode_jabatan;
         $peran->nama_jabatan=$request->jabatan;
         $peran->save();
         return redirect('/jabatanuser');
