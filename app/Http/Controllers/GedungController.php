@@ -6,6 +6,7 @@ use App\Models\Building;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use PDF;
+use DB;
 
 class GedungController extends Controller
 {
@@ -27,8 +28,21 @@ class GedungController extends Controller
      */
     public function create()
     {
-        $building = new Building;
-        return view ('ruangan.addgedung', compact('building'));
+        $q = DB::table('buildings')->select(DB::raw('MAX(RIGHT(kode_gudang,4)) as kode'));
+        $kd="";
+        if($q->count()>0)
+        {
+            foreach($q->get() as $k)
+            {
+                $tmp = ((int)$k->kode)+1;
+                $kd = sprintf("%04s", $tmp);
+            }
+        }
+        else{
+            $kd = "0001";
+        }
+        
+        return view ('ruangan.addgedung', compact('kd'));
     }
 
     /**
@@ -40,6 +54,7 @@ class GedungController extends Controller
     public function store(Request $request)
     {
         $building=new Building();
+        $building->kode_gudang=$request->kode_gudang;
         $building->nama_gedung=$request->gedung;
         $building->alamat=$request->alamat;
         $building->save();
@@ -79,6 +94,7 @@ class GedungController extends Controller
     public function update(Request $request, $id)
     {
         $building = Building::find($id);
+        $building->kode_gudang=$request->kode_gudang;
         $building->nama_gedung=$request->gedung;
         $building->alamat=$request->alamat;
         $building->save();

@@ -21,7 +21,7 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: #3383F1;
   color: white;
 }
 </style>
@@ -41,7 +41,7 @@
       @foreach($gedung as $bd)
         <tr>
           <td>{{$loop->iteration}}</td>
-          <td>{{$bd->id}}</td>
+          <td>{{$bd->kode_gudang}}</td>
           <td>{{$bd->nama_gedung}}</td>
           <td>{{$bd->alamat}}</td>
         </tr>
