@@ -10,14 +10,18 @@
                </div>
             </div>
             <div class="card-body">
-                <form action="{{url('departemen')}}" method="POST">
-                    @csrf
-                    <div class="form-group">
-                        <label class="form-label" for="nm_departemen"><b>Nama Departemen</b></label>
-                        <input type="text" class="form-control" id="nm_departemen" name="departemen" placeholder="Input nama departemen...">
-                    </div><br><br>
-                    <button type="submit" class="btn btn-primary">Tambahkan</button>
-                </form>
+               <form action="{{url('departemen')}}" method="POST">
+                  @csrf
+                  <div class="form-group">
+                     <label class="form-label" for="kd_departemen"><b>Kode Departemen</b></label>
+                     <input type="text" class="form-control" id="kd_departemen" name="kode_departemen" value="{{ 'DPT-'.$kd }}" readonly>
+                  </div>
+                  <div class="form-group">
+                     <label class="form-label" for="nm_departemen"><b>Nama Departemen</b></label>
+                     <input type="text" class="form-control" id="nm_departemen" name="departemen" placeholder="Input nama departemen...">
+                  </div><br><br>
+                  <button type="submit" class="btn btn-primary">Tambahkan</button>
+               </form>
             </div>
          </div>
       </div>

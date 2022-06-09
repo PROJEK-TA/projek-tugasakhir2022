@@ -21,7 +21,7 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: #3383F1;
   color: white;
 }
 </style>
@@ -37,10 +37,10 @@
         <th>Nama Departemen</th>
     </tr>
     <tr>
-    @foreach($department as $dp)
+    @foreach($departemen as $dp)
         <tr>
             <td>{{$loop->iteration}}</td>
-            <td>{{$dp->id}}</td>
+            <td>{{$dp->kode_departemen}}</td>
             <td>{{$dp->nama_departemen}}</td>
         </tr>
     @endforeach
