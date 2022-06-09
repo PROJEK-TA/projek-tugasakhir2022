@@ -35,7 +35,7 @@
                         <label class="form-label"><b>Gudang</b></label>
                         <select class="form-select mb-3 shadow-none" name="id_gudang" id="id_gudang">
                         <option disabled value>Pilih Gudang...</option>
-                            <option value="{{ $room->id_gudang }}">{{ $room->building->nama_gedung }}</option>
+                            <option value="{{ $room->id_building }}">{{ $room->building->nama_gedung }}</option>
                             @foreach ($gudang as $gd)
                             <option value="{{ $gd->id }}">{{ $gd->nama_gedung }}</option>
                             @endforeach
