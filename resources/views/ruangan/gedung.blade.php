@@ -29,7 +29,7 @@
                         @foreach($building as $bd)
                         <tr>
                            <td>{{$loop->iteration}}</td>
-                           <td>{{$bd->id}}</td>
+                           <td>{{$bd->kode_gudang}}</td>
                            <td>{{$bd->nama_gedung}}</td>
                            <td>{{$bd->alamat}}</td>
                            <td>

@@ -28,7 +28,7 @@
                         @foreach($department as $dp)
                         <tr>
                            <td>{{$loop->iteration}}</td>
-                           <td>{{$dp->id}}</td>
+                           <td>{{$dp->kode_departemen}}</td>
                            <td>{{$dp->nama_departemen}}</td>
                            <td>
                               <div class="flex align-items-center list-user-action">

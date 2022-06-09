@@ -6,6 +6,7 @@ use App\Models\Department;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use PDF;
+use DB;
 
 class DepartemenController extends Controller
 {
@@ -27,8 +28,21 @@ class DepartemenController extends Controller
      */
     public function create()
     {
-        $department = new Department;
-        return view ('departemen.add', compact('department'));
+        $q = DB::table('departments')->select(DB::raw('MAX(RIGHT(kode_departemen,4)) as kode'));
+        $kd="";
+        if($q->count()>0)
+        {
+            foreach($q->get() as $k)
+            {
+                $tmp = ((int)$k->kode)+1;
+                $kd = sprintf("%04s", $tmp);
+            }
+        }
+        else{
+            $kd = "0001";
+        }
+
+        return view ('departemen.add', compact('kd'));
     }
 
     /**
@@ -40,6 +54,7 @@ class DepartemenController extends Controller
     public function store(Request $request)
     {
         $department=new Department();
+        $department->kode_departemen=$request->kode_departemen;
         $department->nama_departemen=$request->departemen;
         $department->save();
         return redirect('/departemen');
@@ -78,6 +93,7 @@ class DepartemenController extends Controller
     public function update(Request $request, $id)
     {
         $department = Department::find($id);
+        $department->kode_departemen=$request->kode_departemen;
         $department -> nama_departemen=$request->departemen;
         $department -> save();
         return redirect('/departemen');
@@ -94,6 +110,15 @@ class DepartemenController extends Controller
         $department = Department::find($id);
         $department->delete();
         return redirect()->route('departemen.index');
+    }
+
+    public function cetak_departemen()
+    {
+        $department = Department::all();
+
+        view()->share('departemen', $department);
+        $pdf = PDF::loadview('departemen.datadepartemen-pdf');
+        return $pdf->stream('data-departemen.pdf');
     }
     
     public function __construct()

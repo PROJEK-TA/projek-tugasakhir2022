@@ -21,7 +21,7 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: #3383F1;
   color: white;
 }
 </style>
@@ -40,7 +40,7 @@
         @foreach($jabatanuser as $pr)
         <tr>
             <td>{{$loop->iteration}}</td>
-            <td>{{$pr->id}}</td>
+            <td>{{$pr->kode_jabatan}}</td>
             <td>{{$pr->nama_jabatan}}</td>
         </tr>
     @endforeach

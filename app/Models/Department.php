@@ -9,7 +9,7 @@ class Department extends Model
 {
     use HasFactory;
     protected $guarded=['id'];
-    protected $fillable=['id','nama_departemen'];
+    protected $fillable=['kode_departemen','nama_departemen'];
 
     public function barang()
     {

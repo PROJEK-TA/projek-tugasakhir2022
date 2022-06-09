@@ -10,18 +10,22 @@
                </div>
             </div>
             <div class="card-body">
-                <form action="{{url('gedung')}}" method="POST">
-                    @csrf
-                     <div class="form-group">
-                        <label class="form-label" for="nm_gedung"><b>Nama Gudang</b></label>
-                        <input type="text" class="form-control" id="nm_gedung" name="gedung" placeholder="Input nama gudang...">
-                    </div>
-                     <div class="form-group">
-                        <label class="form-label" for="nm_gedung"><b>Alamat</b></label>
-                        <input type="text" class="form-control" id="nm_gedung" name="alamat" placeholder="Input alamat gudang...">
-                    </div><br><br>
-                    <button type="submit" class="btn btn-primary">Tambahkan</button>
-                </form>
+               <form action="{{url('gedung')}}" method="POST">
+                  @csrf
+                  <div class="form-group">
+                     <label class="form-label" for="kd_gudang"><b>Kode Gudang</b></label>
+                     <input type="text" class="form-control" id="kd_gudang" name="kode_gudang" value="{{ 'GDG-'.$kd }}" readonly>
+                  </div>
+                  <div class="form-group">
+                     <label class="form-label" for="nm_gedung"><b>Nama Gudang</b></label>
+                     <input type="text" class="form-control" id="nm_gedung" name="gedung" placeholder="Input nama gudang...">
+                  </div>
+                  <div class="form-group">
+                     <label class="form-label" for="nm_gedung"><b>Alamat</b></label>
+                     <input type="text" class="form-control" id="nm_gedung" name="alamat" placeholder="Input alamat gudang...">
+                  </div><br><br>
+                  <button type="submit" class="btn btn-primary">Tambahkan</button>
+               </form>
             </div>
          </div>
       </div>
