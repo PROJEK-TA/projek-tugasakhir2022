@@ -21,7 +21,7 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: #3383F1;
   color: white;
 }
 </style>
@@ -46,7 +46,7 @@
         @foreach($pinjamruangan as $pr)
             <tr>
                 <td>{{$loop->iteration}}</td>
-                <td>{{$pr->id}}</td>
+                <td>{{$pr->kode_peminjaman}}</td>
                 <td>{{$pr->nama_peminjam}}</td>
                 <td>{{$pr->ruangan->nama_ruangan}}</td>
                 <td>{{$pr->gudang->nama_gedung}}</td>

@@ -21,7 +21,7 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: #3383F1;
   color: white;
 }
 </style>
@@ -42,7 +42,7 @@
         @foreach($ruanganrequestor as $r)
         <tr>
             <td>{{$loop->iteration}}</td>
-            <td>{{$r->id}}</td>
+            <td>{{$r->kode_ruangan}}</td>
             <td>{{$r->nama_ruangan}}</td>
             <td>{{$r->roomcategory->nama_kategruangan}}</td>
             <td>{{$r->building->nama_gedung}}</td>
