@@ -394,7 +394,7 @@
                             </li>
                             <li class="nav-item">
                                 @can('peminjamanruangan')
-                                <a class="nav-link" href="/peminjamanruangan">
+                                <a class="nav-link" href="/peminjamanruangan/approval">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">

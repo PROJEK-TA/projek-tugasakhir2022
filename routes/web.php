@@ -238,6 +238,8 @@ Route::get('/statuspeminjamanruangan', function () {
     return view('ruangan.statuspeminjamanruangan');
 });
 
+
+
 //CRUD
 //barang
 Route::resource('barang', BarangController::class);
@@ -257,12 +259,18 @@ Route::resource('statuspinjamruangan', PinjamRuanganController::class);
 Route::resource('ajukanpinjamruangan', PinjamRuanganController::class);
 
 
-//approval
+//approval barang
 Route::get('peminjamanbarang/approval',[PinjamBarangController::class,'index_approval']);
 Route::get('peminjamanbarang/approve/{id}',[PinjamBarangController::class,'approve']);
 Route::get('peminjamanbarang/rejected/{id}',[PinjamBarangController::class,'rejected']);
 Route::resource('peminjamanbarang', PinjamBarangController::class);
 
+
+//approval ruangan
+Route::get('peminjamanruangan/approval',[PinjamRuanganController::class,'index_approval']);
+Route::get('peminjamanruangan/approve/{id}',[PinjamRuanganController::class,'approve']);
+Route::get('peminjamanruangan/rejected/{id}',[PinjamRuanganController::class,'rejected']);
+Route::resource('peminjamanruangan', PinjamRuanganController::class);
 
 //ruangan
 Route::resource('ruangan', RuanganController::class);

@@ -22,6 +22,14 @@ class PinjamRuanganController extends Controller
         return view('ruangan.statuspeminjamanruangan', compact('reqpinjam'));
     }
 
+    public function index_approval()
+    {
+        $reqpinjam=BorrowRoom::where('status','=','diajukan')->paginate();
+        $reqpinjamapproved=BorrowRoom::where('status','=','disetujui')->paginate();
+        $reqpinjamrejected=BorrowRoom::where('status','=','ditolak')->paginate();
+        return view('ruangan.peminjamanruangan', compact(['reqpinjam','reqpinjamapproved','reqpinjamrejected']));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -145,6 +153,26 @@ class PinjamRuanganController extends Controller
         $reqpinjam = BorrowRoom::with('ruangan', 'gudang')->find($id);
         $reqpinjam->delete();
         return redirect()->route('statuspinjamruangan.index');
+
+    }
+
+    public function approve($id)
+    {
+        $approve=BorrowRoom::find($id);
+        $approve->status='disetujui';
+        $approve->save();
+
+        return redirect()->action([PinjamRuanganController::class, 'index_approval']);
+
+    }
+
+    public function rejected($id)
+    {
+        $rejected=BorrowRoom::find($id);
+        $rejected->status='ditolak';
+        $rejected->save();
+
+        return redirect()->action([PinjamRuanganController::class, 'index_approval']);
 
     }
 
