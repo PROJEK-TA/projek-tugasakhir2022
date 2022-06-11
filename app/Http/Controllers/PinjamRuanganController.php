@@ -7,6 +7,7 @@ use App\Models\Room;
 use App\Models\Building;
 use App\Models\BorrowRoom;
 use PDF;
+use DB;
 
 class PinjamRuanganController extends Controller
 {
@@ -31,7 +32,21 @@ class PinjamRuanganController extends Controller
         $ruangan = Room::all();
         $gudang = Building::all();
 
-        return view('ruangan.userpeminjamanruangan', compact('ruangan', 'gudang'));
+        $q = DB::table('borrow_rooms')->select(DB::raw('MAX(RIGHT(kode_peminjaman,4)) as kode'));
+        $kd="";
+        if($q->count()>0)
+        {
+            foreach($q->get() as $k)
+            {
+                $tmp = ((int)$k->kode)+1;
+                $kd = sprintf("%04s", $tmp);
+            }
+        }
+        else{
+            $kd = "0001";
+        }
+
+        return view('ruangan.userpeminjamanruangan', compact('ruangan', 'gudang', 'kd'));
     }
 
     /**
@@ -44,6 +59,7 @@ class PinjamRuanganController extends Controller
     {
         BorrowRoom::create([
             'id' => $request->id,
+            'kode_peminjaman' => $request->kode_peminjaman,
             'nama_peminjam' => $request->nama_peminjam,
             'id_room' => $request->nama_ruangan,
             'id_building' => $request->nama_gedung,
@@ -53,6 +69,20 @@ class PinjamRuanganController extends Controller
             'status' => $request->status,
 
         ]);
+
+        $q = DB::table('borrow_rooms')->select(DB::raw('MAX(RIGHT(kode_peminjaman,4)) as kode'));
+        $kd="";
+        if($q->count()>0)
+        {
+            foreach($q->get() as $k)
+            {
+                $tmp = ((int)$k->kode)+1;
+                $kd = sprintf("%04s", $tmp);
+            }
+        }
+        else{
+            $kd = "0001";
+        }
 
         return redirect()->route('statuspinjamruangan.index')->with('toast_success', 'Data Berhasil Tersimpan !');
     }
