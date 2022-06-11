@@ -24,6 +24,14 @@ class PinjamBarangController extends Controller
         return view('barangs.statuspeminjamanbarang', compact('reqpinjam'));
     }
 
+    public function index_approval()
+    {
+        $reqpinjam=BorrowProduct::where('status','=','diajukan')->paginate();
+        $reqpinjamapproved=BorrowProduct::where('status','=','disetujui')->paginate();
+        $reqpinjamrejected=BorrowProduct::where('status','=','ditolak')->paginate();
+        return view('barangs.peminjamanbarang', compact(['reqpinjam','reqpinjamapproved','reqpinjamrejected']));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -149,6 +157,8 @@ class PinjamBarangController extends Controller
         $reqpinjam->save();
         return redirect('/statuspinjambarang');
         // return $request;
+
+
     }
 
     /**
@@ -162,6 +172,26 @@ class PinjamBarangController extends Controller
         $reqpinjam=BorrowProduct::with('barang','merk','lokasi','departemen')->find($id);
         $reqpinjam->delete();
         return redirect()->route('statuspinjambarang.index');
+
+    }
+
+    public function approve($id)
+    {
+        $approve=BorrowProduct::find($id);
+        $approve->status='disetujui';
+        $approve->save();
+
+        return redirect()->action([PinjamBarangController::class, 'index_approval']);
+
+    }
+
+    public function rejected($id)
+    {
+        $rejected=BorrowProduct::find($id);
+        $rejected->status='ditolak';
+        $rejected->save();
+
+        return redirect()->action([PinjamBarangController::class, 'index_approval']);
 
     }
 

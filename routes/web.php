@@ -250,10 +250,19 @@ Route::resource('nonaktif', NonaktifBarangController::class);
 
 
 //requestor
+
 Route::resource('statuspinjambarang', PinjamBarangController::class);
 Route::resource('ajukanpinjambarang', PinjamBarangController::class);
 Route::resource('statuspinjamruangan', PinjamRuanganController::class);
 Route::resource('ajukanpinjamruangan', PinjamRuanganController::class);
+
+
+//approval
+Route::get('peminjamanbarang/approval',[PinjamBarangController::class,'index_approval']);
+Route::get('peminjamanbarang/approve/{id}',[PinjamBarangController::class,'approve']);
+Route::get('peminjamanbarang/rejected/{id}',[PinjamBarangController::class,'rejected']);
+Route::resource('peminjamanbarang', PinjamBarangController::class);
+
 
 //ruangan
 Route::resource('ruangan', RuanganController::class);
