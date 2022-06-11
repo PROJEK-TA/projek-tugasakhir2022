@@ -74,7 +74,7 @@
             <div class="sidebar-list">
                 <!-- Sidebar Menu Start -->
                 <ul class="navbar-nav iq-main-menu" id="sidebar-menu">
-                @can('dashboard')
+                    @can('dashboard')
                     <li class="nav-item static-item">
                         <a class="nav-link static-item disabled" href="#" tabindex="-1">
                             <span class="default-icon">Home</span>
@@ -82,7 +82,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                   
+
                         <a class="nav-link active" aria-current="page" href="/">
                             <i class="icon">
                                 <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -131,7 +131,8 @@
                                 @can('barang')
                                 <a class="nav-link " href="{{route('barang.index')}}">
                                     <i class="icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
                                             <g>
                                                 <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
                                             </g>
@@ -256,7 +257,7 @@
                             </li>
                             <li class="nav-item">
                                 @can('peminjamanbarang')
-                                <a class="nav-link " href="/peminjamanbarang">
+                                <a class="nav-link " href="/peminjamanbarang/approval">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -640,7 +641,7 @@
                                     <span class="item-name">Widget Basic</span>
                                 </a>
                             </li> -->
-                            <!-- <li class="nav-item">
+                    <!-- <li class="nav-item">
                                 <a class="nav-link " href="/template/dashboard/widget/widgetchart.html">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -654,7 +655,7 @@
                                     <span class="item-name">Widget Chart</span>
                                 </a>
                             </li> -->
-                            <!-- <li class="nav-item">
+                    <!-- <li class="nav-item">
                                 <a class="nav-link " href="/template/dashboard/widget/widgetcard.html">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -668,7 +669,7 @@
                                     <span class="item-name">Widget Card</span>
                                 </a>
                             </li> -->
-                        <!-- </ul>
+                    <!-- </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#sidebar-maps" role="button"
@@ -690,7 +691,7 @@
                                 </svg>
                             </i>
                         </a> -->
-                        <!-- <ul class="sub-nav collapse" id="sidebar-maps" data-bs-parent="#sidebar-menu">
+                    <!-- <ul class="sub-nav collapse" id="sidebar-maps" data-bs-parent="#sidebar-menu">
                             <li class="nav-item">
                                 <a class="nav-link " href="/template/dashboard/maps/google.html">
                                     <i class="icon">
@@ -772,7 +773,7 @@
                                     <span class="item-name">Wizard</span>
                                 </a>
                             </li> -->
-                            <!-- <li class="nav-item">
+                    <!-- <li class="nav-item">
                                 <a class="nav-link " href="/template/dashboard/form/form-validation.html">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -826,7 +827,7 @@
                                     <span class="item-name">Bootstrap Table</span>
                                 </a>
                             </li> -->
-                            <!-- <li class="nav-item">
+                    <!-- <li class="nav-item">
                                 <a class="nav-link " href="/template/dashboard/table/table-data.html">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -878,7 +879,7 @@
                                     <span class="item-name">Solid</span>
                                 </a>
                             </li> -->
-                            <!-- <li class="nav-item">
+                    <!-- <li class="nav-item">
                                 <a class="nav-link " href="/template/dashboard/icons/outline.html">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -891,7 +892,7 @@
                                     <i class="sidenav-mini-icon"> O </i>
                                     <span class="item-name">Outlined</span></a>
                             </li> -->
-                            <!-- <li class="nav-item">
+                    <!-- <li class="nav-item">
                                 <a class="nav-link " href="/template/dashboard/icons/dual-tone.html">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
@@ -908,7 +909,7 @@
                         </ul>
                     </li>
                 </ul> -->
-                <!-- Sidebar Menu End -->
+                    <!-- Sidebar Menu End -->
             </div>
         </div>
         <div class="sidebar-footer"></div>
@@ -964,7 +965,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="mb-2 navbar-nav ms-auto align-items-center navbar-list mb-lg-0">
-                            
+
                             <li class="nav-item dropdown">
                                 <a href="#" class="nav-link" id="notification-drop" data-bs-toggle="dropdown">
                                     <svg width="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1074,13 +1075,13 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+                                    <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}</a>
+                                            {{ __('Logout') }}</a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
                                         </form>
                                     </li>
                                 </ul>
@@ -1123,10 +1124,10 @@
         </div>
         <div class="conatiner-fluid content-inner mt-n5 py-0">
             <div class="row">
-               @yield('content')
+                @yield('content')
             </div>
         </div>
-        
+
         <!-- Footer Section Start -->
         <footer class="footer">
             <div class="footer-body">
@@ -1138,8 +1139,7 @@
                 </ul>
                 <div class="right-panel">
                     ©<script>
-                        document.write(new Date().getFullYear())
-
+                    document.write(new Date().getFullYear())
                     </script> Gita Kartika Pariwara | Evita Putri Nauli S
                 </div>
             </div>
@@ -1216,7 +1216,8 @@
                             <svg class="customizer-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                 width="32" height="32">
                                 <circle cx="12" cy="12" r="10" fill="#00C3F9" />
-                                <path d="M2,12 a1,1 1 1,0 20,0" fill="#573BFF" /></svg>
+                                <path d="M2,12 a1,1 1 1,0 20,0" fill="#573BFF" />
+                            </svg>
                         </div>
                         <div class="btn-border" data-value="theme-color-gray" data-info="#FD8D00"
                             data-setting="color-mode1" data-name="color" data-bs-toggle="tooltip"
@@ -1224,7 +1225,8 @@
                             <svg class="customizer-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                 width="32" height="32">
                                 <circle cx="12" cy="12" r="10" fill="#91969E" />
-                                <path d="M2,12 a1,1 1 1,0 20,0" fill="#FD8D00" /></svg>
+                                <path d="M2,12 a1,1 1 1,0 20,0" fill="#FD8D00" />
+                            </svg>
                         </div>
                         <div class="btn-border" data-value="theme-color-red" data-info="#366AF0"
                             data-setting="color-mode1" data-name="color" data-bs-toggle="tooltip"
@@ -1232,7 +1234,8 @@
                             <svg class="customizer-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                 width="32" height="32">
                                 <circle cx="12" cy="12" r="10" fill="#DB5363" />
-                                <path d="M2,12 a1,1 1 1,0 20,0" fill="#366AF0" /></svg>
+                                <path d="M2,12 a1,1 1 1,0 20,0" fill="#366AF0" />
+                            </svg>
                         </div>
                         <div class="btn-border" data-value="theme-color-yellow" data-info="#6410F1"
                             data-setting="color-mode1" data-name="color" data-bs-toggle="tooltip"
@@ -1240,7 +1243,8 @@
                             <svg class="customizer-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                 width="32" height="32">
                                 <circle cx="12" cy="12" r="10" fill="#EA6A12" />
-                                <path d="M2,12 a1,1 1 1,0 20,0" fill="#6410F1" /></svg>
+                                <path d="M2,12 a1,1 1 1,0 20,0" fill="#6410F1" />
+                            </svg>
                         </div>
                         <div class="btn-border" data-value="theme-color-pink" data-info="#25C799"
                             data-setting="color-mode1" data-name="color" data-bs-toggle="tooltip"
@@ -1248,7 +1252,8 @@
                             <svg class="customizer-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                 width="32" height="32">
                                 <circle cx="12" cy="12" r="10" fill="#E586B3" />
-                                <path d="M2,12 a1,1 1 1,0 20,0" fill="#25C799" /></svg>
+                                <path d="M2,12 a1,1 1 1,0 20,0" fill="#25C799" />
+                            </svg>
                         </div>
 
                     </div>

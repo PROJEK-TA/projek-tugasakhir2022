@@ -22,7 +22,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($requestorruangan as $r)
+                        @foreach($requestorruangan as $r)
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$r->id}}</td>
@@ -30,7 +30,7 @@
                             <td>{{$r->roomcategory->nama_kategruangan}}</td>
                             <td>{{$r->building->nama_gedung}}</td>
                         </tr>
-                    @endforeach
+                        @endforeach
                 </table><br>
                 <a href="/cetak_ruanganrequestor" button type="button" class="btn btn-primary">Print</button></a>
             </div>
