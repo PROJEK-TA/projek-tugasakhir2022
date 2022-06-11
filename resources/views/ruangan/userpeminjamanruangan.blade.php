@@ -8,11 +8,12 @@
             <div class="header-title">
                 <h4 class="card-title">Ajukan Peminjaman Ruangan</h4>
             </div>
-            <div class="card-body">
-                <form action="{{route('ajukanpinjamruangan.store')}}" method="POST">
-                    @csrf
-                    <div class="form-group">
-                        <?php 
+        </div>
+        <div class="card-body">
+            <form action="{{route('ajukanpinjamruangan.store')}}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <?php 
                             $q = DB::table('borrow_rooms')->select(DB::raw('MAX(RIGHT(kode_peminjaman,4)) as kode'));
                             $kd="";
                             if($q->count()>0)
@@ -27,18 +28,20 @@
                                 $kd = "0001";
                             }
                         ?>
-                        <label class="form-label" for="kd_peminjaman"><b>Kode Peminjaman</b></label>
-                        <input type="text" class="form-control" id="kd_peminjaman" name="kode_peminjaman" value="{{ 'PMR-'.date('dmY').'-'.$kd }}" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="nm_peminjam"><b>Nama Peminjam</b></label>
-                        <input type="text" class="form-control" id="nm_peminjam" name="nama_peminjam" value="{{Auth::user()->name}}" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label"><b>Nama Ruangan</b></label>
-                        <select class="form-select mb-3 shadow-none" name="nama_ruangan" id="id_ruangan">
-                            <option selected="">Pilih Ruangan...</option>
-                            <?php 
+                    <label class="form-label" for="kd_peminjaman"><b>Kode Peminjaman</b></label>
+                    <input type="text" class="form-control" id="kd_peminjaman" name="kode_peminjaman"
+                        value="{{ 'PMR-'.date('dmY').'-'.$kd }}" readonly>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="nm_peminjam"><b>Nama Peminjam</b></label>
+                    <input type="text" class="form-control" id="nm_peminjam" name="nama_peminjam"
+                        value="{{Auth::user()->name}}" readonly>
+                </div>
+                <div class="form-group">
+                    <label class="form-label"><b>Nama Ruangan</b></label>
+                    <select class="form-select mb-3 shadow-none" name="nama_ruangan" id="id_ruangan">
+                        <option selected="">Pilih Ruangan...</option>
+                        <?php 
                                 $ruangan = DB::table('rooms')->get();
                             ?>
                         @foreach ($ruangan as $r)
@@ -79,5 +82,7 @@
             </form>
         </div>
     </div>
+</div>
+</div>
 </div>
 @endsection
