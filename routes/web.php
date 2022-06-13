@@ -75,15 +75,7 @@ Route::get('/editusers', function () {
     return view('users.edit');
 });
 
-// Route::get('/userprofile', function () {
-//     return view('users.userprofile');
-// });
 
-//userprofile
-Route::get('userprofile', 'UserProfileController@index');
-// Route::get('/userprofile', [UserProfileController::class, 'index']);
-// Route::post('/userprofile', [UserProfileController::class, 'update']);
-Route::post('userprofile', 'UserProfileController@update');
 
 // Barang
 
@@ -245,6 +237,7 @@ Route::get('/statuspeminjamanruangan', function () {
 
 
 //CRUD
+
 //barang
 Route::resource('barang', BarangController::class);
 Route::resource('kategoribarang', KategoriBarangController::class);
@@ -287,7 +280,7 @@ Route::resource('departemen', DepartemenController::class);
 Route::resource('user', UserController::class);
 Route::resource('jabatanuser', JabatanController::class);
 Route::resource('kelolausers', KelolaUserController::class);
-
+Route::resource('userprofile', UserProfileController::class);
 
 
 Auth::routes();

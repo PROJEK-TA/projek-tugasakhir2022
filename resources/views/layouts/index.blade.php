@@ -1068,7 +1068,9 @@
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="/userprofile">Profile</a></li>
+                                   
+                                    <li><a class="dropdown-item"
+                                            href="{{route('userprofile.edit', Auth::user()->id)}}">Profile</a></li>
                                     <!-- <li><a class="dropdown-item"
                                             href="/template/dashboard/app/user-privacy-setting.html">Privacy Setting</a>
                                     </li> -->

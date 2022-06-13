@@ -47,74 +47,81 @@
     <div class="card">
         <div class="card-body">
             <h4><i class="fa fa-pencil-alt"></i> Edit Profile</h4><br>
-            {{-- <form method="POST" action="{{ url('userprofile') }}"> --}}
-            <form action="{{ url('userprofile')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('userprofile/'.Auth::user()->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('GET')
-                  <div class="row">
-                     <div class="col-lg-6">
+                <input type="hidden" name="_method" value="PATCH">
+                <div class="row">
+                    <div class="col-lg-6">
                         <div class="form-group">
-                           <label for="nama" class="form-label">Nama</label>
-                           <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" required autocomplete="name" autofocus>
+                            <label for="nama" class="form-label">Nama</label>
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
+                                name="name" value="{{ $user->name }}" required autocomplete="name" autofocus>
                             @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
                         </div>
-                     </div>
-                     <div class="col-lg-6">
+                    </div>
+                    <div class="col-lg-6">
                         <div class="form-group">
-                           <label for="kontak" class="form-label">Kontak</label>
-                           <input type="text" class="form-control" id="kontak"  name="kontak" value="{{ $user->kontak }}">
+                            <label for="kontak" class="form-label">Kontak</label>
+                            <input type="text" class="form-control" id="kontak" name="kontak"
+                                value="{{ $user->kontak }}">
                         </div>
-                     </div>
-                     <div class="col-lg-6">
+                    </div>
+                    <div class="col-lg-6">
                         <div class="form-group">
-                           <label for="email" class="form-label">Email</label>
-                           <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required autocomplete="email">
+                            <label for="email" class="form-label">Email</label>
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                                name="email" value="{{ $user->email }}" required autocomplete="email">
 
                             @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
                         </div>
-                     </div>
-                     <div class="col-lg-6">
+                    </div>
+                    <div class="col-lg-6">
                         <div class="form-group">
-                           <label for="alamat" class="form-label">Alamat</label>
-                           <input type="text" class="form-control" id="alamat"  name="alamat" value="{{ $user->alamat }}">
+                            <label for="alamat" class="form-label">Alamat</label>
+                            <input type="text" class="form-control" id="alamat" name="alamat"
+                                value="{{ $user->alamat }}">
                         </div>
-                     </div>
-                     <div class="col-lg-6">
+                    </div>
+                    <div class="col-lg-6">
                         <div class="form-group">
-                           <label for="password" class="form-label">Password</label>
-                           <input id="password" type="password" class="form-control " name="password" value="{{ $user->password }}" required autocomplete="new-password">
+                            <label for="password" class="form-label">Password</label>
+                            <input id="password" type="password" class="form-control " name="password"
+                                value="{{ $user->password }}" required autocomplete="new-password">
                         </div>
-                     </div>
-                     <div class="form-group">
+                    </div>
+                    <div class="form-group">
                         <label class="form-label"><b>Jabatan</b></label>
-                        <select class="form-select mb-3 shadow-none"  id="id_jabatan" name="id_jabatan">
+                        <select class="form-select mb-3 shadow-none" id="id_jabatan" name="id_jabatan">
                             <option disabled="">Pilih Jabatan...</option>
-                            <option value="{{ Auth::user()->id_jabatan }}">{{ Auth::user()->jabatan->nama_jabatan }}</option>
+                            <option value="{{ Auth::user()->id_jabatan }}">{{ Auth::user()->jabatan->nama_jabatan }}
+                            </option>
                             <?php 
                                 $jab = DB::table('jabatan')->get();
                             ?>
                             @foreach ($jab as $j)
-                                <option value="{{ $j->id }}">{{ $j->nama_jabatan }}</option>
+                            <option value="{{ $j->id }}">{{ $j->nama_jabatan }}</option>
                             @endforeach
                         </select>
                     </div>
-                <div class="form-group row mb-0">
-                    <div class="col-md-6 offset-md-2">
-                        <button type="submit" class="btn btn-primary">
-                            Simpan
-                        </button>
+                    <div class="form-group row mb-0">
+                        <div class="col-md-6 offset-md-2">
+                            <button type="submit" class="btn btn-primary">
+                                Update
+                            </button>
+                        </div>
                     </div>
-                </div>
             </form>
         </div>
     </div>
+</div>
+</div>
 </div>
 @endsection

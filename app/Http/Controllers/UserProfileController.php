@@ -48,16 +48,7 @@ class UserProfileController extends Controller
      */
     public function store(Request $request)
     {
-        // $userprofile=new User();
-        // $jab=Jabatan::all();
-        // $userprofile->name=$request->name;
-        // $userprofile->email=$request->email;
-        // $userprofile->password=Hash::make($request->password);
-        // $userprofile->alamat=$request->alamat;
-        // $userprofile->kontak=$request->kontak;
-        // $userprofile->id_jabatan=$request->id_jabatan;
-        // $userprofile->save();
-        // return redirect('/userprofile');
+        
     }
 
     /**
@@ -79,10 +70,10 @@ class UserProfileController extends Controller
      */
     public function edit($id)
     {
-        // $userprofile = User::with('jabatan')->find($id);
-        // $jab = Jabatan::all();
+        $user = User::with('jabatan')->find($id);
+        $jab = Jabatan::all();
 
-        // return view ('users.edituserprofile', compact('userprofile', 'jab'));
+        return view ('users.userprofile', compact('user', 'jab'));
     }
 
     /**
@@ -94,28 +85,17 @@ class UserProfileController extends Controller
      */
     public function update(Request $request)
     {
-        // $userprofile = User::with('jabatan')->find($id);
-        // $userprofile->name=$request->name;
-        // $userprofile->email=$request->email;
-        // $userprofile->password=Hash::make($request->password);
-        // $userprofile->kontak=$request->kontak;
-        // $userprofile->alamat=$request->alamat;
-        // $userprofile->id_jabatan=$request->id_jabatan;
-        // $userprofile->save();
-        // return redirect('/userprofile');
 
-    	// $user = User::where('id', Auth::user()->id)->first();
-    	// $user->name = $request->name;
-    	// $user->email = $request->email;
-        // $user->password=Hash::make($request->password);
-    	// $user->alamat = $request->alamat;
-    	// $user->kontak=$request->kontak;
-        // $user->id_jabatan=$request->id_jabatan;
-    	
-    	// $user->update();
-    	// return redirect('userprofile');
+    	$user = User::where('id', Auth::user()->id)->first();
+    	$user->name = $request->name;
+    	$user->email = $request->email;
+        $user->password=Hash::make($request->password);
+    	$user->alamat = $request->alamat;
+    	$user->kontak=$request->kontak;
+        $user->id_jabatan=$request->id_jabatan;
+    	$user->save();
+    	return redirect('/userprofile');
 
-        return $request;
     }
 
     /**
@@ -126,6 +106,6 @@ class UserProfileController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 }
