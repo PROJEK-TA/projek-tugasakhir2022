@@ -23,10 +23,11 @@ class UserProfileController extends Controller
 
     public function index()
     {
-        $userprofile = User::with('user', 'jabatan')->paginate();
-        // $userprofile = UserProfile::where('id', Auth::user()->id)->first();
-        return view('users.userprofile', compact('userprofile'));
-        // return view('UserProfile')->with('userprofile', $userprofile);
+        // $userprofile = User::with('user', 'jabatan')->paginate();
+        // return view('users.userprofile', compact('userprofile'));
+        $user = User::where('id', Auth::user()->id)->first();
+
+    	return view('users.userprofile', compact('user'));
     }
 
     /**
@@ -47,16 +48,16 @@ class UserProfileController extends Controller
      */
     public function store(Request $request)
     {
-        $userprofile=new User();
-        $jab=Jabatan::all();
-        $userprofile->name=$request->name;
-        $userprofile->email=$request->email;
-        $userprofile->password=Hash::make($request->password);
-        $userprofile->alamat=$request->alamat;
-        $userprofile->kontak=$request->kontak;
-        $userprofile->id_jabatan=$request->id_jabatan;
-        $userprofile->save();
-        return redirect('/userprofile');
+        // $userprofile=new User();
+        // $jab=Jabatan::all();
+        // $userprofile->name=$request->name;
+        // $userprofile->email=$request->email;
+        // $userprofile->password=Hash::make($request->password);
+        // $userprofile->alamat=$request->alamat;
+        // $userprofile->kontak=$request->kontak;
+        // $userprofile->id_jabatan=$request->id_jabatan;
+        // $userprofile->save();
+        // return redirect('/userprofile');
     }
 
     /**
@@ -78,10 +79,10 @@ class UserProfileController extends Controller
      */
     public function edit($id)
     {
-        $userprofile = User::with('jabatan')->find($id);
-        $jab = Jabatan::all();
+        // $userprofile = User::with('jabatan')->find($id);
+        // $jab = Jabatan::all();
 
-        return view ('users.edituserprofile', compact('userprofile', 'jab'));
+        // return view ('users.edituserprofile', compact('userprofile', 'jab'));
     }
 
     /**
@@ -91,17 +92,30 @@ class UserProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $userprofile = User::with('jabatan')->find($id);
-        $userprofile->name=$request->name;
-        $userprofile->email=$request->email;
-        $userprofile->password=Hash::make($request->password);
-        $userprofile->kontak=$request->kontak;
-        $userprofile->alamat=$request->alamat;
-        $userprofile->id_jabatan=$request->id_jabatan;
-        $userprofile->save();
-        return redirect('/userprofile');
+        // $userprofile = User::with('jabatan')->find($id);
+        // $userprofile->name=$request->name;
+        // $userprofile->email=$request->email;
+        // $userprofile->password=Hash::make($request->password);
+        // $userprofile->kontak=$request->kontak;
+        // $userprofile->alamat=$request->alamat;
+        // $userprofile->id_jabatan=$request->id_jabatan;
+        // $userprofile->save();
+        // return redirect('/userprofile');
+
+    	// $user = User::where('id', Auth::user()->id)->first();
+    	// $user->name = $request->name;
+    	// $user->email = $request->email;
+        // $user->password=Hash::make($request->password);
+    	// $user->alamat = $request->alamat;
+    	// $user->kontak=$request->kontak;
+        // $user->id_jabatan=$request->id_jabatan;
+    	
+    	// $user->update();
+    	// return redirect('userprofile');
+
+        return $request;
     }
 
     /**

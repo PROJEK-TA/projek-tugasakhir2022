@@ -6,82 +6,115 @@
 <div class="col-sm-12">
     <div class="card">
         <div class="card-body">
-            <div class="d-flex flex-wrap align-items-center justify-content-between">
-                <div class="d-flex flex-wrap align-items-center">
-                    <div class="profile-img position-relative me-3 mb-3 mb-lg-0 profile-logo profile-logo1">
-                        <img src="../../assets/images/avatars/01.png" alt="User-Profile"
-                            class="theme-color-default-img img-fluid rounded-pill avatar-100">
-                        <img src="../../assets/images/avatars/avtar_1.png" alt="User-Profile"
-                            class="theme-color-purple-img img-fluid rounded-pill avatar-100">
-                        <img src="../../assets/images/avatars/avtar_2.png" alt="User-Profile"
-                            class="theme-color-blue-img img-fluid rounded-pill avatar-100">
-                        <img src="../../assets/images/avatars/avtar_4.png" alt="User-Profile"
-                            class="theme-color-green-img img-fluid rounded-pill avatar-100">
-                        <img src="../../assets/images/avatars/avtar_5.png" alt="User-Profile"
-                            class="theme-color-yellow-img img-fluid rounded-pill avatar-100">
-                        <img src="../../assets/images/avatars/avtar_3.png" alt="User-Profile"
-                            class="theme-color-pink-img img-fluid rounded-pill avatar-100">
-                    </div>
-                    <div class="d-flex flex-wrap align-items-center mb-3 mb-sm-0">
-                        <h4 class="me-2 h4">{{Auth::user()->name}}</h4>
-                        <span> - {{Auth::user()->jabatan->nama_jabatan}}</span>
-                    </div>
-                </div><br>
-                <div class="header-title">
-                    <h4 class="card-title">Edit Profil</h4>
-                </div>
-            </div>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>Nama</td>
+                        <td width="10">:</td>
+                        <td>{{ $user->name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>:</td>
+                        <td>{{ $user->email }}</td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td>:</td>
+                        <td>{{ $user->password }}</td>
+                    </tr>
+                    <tr>
+                        <td>Alamat</td>
+                        <td>:</td>
+                        <td>{{ $user->alamat }}</td>
+                    </tr>
+                    <tr>
+                        <td>Kontak</td>
+                        <td>:</td>
+                        <td>{{ $user->kontak }}</td>
+                    </tr>
+                    <tr>
+                        <td>Jabatan</td>
+                        <td>:</td>
+                        <td>{{ $user->jabatan->nama_jabatan }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
+<div class="col-md-12 mt-2">
     <div class="card">
         <div class="card-body">
-            {{-- <form action="{{ url('userprofile/'.$userprofile->id)}}" method="POST" enctype="multipart/form-data">
-            --}}
-            @csrf
-            <input type="hidden" name="_method" value="PATCH">
-            <div class="form-group">
-                <label class="form-label" for="nm_user"><b>Nama User</b></label>
-                <input type="text" class="form-control" id="nm_user" name="name" value="{{ Auth::user()->name }}"
-                    placeholder="Input nama user...">
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="email"><b>Email</b></label>
-                <input type="email" class="form-control" id="email" name="email" value="{{ Auth::user()->email }}"
-                    placeholder="Input email...">
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="password"><b>Password</b></label>
-                <input id="password" type="password" class="form-control " name="password"
-                    value="{{ Auth::user()->password }}" placeholder="Input password..." required
-                    autocomplete="new-password">
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="alamat"><b>Alamat</b></label>
-                <input type="text" class="form-control" id="alamat" name="alamat" value="{{ Auth::user()->alamat }}"
-                    placeholder="Input alamat...">
-            </div>
-            <div class="form-group">
-                <label class="form-label" for="telp"><b>Kontak</b></label>
-                <input type="tel" class="form-control" id="telp" name="kontak" value="{{ Auth::user()->kontak }}"
-                    placeholder="Input kontak...">
-            </div>
-            <div class="form-group">
-                {{-- <label class="form-label" for="jabatan"><b>Jabatan</b></label>
-                        <input type="text" class="form-control" id="id_jabatan" name="id_jabatan" value="{{ Auth::user()->jabatan->nama_jabatan }}">
-                --}}
+            <h4><i class="fa fa-pencil-alt"></i> Edit Profile</h4><br>
+            {{-- <form method="POST" action="{{ url('userprofile') }}"> --}}
+            <form action="{{ url('userprofile')}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('GET')
+                  <div class="row">
+                     <div class="col-lg-6">
+                        <div class="form-group">
+                           <label for="nama" class="form-label">Nama</label>
+                           <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" required autocomplete="name" autofocus>
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                     </div>
+                     <div class="col-lg-6">
+                        <div class="form-group">
+                           <label for="kontak" class="form-label">Kontak</label>
+                           <input type="text" class="form-control" id="kontak"  name="kontak" value="{{ $user->kontak }}">
+                        </div>
+                     </div>
+                     <div class="col-lg-6">
+                        <div class="form-group">
+                           <label for="email" class="form-label">Email</label>
+                           <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required autocomplete="email">
 
-                <label class="form-label"><b>Jabatan</b></label>
-                <select class="form-select mb-3 shadow-none" name="id_jabatan" id="id_jabatan">
-                    <option disabled value>Jabatan...</option>
-                    <option value="{{ Auth::user()->id_jabatan }}">{{ Auth::user()->jabatan->nama_jabatan }}</option>
-                    {{-- @foreach ($jab as $j)
-                            <option value="{{ $j->id }}">{{ $j->nama_jabatan}}</option>
-                    @endforeach --}}
-                </select>
-
-            </div><br><br>
-            <button type="submit" class="btn btn-primary">Simpan</button>
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                     </div>
+                     <div class="col-lg-6">
+                        <div class="form-group">
+                           <label for="alamat" class="form-label">Alamat</label>
+                           <input type="text" class="form-control" id="alamat"  name="alamat" value="{{ $user->alamat }}">
+                        </div>
+                     </div>
+                     <div class="col-lg-6">
+                        <div class="form-group">
+                           <label for="password" class="form-label">Password</label>
+                           <input id="password" type="password" class="form-control " name="password" value="{{ $user->password }}" required autocomplete="new-password">
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label class="form-label"><b>Jabatan</b></label>
+                        <select class="form-select mb-3 shadow-none"  id="id_jabatan" name="id_jabatan">
+                            <option disabled="">Pilih Jabatan...</option>
+                            <option value="{{ Auth::user()->id_jabatan }}">{{ Auth::user()->jabatan->nama_jabatan }}</option>
+                            <?php 
+                                $jab = DB::table('jabatan')->get();
+                            ?>
+                            @foreach ($jab as $j)
+                                <option value="{{ $j->id }}">{{ $j->nama_jabatan }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                <div class="form-group row mb-0">
+                    <div class="col-md-6 offset-md-2">
+                        <button type="submit" class="btn btn-primary">
+                            Simpan
+                        </button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
-    @endsection
+</div>
+@endsection

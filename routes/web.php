@@ -12,6 +12,7 @@ use App\Http\Controllers\KategoriRuanganController;
 use App\Http\Controllers\GedungController;
 use App\Http\Controllers\DepartemenController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\KelolaUserController;
 use App\Http\Controllers\RegisterController;
@@ -74,12 +75,15 @@ Route::get('/editusers', function () {
     return view('users.edit');
 });
 
-Route::get('/userprofile', function () {
-    return view('users.userprofile');
-});
+// Route::get('/userprofile', function () {
+//     return view('users.userprofile');
+// });
 
 //userprofile
-// Route::get('userprofile', 'UserProfileController@index');
+Route::get('userprofile', 'UserProfileController@index');
+// Route::get('/userprofile', [UserProfileController::class, 'index']);
+// Route::post('/userprofile', [UserProfileController::class, 'update']);
+Route::post('userprofile', 'UserProfileController@update');
 
 // Barang
 
