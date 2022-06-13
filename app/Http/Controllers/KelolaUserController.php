@@ -29,21 +29,8 @@ class KelolaUserController extends Controller
      */
     public function create()
     {
-        $q = DB::table('users')->select(DB::raw('MAX(RIGHT(kode_user,4)) as kode'));
-        $kd="";
-        if($q->count()>0)
-        {
-            foreach($q->get() as $k)
-            {
-                $tmp = ((int)$k->kode)+1;
-                $kd = sprintf("%04s", $tmp);
-            }
-        }
-        else{
-            $kd = "0001";
-        }
-
-        return view ('users.add', compact('kd'));
+        $jab = Jabatan::all();
+        return view ('users.add');
     }
 
 
@@ -57,7 +44,6 @@ class KelolaUserController extends Controller
     {
         $u=new User();
         $jab=Jabatan::all();
-        $u->kode_user=$request->kode_user;
         $u->name=$request->name;
         $u->email=$request->email;
         $u->password=Hash::make($request->password);
@@ -104,7 +90,6 @@ class KelolaUserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::with('jabatan')->find($id);
-        $user->kode_user=$request->kode_user;
         $user->name=$request->name;
         $user->email=$request->email;
         $user->password=Hash::make($request->password);

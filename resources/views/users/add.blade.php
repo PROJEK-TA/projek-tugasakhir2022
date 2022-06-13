@@ -13,11 +13,6 @@
             <form action="{{route('kelolausers.store')}}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label class="form-label" for="kd_user"><b>Kode User</b></label>
-                    <input type="text" class="form-control" id="kd_user" name="kode_user" value="{{ 'USR-'.$kd }}"
-                        readonly>
-                </div>
-                <div class="form-group">
                     <label class="form-label" for="nm_user"><b>Nama User</b></label>
                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
                         placeholder="Input nama..." value="{{ old('name') }}" required autocomplete="name" autofocus>

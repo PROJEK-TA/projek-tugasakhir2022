@@ -14,11 +14,6 @@
                 @csrf
                 <input type="hidden" name="_method" value="PATCH">
                 <div class="form-group">
-                    <label class="form-label" for="kd_user"><b>Kode User</b></label>
-                    <input type="text" class="form-control" id="kd_user" name="kode_user" value="{{ $user->kode_user }}"
-                        readonly>
-                </div>
-                <div class="form-group">
                     <label class="form-label" for="nm_user"><b>Nama User</b></label>
                     <input type="text" class="form-control" id="nm_user" name="name" value="{{ $user->name }}"
                         placeholder="Input nama user...">
