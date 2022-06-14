@@ -37,7 +37,7 @@ class PinjamRuanganController extends Controller
      */
     public function create()
     {
-        $ruangan = Room::where('status_ruangan', '=' , "tersedia")->orWhere('status_ruangan', '=', "dipinjam")->get();
+        $ruangan = Room::where('status_ruangan', '=' , "Tersedia")->orWhere('status_ruangan', '=', "Dipinjam")->get();
         $gudang = Building::all();
 
         $q = DB::table('borrow_rooms')->select(DB::raw('MAX(RIGHT(kode_peminjaman,4)) as kode'));
