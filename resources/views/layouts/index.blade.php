@@ -1033,7 +1033,7 @@
                             <li class="nav-item dropdown">
                                 <a class="py-0 nav-link d-flex align-items-center" href="#" id="navbarDropdown"
                                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="{{ asset('imageuser/'.$user->image) }}" alt="" style="width: 40px;">
+                                    <img src="{{ asset('imageuser/'.Auth::user()->image) }}" alt="" style="width: 40px;">
                                     <div class="caption ms-3 d-none d-md-block ">
                                         <h6 class="mb-0 caption-title">{{Auth::user()->name}}
                                         </h6>

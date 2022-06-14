@@ -26,8 +26,7 @@
                 <div class="form-group">
                     <label class="form-label" for="password"><b>Password</b></label>
                     <input id="password" type="password" class="form-control " name="password"
-                        value="{{ $user->password }}" placeholder="Input password..." required
-                        autocomplete="new-password">
+                        placeholder="Input password...">
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="alamat"><b>Alamat</b></label>

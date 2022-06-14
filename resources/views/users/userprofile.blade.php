@@ -100,8 +100,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="password" class="form-label">Password</label>
-                            <input id="password" type="password" class="form-control " name="password"
-                                value="{{ $user->password }}" required autocomplete="new-password">
+                            <input id="password" type="password" class="form-control " name="password">
                         </div>
                     </div>
                     <div class="form-group">
@@ -122,7 +121,7 @@
                         <div class="form-group">
                             <label for="image" class="form-label">Tambahkan Foto</label>
                             <input id="image" type="file" class="form-control @error('image') is-invalid @enderror"
-                                name="image" value="{{ $user->image }}" required autocomplete="image" autofocus>
+                                name="image" value="{{ $user->image }}">
                             @error('image')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

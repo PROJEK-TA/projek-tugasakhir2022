@@ -89,7 +89,9 @@ class UserProfileController extends Controller
     	$user = User::where('id', Auth::user()->id)->first();
     	$user->name = $request->name;
     	$user->email = $request->email;
-        $user->password=Hash::make($request->password);
+        if($request->password!=null){
+            $user->password=Hash::make($request->password);
+        }
     	$user->alamat = $request->alamat;
     	$user->kontak=$request->kontak;
         $user->id_jabatan=$request->id_jabatan;

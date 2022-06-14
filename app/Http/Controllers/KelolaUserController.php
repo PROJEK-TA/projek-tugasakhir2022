@@ -92,7 +92,10 @@ class KelolaUserController extends Controller
         $user = User::with('jabatan')->find($id);
         $user->name=$request->name;
         $user->email=$request->email;
-        $user->password=Hash::make($request->password);
+        // dd($request->password);
+        if($request->password!=null){
+            $user->password=Hash::make($request->password);
+        }
         $user->kontak=$request->kontak;
         $user->alamat=$request->alamat;
         $user->id_jabatan=$request->id_jabatan;
