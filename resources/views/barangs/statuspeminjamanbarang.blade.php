@@ -35,7 +35,7 @@
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$rp->kode_peminjaman}}</td>
-                            <td>{{$rp->nama_peminjam}}</td>
+                            <td>{{Auth::user()->name}}</td>
                             <td>{{$rp->barang->nama_barang}}</td>
                             <td>{{$rp->merk->nama_merkbarang}}</td>
                             <td>{{$rp->lokasi->nama_lokasibarang}}</td>

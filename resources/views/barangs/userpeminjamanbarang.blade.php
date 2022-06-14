@@ -42,33 +42,26 @@
                     <label class="form-label"><b>Nama Barang</b></label>
                     <select class="form-select mb-3 shadow-none" name="nama_barang" id="id_barang">
                         <option selected="">Pilih Barang...</option>
-                        <?php 
-                                    $barang = DB::table('products')->get();
-                            ?>
                         @foreach ($barang as $b)
-                        <option value="{{ $b->id }}">{{ $b->nama_barang }}</option>
+                        <option value="{{ $b->id }}">{{ $b->nama_barang }} - {{$b->merek->nama_merkbarang}} </option>
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="form-label"><b>Merk Barang</b></label>
                     <select class="form-select mb-3 shadow-none" name="merk_barang" id="id_barang">
                         <option selected="">Pilih Merek...</option>
-                        <?php 
-                                    $merk = DB::table('merk_products')->get();
-                            ?>
+                      
                         @foreach ($merk as $m)
                         <option value="{{ $m->id }}">{{ $m->nama_merkbarang }}</option>
                         @endforeach
                     </select>
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label class="form-label"><b>Lokasi</b></label>
                     <select class="form-select mb-3 shadow-none" name="nama_lokasi" id="id_barang">
                         <option selected="">Pilih Lokasi...</option>
-                        <?php 
-                                    $lokasi = DB::table('location_products')->get();
-                            ?>
+                     
                         @foreach ($lokasi as $l)
                         <option value="{{ $l->id }}">{{ $l->nama_lokasibarang}}</option>
                         @endforeach
@@ -78,9 +71,7 @@
                     <label class="form-label"><b>Milik</b></label>
                     <select class="form-select mb-3 shadow-none" name="departemen" id="id_barang">
                         <option selected="">Pilih Departemen...</option>
-                        <?php 
-                                    $departemen = DB::table('departments')->get();
-                            ?>
+                     
                         @foreach ($departemen as $d)
                         <option value="{{ $d->id }}">{{ $d->nama_departemen }}</option>
                         @endforeach

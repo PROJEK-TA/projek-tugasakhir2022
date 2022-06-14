@@ -218,9 +218,9 @@ Route::get('/editdepartemen', function () {
 
 // Tambahan untuk halaman requestor
 
-Route::get('/userpeminjamanbarang', function () {
-    return view('barangs.userpeminjamanbarang');
-});
+// Route::get('/userpeminjamanbarang', function () {
+//     return view('barangs.userpeminjamanbarang');
+// });
 
 Route::get('/userpeminjamanruangan', function () {
     return view('ruangan.userpeminjamanruangan');

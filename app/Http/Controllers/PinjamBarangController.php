@@ -8,6 +8,7 @@ use App\Models\BorrowProduct;
 use App\Models\MerkProduct;
 use App\Models\LocationProduct;
 use App\Models\Department;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 use DB;
 
@@ -20,16 +21,16 @@ class PinjamBarangController extends Controller
      */
     public function index()
     {
-        $reqpinjam=BorrowProduct::with('barang','merk','lokasi','departemen')->paginate();
+        $reqpinjam=BorrowProduct::where('id_user', Auth::user()->id)->paginate();
         return view('barangs.statuspeminjamanbarang', compact('reqpinjam'));
     }
 
     public function index_approval()
     {
         $reqpinjam=BorrowProduct::where('status','=','diajukan')->paginate();
-        $reqpinjamapproved=BorrowProduct::where('status','=','disetujui')->paginate();
-        $reqpinjamrejected=BorrowProduct::where('status','=','ditolak')->paginate();
-        return view('barangs.peminjamanbarang', compact(['reqpinjam','reqpinjamapproved','reqpinjamrejected']));
+        $reqpinjamconfirmed=BorrowProduct::where('status','!=','diajukan')->paginate();
+      
+        return view('barangs.peminjamanbarang', compact(['reqpinjam','reqpinjamconfirmed']));
     }
 
     /**
@@ -39,7 +40,8 @@ class PinjamBarangController extends Controller
      */
     public function create()
     {
-        $barang = Product::all();
+        $barang = Product::where('id_statusproduct', '=' , 7)->orWhere('id_statusproduct', '=', 8)->get();
+        // $barangs = Product::all();
         $merk = MerkProduct::all();
         $lokasi = LocationProduct::all();
         $departemen = Department::all();
@@ -74,14 +76,17 @@ class PinjamBarangController extends Controller
      */
     public function store(Request $request)
     {
+
+        $barang= Product::find($request->nama_barang);
         BorrowProduct::create([
             'id' => $request->id,
             'kode_peminjaman' => $request->kode_peminjaman,
             'nama_peminjam' => $request->nama_peminjam,
             'id_product' => $request->nama_barang,
-            'id_merk' => $request->merk_barang,
-            'id_lokasi' => $request->nama_lokasi,
+            'id_merk' => $barang->id_merkproduct, 
+            'id_lokasi' => $barang->id_lokasiproduct,
             'id_department' => $request->departemen,
+            'id_user' => Auth::user()->id,
             'jumlah' => $request->jumlah,
             'deskripsi' => $request->deskripsi,
             'tanggal_pinjam' => $request->tanggal_pinjam,
@@ -89,6 +94,9 @@ class PinjamBarangController extends Controller
             'status' => $request->status,
 
         ]);
+     
+        $barang->id_statusproduct=11;
+        $barang->save();
 
         $q = DB::table('borrow_products')->select(DB::raw('MAX(RIGHT(kode_peminjaman,4)) as kode'));
         $kd="";
