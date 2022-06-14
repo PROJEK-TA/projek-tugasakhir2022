@@ -93,6 +93,13 @@ class UserProfileController extends Controller
     	$user->alamat = $request->alamat;
     	$user->kontak=$request->kontak;
         $user->id_jabatan=$request->id_jabatan;
+        
+        if($request->hasFile('image'))
+        {
+            $request->file('image')->move('imageuser/', $request->file('image')->getClientOriginalName());
+            $user->image = $request->file('image')->getClientOriginalName();
+            $user->save();
+        }
     	$user->save();
     	return redirect('/userprofile');
 

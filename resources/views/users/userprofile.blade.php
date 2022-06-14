@@ -38,6 +38,13 @@
                         <td>:</td>
                         <td>{{ $user->jabatan->nama_jabatan }}</td>
                     </tr>
+                    <tr>
+                        <td>Foto Profile</td>
+                        <td>:</td>
+                        <td>
+                            <img src="{{ asset('imageuser/'.$user->image) }}" alt="" style="width: 60px;">
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -110,6 +117,18 @@
                             <option value="{{ $j->id }}">{{ $j->nama_jabatan }}</option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="image" class="form-label">Tambahkan Foto</label>
+                            <input id="image" type="file" class="form-control @error('image') is-invalid @enderror"
+                                name="image" value="{{ $user->image }}" required autocomplete="image" autofocus>
+                            @error('image')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
                     </div>
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-2">
