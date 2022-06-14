@@ -37,7 +37,7 @@ class PinjamRuanganController extends Controller
      */
     public function create()
     {
-        $ruangan = Room::all();
+        $ruangan = Room::where('status_ruangan', '=' , "tersedia")->orWhere('status_ruangan', '=', "dipinjam")->get();
         $gudang = Building::all();
 
         $q = DB::table('borrow_rooms')->select(DB::raw('MAX(RIGHT(kode_peminjaman,4)) as kode'));
@@ -70,7 +70,7 @@ class PinjamRuanganController extends Controller
             'kode_peminjaman' => $request->kode_peminjaman,
             'nama_peminjam' => $request->nama_peminjam,
             'id_room' => $request->nama_ruangan,
-            'id_building' => $request->nama_gedung,
+            'id_building' => $ruangan->nama_gedung,
             'deskripsi' => $request->deskripsi,
             'tanggal_pinjam' => $request->tanggal_pinjam,
             'tanggal_selesai' => $request->tanggal_selesai,

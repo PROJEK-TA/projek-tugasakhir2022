@@ -17,6 +17,7 @@
                             <th>NO</th>
                             <th>KODE RUANGAN</th>
                             <th>NAMA RUANGAN</th>
+                            <th>STATUS RUANGAN</th>
                             <th>KATEGORI</th>
                             <th>GUDANG</th>
                         </tr>
@@ -27,6 +28,7 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$r->kode_ruangan}}</td>
                             <td>{{$r->nama_ruangan}}</td>
+                            <td>{{$r->status_ruangan}}</td>
                             <td>{{$r->roomcategory->nama_kategruangan}}</td>
                             <td>{{$r->building->nama_gedung}}</td>
                         </tr>
