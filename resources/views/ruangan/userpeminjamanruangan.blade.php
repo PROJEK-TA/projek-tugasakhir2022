@@ -41,15 +41,12 @@
                     <label class="form-label"><b>Nama Ruangan</b></label>
                     <select class="form-select mb-3 shadow-none" name="nama_ruangan" id="id_ruangan">
                         <option selected="">Pilih Ruangan...</option>
-                        <?php 
-                                $ruangan = DB::table('rooms')->get();
-                            ?>
                         @foreach ($ruangan as $r)
-                        <option value="{{ $r->id }}">{{ $r->nama_ruangan }}</option>
+                        <option value="{{ $r->id }}">{{ $r->nama_ruangan }} - {{$r->building->nama_gedung}} </option>
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label class="form-label"><b>Gudang</b></label>
                     <select class="form-select mb-3 shadow-none" name="nama_gedung" id="id_gedung">
                         <option selected="">Pilih Gudang</option>
@@ -60,7 +57,7 @@
                         <option value="{{ $bd->id }}">{{ $bd->nama_gedung }}</option>
                         @endforeach
                     </select>
-                </div>
+                </div> --}}
                 <div class="form-group">
                     <label class="form-label" for="deskripsi"><b>Deskripsi</b></label>
                     <input type="text" class="form-control" id="deskripsi" name="deskripsi"
