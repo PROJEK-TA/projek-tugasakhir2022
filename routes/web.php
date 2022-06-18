@@ -222,17 +222,17 @@ Route::get('/editdepartemen', function () {
 //     return view('barangs.userpeminjamanbarang');
 // });
 
-Route::get('/userpeminjamanruangan', function () {
-    return view('ruangan.userpeminjamanruangan');
-});
+// Route::get('/userpeminjamanruangan', function () {
+//     return view('ruangan.userpeminjamanruangan');
+// });
 
-Route::get('/statuspeminjamanbarang', function () {
-    return view('barangs.statuspeminjamanbarang');
-});
+// Route::get('/statuspeminjamanbarang', function () {
+//     return view('barangs.statuspeminjamanbarang');
+// });
 
-Route::get('/statuspeminjamanruangan', function () {
-    return view('ruangan.statuspeminjamanruangan');
-});
+// Route::get('/statuspeminjamanruangan', function () {
+//     return view('ruangan.statuspeminjamanruangan');
+// });
 
 
 

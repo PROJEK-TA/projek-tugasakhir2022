@@ -74,6 +74,7 @@ class RuanganController extends Controller
         Room::create([
             'kode_ruangan' => $request->kode_ruangan,
             'nama_ruangan' => $request->nama_ruangan,
+            'status_ruangan' => $request->status_ruangan,
             'id_roomcategory' => $request->id_kategoriruangan,
             'id_building' => $request->id_gudang,
         ]);
@@ -119,6 +120,7 @@ class RuanganController extends Controller
         $room = Room::with('roomcategory','building')->find($id);
         $room->kode_ruangan=$request->kode_ruangan;
         $room->nama_ruangan=$request->nama_ruangan;
+        $room->status_ruangan=$request->status_ruangan;
         $room->id_roomcategory=$request->id_kategoriruangan;
         $room->id_building=$request->id_gudang;
         $room->save();

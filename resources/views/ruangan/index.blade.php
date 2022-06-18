@@ -23,6 +23,7 @@
                             <th>NAMA RUANGAN</th>
                             <th>KATEGORI</th>
                             <th>GUDANG</th>
+                            <th>STATUS RUANGAN</th>
                             <th>AKSI</th>
                         </tr>
                     </thead>
@@ -34,6 +35,7 @@
                             <td>{{$r->nama_ruangan}}</td>
                             <td>{{$r->roomcategory->nama_kategruangan}}</td>
                             <td>{{$r->building->nama_gedung}}</td>
+                            <td>{{$r->status_ruangan}}</td>
                             <td>
                                 <div class="flex align-items-center list-user-action">
                                     <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip"

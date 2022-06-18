@@ -46,6 +46,7 @@
             <th>Nama Ruangan</th>
             <th>Kategori</th>
             <th>Gudang</th>
+            <th>Status Ruangan</th>
         </tr>
         <tr>
             @foreach($ruangan as $r)
@@ -55,6 +56,7 @@
             <td>{{$r->nama_ruangan}}</td>
             <td>{{$r->roomcategory->nama_kategruangan}}</td>
             <td>{{$r->building->nama_gedung}}</td>
+            <td>{{$r->status_ruangan}}</td>
         </tr>
         @endforeach
     </table>
