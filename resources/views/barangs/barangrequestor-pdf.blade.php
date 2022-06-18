@@ -40,36 +40,36 @@
     </center>
 
     <table id="barang">
-        <tr>
+    <tr>
             <th>No</th>
             <th>Kode Barang</th>
             <th>Nama Barang</th>
-            <th>Merk</th>
+            <!-- <th>Merk</th> -->
             <th>Kategori</th>
             <th>Lokasi</th>
             <th>Owner</th>
             <th>Harga Beli</th>
-            <th>Jumlah</th>
-            <th>Satuan</th>
+            <!-- <th>Jumlah</th>
+            <th>Satuan</th> -->
             <th>Status</th>
+            <th>Tanggal Input</th>
         </tr>
         <tr>
-            @foreach($barangrequestor as $br)
+            @foreach($barangrequestor as $b)
         <tr>
             <td>{{$loop->iteration}}</td>
-            <td>{{$br->kode_barang}}</td>
-            <td>{{$br->nama_barang}}</td>
-            <td>{{$br->merek->nama_merkbarang}}</td>
-            <td>{{$br->productcategory->nama_kategbarang}}</td>
-            <td>{{$br->lokasi->nama_lokasibarang}}</td>
-            <td>{{$br->departemen->nama_departemen}}</td>
-            <td>{{$br->harga_beli}}</td>
-            <td>{{$br->jumlah}}</td>
-            <td>{{$br->satuan}}</td>
-            <td>{{$br->status->nama_statusbarang}}</td>
+            <td>{{$b->kode_barang}}</td>
+            <td>{{$b->nama_barang}} ({{$b->merek->nama_merkbarang}})</td>
+            <td>{{$b->productcategory->nama_kategbarang}}</td>
+            <td>{{$b->lokasi->nama_lokasibarang}} ({{$b->gudang->nama_gedung}})</td>
+            <td>{{$b->departemen->nama_departemen}}</td>
+            <td>{{$b->harga_beli}}</td>
+            <!-- <td>{{$b->jumlah}}</td>
+            <td>{{$b->satuan}}</td> -->
+            <td>{{$b->status->nama_statusbarang}}</td>
+            <td>{{$b->tanggal_input}}</td>
         </tr>
         @endforeach
-        </tr>
     </table>
 
 </body>

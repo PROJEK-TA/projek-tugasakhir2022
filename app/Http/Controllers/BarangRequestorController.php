@@ -21,7 +21,7 @@ class BarangRequestorController extends Controller
      */
     public function index()
     {
-        $requestorbarang = Product::with('productcategory', 'merek','lokasi', 'departemen', 'status')->paginate();
+        $requestorbarang = Product::orderBy('id','desc')->paginate();
         return view('barangs.index_requestor', compact('requestorbarang'));
     }
 

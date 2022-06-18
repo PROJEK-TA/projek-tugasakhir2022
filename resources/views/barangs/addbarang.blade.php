@@ -46,6 +46,14 @@
                                 <option value="{{ $l->id }}">{{ $l->nama_lokasibarang }}</option>
                                 @endforeach
                             </select>
+                        <div class="form-group">
+                            <label class="form-label"><b>Gudang</b></label>
+                            <select class="form-select mb-3 shadow-none" name="id_gudang" id="id_lokasibarang">
+                                <option selected="">Pilih Gudang...</option>
+                                @foreach ($gudang as $g)
+                                <option value="{{ $g->id }}">{{ $g->nama_gedung }}</option>
+                                @endforeach
+                            </select>
                             <div class="form-group">
                                 <label class="form-label"><b>Milik</b></label>
                                 <select class="form-select mb-3 shadow-none" name="id_departemen" id="id_departemen">
@@ -59,7 +67,7 @@
                                     <input type="text" class="form-control" id="hargabeli" name="hargabeli"
                                         placeholder="Input harga barang...">
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label class="form-label" for="jm_barang"><b>Jumlah</b></label>
                                     <input type="text" class="form-control" id="jumlah" name="jumlah"
                                         placeholder="Input jumlah barang...">
@@ -68,7 +76,7 @@
                                     <label class="form-label" for="jm_barang"><b>Satuan</b></label>
                                     <input type="text" class="form-control" id="satuan" name="satuan"
                                         placeholder="Input satuan barang...">
-                                </div>
+                                </div> -->
                                 <div class="form-group">
                                     <label class="form-label"><b>Status</b></label>
                                     <select class="form-select mb-3 shadow-none" name="id_statusbarang"
@@ -88,4 +96,11 @@
         </div>
     </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
 @endsection

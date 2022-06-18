@@ -21,4 +21,9 @@ class Building extends Model
     {
         return $this->hasMany(BorrowRoom::class);
     }
+
+    public function gudang()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

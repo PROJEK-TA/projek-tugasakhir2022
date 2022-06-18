@@ -8,6 +8,7 @@ use App\Models\MerkProduct;
 use App\Models\LocationProduct;
 use App\Models\Department;
 use App\Models\StatusProduct;
+use App\Models\Building;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use PDF;
@@ -23,8 +24,7 @@ class BarangController extends Controller
     public function index()
     {
         
-
-        $barang = Product::with('productcategory', 'merek','lokasi', 'departemen', 'status')->paginate();
+        $barang = Product::orderBy('id','desc')->paginate();
         return view('barangs.index', compact('barang'));
     }
 
@@ -38,6 +38,7 @@ class BarangController extends Controller
         $prodcat = ProductCategory::all();
         $merk = MerkProduct::all();
         $lokasi = LocationProduct::all();
+        $gudang = Building::all();
         $departemen = Department::all();
         $status = StatusProduct::all();
 
@@ -56,7 +57,7 @@ class BarangController extends Controller
             $kd = "0001";
         }
 
-        return view ('barangs.addbarang', compact('prodcat', 'merk', 'lokasi', 'departemen', 'status', 'kd'));
+        return view ('barangs.addbarang', compact('prodcat', 'merk', 'lokasi', 'gudang', 'departemen', 'status', 'kd'));
     }
 
     /**
@@ -73,10 +74,11 @@ class BarangController extends Controller
             'id_merkproduct' => $request->id_merkbarang,
             'id_productcategory' => $request->id_kategoribarang,
             'id_lokasiproduct' => $request->id_lokasibarang,
+            'id_gudang' => $request->id_gudang,
             'id_department' => $request->id_departemen,
             'harga_beli' => $request->hargabeli,
-            'jumlah' => $request->jumlah,
-            'satuan' => $request->satuan,
+            // 'jumlah' => $request->jumlah,
+            // 'satuan' => $request->satuan,
             'id_statusproduct' => $request->id_statusbarang,
             'tanggal_input' => $request->tglinput,
 
@@ -104,15 +106,16 @@ class BarangController extends Controller
      */
     public function edit($id)
     {
-        $prod = Product::with('productcategory', 'merek','lokasi', 'departemen', 'status')->find($id);
+        $prod = Product::with('productcategory', 'merek','lokasi', 'departemen', 'status', 'gudang')->find($id);
         $prodcat = ProductCategory::all();
         $merk = MerkProduct::all();
         $lokasi = LocationProduct::all();
         $departemen = Department::all();
         $status = StatusProduct::all();
+        $gudang = Building::all();
        
 
-        return view ('barangs.editbarang', compact('prod', 'prodcat', 'merk', 'lokasi', 'departemen', 'status'));
+        return view ('barangs.editbarang', compact('prod', 'prodcat', 'merk', 'lokasi', 'departemen', 'status','gudang'));
     }
 
     /**
@@ -130,10 +133,11 @@ class BarangController extends Controller
         $prod->id_merkproduct=$request->id_merkbarang;
         $prod->id_productcategory=$request->id_kategoribarang;
         $prod->id_lokasiproduct=$request->id_lokasibarang;
+        $prod->id_gudang=$request->id_gudang;
         $prod->id_department=$request->id_departemen;
         $prod->harga_beli=$request->hargabeli;
-        $prod->jumlah=$request->jumlah;
-        $prod->satuan=$request->satuan;
+        // $prod->jumlah=$request->jumlah;
+        // $prod->satuan=$request->satuan;
         $prod->id_statusproduct=$request->id_statusbarang;
         $prod->tanggal_input=$request->tglinput;
         $prod->save();

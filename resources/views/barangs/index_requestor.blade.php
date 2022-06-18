@@ -17,30 +17,31 @@
                             <th>NO</th>
                             <th>KODE BARANG</th>
                             <th>NAMA BARANG</th>
-                            <th>MERK</th>
+                            <!-- <th>MERK</th> -->
                             <th>KATEGORI</th>
                             <th>LOKASI</th>
                             <th>OWNER</th>
                             <th>HARGA BELI</th>
-                            <th>JUMLAH</th>
-                            <th>SATUAN</th>
+                            <!-- <th>JUMLAH</th>
+                            <th>SATUAN</th> -->
                             <th>STATUS</th>
+                            <th>TANGGAL INPUT</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($requestorbarang as $rb)
+                        @foreach($requestorbarang as $b)
                         <tr>
-                            <td>{{$loop->iteration}}</td>
-                            <td>{{$rb->kode_barang}}</td>
-                            <td>{{$rb->nama_barang}}</td>
-                            <td>{{$rb->merek->nama_merkbarang}}</td>
-                            <td>{{$rb->productcategory->nama_kategbarang}}</td>
-                            <td>{{$rb->lokasi->nama_lokasibarang}}</td>
-                            <td>{{$rb->departemen->nama_departemen}}</td>
-                            <td>{{$rb->harga_beli}}</td>
-                            <td>{{$rb->jumlah}}</td>
-                            <td>{{$rb->satuan}}</td>
-                            <td>{{$rb->status->nama_statusbarang}}</td>
+                        <td>{{$loop->iteration}}</td>
+                            <td>{{$b->kode_barang}}</td>
+                            <td>{{$b->nama_barang}} ({{$b->merek->nama_merkbarang}})</td>
+                            <td>{{$b->productcategory->nama_kategbarang}}</td>
+                            <td>{{$b->lokasi->nama_lokasibarang}} ({{$b->gudang->nama_gedung}})</td>
+                            <td>{{$b->departemen->nama_departemen}}</td>
+                            <td>{{$b->harga_beli}}</td>
+                            <!-- <td>{{$b->jumlah}}</td>
+                            <td>{{$b->satuan}}</td> -->
+                            <td>{{$b->status->nama_statusbarang}}</td>
+                            <td>{{$b->tanggal_input}}</td>
                         </tr>
                         @endforeach
                     </tbody>
