@@ -19,10 +19,9 @@
                             <th>KODE PINJAM</th>
                             <th>NAMA PEMINJAM</th>
                             <th>NAMA BARANG</th>
-                            <th>MERK</th>
                             <th>LOKASI</th>
                             <th>MILIK</th>
-                            <th>JUMLAH</th>
+                            <!-- <th>JUMLAH</th> -->
                             <th>DESKRIPSI</th>
                             <th>TANGGAL PINJAM</th>
                             <th>TANGGAL KEMBALI</th>
@@ -31,16 +30,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($reqpinjam as $rp)
+                        @foreach($reqpinjam as $rp )
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$rp->kode_peminjaman}}</td>
                             <td>{{Auth::user()->name}}</td>
-                            <td>{{$rp->barang->nama_barang}}</td>
-                            <td>{{$rp->merk->nama_merkbarang}}</td>
-                            <td>{{$rp->lokasi->nama_lokasibarang}}</td>
+                            <td>{{$rp->barang->kode_barang}} - {{$rp->barang->nama_barang}} ({{$rp->merk->nama_merkbarang}})</td>
+                            <td>{{$rp->lokasi->nama_lokasibarang}} ({{$rp->gudang->nama_gedung}})</td>
                             <td>{{$rp->departemen->nama_departemen}}</td>
-                            <td>{{$rp->jumlah}}</td>
+                            <!-- <td>{{$rp->jumlah}}</td> -->
                             <td>{{$rp->deskripsi}}</td>
                             <td>{{$rp->tanggal_pinjam}}</td>
                             <td>{{$rp->tanggal_kembali}}</td>

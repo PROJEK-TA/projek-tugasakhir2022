@@ -43,59 +43,28 @@
                     <select class="form-select mb-3 shadow-none" name="nama_barang" id="id_barang">
                         <option selected="">Pilih Barang...</option>
                         @foreach ($barang as $b)
-                        <option value="{{ $b->id }}">{{ $b->nama_barang }} - {{$b->merek->nama_merkbarang}} </option>
+                        <option value="{{ $b->id }}">{{ $b->kode_barang }} - {{ $b->nama_barang }} ({{$b->merek->nama_merkbarang}}) </option>
                         @endforeach
                     </select>
                 </div>
+              
                 <!-- <div class="form-group">
-                    <label class="form-label"><b>Merk Barang</b></label>
-                    <select class="form-select mb-3 shadow-none" name="merk_barang" id="id_barang">
-                        <option selected="">Pilih Merek...</option>
-                      
-                        @foreach ($merk as $m)
-                        <option value="{{ $m->id }}">{{ $m->nama_merkbarang }}</option>
-                        @endforeach
-                    </select>
-                </div> -->
-                <div class="form-group">
-                    <label class="form-label"><b>Lokasi</b></label>
-                    <select class="form-select mb-3 shadow-none" name="nama_lokasi" id="id_barang">
-                        <option selected="">Pilih Lokasi...</option>
-                     
-                        @foreach ($lokasi as $l)
-                        <option value="{{ $l->id }}">{{ $l->nama_lokasibarang}}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-label"><b>Milik</b></label>
-                    <select class="form-select mb-3 shadow-none" name="departemen" id="id_barang">
-                        <option selected="">Pilih Departemen...</option>
-                     
-                        @foreach ($departemen as $d)
-                        <option value="{{ $d->id }}">{{ $d->nama_departemen }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group">
                     <label class="form-label" for="jm_barang"><b>Jumlah</b></label>
                     <input type="text" class="form-control" id="jm_barang" name="jumlah"
                         placeholder="Input jumlah barang...">
-                </div>
+                </div> -->
+
                 <div class="form-group">
                     <label class="form-label" for="nm_peminjam"><b>Deskripsi</b></label>
                     <input type="text" class="form-control" id="deskripsi" name="deskripsi"
                         placeholder="Input deskripsi keperluan...">
-                </div>
+                </div> 
 
                 <div class="form-group">
                     <label class="form-label" for="tgl_dipinjam"><b>Tanggal Pinjam</b></label>
                     <input type="date" class="form-control" id="tgl_dipinjam" name="tanggal_pinjam">
                 </div>
-                <!-- <div class="form-group">
-                        <label class="form-label" for="tgl_dipinjam"><b>Jatuh Tempo</b></label>
-                        <input type="date" class="form-control" id="tgl_dipinjam" value="2021-12-18">
-                    </div> -->
+              
                 <div class="form-group">
                     <label class="form-label" for="tgl_kembali"><b>Tanggal Dikembalikan</b></label>
                     <input type="date" class="form-control" id="tgl_kembali" name="tanggal_kembali">

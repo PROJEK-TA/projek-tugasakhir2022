@@ -79,9 +79,9 @@ Route::get('/editusers', function () {
 
 // Barang
 
-Route::get('/barang', function () {
-    return view('barangs.index');
-});
+// Route::get('/barang', function () {
+//     return view('barangs.index');
+// });
 
 Route::get('/katbarang', function () {
     return view('barangs.kategoribarang');

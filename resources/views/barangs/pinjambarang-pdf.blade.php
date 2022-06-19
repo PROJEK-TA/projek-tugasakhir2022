@@ -45,10 +45,10 @@
             <th>KODE PINJAM</th>
             <th>NAMA PEMINJAM</th>
             <th>NAMA BARANG</th>
-            <th>MERK</th>
+            <!-- <th>MERK</th> -->
             <th>LOKASI</th>
             <th>MILIK</th>
-            <th>JUMLAH</th>
+            <!-- <th>JUMLAH</th> -->
             <th>DESKRIPSI</th>
             <th>TANGGAL PINJAM</th>
             <th>TANGGAL KEMBALI</th>
@@ -60,11 +60,10 @@
             <td>{{$loop->iteration}}</td>
             <td>{{$pb->kode_peminjaman}}</td>
             <td>{{$pb->nama_peminjam}}</td>
-            <td>{{$pb->barang->nama_barang}}</td>
-            <td>{{$pb->merk->nama_merkbarang}}</td>
-            <td>{{$pb->lokasi->nama_lokasi}}</td>
+            <td>{{$pb->barang->kode_barang}} - {{$pb->barang->nama_barang}} ({{$pb->merk->nama_merkbarang}})</td>
+            <td>{{$pb->lokasi->nama_lokasibarang}} ({{$pb->gudang->nama_gedung}})</td>
             <td>{{$pb->departemen->nama_departemen}}</td>
-            <td>{{$pb->jumlah}}</td>
+            <!-- <td>{{$pb->jumlah}}</td> -->
             <td>{{$pb->deskripsi}}</td>
             <td>{{$pb->tanggal_pinjam}}</td>
             <td>{{$pb->tanggal_kembali}}</td>

@@ -27,48 +27,18 @@
                     <label class="form-label"><b>Nama Barang</b></label>
                     <select class="form-select mb-3 shadow-none" name="nama_barang" id="id_barang">
                         <option disabled value>Pilih Barang...</option>
-                        <option value="{{ $reqpinjam->id_product }}">{{ $reqpinjam->barang->nama_barang }}</option>
+                        <option value="{{ $reqpinjam->id_product }}">{{ $reqpinjam->barang->kode_barang }} - {{ $reqpinjam->barang->nama_barang }} ({{$reqpinjam->merk->nama_merkbarang}})</option>
                         @foreach ($barang as $b)
-                        <option value="{{ $b->id }}">{{ $b->nama_barang }}</option>
+                        <option value="{{ $b->id }}">{{ $b->kode_barang }} - {{ $b->nama_barang }} ({{$b->merek->nama_merkbarang}}) </option>
                         @endforeach
                     </select>
                 </div>
-                <div class="form-group">
-                    <label class="form-label"><b>Merk Barang</b></label>
-                    <select class="form-select mb-3 shadow-none" name="merk_barang" id="id_barang">
-                        <option disabled value>Pilih Merk...</option>
-                        <option value="{{ $reqpinjam->id_merk }}">{{ $reqpinjam->merk->nama_merkbarang }}</option>
-                        @foreach ($merk as $m)
-                        <option value="{{ $m->id }}">{{ $m->nama_merkbarang }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-label"><b>Lokasi</b></label>
-                    <select class="form-select mb-3 shadow-none" name="nama_lokasi" id="id_barang">
-                        <option disabled value>Pilih Lokasi...</option>
-                        <option value="{{ $reqpinjam->id_lokasi }}">{{ $reqpinjam->lokasi->nama_lokasibarang }}</option>
-                        @foreach ($lokasi as $l)
-                        <option value="{{ $l->id }}">{{ $l->nama_lokasibarang }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label class="form-label"><b>Milik</b></label>
-                    <select class="form-select mb-3 shadow-none" name="departemen" id="id_barang">
-                        <option disabled value>Pilih Departemen...</option>
-                        <option value="{{ $reqpinjam->id_department }}">{{ $reqpinjam->departemen->nama_departemen }}
-                        </option>
-                        @foreach ($departemen as $d)
-                        <option value="{{ $d->id }}">{{ $d->nama_departemen }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="form-group">
+               
+                <!-- <div class="form-group">
                     <label class="form-label" for="jm_barang"><b>Jumlah</b></label>
                     <input type="text" class="form-control" id="jm_barang" name="jumlah"
                         value="{{ $reqpinjam->jumlah }}" placeholder="Input jumlah barang...">
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label class="form-label" for="nm_peminjam"><b>Deskripsi</b></label>
                     <input type="text" class="form-control" id="deskripsi" name="deskripsi"

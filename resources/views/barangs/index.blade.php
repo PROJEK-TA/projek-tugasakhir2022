@@ -45,7 +45,7 @@
                             <td>{{$b->harga_beli}}</td>
                             <!-- <td>{{$b->jumlah}}</td>
                             <td>{{$b->satuan}}</td> -->
-                            <td>{{$b->status->nama_statusbarang}}</td>
+                            <td>{{$b->status->nama_statusbarang}} </td>
                             <td>{{$b->tanggal_input}}</td>
                             <td>
                                 <div class="flex align-items-center list-user-action">
