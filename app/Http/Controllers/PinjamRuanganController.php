@@ -37,7 +37,7 @@ class PinjamRuanganController extends Controller
      */
     public function create()
     {
-        $ruangan = Room::where('status_ruangan', '=' , 'Tersedia')->orWhere('status_ruangan', '=', 'Dipinjam')->get();
+        $ruangan = Room::where('status_ruangan', '=' , 'Tersedia')->get();
         $gudang = Building::all();
 
         $q = DB::table('borrow_rooms')->select(DB::raw('MAX(RIGHT(kode_peminjaman,4)) as kode'));
@@ -71,17 +71,16 @@ class PinjamRuanganController extends Controller
             'kode_peminjaman' => $request->kode_peminjaman,
             'nama_peminjam' => $request->nama_peminjam,
             'id_room' => $request->nama_ruangan,
-            'id_building' => $ruangan->nama_gedung,
+            'id_building' => $ruangan->id_building,
             'id_user' => Auth::user()->id,
             'deskripsi' => $request->deskripsi,
-            'status_ruangan' => $request->status_ruangan,
             'tanggal_pinjam' => $request->tanggal_pinjam,
             'tanggal_selesai' => $request->tanggal_selesai,
             'status' => $request->status,
 
         ]);
 
-        $ruangan->status_ruangan='Dipinjam';
+        $ruangan->status_ruangan='Diajukan';
         $ruangan->save();
 
         $q = DB::table('borrow_rooms')->select(DB::raw('MAX(RIGHT(kode_peminjaman,4)) as kode'));
@@ -120,7 +119,7 @@ class PinjamRuanganController extends Controller
      */
     public function edit($id)
     {
-        $reqpinjam = BorrowRoom::with('ruangan', 'gudang')->find($id);
+        $reqpinjam = BorrowRoom::where('status_ruangan', '=' , 'Tersedia')->get();
         $ruangan = Room::all();
         $gudang = Building::all();
 
@@ -136,13 +135,20 @@ class PinjamRuanganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $reqpinjam = BorrowRoom::with('ruangan', 'gudang')->find($id);
+        $ruangan= Room::find($request->nama_ruangan);
+        $reqpinjam = BorrowRoom::find($id);
         $reqpinjam->id_room=$request->nama_ruangan;
-        $reqpinjam->id_building=$request->nama_gedung;
+        $reqpinjam->id_building=$ruangan->id_building;
         $reqpinjam->deskripsi=$request->deskripsi;
         $reqpinjam->tanggal_pinjam=$request->tanggal_pinjam;
         $reqpinjam->tanggal_selesai=$request->tanggal_selesai;
         $reqpinjam->save();
+
+        $statruangan = Room::find($reqpinjam->id_room);
+        $statruangan->id_statusproduct=13;
+        $ruangan->id_statusproduct=8;
+        $ruangan->save();
+        $statruangan->save();
         return redirect('/statuspinjamruangan');
         // return $request;
     }
@@ -156,6 +162,9 @@ class PinjamRuanganController extends Controller
     public function destroy($id)
     {
         $reqpinjam = BorrowRoom::with('ruangan', 'gudang')->find($id);
+        $ruangan = Room::find($reqpinjam->id_room);
+        $ruangan->status_ruangan='Tersedia';
+        $ruangan->save();
         $reqpinjam->delete();
         return redirect()->route('statuspinjamruangan.index');
 
@@ -167,6 +176,10 @@ class PinjamRuanganController extends Controller
         $approve->status='disetujui';
         $approve->save();
 
+        $ruangan=Room::find($approve->id_room);
+        $ruangan->status_ruangan='Dipinjam';
+        $ruangan->save();
+
         return redirect()->action([PinjamRuanganController::class, 'index_approval']);
 
     }
@@ -176,6 +189,10 @@ class PinjamRuanganController extends Controller
         $rejected=BorrowRoom::find($id);
         $rejected->status='ditolak';
         $rejected->save();
+
+        $ruangan=Room::find($rejected->id_room);
+        $ruangan->status_ruangan='Tersedia';
+        $ruangan->save();
 
         return redirect()->action([PinjamRuanganController::class, 'index_approval']);
 

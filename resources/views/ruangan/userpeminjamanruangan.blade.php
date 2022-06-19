@@ -46,18 +46,6 @@
                         @endforeach
                     </select>
                 </div>
-                {{-- <div class="form-group">
-                    <label class="form-label"><b>Gudang</b></label>
-                    <select class="form-select mb-3 shadow-none" name="nama_gedung" id="id_gedung">
-                        <option selected="">Pilih Gudang</option>
-                        <?php 
-                                $building = DB::table('buildings')->get();
-                            ?>
-                        @foreach ($building as $bd)
-                        <option value="{{ $bd->id }}">{{ $bd->nama_gedung }}</option>
-                        @endforeach
-                    </select>
-                </div> --}}
                 <div class="form-group">
                     <label class="form-label" for="deskripsi"><b>Deskripsi</b></label>
                     <input type="text" class="form-control" id="deskripsi" name="deskripsi"

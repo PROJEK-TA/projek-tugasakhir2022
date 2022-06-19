@@ -46,7 +46,7 @@ class PinjamBarangController extends Controller
     public function create()
     {
         //proses menampilkan daftar barang dengan status "tersedia" dan "diajukan"
-        $barang = Product::where('id_statusproduct', '=' , 8)->orWhere('id_statusproduct', '=', 13)->get();
+        $barang = Product::where('id_statusproduct', '=' , 8)->get();
 
         //membuat kode peminjaman barang
         $q = DB::table('borrow_products')->select(DB::raw('MAX(RIGHT(kode_peminjaman,4)) as kode'));
@@ -129,7 +129,7 @@ class PinjamBarangController extends Controller
     public function edit($id)
     {
         $reqpinjam=BorrowProduct::find($id);
-        $barang = Product::where('id_statusproduct', '=' , 8)->orWhere('id_statusproduct', '=', 13)->get();
+        $barang = Product::where('id_statusproduct', '=' , 8)->get();
        
         return view('barangs.editajukanpeminjaman', compact('reqpinjam','barang'));
     }
@@ -157,6 +157,13 @@ class PinjamBarangController extends Controller
         $reqpinjam->tanggal_pinjam=$request->tanggal_pinjam;
         $reqpinjam->tanggal_kembali=$request->tanggal_kembali;
         $reqpinjam->save();
+
+      
+        $statbarang = Product::find($reqpinjam->id_product);
+        $statbarang->id_statusproduct=13;
+        $barang->id_statusproduct=8;
+        $barang->save();
+        $statbarang->save();
         return redirect('/statuspinjambarang');
        
     }
@@ -172,7 +179,12 @@ class PinjamBarangController extends Controller
     public function destroy($id)
     {
         $reqpinjam=BorrowProduct::find($id);
+        $barang = Product::find($reqpinjam->id_product);
+        $barang->id_statusproduct=8;
+        $barang->save();
         $reqpinjam->delete();
+        
+       
         return redirect()->route('statuspinjambarang.index');
 
     }
