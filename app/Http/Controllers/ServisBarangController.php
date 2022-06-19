@@ -8,6 +8,7 @@ use App\Models\MerkProduct;
 use App\Models\LocationProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 use PDF;
 use DB;
 
@@ -20,7 +21,7 @@ class ServisBarangController extends Controller
      */
     public function index()
     {
-        $servis=ServiceProduct::with('barang', 'merk')->paginate();
+        $servis=ServiceProduct::orderBy('id','desc')->paginate();
         return view('barangs.servis', compact('servis'));
 
     }
@@ -32,9 +33,8 @@ class ServisBarangController extends Controller
      */
     public function create()
     {
-        $barang = Product::all();
-        $merk = MerkProduct::all();
-        $lokasi = LocationProduct::all();
+        $barang = Product::where('id_statusproduct', '=' , 8)->get();
+       
 
         
         $q = DB::table('service_products')->select(DB::raw('MAX(RIGHT(kode_servis,4)) as kode'));
@@ -54,7 +54,7 @@ class ServisBarangController extends Controller
         
         
         
-        return view ('barangs.addservis', compact('barang','merk','lokasi','kd'));
+        return view ('barangs.addservis', compact('barang','kd'));
     }
 
     /**
@@ -65,19 +65,24 @@ class ServisBarangController extends Controller
      */
     public function store(Request $request)
     {
+        $barang= Product::find($request->id_product);
         ServiceProduct::create([
             'kode_servis' => $request->kode_servis,
             'deskripsi' => $request->deskripsi,
-            'jumlah' => $request->jumlah,
             'nama_petugas' => $request->nama_petugas,
             'tanggal_servis' => $request->tanggal_servis,
             'tanggal_kembali' => $request->tanggal_kembali,
             'id_product' => $request->id_product,
-            'id_merk' => $request->id_merk,
-            'id_lokasi' => $request->id_lokasi,
+            'id_merk' => $barang->id_merkproduct,
+            'id_lokasi' => $barang->id_lokasiproduct,
+            'id_gudang' => $barang->id_gudang,
+            'id_user' => Auth::user()->id,
 
 
         ]);
+
+        $barang->id_statusproduct=12;
+        $barang->save();
 
         return redirect()->route('servis.index')->with('toast_success', 'Data Berhasil Tersimpan !');
     }
@@ -101,12 +106,11 @@ class ServisBarangController extends Controller
      */
     public function edit($id)
     {
-        $servis = ServiceProduct::with('barang', 'merk','lokasi')->find($id);
-        $barang=Product::all();
-        $merk=MerkProduct::all();
-        $lokasi=LocationProduct::all();
+        $servis = ServiceProduct::find($id);
+        $barang=Product::where('id_statusproduct', '=' , 8)->get();
+      
 
-        return view('barangs.editservisbarang', compact('servis','barang','merk','lokasi'));
+        return view('barangs.editservisbarang', compact('servis','barang'));
     }
 
     /**
@@ -118,17 +122,24 @@ class ServisBarangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $servis=ServiceProduct::with('barang', 'merk','lokasi')->find($id);
+        $barang= Product::find($request->id_product);
+        $servis=ServiceProduct::find($id);
         $servis->kode_servis=$request->kode_servis;
         $servis->deskripsi=$request->deskripsi;
-        $servis->jumlah=$request->jumlah;
         $servis->nama_petugas=$request->nama_petugas;
         $servis->tanggal_servis=$request->tanggal_servis;
         $servis->tanggal_kembali=$request->tanggal_kembali;
         $servis->id_product=$request->id_product;
-        $servis->id_merk=$request->id_merk;
-        $servis->id_lokasi=$request->id_lokasi;
+        $servis->id_merk=$barang->id_merkproduct;
+        $servis->id_lokasi=$barang->id_lokasiproduct;
+        $servis->id_gudang=$barang->id_gudang;
         $servis->save();
+
+        $statbarang = Product::find($servis->id_product);
+        $statbarang->id_statusproduct=12;
+        $barang->id_statusproduct=8;
+        $barang->save();
+        $statbarang->save();
         return redirect('/servis'); 
 
         // return $request; 
@@ -142,8 +153,12 @@ class ServisBarangController extends Controller
      */
     public function destroy($id)
     {
-        $servis = ServiceProduct::with('barang', 'merk','lokasi')->find($id);
+        $servis = ServiceProduct::find($id);
+        $barang = Product::find($reqpinjam->id_product);
+        $barang->id_statusproduct=8;
+        $barang->save();
         $servis->delete();
+
         return redirect()->route('servis.index');
     }
 
