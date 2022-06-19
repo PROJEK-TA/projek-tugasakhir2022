@@ -21,8 +21,9 @@ class NonaktifBarangController extends Controller
      */
     public function index()
     {
-        $nonaktif=NonaktifProduct::with('barang', 'merk','lokasi','status')->paginate();
-        return view('barangs.nonaktif', compact('nonaktif'));
+         
+        $barang = Product::orderBy('id','desc')->where('id_statusproduct', '=' , 9)->orwhere('id_statusproduct', '=' , 10)->get();
+        return view('barangs.nonaktif', compact('barang'));
     }
 
     /**
@@ -32,25 +33,25 @@ class NonaktifBarangController extends Controller
      */
     public function create()
     {
-        $barang = Product::all();
-        $merk = MerkProduct::all();
-        $lokasi = LocationProduct::all();
-        $status = StatusProduct::all();
+        // $barang = Product::all();
+        // $merk = MerkProduct::all();
+        // $lokasi = LocationProduct::all();
+        // $status = StatusProduct::all();
 
         
-        $q = DB::table('nonaktif_products')->select(DB::raw('MAX(RIGHT(kode_nonaktif,4)) as kode'));
-        $kd="";
-        if($q->count()>0)
-        {
-            foreach($q->get() as $k)
-            {
-                $tmp = ((int)$k->kode)+1;
-                $kd = sprintf("%04s", $tmp);
-            }
-        }
-        else{
-            $kd = "0001";
-        }
+        // $q = DB::table('nonaktif_products')->select(DB::raw('MAX(RIGHT(kode_nonaktif,4)) as kode'));
+        // $kd="";
+        // if($q->count()>0)
+        // {
+        //     foreach($q->get() as $k)
+        //     {
+        //         $tmp = ((int)$k->kode)+1;
+        //         $kd = sprintf("%04s", $tmp);
+        //     }
+        // }
+        // else{
+        //     $kd = "0001";
+        // }
         
         
         
@@ -66,18 +67,18 @@ class NonaktifBarangController extends Controller
      */
     public function store(Request $request)
     {
-        NonaktifProduct::create([
-            'kode_nonaktif' => $request->kode_nonaktif,
-            'deskripsi' => $request->deskripsi,
-            'jumlah' => $request->jumlah,
-            'tanggal_nonaktif' => $request->tanggal_nonaktif,
-            'id_product' => $request->id_product,
-            'id_merk' => $request->id_merk,
-            'id_lokasi' => $request->id_lokasi,
-            'id_status' => $request->id_status,
+        // NonaktifProduct::create([
+        //     'kode_nonaktif' => $request->kode_nonaktif,
+        //     'deskripsi' => $request->deskripsi,
+        //     'jumlah' => $request->jumlah,
+        //     'tanggal_nonaktif' => $request->tanggal_nonaktif,
+        //     'id_product' => $request->id_product,
+        //     'id_merk' => $request->id_merk,
+        //     'id_lokasi' => $request->id_lokasi,
+        //     'id_status' => $request->id_status,
 
 
-        ]);
+        // ]);
 
         return redirect()->route('nonaktif.index')->with('toast_success', 'Data Berhasil Tersimpan !');
     }
@@ -101,11 +102,11 @@ class NonaktifBarangController extends Controller
      */
     public function edit($id)
     {
-        $nonaktif = NonaktifProduct::with('barang','merk','lokasi','status')->find($id);
-        $barang=Product::all();
-        $merk=MerkProduct::all();
-        $lokasi=LocationProduct::all();
-        $status=StatusProduct::all();
+        // $nonaktif = NonaktifProduct::with('barang','merk','lokasi','status')->find($id);
+        // $barang=Product::all();
+        // $merk=MerkProduct::all();
+        // $lokasi=LocationProduct::all();
+        // $status=StatusProduct::all();
 
         return view('barangs.editnonaktifbarang', compact('nonaktif','barang','merk','lokasi','status'));
     }
@@ -119,17 +120,17 @@ class NonaktifBarangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $nonaktif=NonaktifProduct::with('barang', 'merk','lokasi','status')->find($id);
-        $nonaktif->kode_nonaktif=$request->kode_nonaktif;
-        $nonaktif->deskripsi=$request->deskripsi;
-        $nonaktif->jumlah=$request->jumlah;
-        $nonaktif->tanggal_nonaktif=$request->tanggal_nonaktif;
-        $nonaktif->id_product=$request->id_product;
-        $nonaktif->id_merk=$request->id_merk;
-        $nonaktif->id_lokasi=$request->id_lokasi;
-        $nonaktif->id_status=$request->id_status;
-        $nonaktif->save();
-        return redirect('/nonaktif'); 
+        // $nonaktif=NonaktifProduct::with('barang', 'merk','lokasi','status')->find($id);
+        // $nonaktif->kode_nonaktif=$request->kode_nonaktif;
+        // $nonaktif->deskripsi=$request->deskripsi;
+        // $nonaktif->jumlah=$request->jumlah;
+        // $nonaktif->tanggal_nonaktif=$request->tanggal_nonaktif;
+        // $nonaktif->id_product=$request->id_product;
+        // $nonaktif->id_merk=$request->id_merk;
+        // $nonaktif->id_lokasi=$request->id_lokasi;
+        // $nonaktif->id_status=$request->id_status;
+        // $nonaktif->save();
+        // return redirect('/nonaktif'); 
     }
 
     /**
@@ -140,9 +141,9 @@ class NonaktifBarangController extends Controller
      */
     public function destroy($id)
     {
-        $nonaktif = NonaktifProduct::with('barang', 'merk','lokasi','status')->find($id);
-        $nonaktif->delete();
-        return redirect()->route('nonaktif.index');
+        // $nonaktif = NonaktifProduct::with('barang', 'merk','lokasi','status')->find($id);
+        // $nonaktif->delete();
+        // return redirect()->route('nonaktif.index');
     }
 
     public function cetak_barangnonaktif()
