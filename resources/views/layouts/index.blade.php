@@ -1108,10 +1108,8 @@
         <footer class="footer">
             <div class="footer-body">
                 <ul class="left-panel list-inline mb-0 p-0">
-                    <li class="list-inline-item"><a href="/template/dashboard/extra/privacy-policy.html">Privacy
-                            Policy</a></li>
-                    <li class="list-inline-item"><a href="/template/dashboard/extra/terms-of-service.html">Terms of
-                            Use</a></li>
+                    <li class="list-inline-item"><a href="">Politeknik Negeri Malang</a></li>
+                    <li class="list-inline-item"><a href="">Tugas Akhir 2022</a></li>
                 </ul>
                 <div class="right-panel">
                     ©<script>

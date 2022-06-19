@@ -19,11 +19,6 @@
                         <td>{{ $user->email }}</td>
                     </tr>
                     <tr>
-                        <td>Password</td>
-                        <td>:</td>
-                        <td>{{ $user->password }}</td>
-                    </tr>
-                    <tr>
                         <td>Alamat</td>
                         <td>:</td>
                         <td>{{ $user->alamat }}</td>
