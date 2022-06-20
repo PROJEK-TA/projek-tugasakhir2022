@@ -48,8 +48,6 @@
                             <td>{{$rp->status}}</td>
                             <td>
                                 @if($rp->status=='disetujui')
-                                @elseif($rp->status=='ditolak')
-                                @else
                                 <div class="flex align-items-center list-user-action">
                                     @if($rp->tgl_selesai==null)
                                     <a class="btn btn-sm btn-icon">
@@ -64,6 +62,10 @@
                                             </button>
                                         </form>
                                     </a>
+                                    @endif
+                                @elseif($rp->status=='ditolak')
+                                @elseif($rp->status=='selesai')
+                                @else
                                     <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip"
                                         data-placement="top" title="" data-original-title="Edit"
                                         href="{{ route('statuspinjamruangan.edit', $rp->id) }}">

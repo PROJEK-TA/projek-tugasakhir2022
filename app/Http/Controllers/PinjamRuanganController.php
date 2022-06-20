@@ -201,7 +201,7 @@ class PinjamRuanganController extends Controller
     public function return(Request $request, $id)
     {
         $return=BorrowRoom::find($id);
-        $return->status='dikembalikan';
+        $return->status='selesai';
         $return->tgl_selesai=Carbon::now()->format('Ymd');
         $return->save();
 

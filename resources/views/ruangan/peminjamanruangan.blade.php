@@ -21,6 +21,7 @@
                             <th>GEDUNG</th>
                             <th>DESKRIPSI</th>
                             <th>TANGGAL PINJAM</th>
+                            <th>JATUH TEMPO</th>
                             <th>TANGGAL SELESAI</th>
                             <th>STATUS</th>
                             <th>AKSI</th>
@@ -37,6 +38,13 @@
                             <td>{{$rp->deskripsi}}</td>
                             <td>{{$rp->tanggal_pinjam}}</td>
                             <td>{{$rp->tanggal_selesai}}</td>
+                            <td>
+                                @if($rp->tgl_selesai!=null)
+                                {{$rp->tgl_selesai}}
+                                @else
+                                belum selesai
+                                @endif
+                            </td>
                             <td>{{$rp->status}}</td>
                             <td>
                                 <div class="flex align-items-center list-user-action">
@@ -98,6 +106,7 @@
                                 <th>DESKRIPSI</th>
                                 <th>NAMA PEMINJAM</th>
                                 <th>TANGGAL PINJAM</th>
+                                <th>JATUH TEMPO</th>
                                 <th>TANGGAL SELESAI</th>
                                 <th>STATUS</th>
                             </tr>
@@ -113,6 +122,13 @@
                                 <td>{{$rp->deskripsi}}</td>
                                 <td>{{$rp->tanggal_pinjam}}</td>
                                 <td>{{$rp->tanggal_selesai}}</td>
+                                <td>
+                                @if($rp->tgl_selesai!=null)
+                                {{$rp->tgl_selesai}}
+                                @else
+                                belum selesai
+                                @endif
+                            </td>
                                 <td>{{$rp->status}}</td>
                                 <!-- <td>
                                     <div class="flex align-items-center list-user-action">

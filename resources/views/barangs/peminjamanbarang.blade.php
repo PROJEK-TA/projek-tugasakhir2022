@@ -24,7 +24,8 @@
                             <!-- <th>JUMLAH</th> -->
                             <th>DESKRIPSI</th>
                             <th>TANGGAL PINJAM</th>
-                            <th>TANGGAL KEMBALI</th>
+                            <th>JATUH TEMPO</th>
+                            <th>TANGGAL PENGEMBALIAN</th>
                             <th>STATUS</th>
                             <th>AKSI</th>
                         </tr>
@@ -42,6 +43,13 @@
                             <td>{{$rp->deskripsi}}</td>
                             <td>{{$rp->tanggal_pinjam}}</td>
                             <td>{{$rp->tanggal_kembali}}</td>
+                            <td>
+                                @if($rp->tanggal_pengembalian!=null)
+                                {{$rp->tanggal_pengembalian}}
+                                @else
+                                belum dikembalikan
+                                @endif
+                            </td>
                             <td>{{$rp->status}}</td>
                             <td>
                                 <div class="flex align-items-center list-user-action">
@@ -107,7 +115,8 @@
                                 <!-- <th>JUMLAH</th> -->
                                 <th>DESKRIPSI</th>
                                 <th>TANGGAL PINJAM</th>
-                                <th>TANGGAL KEMBALI</th>
+                                <th>JATUH TEMPO</th>
+                                <th>TANGGAL PENGEMBALIAN</th>
                                 <th>STATUS</th>
                                 <!-- <th>AKSI</th> -->
                             </tr>
@@ -125,6 +134,13 @@
                             <td>{{$rp->deskripsi}}</td>
                             <td>{{$rp->tanggal_pinjam}}</td>
                             <td>{{$rp->tanggal_kembali}}</td>
+                            <td>
+                                @if($rp->tanggal_pengembalian!=null)
+                                {{$rp->tanggal_pengembalian}}
+                                @else
+                                belum dikembalikan
+                                @endif
+                            </td>
                             <td>{{$rp->status}}</td>
                             </tr>
                             @endforeach

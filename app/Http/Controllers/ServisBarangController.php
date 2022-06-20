@@ -154,7 +154,7 @@ class ServisBarangController extends Controller
     public function destroy($id)
     {
         $servis = ServiceProduct::find($id);
-        $barang = Product::find($reqpinjam->id_product);
+        $barang = Product::find($servis->id_product);
         $barang->id_statusproduct=8;
         $barang->save();
         $servis->delete();

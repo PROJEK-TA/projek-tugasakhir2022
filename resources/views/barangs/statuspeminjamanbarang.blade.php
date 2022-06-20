@@ -47,14 +47,12 @@
                                 @if($rp->tanggal_pengembalian!=null)
                                 {{$rp->tanggal_pengembalian}}
                                 @else
-                                belum Dikembalikan
+                                belum dikembalikan
                                 @endif
                             </td>
                             <td>{{$rp->status}}</td>
                             <td>
                                 @if($rp->status=='disetujui')
-                                @elseif($rp->status=='ditolak')
-                                @else
                                 <div class="flex align-items-center list-user-action">
                                     @if($rp->tanggal_pengembalian==null)
                                     <a class="btn btn-sm btn-icon">
@@ -69,6 +67,10 @@
                                             </button>
                                         </form>
                                     </a>
+                                    @endif
+                                @elseif($rp->status=='ditolak')
+                                @elseif($rp->status=='dikembalikan')
+                                @else
                                     <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip"
                                         data-placement="top" title="" data-original-title="Edit"
                                         href="{{ route('statuspinjambarang.edit', $rp->id) }}">
@@ -114,8 +116,6 @@
                                             </button>
                                         </form>
                                     </a>
-                                    @endif
-                                   
                                 </div>
                                 @endif
                             </td>
