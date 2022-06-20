@@ -24,7 +24,8 @@
                             <!-- <th>JUMLAH</th> -->
                             <th>DESKRIPSI</th>
                             <th>TANGGAL PINJAM</th>
-                            <th>TANGGAL KEMBALI</th>
+                            <th>JATUH TEMPO</th>
+                            <th>TANGGAL PENGEMBALIAN</th>
                             <th>STATUS</th>
                             <th>AKSI</th>
                         </tr>
@@ -42,12 +43,32 @@
                             <td>{{$rp->deskripsi}}</td>
                             <td>{{$rp->tanggal_pinjam}}</td>
                             <td>{{$rp->tanggal_kembali}}</td>
+                            <td>
+                                @if($rp->tanggal_pengembalian!=null)
+                                {{$rp->tanggal_pengembalian}}
+                                @else
+                                belum Dikembalikan
+                                @endif
+                            </td>
                             <td>{{$rp->status}}</td>
                             <td>
                                 @if($rp->status=='disetujui')
                                 @elseif($rp->status=='ditolak')
                                 @else
                                 <div class="flex align-items-center list-user-action">
+                                    @if($rp->tanggal_pengembalian==null)
+                                    <a class="btn btn-sm btn-icon">
+                                        <form action="{{ route('statuspinjambarang.return', $rp->id) }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="id_product" value="{{$rp->id_product}}">
+                                            <button type="submit" class="btn btn-sm btn-icon btn-warning"
+                                                onclick="return confirm('Are you sure to return this product ?')">
+                                                <span class="btn-inner">
+                                                    kembalikan
+                                                </span>
+                                            </button>
+                                        </form>
+                                    </a>
                                     <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip"
                                         data-placement="top" title="" data-original-title="Edit"
                                         href="{{ route('statuspinjambarang.edit', $rp->id) }}">
@@ -93,6 +114,8 @@
                                             </button>
                                         </form>
                                     </a>
+                                    @endif
+                                   
                                 </div>
                                 @endif
                             </td>

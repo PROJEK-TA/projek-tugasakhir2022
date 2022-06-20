@@ -36,10 +36,11 @@
                 <div class="form-group">
                     <label class="form-label" for="nm_barang"><b>Nama Peminjam</b></label>
                     <input type="text" class="form-control" id="nm_barang" name="nama_peminjam"
-                        value="{{Auth::user()->name}}" placeholder="Input nama barang..." readonly>
+                        value="{{Auth::user()->name}}"  readonly>
                 </div>
                 <div class="form-group">
                     <label class="form-label"><b>Nama Barang</b></label>
+                   
                     <select class="form-select mb-3 shadow-none" name="nama_barang" id="id_barang">
                         <option selected="">Pilih Barang...</option>
                         @foreach ($barang as $b)
@@ -47,7 +48,7 @@
                         @endforeach
                     </select>
                 </div>
-              
+                
                 <!-- <div class="form-group">
                     <label class="form-label" for="jm_barang"><b>Jumlah</b></label>
                     <input type="text" class="form-control" id="jm_barang" name="jumlah"

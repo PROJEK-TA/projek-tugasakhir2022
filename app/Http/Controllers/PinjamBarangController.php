@@ -10,6 +10,7 @@ use App\Models\LocationProduct;
 use App\Models\Department;
 use App\Models\Building;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 use PDF;
 use DB;
 
@@ -158,12 +159,21 @@ class PinjamBarangController extends Controller
         $reqpinjam->tanggal_kembali=$request->tanggal_kembali;
         $reqpinjam->save();
 
-      
-        $statbarang = Product::find($reqpinjam->id_product);
-        $statbarang->id_statusproduct=13;
-        $barang->id_statusproduct=8;
+       
+        if($request->barang_lama!=$reqpinjam->id_product)
+        {   
+            //mengubah status barang lama menjadi tersedia
+            $baranglama=Product::find($request->barang_lama);
+            $baranglama->id_statusproduct=8;
+            $baranglama->save();
+
+             
+        }
+        //mengubah status barang baru menjadi diajukan
+        $barang->id_statusproduct=13;
         $barang->save();
-        $statbarang->save();
+
+       
         return redirect('/statuspinjambarang');
        
     }
@@ -224,6 +234,20 @@ class PinjamBarangController extends Controller
 
         return redirect()->action([PinjamBarangController::class, 'index_approval']);
 
+    }
+
+    public function return(Request $request, $id)
+    {
+        $return=BorrowProduct::find($id);
+        $return->status='dikembalikan';
+        $return->tanggal_pengembalian=Carbon::now()->format('Ymd');
+        $return->save();
+
+        $product=Product::find($request->id_product);
+        $product->id_statusproduct=8;
+        $product->save();
+
+        return redirect()->back();
     }
 
     public function cetak_pinjambarang()

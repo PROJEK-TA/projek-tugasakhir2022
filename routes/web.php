@@ -239,6 +239,7 @@ Route::get('/editdepartemen', function () {
 //CRUD
 
 //barang
+Route::post('statuspinjambarang/return/{id}',[PinjamBarangController::class,'return'])->name('statuspinjambarang.return');
 Route::resource('barang', BarangController::class);
 Route::resource('kategoribarang', KategoriBarangController::class);
 Route::resource('lokasibarang', LokasiBarangController::class);

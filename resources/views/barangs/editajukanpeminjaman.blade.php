@@ -10,8 +10,9 @@
             </div>
         </div>
         <div class="card-body">
-            <form action="{{ url('ajukanpinjambarang/'.$reqpinjam->id)}}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('ajukanpinjambarang.update',$reqpinjam->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <input type="hidden" name="_method" value="PATCH">
                 <div class="form-group">
                     <label class="form-label" for="kd_peminjaman"><b>Kode Peminjaman</b></label>
@@ -23,8 +24,10 @@
                     <input type="text" class="form-control" id="nm_barang" name="nama_peminjam"
                         value="{{Auth::user()->name}}" placeholder="Input nama barang..." readonly>
                 </div>
+                <input type="hidden" name="barang_lama" value={{$reqpinjam->id_product}}>
                 <div class="form-group">
                     <label class="form-label"><b>Nama Barang</b></label>
+                   
                     <select class="form-select mb-3 shadow-none" name="nama_barang" id="id_barang">
                         <option disabled value>Pilih Barang...</option>
                         <option value="{{ $reqpinjam->id_product }}">{{ $reqpinjam->barang->kode_barang }} - {{ $reqpinjam->barang->nama_barang }} ({{$reqpinjam->merk->nama_merkbarang}})</option>
