@@ -21,6 +21,7 @@
                             <th>GUDANG</th>
                             <th>DESKRIPSI</th>
                             <th>TANGGAL PINJAM</th>
+                            <th>JATUH TEMPO</th>
                             <th>TANGGAL SELESAI</th>
                             <th>STATUS</th>
                             <th>AKSI</th>
@@ -37,12 +38,32 @@
                             <td>{{$rp->deskripsi}}</td>
                             <td>{{$rp->tanggal_pinjam}}</td>
                             <td>{{$rp->tanggal_selesai}}</td>
+                            <td>
+                                @if($rp->tgl_selesai!=null)
+                                {{$rp->tgl_selesai}}
+                                @else
+                                belum selesai
+                                @endif
+                            </td>
                             <td>{{$rp->status}}</td>
                             <td>
                                 @if($rp->status=='disetujui')
                                 @elseif($rp->status=='ditolak')
                                 @else
                                 <div class="flex align-items-center list-user-action">
+                                    @if($rp->tgl_selesai==null)
+                                    <a class="btn btn-sm btn-icon">
+                                        <form action="{{ route('statuspinjamruangan.return', $rp->id) }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="id_room" value="{{$rp->id_room}}">
+                                            <button type="submit" class="btn btn-sm btn-icon btn-warning"
+                                                onclick="return confirm('Are you sure to submit it?')">
+                                                <span class="btn-inner">
+                                                    selesai
+                                                </span>
+                                            </button>
+                                        </form>
+                                    </a>
                                     <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip"
                                         data-placement="top" title="" data-original-title="Edit"
                                         href="{{ route('statuspinjamruangan.edit', $rp->id) }}">
@@ -89,6 +110,7 @@
                                             </button>
                                         </form>
                                     </a>
+                                    @endif
                                 </div>
                                 @endif
                             </td>

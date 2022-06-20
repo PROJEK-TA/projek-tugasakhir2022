@@ -239,7 +239,7 @@ Route::get('/editdepartemen', function () {
 //CRUD
 
 //barang
-Route::post('statuspinjambarang/return/{id}',[PinjamBarangController::class,'return'])->name('statuspinjambarang.return');
+
 Route::resource('barang', BarangController::class);
 Route::resource('kategoribarang', KategoriBarangController::class);
 Route::resource('lokasibarang', LokasiBarangController::class);
@@ -250,9 +250,11 @@ Route::resource('nonaktif', NonaktifBarangController::class);
 
 
 //requestor
-
+Route::post('statuspinjambarang/return/{id}',[PinjamBarangController::class,'return'])->name('statuspinjambarang.return');
 Route::resource('statuspinjambarang', PinjamBarangController::class);
 Route::resource('ajukanpinjambarang', PinjamBarangController::class);
+
+Route::post('statuspinjamruangan/return/{id}',[PinjamRuanganController::class,'return'])->name('statuspinjamruangan.return');
 Route::resource('statuspinjamruangan', PinjamRuanganController::class);
 Route::resource('ajukanpinjamruangan', PinjamRuanganController::class);
 

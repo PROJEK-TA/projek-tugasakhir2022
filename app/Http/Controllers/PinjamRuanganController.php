@@ -198,6 +198,20 @@ class PinjamRuanganController extends Controller
 
     }
 
+    public function return(Request $request, $id)
+    {
+        $return=BorrowRoom::find($id);
+        $return->status='dikembalikan';
+        $return->tgl_selesai=Carbon::now()->format('Ymd');
+        $return->save();
+
+        $ruangan=Room::find($request->id_product);
+        $ruangan->status_ruangan="Tersedia";
+        $ruangan->save();
+
+        return redirect()->back();
+    }
+
     public function cetak_pinjamruangan()
     {
         $reqpinjam = BorrowRoom::all();

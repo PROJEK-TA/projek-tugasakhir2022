@@ -10,7 +10,7 @@ class BorrowRoom extends Model
     use HasFactory;
     protected $guarded=['id'];
     protected $table = "borrow_rooms";
-    protected $fillable= ['kode_peminjaman', 'nama_peminjam', 'deskripsi', 'tanggal_pinjam', 'tanggal_selesai', 'status', 'id_room', 'id_building', 'id_user'];
+    protected $fillable= ['kode_peminjaman', 'nama_peminjam', 'deskripsi', 'tanggal_pinjam', 'tanggal_selesai', 'tgl_selesai', 'status', 'id_room', 'id_building', 'id_user'];
 
     public function ruangan() 
     {
