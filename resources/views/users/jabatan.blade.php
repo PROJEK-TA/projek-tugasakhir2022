@@ -19,7 +19,7 @@
                     <thead>
                         <tr>
                             <th>NO</th>
-                            <th>ID JABATAN</th>
+                            <th>KODE JABATAN</th>
                             <th>JABATAN</th>
                             <th>AKSI</th>
                         </tr>

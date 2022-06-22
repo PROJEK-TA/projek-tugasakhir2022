@@ -19,7 +19,6 @@
                     <thead>
                         <tr>
                             <th>NO</th>
-                            <th>ID USER</th>
                             <th>NAMA USER</th>
                             <th>EMAIL</th>
                             <th>PASSWORD</th>
@@ -34,7 +33,6 @@
                         @foreach($user as $us)
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$us->id}}</td>
                             <td>{{$us->name}}</td>
                             <td>{{$us->email}}</td>
                             <td>{{$us->password}}</td>

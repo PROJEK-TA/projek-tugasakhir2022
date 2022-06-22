@@ -17,7 +17,7 @@ class KategoriRuanganController extends Controller
      */
     public function index()
     {
-        $kategori=RoomCategory::all();
+        $kategori=RoomCategory::orderBy('id','desc')->paginate();
         return view('ruangan.kategoriruangan', compact('kategori'));
     }
 

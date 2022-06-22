@@ -18,7 +18,7 @@
                             <th>KODE PINJAM</th>
                             <th>NAMA PEMINJAM</th>
                             <th>NAMA RUANGAN</th>
-                            <th>GEDUNG</th>
+                            <th>GUDANG</th>
                             <th>DESKRIPSI</th>
                             <th>TANGGAL PINJAM</th>
                             <th>JATUH TEMPO</th>
@@ -33,7 +33,7 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$rp->kode_peminjaman}}</td>
                             <td>{{$rp->nama_peminjam}}</td>
-                            <td>{{$rp->ruangan->nama_ruangan}}</td>
+                            <td>{{$rp->ruangan->kode_ruangan}} - {{$rp->ruangan->nama_ruangan}}</td>
                             <td>{{$rp->gudang->nama_gedung}}</td>
                             <td>{{$rp->deskripsi}}</td>
                             <td>{{$rp->tanggal_pinjam}}</td>
@@ -102,7 +102,7 @@
                                 <th>NO</th>
                                 <th>KODE PINJAM</th>
                                 <th>NAMA RUANGAN</th>
-                                <th>GEDUNG</th>
+                                <th>GUDANG</th>
                                 <th>DESKRIPSI</th>
                                 <th>NAMA PEMINJAM</th>
                                 <th>TANGGAL PINJAM</th>
@@ -117,7 +117,7 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$rp->kode_peminjaman}}</td>
                                 <td>{{$rp->nama_peminjam}}</td>
-                                <td>{{$rp->ruangan->nama_ruangan}}</td>
+                                <td>{{$rp->ruangan->kode_ruangan}} - {{$rp->ruangan->nama_ruangan}}</td>
                                 <td>{{$rp->gudang->nama_gedung}}</td>
                                 <td>{{$rp->deskripsi}}</td>
                                 <td>{{$rp->tanggal_pinjam}}</td>
@@ -126,7 +126,7 @@
                                 @if($rp->tgl_selesai!=null)
                                 {{$rp->tgl_selesai}}
                                 @else
-                                belum selesai
+                                -
                                 @endif
                             </td>
                                 <td>{{$rp->status}}</td>

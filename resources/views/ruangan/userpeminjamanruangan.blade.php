@@ -56,7 +56,7 @@
                     <input type="date" class="form-control" id="tanggal_pinjam" name="tanggal_pinjam">
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="tanggal_selesai"><b>Tanggal Selesai</b></label>
+                    <label class="form-label" for="tanggal_selesai"><b>Jatuh Tempo</b></label>
                     <input type="date" class="form-control" id="tanggal_selesai" name="tanggal_selesai">
                 </div>
                 <div class="form-group">

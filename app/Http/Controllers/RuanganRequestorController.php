@@ -18,7 +18,7 @@ class RuanganRequestorController extends Controller
      */
     public function index()
     {
-        $requestorruangan = Room::with('roomcategory','building')->paginate();
+        $requestorruangan = Room::orderBy('id','desc')->paginate();
         return view('ruangan.index_requestor', compact('requestorruangan'));
     }
 

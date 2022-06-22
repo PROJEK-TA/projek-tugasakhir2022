@@ -47,6 +47,11 @@
                         <option value="{{ $j->id }}">{{ $j->nama_jabatan}}</option>
                         @endforeach
                     </select>
+                    <div class="form-group">
+                        <label class="form-label" for="nm_user"><b>Role</b></label>
+                        <input type="text" class="form-control" id="nm_user" name="role" value="{{ $user->role}}"
+                            placeholder="Input nama user...">
+                    </div>
                 </div><br><br>
                 <button type="submit" class="btn btn-primary">Simpan</button>
             </form>

@@ -18,7 +18,7 @@ class LokasiBarangController extends Controller
      */
     public function index()
     {
-        $lokasi=LocationProduct::all();
+        $lokasi=LocationProduct::orderBy('id','desc')->paginate();
         return view('barangs.lokasi', compact('lokasi'));
     }
 

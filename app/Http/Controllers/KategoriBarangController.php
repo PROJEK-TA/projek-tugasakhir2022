@@ -19,7 +19,7 @@ class KategoriBarangController extends Controller
      */
     public function index()
     {
-        $kategori=ProductCategory::all();
+        $kategori=ProductCategory::orderBy('id','desc')->paginate();
         return view('barangs.kategoribarang', compact('kategori'));
 
     }

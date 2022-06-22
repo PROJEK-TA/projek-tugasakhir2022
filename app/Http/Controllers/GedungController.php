@@ -17,7 +17,7 @@ class GedungController extends Controller
      */
     public function index()
     {
-        $building=Building::all();
+        $building=Building::orderBy('id','desc')->paginate();
         return view ('ruangan.gedung', compact('building'));
     }
 

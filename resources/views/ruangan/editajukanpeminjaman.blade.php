@@ -23,6 +23,7 @@
                     <input type="text" class="form-control" id="nm_peminjam" name="nama_peminjam"
                         value="{{Auth::user()->name}}" readonly>
                 </div>
+                <input type="hidden" name="ruangan_lama" value={{$reqpinjam->id_room}}>
                 <div class="form-group">
                     <label class="form-label"><b>Nama Ruangan</b></label>
                     <select class="form-select mb-3 shadow-none" name="nama_ruangan" id="id_ruangan">

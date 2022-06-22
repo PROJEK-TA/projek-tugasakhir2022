@@ -26,7 +26,7 @@
                 <div class="form-group">
                     <label class="form-label" for="sts_ruang"><b>Status Ruangan</b></label>
                     <input type="text" class="form-control" id="sts_ruangan" name="status_ruangan"
-                        value="{{ $room->status_ruangan }}" readonly>
+                        value="{{ $room->status_ruangan }}" >
                 </div>
                 <div class="form-group">
                     <label class="form-label"><b>Kategori Ruangan</b></label>

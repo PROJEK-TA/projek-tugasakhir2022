@@ -33,7 +33,7 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$rp->kode_peminjaman}}</td>
                             <td>{{Auth::user()->name}}</td>
-                            <td>{{$rp->ruangan->nama_ruangan}}</td>
+                            <td>{{$rp->ruangan->kode_ruangan}} - {{$rp->ruangan->nama_ruangan}}</td>
                             <td>{{$rp->gudang->nama_gedung}}</td>
                             <td>{{$rp->deskripsi}}</td>
                             <td>{{$rp->tanggal_pinjam}}</td>
@@ -42,7 +42,7 @@
                                 @if($rp->tgl_selesai!=null)
                                 {{$rp->tgl_selesai}}
                                 @else
-                                belum selesai
+                                -
                                 @endif
                             </td>
                             <td>{{$rp->status}}</td>
@@ -112,7 +112,7 @@
                                             </button>
                                         </form>
                                     </a>
-                                    @endif
+                                    
                                 </div>
                                 @endif
                             </td>

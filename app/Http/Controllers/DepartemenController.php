@@ -17,7 +17,7 @@ class DepartemenController extends Controller
      */
     public function index()
     {
-        $department=Department::all();
+        $department=Department::orderBy('id','desc')->paginate();
         return view ('departemen.index', compact('department'));
     }
 

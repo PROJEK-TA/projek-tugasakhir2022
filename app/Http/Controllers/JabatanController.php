@@ -17,7 +17,7 @@ class  JabatanController extends Controller
      */
     public function index()
     {
-        $peran=Jabatan::all();
+        $peran=Jabatan::orderBy('id','desc')->paginate();
         return view ('users.jabatan', compact('peran'));
     }
 

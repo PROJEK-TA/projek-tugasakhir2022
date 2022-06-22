@@ -33,7 +33,7 @@ class RuanganController extends Controller
             $kd = "0001";
         }
 
-        $ruangan = Room::with('roomcategory','building')->paginate();
+        $ruangan = Room::orderBy('id','desc')->paginate();
         return view('ruangan.index', compact('ruangan', 'kd'));
     }
 

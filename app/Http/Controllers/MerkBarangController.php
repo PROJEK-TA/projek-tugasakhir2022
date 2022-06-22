@@ -17,7 +17,7 @@ class MerkBarangController extends Controller
      */
     public function index()
     {
-        $merk=MerkProduct::all();
+        $merk=MerkProduct::orderBy('id','desc')->paginate();
         return view('barangs.merk', compact('merk'));
     }
 

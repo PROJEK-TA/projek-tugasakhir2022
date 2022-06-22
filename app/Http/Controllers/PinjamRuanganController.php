@@ -7,6 +7,7 @@ use App\Models\Room;
 use App\Models\Building;
 use App\Models\BorrowRoom;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 use PDF;
 use DB;
 
@@ -119,8 +120,8 @@ class PinjamRuanganController extends Controller
      */
     public function edit($id)
     {
-        $reqpinjam = BorrowRoom::where('status_ruangan', '=' , 'Tersedia')->get();
-        $ruangan = Room::all();
+        $reqpinjam = BorrowRoom::find($id);
+        $ruangan = Room::where('status_ruangan', '=' , 'Tersedia')->get();
         $gudang = Building::all();
 
         return view('ruangan.editajukanpeminjaman', compact('reqpinjam', 'ruangan', 'gudang'));
@@ -144,14 +145,24 @@ class PinjamRuanganController extends Controller
         $reqpinjam->tanggal_selesai=$request->tanggal_selesai;
         $reqpinjam->save();
 
-        $statruangan = Room::find($reqpinjam->id_room);
-        $statruangan->id_statusproduct=13;
-        $ruangan->id_statusproduct=8;
+        if($request->ruangan_lama!=$reqpinjam->id_room)
+        {   
+            //mengubah status ruangan lama menjadi tersedia
+            $ruanganlama=Room::find($request->ruangan_lama);
+            $ruanganlama->status_ruangan="Tersedia";
+            $ruanganlama->save();
+
+             
+        }
+        //mengubah status ruangan baru menjadi diajukan
+        $ruangan->status_ruangan="diajukan";
         $ruangan->save();
-        $statruangan->save();
+
         return redirect('/statuspinjamruangan');
-        // return $request;
+
     }
+
+    
 
     /**
      * Remove the specified resource from storage.
@@ -205,7 +216,7 @@ class PinjamRuanganController extends Controller
         $return->tgl_selesai=Carbon::now()->format('Ymd');
         $return->save();
 
-        $ruangan=Room::find($request->id_product);
+        $ruangan=Room::find($request->id_room);
         $ruangan->status_ruangan="Tersedia";
         $ruangan->save();
 

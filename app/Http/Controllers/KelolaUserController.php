@@ -18,7 +18,7 @@ class KelolaUserController extends Controller
      */
     public function index()
     {
-        $user=User::with('jabatan')->paginate();
+        $user=User::orderBy('id','desc')->paginate();
         return view ('users.kelolausers', compact('user'));
     }
 
@@ -49,8 +49,9 @@ class KelolaUserController extends Controller
         $u->password=Hash::make($request->password);
         $u->kontak=$request->kontak;
         $u->alamat=$request->alamat;
-        $u->role='requestor';
+        $u->role=$request->role;
         $u->id_jabatan=$request->id_jabatan;
+     
         $u->save();
         return redirect('/kelolausers');
     }
@@ -99,6 +100,7 @@ class KelolaUserController extends Controller
         $user->kontak=$request->kontak;
         $user->alamat=$request->alamat;
         $user->id_jabatan=$request->id_jabatan;
+        $user->role=$request->role;
         $user->save();
         return redirect('/kelolausers');
       

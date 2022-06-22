@@ -67,7 +67,7 @@
                 </div>
               
                 <div class="form-group">
-                    <label class="form-label" for="tgl_kembali"><b>Tanggal Dikembalikan</b></label>
+                    <label class="form-label" for="tgl_kembali"><b>Jatuh Tempo</b></label>
                     <input type="date" class="form-control" id="tgl_kembali" name="tanggal_kembali">
                 </div>
                 <div class="form-group">

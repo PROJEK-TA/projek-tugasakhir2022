@@ -59,6 +59,11 @@
                         @endforeach
                     </select>
                 </div>
+                <div class="form-group">
+                    <label class="form-label" for="nm_user"><b>Role</b></label>
+                    <input type="text" class="form-control" id="nm_user" name="role" "
+                        placeholder="Input role...">
+                </div>
                 <br><br>
                 <button type="submit" class="btn btn-primary">Tambahkan</button>
             </form>
