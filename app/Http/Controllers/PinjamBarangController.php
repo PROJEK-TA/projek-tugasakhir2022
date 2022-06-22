@@ -33,7 +33,7 @@ class PinjamBarangController extends Controller
     //tampilan halaman peminjaman pada role "approval"
     public function index_approval()
     {
-        $reqpinjam=BorrowProduct::where('status','=','diajukan')->paginate();
+        $reqpinjam=BorrowProduct::where('status','=','diajukan')->orderBy('id','desc')->paginate();
         $reqpinjamconfirmed=BorrowProduct::where('status','!=','diajukan')->orderBy('id','desc')->paginate();
       
         return view('barangs.peminjamanbarang', compact(['reqpinjam','reqpinjamconfirmed']));

@@ -101,10 +101,10 @@
                             <tr>
                                 <th>NO</th>
                                 <th>KODE PINJAM</th>
+                                <th>NAMA PEMINJAM</th>
                                 <th>NAMA RUANGAN</th>
                                 <th>GUDANG</th>
                                 <th>DESKRIPSI</th>
-                                <th>NAMA PEMINJAM</th>
                                 <th>TANGGAL PINJAM</th>
                                 <th>JATUH TEMPO</th>
                                 <th>TANGGAL SELESAI</th>

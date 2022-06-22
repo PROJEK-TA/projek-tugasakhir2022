@@ -20,14 +20,14 @@ class PinjamRuanganController extends Controller
      */
     public function index()
     {
-        $reqpinjam = BorrowRoom::where('id_user', Auth::user()->id)->paginate();
+        $reqpinjam = BorrowRoom::where('id_user', Auth::user()->id)->orderBy('id','desc')->paginate();
         return view('ruangan.statuspeminjamanruangan', compact('reqpinjam'));
     }
 
     public function index_approval()
     {
-        $reqpinjam=BorrowRoom::where('status','=','diajukan')->paginate();
-        $reqpinjamconfirmed=BorrowRoom::where('status','!=','diajukan')->paginate();
+        $reqpinjam=BorrowRoom::where('status','=','diajukan')->orderBy('id','desc')->paginate();
+        $reqpinjamconfirmed=BorrowRoom::where('status','!=','diajukan')->orderBy('id','desc')->paginate();
         return view('ruangan.peminjamanruangan', compact(['reqpinjam','reqpinjamconfirmed']));
     }
 
