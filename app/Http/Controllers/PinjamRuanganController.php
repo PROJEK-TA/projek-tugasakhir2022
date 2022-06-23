@@ -162,8 +162,6 @@ class PinjamRuanganController extends Controller
 
     }
 
-    
-
     /**
      * Remove the specified resource from storage.
      *
@@ -230,6 +228,15 @@ class PinjamRuanganController extends Controller
         view()->share('pinjamruangan', $reqpinjam);
         $pdf = PDF::loadview('ruangan.pinjamruangan-pdf')->setPaper('a4', 'landscape');
         return $pdf->stream('data-pinjamruangan.pdf');
+    }
+
+    public function cetak_riwayatpinjamruangan()
+    {
+        $reqpinjam = BorrowRoom::all();
+
+        view()->share('riwayatpinjamruangan', $reqpinjam);
+        $pdf = PDF::loadview('ruangan.riwayatpinjamruangan-pdf')->setPaper('a4', 'landscape');
+        return $pdf->stream('data-riwayatpinjamruangan.pdf');
     }
 }
 
