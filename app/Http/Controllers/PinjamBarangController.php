@@ -258,4 +258,13 @@ class PinjamBarangController extends Controller
         $pdf = PDF::loadview('barangs.pinjambarang-pdf')->setPaper('a4', 'landscape');
         return $pdf->stream('data-pinjambarang.pdf');
     }
+
+    public function cetak_riwayatpinjambarang()
+    {
+        $reqpinjam = BorrowProduct::all();
+
+        view()->share('riwayatpinjambarang', $reqpinjam);
+        $pdf = PDF::loadview('barangs.riwayatpinjambarang-pdf')->setPaper('a4', 'landscape');
+        return $pdf->stream('data-riwayatpinjambarang.pdf');
+    }
 }
