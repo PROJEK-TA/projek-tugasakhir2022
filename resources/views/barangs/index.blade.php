@@ -45,7 +45,21 @@
                             <td>{{$b->harga_beli}}</td>
                             <!-- <td>{{$b->jumlah}}</td>
                             <td>{{$b->satuan}}</td> -->
-                            <td>{{$b->status->nama_statusbarang}} </td>
+                            <td>
+                                @if ($b->status->nama_statusbarang=='Tersedia')
+                                    <span class="badge bg-primary">Tersedia</span>
+                                @elseif ($b->status->nama_statusbarang=='Rusak')
+                                    <span class="badge bg-danger">Rusak</span>
+                                @elseif ($b->status->nama_statusbarang=='Hilang')
+                                    <span class="badge bg-secondary">Hilang</span>
+                                @elseif ($b->status->nama_statusbarang=='Dipinjam')
+                                    <span class="badge bg-info">Dipinjam</span>
+                                @elseif ($b->status->nama_statusbarang=='Diservis')
+                                    <span class="badge bg-warning"">Diservis</span>
+                                @else ($b->status->nama_statusbarang=='Diajukan')
+                                    <span class="badge bg-success">Diajukan</span>
+                                @endif
+                            </td>
                             <td>{{$b->tanggal_input}}</td>
                             <td>
                                 <div class="flex align-items-center list-user-action">
