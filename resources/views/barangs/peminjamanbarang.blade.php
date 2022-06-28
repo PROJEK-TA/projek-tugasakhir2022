@@ -47,7 +47,7 @@
                                 @if($rp->tanggal_pengembalian!=null)
                                 {{$rp->tanggal_pengembalian}}
                                 @else
-                                belum dikembalikan
+                                belum ada
                                 @endif
                             </td>
                             <td>{{$rp->status}}</td>
@@ -137,11 +137,21 @@
                             <td>
                                 @if($rp->tanggal_pengembalian!=null)
                                 {{$rp->tanggal_pengembalian}}
+                                @elseif($rp->status!='disetujui')
+                                <span class="badge bg-danger">request ditolak</span>
                                 @else
-                                belum dikembalikan
+                                <span class="badge bg-info">masih dipinjam</span>
                                 @endif
                             </td>
-                            <td>{{$rp->status}}</td>
+                            <td>
+                                @if ($rp->status=='disetujui')
+                                <span class="badge bg-success">disetujui</span>
+                                @elseif ($rp->status=='dikembalikan')
+                                <span class="badge bg-warning">sudah dikembalikan</span>
+                                @else
+                                <span class="badge bg-danger">ditolak</span>
+                                @endif
+                            </td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -42,7 +42,7 @@
                                 @if($rp->tgl_selesai!=null)
                                 {{$rp->tgl_selesai}}
                                 @else
-                                belum selesai
+                                belum ada
                                 @endif
                             </td>
                             <td>{{$rp->status}}</td>
@@ -125,11 +125,22 @@
                                 <td>
                                 @if($rp->tgl_selesai!=null)
                                 {{$rp->tgl_selesai}}
+                                @elseif($rp->status!='disetujui')
+                                <span class="badge bg-danger">request ditolak</span>
                                 @else
-                                -
+                                <span class="badge bg-info">masih dipinjam</span>
                                 @endif
                             </td>
-                                <td>{{$rp->status}}</td>
+                                <td>
+                                @if ($rp->status=='disetujui')
+                                <span class="badge bg-success">disetujui</span>
+                                @elseif ($rp->status=='selesai')
+                                <span class="badge bg-warning">sudah selesai</span>
+                                @else
+                                <span class="badge bg-danger">ditolak</span>
+                                @endif
+
+                                </td>
                                 <!-- <td>
                                     <div class="flex align-items-center list-user-action">
                                         <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip"
