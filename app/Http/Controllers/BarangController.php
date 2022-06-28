@@ -24,9 +24,13 @@ class BarangController extends Controller
      */
     public function index()
     {
-        
+        $jtersedia = Product::where('id_statusproduct', '=', 8)->count();
+        $jdipinjam = Product::where('id_statusproduct', '=', 11)->count();
+        $jrusak = Product::where('id_statusproduct', '=', 9)->count();
+        $jdiservis = Product::where('id_statusproduct', '=', 12)->count();
+        $jhilang = Product::where('id_statusproduct', '=', 10)->count();
         $barang = Product::orderBy('id','desc')->get();
-        return view('barangs.index', compact('barang'));
+        return view('barangs.index', compact('barang','jtersedia','jdipinjam','jrusak','jhilang','jdiservis'));
     }
 
     /**
