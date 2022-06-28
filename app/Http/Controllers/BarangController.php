@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\BorrowProduct;
 use App\Models\ProductCategory;
 use App\Models\MerkProduct;
 use App\Models\LocationProduct;
@@ -24,7 +25,7 @@ class BarangController extends Controller
     public function index()
     {
         
-        $barang = Product::orderBy('id','desc')->paginate();
+        $barang = Product::orderBy('id','desc')->get();
         return view('barangs.index', compact('barang'));
     }
 
@@ -77,8 +78,8 @@ class BarangController extends Controller
             'id_gudang' => $request->id_gudang,
             'id_department' => $request->id_departemen,
             'harga_beli' => $request->hargabeli,
-            // 'jumlah' => $request->jumlah,
-            // 'satuan' => $request->satuan,
+            'jumlah' => $request->jumlah,
+            'satuan' => $request->satuan,
             'id_statusproduct' => $request->id_statusbarang,
             'tanggal_input' => $request->tglinput,
 
@@ -136,8 +137,8 @@ class BarangController extends Controller
         $prod->id_gudang=$request->id_gudang;
         $prod->id_department=$request->id_departemen;
         $prod->harga_beli=$request->hargabeli;
-        // $prod->jumlah=$request->jumlah;
-        // $prod->satuan=$request->satuan;
+        $prod->jumlah=$request->jumlah;
+        $prod->satuan=$request->satuan;
         $prod->id_statusproduct=$request->id_statusbarang;
         $prod->tanggal_input=$request->tglinput;
         $prod->save();

@@ -35,7 +35,13 @@
                             <td>{{$r->nama_ruangan}}</td>
                             <td>{{$r->roomcategory->nama_kategruangan}}</td>
                             <td>{{$r->building->nama_gedung}}</td>
-                            <td>{{$r->status_ruangan}}</td>
+                            <td>
+                                @if ($r->status_ruangan=='Tersedia')
+                                        <span class="badge bg-primary">Tersedia</span>
+                                @else ($r->status_ruangan=='Dipinjam')
+                                        <span class="badge bg-info">Dipinjam</span>
+                                @endif
+                            </td>
                             <td>
                                 <div class="flex align-items-center list-user-action">
                                     <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip"
