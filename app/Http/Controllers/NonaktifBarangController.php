@@ -148,7 +148,7 @@ class NonaktifBarangController extends Controller
 
     public function cetak_barangnonaktif()
     {
-        $nonaktif = NonaktifProduct::all();
+        $nonaktif = Product::orderBy('id','desc')->where('id_statusproduct', '=' , 9)->orwhere('id_statusproduct', '=' , 10)->get();
 
         view()->share('barangnonaktif', $nonaktif);
         $pdf = PDF::loadview('barangs.nonaktif-pdf')->setPaper('a4', 'landscape');

@@ -42,29 +42,29 @@
     <table id="nonaktifproduct">
         <tr>
             <th>NO</th>
-            <th>KODE NONAKTIF</th>
+            <th>KODE BARANG</th>
             <th>NAMA BARANG</th>
-            <th>MERK</th>
+            <th>KATEGORI</th>
             <th>LOKASI</th>
-            <th>DESKRIPSI</th>
-            <th>JUMLAH</th>
+            <th>OWNER</th>
+            <th>HARGA BELI</th>
             <th>STATUS</th>
-            <th>TANGGAL NONAKTIF</th>
+            <th>TANGGAL INPUT</th>
         </tr>
         <tr>
-            @foreach($barangnonaktif as $bn)
-        <tr>
-            <td>{{$loop->iteration}}</td>
-            <td>{{$bn->kode_nonaktif}}</td>
-            <td>{{$bn->barang->nama_barang}}</td>
-            <td>{{$bn->merk->nama_merkbarang}}</td>
-            <td>{{$bn->lokasi->nama_lokasibarang}}</td>
-            <td>{{$bn->deskripsi}}</td>
-            <td>{{$bn->jumlah}}</td>
-            <td>{{$bn->status->nama_statusbarang}}</td>
-            <td>{{$bn->tanggal_nonaktif}}</td>
-        </tr>
-        @endforeach
+            @foreach($barangnonaktif as $b)
+                <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$b->kode_barang}}</td>
+                    <td>{{$b->nama_barang}} ({{$b->merek->nama_merkbarang}})</td>
+                    <td>{{$b->productcategory->nama_kategbarang}}</td>
+                    <td>{{$b->lokasi->nama_lokasibarang}} ({{$b->gudang->nama_gedung}})</td>
+                    <td>{{$b->departemen->nama_departemen}}</td>
+                    <td>{{$b->harga_beli}}</td>
+                    <td>{{$b->status->nama_statusbarang}}</td>
+                    <td>{{$b->tanggal_input}}</td>
+                </tr>
+            @endforeach
         </tr>
     </table>
 

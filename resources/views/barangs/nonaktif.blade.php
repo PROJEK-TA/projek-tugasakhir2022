@@ -47,7 +47,7 @@
                     </tbody>
                 </table>
                 <br>
-                <a href="/cetak_barangrequestor" button type="button" class="btn btn-primary">Print</button></a>
+                <a href="/cetak_barangnonaktif" button type="button" class="btn btn-primary">Print</button></a>
             </div>
         </div>
     </div>
