@@ -42,10 +42,14 @@
                                 @if($rp->tgl_selesai!=null)
                                 {{$rp->tgl_selesai}}
                                 @else
-                                belum ada
+                                <span class="badge bg-secondary">belum ada</span>
                                 @endif
                             </td>
-                            <td>{{$rp->status}}</td>
+                            <td> 
+                            @if  ($rp->status=='diajukan')
+                               <span class="badge bg-success">diajukan</span>
+                            @endif
+                            </td>
                             <td>
                                 <div class="flex align-items-center list-user-action">
                                     <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip"

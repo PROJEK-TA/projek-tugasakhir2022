@@ -47,10 +47,14 @@
                                 @if($rp->tanggal_pengembalian!=null)
                                 {{$rp->tanggal_pengembalian}}
                                 @else
-                                belum ada
+                                <span class="badge bg-secondary">belum ada</span>
                                 @endif
                             </td>
-                            <td>{{$rp->status}}</td>
+                            <td>
+                               @if  ($rp->status=='diajukan')
+                               <span class="badge bg-success">diajukan</span>
+                               @endif
+                            </td>
                             <td>
                                 <div class="flex align-items-center list-user-action">
                                     <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip"
@@ -138,7 +142,7 @@
                                 @if($rp->tanggal_pengembalian!=null)
                                 {{$rp->tanggal_pengembalian}}
                                 @elseif($rp->status!='disetujui')
-                                <span class="badge bg-danger">request ditolak</span>
+                                <span class="badge bg-secondary">tidak ada</span>
                                 @else
                                 <span class="badge bg-info">masih dipinjam</span>
                                 @endif

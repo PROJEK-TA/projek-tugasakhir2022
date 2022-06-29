@@ -46,20 +46,24 @@
                             <td>
                                 @if($rp->tanggal_pengembalian!=null)
                                 {{$rp->tanggal_pengembalian}}
-                                @elseif($rp->status!='disetujui')
-                                <span class="badge bg-danger">request ditolak</span>
+                                @elseif($rp->status=='ditolak')
+                                <span class="badge bg-secondary">tidak ada</span>
+                                @elseif($rp->status=='diajukan')
+                                <span class="badge bg-success">sedang diajukan</span>
                                 @else
                                 <span class="badge bg-info">sedang dipinjam</span>
                                 @endif
                             </td>
                             <td>
-                                @if ($rp->status=='disetujui')
-                                <span class="badge bg-success">disetujui</span>
+                            @if ($rp->status=='disetujui')
+                                <span class="badge bg-primary">sudah disetujui</span>
                                 @elseif ($rp->status=='dikembalikan')
                                 <span class="badge bg-warning">sudah dikembalikan</span>
+                                @elseif ($rp->status=='diajukan')
+                                <span class="badge bg-success">sedang diajukan</span>
                                 @else
-                                <span class="badge bg-danger">ditolak</span>
-                                @endif
+                                <span class="badge bg-danger">request ditolak</span>
+                            @endif
                             </td>
                             <td>
                                 @if($rp->status=='disetujui')

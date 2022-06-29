@@ -239,7 +239,7 @@ class PinjamBarangController extends Controller
     public function return(Request $request, $id)
     {
         $return=BorrowProduct::find($id);
-        $return->status='dikembalikan';
+        $return->status='sudah dikembalikan';
         $return->tanggal_pengembalian=Carbon::now()->format('Ymd');
         $return->save();
 
