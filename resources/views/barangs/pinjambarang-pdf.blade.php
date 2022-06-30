@@ -51,28 +51,34 @@
             <!-- <th>JUMLAH</th> -->
             <th>DESKRIPSI</th>
             <th>TANGGAL PINJAM</th>
-            <th>TANGGAL KEMBALI</th>
+            <th>JATUH TEMPO</th>
+            <th>TANGGAL PENGEMBALIAN</th>
             <th>STATUS</th>
         </tr>
         <tr>
-            @foreach($pinjambarang as $pb)
+            @foreach($pinjambarang as $rp)
         <tr>
             <td>{{$loop->iteration}}</td>
-            <td>{{$pb->kode_peminjaman}}</td>
-            <td>{{$pb->nama_peminjam}}</td>
-            <td>{{$pb->barang->kode_barang}} - {{$pb->barang->nama_barang}} ({{$pb->merk->nama_merkbarang}})</td>
-            <td>{{$pb->lokasi->nama_lokasibarang}} ({{$pb->gudang->nama_gedung}})</td>
-            <td>{{$pb->departemen->nama_departemen}}</td>
-            <!-- <td>{{$pb->jumlah}}</td> -->
-            <td>{{$pb->deskripsi}}</td>
-            <td>{{$pb->tanggal_pinjam}}</td>
-            <td>{{$pb->tanggal_kembali}}</td>
-            <td>{{$pb->status}}</td>
+            <td>{{$rp->kode_peminjaman}}</td>
+            <td>{{$rp->nama_peminjam}}</td>
+            <td>{{$rp->barang->kode_barang}} - {{$rp->barang->nama_barang}} ({{$rp->merk->nama_merkbarang}})</td>
+            <td>{{$rp->lokasi->nama_lokasibarang}} ({{$rp->gudang->nama_gedung}})</td>
+            <td>{{$rp->departemen->nama_departemen}}</td>
+            <!-- <td>{{$rp->jumlah}}</td> -->
+            <td>{{$rp->deskripsi}}</td>
+            <td>{{$rp->tanggal_pinjam}}</td>
+            <td>{{$rp->tanggal_kembali}}</td>
+            <td>
+                @if($rp->tanggal_pengembalian!=null)
+                {{$rp->tanggal_pengembalian}}
+                @else
+                <span class="badge bg-secondary">belum ada</span>
+                @endif
+            </td>
+            <td>{{$rp->status}}</td>
         </tr>
         @endforeach
         </tr>
     </table>
-
 </body>
-
 </html>

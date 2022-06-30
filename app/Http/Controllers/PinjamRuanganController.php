@@ -223,7 +223,7 @@ class PinjamRuanganController extends Controller
 
     public function cetak_pinjamruangan()
     {
-        $reqpinjam = BorrowRoom::all();
+        $reqpinjam = BorrowRoom::where('id_user', Auth::user()->id)->orderBy('id','desc')->paginate();
 
         view()->share('pinjamruangan', $reqpinjam);
         $pdf = PDF::loadview('ruangan.pinjamruangan-pdf')->setPaper('a4', 'landscape');

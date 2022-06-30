@@ -34,33 +34,41 @@
 
 <table id="borrowroom">
     <tr>
-        <th>NO</th>
-        <th>KODE PEMINJAMAN</th>
-        <th>NAMA PEMINJAM</th>
-        <th>NAMA RUANGAN</th>
-        <th>GUDANG</th>
-        <th>DESKRIPSI</th>
-        <th>TANGGAL PINJAM</th>
-        <th>TANGGAL SELESAI</th>
-        <th>STATUS</th>
+      <th>NO</th>
+      <th>KODE PEMINJAMAN</th>
+      <th>NAMA PEMINJAM</th>
+      <th>NAMA RUANGAN</th>
+      <th>GUDANG</th>
+      <th>DESKRIPSI</th>
+      <th>TANGGAL PINJAM</th>
+      <th>JATUH TEMPO</th>
+      <th>TANGGAL SELESAI</th>
+      <th>STATUS</th>
     </tr>
     <tr>
-        @foreach($pinjamruangan as $pr)
-            <tr>
-                <td>{{$loop->iteration}}</td>
-                <td>{{$pr->kode_peminjaman}}</td>
-                <td>{{$pr->nama_peminjam}}</td>
-                <td>{{$pr->ruangan->nama_ruangan}}</td>
-                <td>{{$pr->gudang->nama_gedung}}</td>
-                <td>{{$pr->deskripsi}}</td>
-                <td>{{$pr->tanggal_pinjam}}</td>
-                <td>{{$pr->tanggal_selesai}}</td>
-                <td>{{$pr->status}}</td>
-            </tr>
-        @endforeach
-        </tr>
-    </table>
-
+      @foreach($pinjamruangan as $rp)
+      <tr>
+          <td>{{$loop->iteration}}</td>
+          <td>{{$rp->kode_peminjaman}}</td>
+          <td>{{$rp->nama_peminjam}}</td>
+          <td>{{$rp->ruangan->kode_ruangan}} - {{$rp->ruangan->nama_ruangan}}</td>
+          <td>{{$rp->gudang->nama_gedung}}</td>
+          <td>{{$rp->deskripsi}}</td>
+          <td>{{$rp->tanggal_pinjam}}</td>
+          <td>{{$rp->tanggal_selesai}}</td>
+          <td>
+            @if($rp->tgl_selesai!=null)
+            {{$rp->tgl_selesai}}
+            @elseif($rp->status!='disetujui')
+            <span class="badge bg-danger">request ditolak</span>
+            @else
+            <span class="badge bg-info">masih dipinjam</span>
+            @endif
+          </td>
+          <td>{{$rp->status}}</td>
+      </tr>
+      @endforeach
+    </tr>
+</table>
 </body>
-
 </html>
