@@ -9,6 +9,7 @@ use App\Models\MerkProduct;
 use App\Models\LocationProduct;
 use App\Models\Department;
 use App\Models\Building;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use PDF;
@@ -26,15 +27,16 @@ class PinjamBarangController extends Controller
     public function index()
     {
        
-        $reqpinjam=BorrowProduct::where('id_user', Auth::user()->id)->orderBy('id','desc')->paginate();
+        $reqpinjam=BorrowProduct::where('id_user', Auth::user()->id)->orderBy('id','desc')->get();
         return view('barangs.statuspeminjamanbarang', compact('reqpinjam'));
     }
 
     //tampilan halaman peminjaman pada role "approval"
     public function index_approval()
     {
-        $reqpinjam=BorrowProduct::where('status','=','diajukan')->orderBy('id','desc')->paginate();
-        $reqpinjamconfirmed=BorrowProduct::where('status','!=','diajukan')->orderBy('id','desc')->paginate();
+       
+        $reqpinjam=BorrowProduct::where('status','=','diajukan')->where('petugas','=', Auth::user()->id)->orderBy('id','desc')->get();
+        $reqpinjamconfirmed=BorrowProduct::where('status','!=','diajukan')->where('petugas','=',Auth::user()->id)->orderBy('id','desc')->get();
       
         return view('barangs.peminjamanbarang', compact(['reqpinjam','reqpinjamconfirmed']));
     }
@@ -55,6 +57,7 @@ class PinjamBarangController extends Controller
     {
         //proses menampilkan daftar barang dengan status "tersedia" dan "diajukan"
         $barang = Product::where('id_statusproduct', '=' , 8)->get();
+        $petugas = User::where('role', '=' , 'approval')->get();
 
         //membuat kode peminjaman barang
         $q = DB::table('borrow_products')->select(DB::raw('MAX(RIGHT(kode_peminjaman,4)) as kode'));
@@ -74,7 +77,7 @@ class PinjamBarangController extends Controller
         
         
 
-        return view('barangs.userpeminjamanbarang', compact('barang','kd'));
+        return view('barangs.userpeminjamanbarang', compact('barang','kd','petugas'));
     }
 
     /**
@@ -92,6 +95,7 @@ class PinjamBarangController extends Controller
             'id' => $request->id,
             'kode_peminjaman' => $request->kode_peminjaman,
             'nama_peminjam' => $request->nama_peminjam,
+            'petugas' => $request->petugas,
             'id_product' => $request->nama_barang,
             'id_merk' => $barang->id_merkproduct,
             'id_lokasi' => $barang->id_lokasiproduct,
@@ -271,7 +275,7 @@ class PinjamBarangController extends Controller
         $peminjaman = BorrowProduct::find($id);
         $peminjaman->status="sudah dikembalikan dengan bukti";
         $peminjaman->update([
-            'petugas' => $request->nama_petugas,
+            'petugas' => Auth::user()->id,
             'kondisi_setelahdipinjam' => $request->kondisi,
             'catatan' => $request->catatan,
             // 'bukti_pengembalian' => $request->fotobukti,

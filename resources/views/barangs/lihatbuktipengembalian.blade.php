@@ -41,7 +41,7 @@
                     <tr>
                         <td>Petugas Penanggung Jawab Aset IT</td>
                         <td>:</td>
-                        <td>{{ Auth::user()->name }}</td>
+                        <td>{{ $pengembalian->admin->name }}</td>
                     </tr>
                     <tr>
                         <td>Tanggal Pinjam</td>

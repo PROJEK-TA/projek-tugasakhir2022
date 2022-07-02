@@ -29,6 +29,10 @@ class User extends Authenticatable
         return $this->belongsTo(Jabatan::class, 'id_jabatan');
     }
 
+    public function petugasaset()
+    {
+        return $this->hasMany(BorrowProduct::class);
+    }
 
     /**
      * The attributes that should be hidden for arrays.

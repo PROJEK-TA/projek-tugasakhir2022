@@ -10,7 +10,7 @@ class BorrowProduct extends Model
     use HasFactory;
     protected $guarded=['id'];
     protected $table = "borrow_products";
-    protected $fillable= ['kode_peminjaman','nama_peminjam',  'deskripsi', 'tanggal_pinjam', 'tanggal_kembali','tanggal_pengembalian','status', 'kondisi_setelahdipinjam','catatan','bukti_pengembalian','id_product', 'id_lokasi', 'id_merk', 'id_department', 'id_user','id_gudang'];
+    protected $fillable= ['kode_peminjaman','nama_peminjam', 'petugas', 'deskripsi', 'tanggal_pinjam', 'tanggal_kembali','tanggal_pengembalian','status', 'kondisi_setelahdipinjam','catatan','bukti_pengembalian','id_product', 'id_lokasi', 'id_merk', 'id_department', 'id_user','id_gudang'];
 
     public function barang() 
     {
@@ -41,9 +41,16 @@ class BorrowProduct extends Model
         return $this->belongsTo(Building::class, 'id_gudang');
         
     }
+
     public function user() 
     {
         return $this->belongsTo(User::class, 'id_user');
+        
+    }
+
+    public function admin() 
+    {
+        return $this->belongsTo(User::class, 'petugas');
         
     }
 
