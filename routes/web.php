@@ -322,4 +322,5 @@ Route::get('/cetak_ruanganrequestor',[RuanganRequestorController::class, 'cetak_
 Route::get('/cetak_pinjambarang',[PinjamBarangController::class, 'cetak_pinjambarang'])->name('cetak_pinjambarang');
 Route::get('/cetak_pinjamruangan',[PinjamRuanganController::class, 'cetak_pinjamruangan'])->name('cetak_pinjamruangan');
 Route::get('/cetak_riwayatpinjambarang',[PinjamBarangController::class, 'cetak_riwayatpinjambarang'])->name('cetak_riwayatpinjambarang');
+Route::get('/cetak_buktipengembalianbarang/buktipengembalian/{id}',[PinjamBarangController::class, 'cetak_buktipengembalianbarang'])->name('buktipengembalianbarang');
 Route::get('/cetak_riwayatpinjamruangan',[PinjamRuanganController::class, 'cetak_riwayatpinjamruangan'])->name('cetak_riwayatpinjamruangan');

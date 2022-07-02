@@ -78,7 +78,7 @@
                     </tr>
                 </tbody>
             </table>
-            <a href="/cetak_barang" button type="button" class="btn btn-primary">Print</button></a>
+            <a href="/cetak_buktipengembalianbarang/buktipengembalian/{{$pengembalian->id}}" button type="button" class="btn btn-primary">Print</button></a>
         </div>
     </div>
 </div>
