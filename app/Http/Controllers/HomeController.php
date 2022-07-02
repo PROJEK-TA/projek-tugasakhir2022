@@ -11,6 +11,7 @@ use App\Models\LocationProduct;
 use App\Models\BorrowProduct;
 use App\Models\BorrowRoom;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use DB;
 
 use Illuminate\Http\Request;
@@ -36,7 +37,7 @@ class HomeController extends Controller
     {
         $startDate = Carbon::today();
         $endDate = Carbon::today()->addDays(7);
-        $peminjaman = BorrowProduct::whereBetween('tanggal_kembali', [$startDate, $endDate])->where('status', '=' , 'disetujui')->get();
+        $peminjaman = BorrowProduct::whereBetween('tanggal_kembali', [$startDate, $endDate])->where('status', '=' , 'disetujui')->where('petugas','=', Auth::user()->id)->get();
 
        $barang = Product::count();
        $ruangan = Room::count();
