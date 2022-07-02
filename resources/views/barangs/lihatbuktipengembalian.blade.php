@@ -34,10 +34,31 @@
                         <td>{{$pengembalian->departemen->nama_departemen}}</td>
                     </tr>
                     <tr>
+                        <td>Keperluan</td>
+                        <td>:</td>
+                        <td>{{$pengembalian->deskripsi}}</td>
+                    </tr>
+                    <tr>
                         <td>Petugas Penanggung Jawab Aset IT</td>
                         <td>:</td>
                         <td>{{ Auth::user()->name }}</td>
                     </tr>
+                    <tr>
+                        <td>Tanggal Pinjam</td>
+                        <td>:</td>
+                        <td>{{$pengembalian->tanggal_pinjam}}</td>
+                    </tr>
+                    <tr>
+                        <td>Jatuh Tempo</td>
+                        <td>:</td>
+                        <td>{{$pengembalian->tanggal_kembali}}</td>
+                    </tr>
+                    <tr>
+                        <td>Tanggal Pengembalian</td>
+                        <td>:</td>
+                        <td>{{$pengembalian->tanggal_pengembalian}}</td>
+                    </tr>
+                  
                     <tr>
                         <td>Kondisi Barang Setelah Dipinjam</td>
                         <td>:</td>
