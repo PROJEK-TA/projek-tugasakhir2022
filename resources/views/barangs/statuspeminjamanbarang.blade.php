@@ -113,16 +113,7 @@
                                                 </span>
                                             </button>
                                         </form>
-                                    </a>
-                                @elseif ($rp->status=='sudah dikembalikan dengan bukti')
-                                <a class="btn btn-sm btn-icon"
-                                            href="/peminjamanbarang/pengembalian/{{$rp->id}}">
-                                            <button type="submit" class="btn btn-sm btn-icon btn-warning">
-                                                <span class="btn-inner">
-                                                    lihat bukti pengembalian
-                                                </span>
-                                            </button>
-                                        </a>
+                               
                                 @else
                                 </div>
                                 @endif
