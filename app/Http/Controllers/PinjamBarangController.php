@@ -284,7 +284,7 @@ class PinjamBarangController extends Controller
 
     public function cetak_pinjambarang()
     {
-        $reqpinjam = BorrowProduct::all();
+        $reqpinjam = BorrowProduct::where('id_user', Auth::user()->id)->orderBy('id','desc')->paginate();
 
         view()->share('pinjambarang', $reqpinjam);
         $pdf = PDF::loadview('barangs.pinjambarang-pdf')->setPaper('a4', 'landscape');
