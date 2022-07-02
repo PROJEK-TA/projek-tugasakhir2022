@@ -132,7 +132,7 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between">
             <div class="header-title">
-                <h4 class="card-title">Reminder Peminjaman H-7</h4>
+                <h4 class="card-title">Reminder Jatuh Tempo Pengembalian Aset H-7</h4>
             </div>
         </div>
         <div class="card-body">
