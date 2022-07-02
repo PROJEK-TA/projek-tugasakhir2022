@@ -57,8 +57,10 @@
                             <td>
                             @if ($rp->status=='disetujui')
                                 <span class="badge bg-primary">sudah disetujui</span>
-                                @elseif ($rp->status=='dikembalikan')
+                                @elseif ($rp->status=='sudah dikembalikan')
                                 <span class="badge bg-warning">sudah dikembalikan</span>
+                                @elseif ($rp->status=='sudah dikembalikan dengan bukti')
+                                <span class="badge bg-warning">sudah dikembalikan dengan bukti</span>
                                 @elseif ($rp->status=='diajukan')
                                 <span class="badge bg-success">sedang diajukan</span>
                                 @else
@@ -66,26 +68,8 @@
                             @endif
                             </td>
                             <td>
-                                @if($rp->status=='disetujui')
-                                <div class="flex align-items-center list-user-action">
-                                    @if($rp->tanggal_pengembalian==null)
-                                    <a class="btn btn-sm btn-icon">
-                                        <form action="{{ route('statuspinjambarang.return', $rp->id) }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="id_product" value="{{$rp->id_product}}">
-                                            <button type="submit" class="btn btn-sm btn-icon btn-warning"
-                                                onclick="return confirm('Are you sure to return this product ?')">
-                                                <span class="btn-inner">
-                                                    kembalikan
-                                                </span>
-                                            </button>
-                                        </form>
-                                    </a>
-                                    @endif
-                                @elseif($rp->status=='ditolak')
-                                @elseif($rp->status=='dikembalikan')
-                                @else
-                                    <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip"
+                                @if($rp->status=='diajukan')
+                                <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip"
                                         data-placement="top" title="" data-original-title="Edit"
                                         href="{{ route('statuspinjambarang.edit', $rp->id) }}">
                                         <span class="btn-inner">
@@ -130,6 +114,16 @@
                                             </button>
                                         </form>
                                     </a>
+                                @elseif ($rp->status=='sudah dikembalikan dengan bukti')
+                                <a class="btn btn-sm btn-icon"
+                                            href="/peminjamanbarang/pengembalian/{{$rp->id}}">
+                                            <button type="submit" class="btn btn-sm btn-icon btn-warning">
+                                                <span class="btn-inner">
+                                                    lihat bukti pengembalian
+                                                </span>
+                                            </button>
+                                        </a>
+                                @else
                                 </div>
                                 @endif
                             </td>

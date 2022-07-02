@@ -36,7 +36,8 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$rp->kode_peminjaman}}</td>
                             <td>{{$rp->nama_peminjam}}</td>
-                            <td>{{$rp->barang->kode_barang}} - {{$rp->barang->nama_barang}} ({{$rp->merk->nama_merkbarang}})</td>
+                            <td>{{$rp->barang->kode_barang}} - {{$rp->barang->nama_barang}}
+                                ({{$rp->merk->nama_merkbarang}})</td>
                             <td>{{$rp->lokasi->nama_lokasibarang}} ({{$rp->gudang->nama_gedung}})</td>
                             <td>{{$rp->departemen->nama_departemen}}</td>
                             <!-- <td>{{$rp->jumlah}}</td> -->
@@ -51,9 +52,9 @@
                                 @endif
                             </td>
                             <td>
-                               @if  ($rp->status=='diajukan')
-                               <span class="badge bg-success">diajukan</span>
-                               @endif
+                                @if ($rp->status=='diajukan')
+                                <span class="badge bg-success">diajukan</span>
+                                @endif
                             </td>
                             <td>
                                 <div class="flex align-items-center list-user-action">
@@ -74,7 +75,8 @@
                                         </span>
                                     </a>
                                     <a class="btn btn-sm btn-icon btn-danger" data-toggle="tooltip" data-placement="top"
-                                        title="" data-original-title="Delete" href="/peminjamanbarang/rejected/{{$rp->id}}">
+                                        title="" data-original-title="Delete"
+                                        href="/peminjamanbarang/rejected/{{$rp->id}}">
                                         <span class="btn-inner">
                                             <svg width="32" viewBox="0 0 24 24" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -122,40 +124,82 @@
                                 <th>JATUH TEMPO</th>
                                 <th>TANGGAL PENGEMBALIAN</th>
                                 <th>STATUS</th>
-                                <!-- <th>AKSI</th> -->
+                                <th>AKSI</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($reqpinjamconfirmed as $rp)
                             <tr>
-                            <td>{{$loop->iteration}}</td>
-                            <td>{{$rp->kode_peminjaman}}</td>
-                            <td>{{$rp->nama_peminjam}}</td>
-                            <td>{{$rp->barang->kode_barang}} - {{$rp->barang->nama_barang}} ({{$rp->merk->nama_merkbarang}})</td>
-                            <td>{{$rp->lokasi->nama_lokasibarang}} ({{$rp->gudang->nama_gedung}})</td>
-                            <td>{{$rp->departemen->nama_departemen}}</td>
-                            <!-- <td>{{$rp->jumlah}}</td> -->
-                            <td>{{$rp->deskripsi}}</td>
-                            <td>{{$rp->tanggal_pinjam}}</td>
-                            <td>{{$rp->tanggal_kembali}}</td>
-                            <td>
-                                @if($rp->tanggal_pengembalian!=null)
-                                {{$rp->tanggal_pengembalian}}
-                                @elseif($rp->status!='disetujui')
-                                <span class="badge bg-secondary">tidak ada</span>
-                                @else
-                                <span class="badge bg-info">masih dipinjam</span>
-                                @endif
-                            </td>
-                            <td>
-                                @if ($rp->status=='disetujui')
-                                <span class="badge bg-success">disetujui</span>
-                                @elseif ($rp->status=='dikembalikan')
-                                <span class="badge bg-warning">sudah dikembalikan</span>
-                                @else
-                                <span class="badge bg-danger">ditolak</span>
-                                @endif
-                            </td>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$rp->kode_peminjaman}}</td>
+                                <td>{{$rp->nama_peminjam}}</td>
+                                <td>{{$rp->barang->kode_barang}} - {{$rp->barang->nama_barang}}
+                                    ({{$rp->merk->nama_merkbarang}})</td>
+                                <td>{{$rp->lokasi->nama_lokasibarang}} ({{$rp->gudang->nama_gedung}})</td>
+                                <td>{{$rp->departemen->nama_departemen}}</td>
+                                <!-- <td>{{$rp->jumlah}}</td> -->
+                                <td>{{$rp->deskripsi}}</td>
+                                <td>{{$rp->tanggal_pinjam}}</td>
+                                <td>{{$rp->tanggal_kembali}}</td>
+                                <td>
+                                    @if($rp->tanggal_pengembalian!=null)
+                                    {{$rp->tanggal_pengembalian}}
+                                    @elseif($rp->status!='disetujui')
+                                    <span class="badge bg-secondary">tidak ada</span>
+                                    @else
+                                    <span class="badge bg-info">masih dipinjam</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if ($rp->status=='disetujui')
+                                    <span class="badge bg-success">disetujui</span>
+                                    @elseif ($rp->status=='sudah dikembalikan')
+                                    <span class="badge bg-warning">sudah dikembalikan</span>
+                                    @elseif ($rp->status=='ditolak')
+                                    <span class="badge bg-danger">ditolak</span>
+                                    @else 
+                                    <span class="badge bg-warning">sudah dikembalikan dengan bukti</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if($rp->status=='disetujui')
+                                    <div class="flex align-items-center list-user-action">
+                                        @if($rp->tanggal_pengembalian==null)
+                                        <a class="btn btn-sm btn-icon">
+                                            <form action="{{ route('riwayatpinjambarang.return', $rp->id) }}"
+                                                method="POST">
+                                                @csrf
+                                                <input type="hidden" name="id_product" value="{{$rp->id_product}}">
+                                                <button type="submit" class="btn btn-sm btn-icon btn-warning"
+                                                    onclick="return confirm('Are you sure to return this product ?')">
+                                                    <span class="btn-inner">
+                                                        kembalikan
+                                                    </span>
+                                                </button>
+                                            </form>
+                                        </a>
+                                        @endif
+                                        @elseif($rp->status=="sudah dikembalikan")
+                                        <a class="btn btn-sm btn-icon"
+                                            href="/riwayatpinjambarang/buktipengembalian_create/{{$rp->id}}">
+                                            <button type="submit" class="btn btn-sm btn-icon btn-warning">
+                                                <span class="btn-inner">
+                                                    upload bukti pengembalian
+                                                </span>
+                                            </button>
+                                        </a>
+                                        @elseif($rp->status=="ditolak")
+                                        @else
+                                        <a class="btn btn-sm btn-icon"
+                                            href="/peminjamanbarang/pengembalian/{{$rp->id}}">
+                                            <button type="submit" class="btn btn-sm btn-icon btn-warning">
+                                                <span class="btn-inner">
+                                                    lihat bukti pengembalian
+                                                </span>
+                                            </button>
+                                        </a>
+                                        @endif
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -165,6 +209,6 @@
             </div>
         </div>
     </div>
-    </div>
-    </div>
-    @endsection
+</div>
+</div>
+@endsection

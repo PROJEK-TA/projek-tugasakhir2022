@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\BarangRequestorController;
+use App\Http\Controllers\BuktiPengembalianController;
 use App\Http\Controllers\KategoriBarangController;
 use App\Http\Controllers\LokasiBarangController;
 use App\Http\Controllers\MerkBarangController;
@@ -106,6 +107,15 @@ Route::get('/nonaktif', function () {
 Route::get('/requestorbarang', function () {
     return view('barangs.index_requestor');
 });
+
+Route::get('/buktipengembalian', function () {
+    return view('barangs.uploadbuktipengembalian');
+});
+
+Route::get('/lihatbukti', function () {
+    return view('barangs.lihatbuktipengembalian');
+});
+
 Route::resource('requestorbarang', BarangRequestorController::class);
 
 
@@ -250,7 +260,7 @@ Route::resource('nonaktif', NonaktifBarangController::class);
 
 
 //requestor
-Route::post('statuspinjambarang/return/{id}',[PinjamBarangController::class,'return'])->name('statuspinjambarang.return');
+Route::post('riwayatpinjambarang/return/{id}',[PinjamBarangController::class,'return'])->name('riwayatpinjambarang.return');
 Route::resource('statuspinjambarang', PinjamBarangController::class);
 Route::resource('ajukanpinjambarang', PinjamBarangController::class);
 
@@ -261,6 +271,9 @@ Route::resource('ajukanpinjamruangan', PinjamRuanganController::class);
 
 //approval barang
 Route::get('peminjamanbarang/approval',[PinjamBarangController::class,'index_approval']);
+Route::get('peminjamanbarang/pengembalian/{id}',[PinjamBarangController::class,'index_pengembalian']);
+Route::get('riwayatpinjambarang/buktipengembalian_create/{id}',[PinjamBarangController::class,'buktipengembalian_create'])->name('riwayatpinjambarang.buktipengembalian_create');
+Route::post('riwayatpinjambarang/buktipengembalian_store/{id}',[PinjamBarangController::class,'buktipengembalian_store'])->name('riwayatpinjambarang.buktipengembalian_store');
 Route::get('peminjamanbarang/approve/{id}',[PinjamBarangController::class,'approve']);
 Route::get('peminjamanbarang/rejected/{id}',[PinjamBarangController::class,'rejected']);
 Route::resource('peminjamanbarang', PinjamBarangController::class);

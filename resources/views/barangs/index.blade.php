@@ -118,7 +118,7 @@
                             <th>KATEGORI</th>
                             <th>LOKASI</th>
                             <th>OWNER</th>
-                            <th>HARGA BELI</th>
+                            <!-- <th>HARGA BELI</th> -->
                             <!-- <th>JUMLAH</th>
                             <th>SATUAN</th> -->
                             <th>STATUS</th>
@@ -135,7 +135,7 @@
                             <td>{{$b->productcategory->nama_kategbarang}}</td>
                             <td>{{$b->lokasi->nama_lokasibarang}} ({{$b->gudang->nama_gedung}})</td>
                             <td>{{$b->departemen->nama_departemen}}</td>
-                            <td>{{$b->harga_beli}}</td>
+                            <!-- <td>{{$b->harga_beli}}</td> -->
                             <!-- <td>{{$b->jumlah}}</td>
                             <td>{{$b->satuan}}</td> -->
                             <td>

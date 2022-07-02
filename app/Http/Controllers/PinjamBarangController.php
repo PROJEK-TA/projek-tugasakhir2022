@@ -39,6 +39,13 @@ class PinjamBarangController extends Controller
         return view('barangs.peminjamanbarang', compact(['reqpinjam','reqpinjamconfirmed']));
     }
 
+    public function index_pengembalian($id)
+    {
+        $pengembalian=BorrowProduct::find($id);
+       
+      
+        return view('barangs.lihatbuktipengembalian', compact(['pengembalian']));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -248,6 +255,31 @@ class PinjamBarangController extends Controller
         $product->save();
 
         return redirect()->back();
+    }
+
+    public function buktipengembalian_create($id)
+    {
+        $pengembalian=BorrowProduct::find($id);
+
+        
+        return view('barangs.uploadbuktipengembalian', compact('pengembalian'));
+      
+    }
+
+    public function buktipengembalian_store(Request $request, $id)
+    {
+        $peminjaman = BorrowProduct::find($id);
+        $peminjaman->status="sudah dikembalikan dengan bukti";
+        $peminjaman->update([
+            'petugas' => $request->nama_petugas,
+            'kondisi_setelahdipinjam' => $request->kondisi,
+            'catatan' => $request->catatan,
+            // 'bukti_pengembalian' => $request->fotobukti,
+        ]);
+        $peminjaman->save();
+
+        return redirect()->action([PinjamBarangController::class, 'index_approval']);
+
     }
 
     public function cetak_pinjambarang()

@@ -81,7 +81,7 @@ class BarangController extends Controller
             'id_lokasiproduct' => $request->id_lokasibarang,
             'id_gudang' => $request->id_gudang,
             'id_department' => $request->id_departemen,
-            'harga_beli' => $request->hargabeli,
+            // 'harga_beli' => $request->hargabeli,
             'jumlah' => $request->jumlah,
             'satuan' => $request->satuan,
             'id_statusproduct' => $request->id_statusbarang,
@@ -140,7 +140,7 @@ class BarangController extends Controller
         $prod->id_lokasiproduct=$request->id_lokasibarang;
         $prod->id_gudang=$request->id_gudang;
         $prod->id_department=$request->id_departemen;
-        $prod->harga_beli=$request->hargabeli;
+        // $prod->harga_beli=$request->hargabeli;
         $prod->jumlah=$request->jumlah;
         $prod->satuan=$request->satuan;
         $prod->id_statusproduct=$request->id_statusbarang;
