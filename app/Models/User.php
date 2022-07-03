@@ -34,6 +34,11 @@ class User extends Authenticatable
         return $this->hasMany(BorrowProduct::class);
     }
 
+    public function petugasasetruang()
+    {
+        return $this->hasMany(BorrowRoom::class);
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *

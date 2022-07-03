@@ -10,7 +10,7 @@ class BorrowRoom extends Model
     use HasFactory;
     protected $guarded=['id'];
     protected $table = "borrow_rooms";
-    protected $fillable= ['kode_peminjaman', 'nama_peminjam', 'deskripsi', 'tanggal_pinjam', 'tanggal_selesai', 'tgl_selesai', 'status', 'id_room', 'id_building', 'id_user'];
+    protected $fillable= ['kode_peminjaman', 'nama_peminjam', 'petugas', 'deskripsi', 'tanggal_pinjam', 'tanggal_selesai', 'tgl_selesai', 'status', 'id_room', 'id_building', 'id_user'];
 
     public function ruangan() 
     {
@@ -20,5 +20,11 @@ class BorrowRoom extends Model
     public function gudang() 
     {
         return $this->belongsTo(Building::class, 'id_building');
+    }
+
+    public function admin() 
+    {
+        return $this->belongsTo(User::class, 'petugas');
+
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\Building;
+use App\Models\User;
 use App\Models\BorrowRoom;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -20,14 +21,14 @@ class PinjamRuanganController extends Controller
      */
     public function index()
     {
-        $reqpinjam = BorrowRoom::where('id_user', Auth::user()->id)->orderBy('id','desc')->paginate();
+        $reqpinjam = BorrowRoom::where('id_user', Auth::user()->id)->orderBy('id','desc')->get();
         return view('ruangan.statuspeminjamanruangan', compact('reqpinjam'));
     }
 
     public function index_approval()
     {
-        $reqpinjam=BorrowRoom::where('status','=','diajukan')->orderBy('id','desc')->paginate();
-        $reqpinjamconfirmed=BorrowRoom::where('status','!=','diajukan')->orderBy('id','desc')->paginate();
+        $reqpinjam=BorrowRoom::where('status','=','diajukan')->where('petugas','=', Auth::user()->id)->orderBy('id','desc')->get();
+        $reqpinjamconfirmed=BorrowRoom::where('status','!=','diajukan')->where('petugas','=', Auth::user()->id)->orderBy('id','desc')->get();
         return view('ruangan.peminjamanruangan', compact(['reqpinjam','reqpinjamconfirmed']));
     }
 
@@ -39,6 +40,7 @@ class PinjamRuanganController extends Controller
     public function create()
     {
         $ruangan = Room::where('status_ruangan', '=' , 'Tersedia')->get();
+        $petugas = User::where('role', '=' , 'approval')->get();
         $gudang = Building::all();
 
         $q = DB::table('borrow_rooms')->select(DB::raw('MAX(RIGHT(kode_peminjaman,4)) as kode'));
@@ -55,7 +57,7 @@ class PinjamRuanganController extends Controller
             $kd = "0001";
         }
 
-        return view('ruangan.userpeminjamanruangan', compact('ruangan', 'gudang', 'kd'));
+        return view('ruangan.userpeminjamanruangan', compact('ruangan', 'gudang', 'kd', 'petugas'));
     }
 
     /**
@@ -71,6 +73,7 @@ class PinjamRuanganController extends Controller
             'id' => $request->id,
             'kode_peminjaman' => $request->kode_peminjaman,
             'nama_peminjam' => $request->nama_peminjam,
+            'petugas' => $request->petugas,
             'id_room' => $request->nama_ruangan,
             'id_building' => $ruangan->id_building,
             'id_user' => Auth::user()->id,
@@ -123,8 +126,9 @@ class PinjamRuanganController extends Controller
         $reqpinjam = BorrowRoom::find($id);
         $ruangan = Room::where('status_ruangan', '=' , 'Tersedia')->get();
         $gudang = Building::all();
+        $petugas = User::where('role', '=' , 'approval')->get();
 
-        return view('ruangan.editajukanpeminjaman', compact('reqpinjam', 'ruangan', 'gudang'));
+        return view('ruangan.editajukanpeminjaman', compact('reqpinjam', 'ruangan', 'gudang', 'petugas'));
     }
 
     /**
@@ -140,6 +144,7 @@ class PinjamRuanganController extends Controller
         $reqpinjam = BorrowRoom::find($id);
         $reqpinjam->id_room=$request->nama_ruangan;
         $reqpinjam->id_building=$ruangan->id_building;
+        $reqpinjam->petugas=$request->petugas;
         $reqpinjam->deskripsi=$request->deskripsi;
         $reqpinjam->tanggal_pinjam=$request->tanggal_pinjam;
         $reqpinjam->tanggal_selesai=$request->tanggal_selesai;

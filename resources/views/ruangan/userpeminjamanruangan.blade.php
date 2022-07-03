@@ -38,6 +38,15 @@
                         value="{{Auth::user()->name}}" readonly>
                 </div>
                 <div class="form-group">
+                    <label class="form-label" for="nm_petugas"><b>Petugas Aset GA</b></label>
+                    <select class="form-select mb-3 shadow-none" name="petugas" id="id_ruangan">
+                        <option selected="">Pilih Petugas...</option>
+                        @foreach ($petugas as $p)
+                        <option value="{{ $p->id }}">{{ $p->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
                     <label class="form-label"><b>Nama Ruangan</b></label>
                     <select class="form-select mb-3 shadow-none" name="nama_ruangan" id="id_ruangan">
                         <option selected="">Pilih Ruangan...</option>

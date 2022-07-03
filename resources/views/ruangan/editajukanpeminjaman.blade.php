@@ -23,6 +23,16 @@
                     <input type="text" class="form-control" id="nm_peminjam" name="nama_peminjam"
                         value="{{Auth::user()->name}}" readonly>
                 </div>
+                <div class="form-group">
+                    <label class="form-label" for="nm_petugas"><b>Petugas Aset GA</b></label>
+                    <select class="form-select mb-3 shadow-none" name="petugas" id="id_ruangan">
+                        <option disabled value>Pilih Petugas...</option>
+                        <option value="{{ $reqpinjam->petugas }}">{{ $reqpinjam->admin->name }}</option>
+                        @foreach ($petugas as $p)
+                        <option value="{{ $p->id }}">{{ $p->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <input type="hidden" name="ruangan_lama" value={{$reqpinjam->id_room}}>
                 <div class="form-group">
                     <label class="form-label"><b>Nama Ruangan</b></label>
