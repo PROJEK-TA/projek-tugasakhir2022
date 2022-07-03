@@ -38,8 +38,10 @@
                             <td>
                                 @if ($r->status_ruangan=='Tersedia')
                                         <span class="badge bg-primary">Tersedia</span>
-                                @else ($r->status_ruangan=='Dipinjam')
+                                @elseif ($r->status_ruangan=='Dipinjam')
                                         <span class="badge bg-info">Dipinjam</span>
+                                @else ($r->status_ruangan=='sedang diajukan')
+                                        <span class="badge bg-success">Diajukan</span>
                                 @endif
                             </td>
                             <td>
