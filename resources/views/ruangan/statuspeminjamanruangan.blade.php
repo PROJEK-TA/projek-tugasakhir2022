@@ -63,7 +63,7 @@
                                 @endif
                             </td>
                             <td>
-                                @if ($rp->status=='diajukan')
+                                @if ($rp->status=='sedang diajukan')
                                 <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip" data-placement="top"
                                     title="" data-original-title="Edit"
                                     href="{{ route('statuspinjamruangan.edit', $rp->id) }}">
