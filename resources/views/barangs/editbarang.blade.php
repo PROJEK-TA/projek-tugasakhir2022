@@ -72,11 +72,11 @@
                                     <option value="{{ $d->id }}">{{ $d->nama_departemen }}</option>
                                     @endforeach
                                 </select>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label class="form-label" for="hb_barang"><b>Harga Beli</b></label>
                                     <input type="text" class="form-control" id="hargabeli" name="hargabeli"
                                         value="{{ $prod->harga_beli }}" placeholder="Input harga barang...">
-                                </div>
+                                </div> -->
                                 <!-- <div class="form-group">
                                     <label class="form-label" for="jm_barang"><b>Jumlah</b></label>
                                     <input type="text" class="form-control" id="jumlah" name="jumlah"
