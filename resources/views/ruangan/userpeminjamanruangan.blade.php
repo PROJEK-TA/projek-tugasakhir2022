@@ -13,21 +13,6 @@
             <form action="{{route('ajukanpinjamruangan.store')}}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <?php 
-                            $q = DB::table('borrow_rooms')->select(DB::raw('MAX(RIGHT(kode_peminjaman,4)) as kode'));
-                            $kd="";
-                            if($q->count()>0)
-                            {
-                                foreach($q->get() as $k)
-                                {
-                                    $tmp = ((int)$k->kode)+1;
-                                    $kd = sprintf("%04s", $tmp);
-                                }
-                            }
-                            else{
-                                $kd = "0001";
-                            }
-                        ?>
                     <label class="form-label" for="kd_peminjaman"><b>Kode Peminjaman</b></label>
                     <input type="text" class="form-control" id="kd_peminjaman" name="kode_peminjaman"
                         value="{{ 'PMR-'.date('dmY').'-'.$kd }}" readonly>
@@ -70,7 +55,7 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label" for="status"><b>Status</b></label>
-                    <input type="text" class="form-control" name="status" value=diajukan readonly>
+                    <input type="text" class="form-control" name="status" value='sedang diajukan' readonly>
                 </div><br><br>
                 <button type="submit" class="btn btn-primary">Ajukan</button>
             </form>

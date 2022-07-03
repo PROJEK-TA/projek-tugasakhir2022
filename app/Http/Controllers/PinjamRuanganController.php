@@ -27,8 +27,8 @@ class PinjamRuanganController extends Controller
 
     public function index_approval()
     {
-        $reqpinjam=BorrowRoom::where('status','=','diajukan')->where('petugas','=', Auth::user()->id)->orderBy('id','desc')->get();
-        $reqpinjamconfirmed=BorrowRoom::where('status','!=','diajukan')->where('petugas','=', Auth::user()->id)->orderBy('id','desc')->get();
+        $reqpinjam=BorrowRoom::where('status','=','sedang diajukan')->where('petugas','=', Auth::user()->id)->orderBy('id','desc')->get();
+        $reqpinjamconfirmed=BorrowRoom::where('status','!=','sedang diajukan')->where('petugas','=', Auth::user()->id)->orderBy('id','desc')->get();
         return view('ruangan.peminjamanruangan', compact(['reqpinjam','reqpinjamconfirmed']));
     }
 
@@ -84,7 +84,7 @@ class PinjamRuanganController extends Controller
 
         ]);
 
-        $ruangan->status_ruangan='Diajukan';
+        $ruangan->status_ruangan='sedang diajukan';
         $ruangan->save();
 
         $q = DB::table('borrow_rooms')->select(DB::raw('MAX(RIGHT(kode_peminjaman,4)) as kode'));
