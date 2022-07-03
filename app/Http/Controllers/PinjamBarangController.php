@@ -142,8 +142,9 @@ class PinjamBarangController extends Controller
     {
         $reqpinjam=BorrowProduct::find($id);
         $barang = Product::where('id_statusproduct', '=' , 8)->get();
+        $petugas = User::where('role', '=' , 'approval')->get();
        
-        return view('barangs.editajukanpeminjaman', compact('reqpinjam','barang'));
+        return view('barangs.editajukanpeminjaman', compact('reqpinjam','barang','petugas'));
     }
 
     /**
@@ -165,6 +166,7 @@ class PinjamBarangController extends Controller
         $reqpinjam->id_department=$barang->id_department;
         $reqpinjam->id_gudang=$barang->id_gudang;
         // $reqpinjam->jumlah=$request->jumlah;
+        $reqpinjam->petugas=$request->petugas;
         $reqpinjam->deskripsi=$request->deskripsi;
         $reqpinjam->tanggal_pinjam=$request->tanggal_pinjam;
         $reqpinjam->tanggal_kembali=$request->tanggal_kembali;
