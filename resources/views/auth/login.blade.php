@@ -110,10 +110,10 @@
                                     </li>
                                  </ul>
                               </div> -->
-                              <p class="mt-3 text-center">
+                              <!-- <p class="mt-3 text-center">
                                  Don’t have an account? <a href="{{ route('register') }}" class="text-underline">Click here to sign up.</a>
                               </p>
-                           
+                            -->
                         </div>
                      </div>
                   </div>
