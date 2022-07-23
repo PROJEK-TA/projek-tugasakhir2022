@@ -21,6 +21,12 @@ class GedungController extends Controller
         return view ('ruangan.gedung', compact('building'));
     }
 
+    public function gudang_hrga()
+    {
+        $building=Building::orderBy('id','desc')->paginate();
+        return view ('ruangan.gedung_hrga', compact('building'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

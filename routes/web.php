@@ -108,6 +108,9 @@ Route::get('/requestorbarang', function () {
     return view('barangs.index_requestor');
 });
 
+Route::get('/hrgabarang',[BarangController::class,'index_hrga']);
+
+
 Route::get('/buktipengembalian', function () {
     return view('barangs.uploadbuktipengembalian');
 });

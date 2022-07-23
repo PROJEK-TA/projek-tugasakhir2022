@@ -21,6 +21,12 @@ class DepartemenController extends Controller
         return view ('departemen.index', compact('department'));
     }
 
+    public function departemen_hrga()
+    {
+        $department=Department::orderBy('id','desc')->paginate();
+        return view ('departemen.index_hrga', compact('department'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

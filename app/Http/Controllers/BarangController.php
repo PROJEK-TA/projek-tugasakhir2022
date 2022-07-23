@@ -33,6 +33,17 @@ class BarangController extends Controller
         return view('barangs.index', compact('barang','jtersedia','jdipinjam','jrusak','jhilang','jdiservis'));
     }
 
+    public function index_hrga()
+    {
+        $jtersedia = Product::where('id_statusproduct', '=', 8)->count();
+        $jdipinjam = Product::where('id_statusproduct', '=', 11)->count();
+        $jrusak = Product::where('id_statusproduct', '=', 9)->count();
+        $jdiservis = Product::where('id_statusproduct', '=', 12)->count();
+        $jhilang = Product::where('id_statusproduct', '=', 10)->count();
+        $barang_hrga = Product::orderBy('id','desc')->get();
+        return view('barangs.index_hrga', compact('barang_hrga','jtersedia','jdipinjam','jrusak','jhilang','jdiservis'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -176,10 +187,16 @@ class BarangController extends Controller
 
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
         $this->middleware(function($request, $next){
         if(Gate::allows('barang')) return $next($request);
         abort(403, 'Anda tidak memiliki cukup hak akses!');
         });
+
+        $this->middleware('auth');
+        $this->middleware(function($request, $next){
+            if(Gate::allows('hrgabarang')) return $next($request);
+            abort(403, 'Anda tidak memiliki cukup hak akses!');
+            });
     }
 }

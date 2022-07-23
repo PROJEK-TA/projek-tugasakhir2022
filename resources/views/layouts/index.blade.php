@@ -160,6 +160,22 @@
                                 @endcan
                             </li>
                             <li class="nav-item">
+                                @can('hrgabarang')
+                                <a class="nav-link " href="/hrgabarang">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> C </i>
+                                    <span class="item-name">Daftar Barang</span>
+                                </a>
+                                @endcan
+                            </li>
+                            <li class="nav-item">
                                 @can('kategbarang')
                                 <a class="nav-link " href="{{route('kategoribarang.index')}}">
                                     <i class="icon">
