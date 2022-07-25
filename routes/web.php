@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\HRGABarangController;
 use App\Http\Controllers\BarangRequestorController;
 use App\Http\Controllers\BuktiPengembalianController;
 use App\Http\Controllers\KategoriBarangController;
@@ -108,7 +109,7 @@ Route::get('/requestorbarang', function () {
     return view('barangs.index_requestor');
 });
 
-Route::get('/hrgabarang',[BarangController::class,'index_hrga']);
+
 
 
 Route::get('/buktipengembalian', function () {
@@ -247,6 +248,9 @@ Route::get('/editdepartemen', function () {
 //     return view('ruangan.statuspeminjamanruangan');
 // });
 
+//Halaman HRGA
+Route::resource('hrgabarang', HRGABarangController::class);
+
 
 
 //CRUD
@@ -254,6 +258,7 @@ Route::get('/editdepartemen', function () {
 //barang
 
 Route::resource('barang', BarangController::class);
+
 Route::resource('kategoribarang', KategoriBarangController::class);
 Route::resource('lokasibarang', LokasiBarangController::class);
 Route::resource('merkbarang', MerkBarangController::class);

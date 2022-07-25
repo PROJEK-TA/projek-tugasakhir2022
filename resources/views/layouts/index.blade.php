@@ -161,7 +161,7 @@
                             </li>
                             <li class="nav-item">
                                 @can('hrgabarang')
-                                <a class="nav-link " href="/hrgabarang">
+                                <a class="nav-link " href="{{route('hrgabarang.index')}}">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">

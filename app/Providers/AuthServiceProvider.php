@@ -25,6 +25,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        //APPROVAL
         Gate::define('dashboard', function($user){
             return $user->role == "approval";
         });
@@ -71,7 +72,7 @@ class AuthServiceProvider extends ServiceProvider
             return $user->role == "approval";
         });
 
-
+        //REQUESTOR
         Gate::define('requestorbarang', function($user){
             return $user->role == "requestor";
         });
@@ -91,6 +92,7 @@ class AuthServiceProvider extends ServiceProvider
             return $user->role == "requestor";
         });
 
+        //HRGA
         Gate::define('hrgabarang', function($user){
             return $user->role == "hrga";
         });
