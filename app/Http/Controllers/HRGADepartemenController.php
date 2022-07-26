@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Gate;
 use PDF;
 use DB;
 
-class DepartemenController extends Controller
+class HRGADepartemenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,15 +18,10 @@ class DepartemenController extends Controller
     public function index()
     {
         $department=Department::orderBy('id','desc')->paginate();
-        return view ('departemen.index', compact('department'));
-    }
-
-    public function departemen_hrga()
-    {
-        $department=Department::orderBy('id','desc')->paginate();
         return view ('departemen.index_hrga', compact('department'));
     }
 
+   
     /**
      * Show the form for creating a new resource.
      *
@@ -131,7 +126,7 @@ class DepartemenController extends Controller
     {
         //$this->middleware('auth');
         $this->middleware(function($request, $next){
-        if(Gate::allows('departemen')) return $next($request);
+        if(Gate::allows('departemen_hrga')) return $next($request);
         abort(403, 'Anda tidak memiliki cukup hak akses!');
         });
     }

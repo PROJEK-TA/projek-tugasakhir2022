@@ -10,10 +10,10 @@
             </div>
         </div>
         <div class="card-body">
-            <form action="{{route('gedung.create')}}" method="GET">
+            <!-- <form action="{{route('gedung.create')}}" method="GET">
                 <button type="submit" class="btn btn-success">Tambah Gudang</button>
             </form>
-            <br><br>
+            <br><br> -->
             <div class="table-responsive">
                 <table id="datatable" class="table table-striped" data-toggle="data-table">
                     <thead>
@@ -22,7 +22,7 @@
                             <th>KODE GUDANG</th>
                             <th>GUDANG</th>
                             <th>ALAMAT</th>
-                            <th>AKSI</th>
+                            <!-- <th>AKSI</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -32,7 +32,7 @@
                             <td>{{$bd->kode_gudang}}</td>
                             <td>{{$bd->nama_gedung}}</td>
                             <td>{{$bd->alamat}}</td>
-                            <td>
+                            <!-- <td>
                                 <div class="flex align-items-center list-user-action">
                                     <a href="{{ route('gedung.edit', $bd->id) }}"
                                         class="btn btn-sm btn-icon btn-success">
@@ -79,7 +79,7 @@
                                         </form>
                                     </a>
                                 </div>
-                            </td>
+                            </td> -->
                         </tr>
                         @endforeach
                 </table><br>

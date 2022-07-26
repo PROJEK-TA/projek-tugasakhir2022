@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Gate;
 use PDF;
 use DB;
 
-class GedungController extends Controller
+class HRGAGedungController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,15 +18,10 @@ class GedungController extends Controller
     public function index()
     {
         $building=Building::orderBy('id','desc')->paginate();
-        return view ('ruangan.gedung', compact('building'));
-    }
-
-    public function gudang_hrga()
-    {
-        $building=Building::orderBy('id','desc')->paginate();
         return view ('ruangan.gedung_hrga', compact('building'));
     }
 
+   
     /**
      * Show the form for creating a new resource.
      *
@@ -133,7 +128,7 @@ class GedungController extends Controller
     {
         //$this->middleware('auth');
         $this->middleware(function($request, $next){
-        if(Gate::allows('gudang')) return $next($request);
+        if(Gate::allows('gudang_hrga')) return $next($request);
         abort(403, 'Anda tidak memiliki cukup hak akses!');
         });
     }

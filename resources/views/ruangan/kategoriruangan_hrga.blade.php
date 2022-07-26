@@ -10,10 +10,9 @@
             </div>
         </div>
         <div class="card-body">
-            <form action="{{route('kategoriruangan.create')}}" method="GET">
+            <!-- <form action="{{route('kategoriruangan.create')}}" method="GET">
                 <button type="submit" class="btn btn-success">Tambah Kategori</button>
-            </form>
-            <br><br>
+            </form> -->
             <div class="table-responsive">
                 <table id="datatable" class="table table-striped" data-toggle="data-table">
                     <thead>
@@ -21,7 +20,7 @@
                             <th>NO</th>
                             <th>KODE KATEGORI</th>
                             <th>KATEGORI</th>
-                            <th>AKSI</th>
+                            <!-- <th>AKSI</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -30,7 +29,7 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$k->kode_kategruangan}}</td>
                             <td>{{$k->nama_kategruangan}}</td>
-                            <td>
+                            <!-- <td>
                                 <div class="flex align-items-center list-user-action">
                                     <a href="{{ route('kategoriruangan.edit', $k->id) }}"
                                         class="btn btn-sm btn-icon btn-success">
@@ -77,11 +76,11 @@
                                         </form>
                                     </a>
                                 </div>
-                            </td>
+                            </td> -->
                         </tr>
                         @endforeach
                 </table><br>
-                <a href="/cetak_kategruangan" button type="button" class="btn btn-primary">Print</button></a>
+                <!-- <a href="/cetak_kategruangan" button type="button" class="btn btn-primary">Print</button></a> -->
             </div>
         </div>
     </div>

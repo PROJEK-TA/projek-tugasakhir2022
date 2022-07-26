@@ -123,5 +123,30 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('nonaktif_hrga', function($user){
             return $user->role == "hrga";
         });
+
+        Gate::define('ruangan_hrga', function($user){
+            return $user->role == "hrga";
+        });
+        Gate::define('kategruangan_hrga', function($user){
+            return $user->role == "hrga";
+        });
+        Gate::define('gudang_hrga', function($user){
+            return $user->role == "hrga";
+        });
+        Gate::define('ajukanpinjamruangan_hrga', function($user){
+            return $user->role == "hrga";
+        });
+        Gate::define('peminjamanruangan_hrga', function($user){
+            return $user->role == "hrga";
+        });
+        Gate::define('departemen_hrga', function($user){
+            return $user->role == "hrga";
+        });
+        Gate::define('statuspinjamruangan_hrga', function($user){
+            return $user->role == "hrga";
+        });
+        Gate::define('departemen_hrga', function($user){
+            return $user->role == "hrga";
+        });
     }
 }

@@ -23,7 +23,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($requestorruangan as $r)
+                        @foreach($ruangan as $r)
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$r->kode_ruangan}}</td>

@@ -521,8 +521,40 @@
                                 @endcan
                             </li>
                             <li class="nav-item">
+                                @can('ruangan_hrga')
+                                <a class="nav-link " href="{{route('ruangan_hrga.index')}}">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> C </i>
+                                    <span class="item-name">Daftar Ruangan</span>
+                                </a>
+                                @endcan
+                            </li>
+                            <li class="nav-item">
                                 @can('kategruangan')
                                 <a class="nav-link " href="{{route('kategoriruangan.index')}}">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> L </i>
+                                    <span class="item-name">Kategori Ruangan</span>
+                                </a>
+                                @endcan
+                            </li>
+                            <li class="nav-item">
+                                @can('kategruangan_hrga')
+                                <a class="nav-link " href="{{route('kategoriruangan_hrga.index')}}">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -553,6 +585,22 @@
                                 @endcan
                             </li>
                             <li class="nav-item">
+                                @can('gudang_hrga')
+                                <a class="nav-link " href="{{route('gedung_hrga.index')}}">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> C </i>
+                                    <span class="item-name">Gudang</span>
+                                </a>
+                                @endcan
+                            </li>
+                            <li class="nav-item">
                                 @can('peminjamanruangan')
                                 <a class="nav-link" href="/peminjamanruangan/approval">
                                     <i class="icon">
@@ -569,8 +617,40 @@
                                 @endcan
                             </li>
                             <li class="nav-item">
+                                @can('peminjamanruangan_hrga')
+                                <a class="nav-link" href="/peminjamanruangan_hrga/approval">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> L </i>
+                                    <span class="item-name">Riwayat Peminjaman</span>
+                                </a>
+                                @endcan
+                            </li>
+                            <li class="nav-item">
                                 @can('ajukanpinjamruangan')
                                 <a class="nav-link " href="{{route('ajukanpinjamruangan.create')}}">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> K </i>
+                                    <span class="item-name">Ajukan Peminjaman</span>
+                                </a>
+                                @endcan
+                            </li>
+                            <li class="nav-item">
+                                @can('ajukanpinjamruangan_hrga')
+                                <a class="nav-link " href="{{route('ajukanpinjamruangan_hrga.create')}}">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -600,10 +680,26 @@
                                 </a>
                                 @endcan
                             </li>
+                            <li class="nav-item">
+                                @can('statuspinjamruangan_hrga')
+                                <a class="nav-link " href="{{route('statuspinjamruangan_hrga.index')}}">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> K </i>
+                                    <span class="item-name">Status Peminjaman</span>
+                                </a>
+                                @endcan
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        @can('departemen')
+                        
                         <a class="nav-link" data-bs-toggle="collapse" href="#sidebar-user" role="button"
                             aria-expanded="false" aria-controls="sidebar-user">
                             <i class="icon">
@@ -638,8 +734,9 @@
                             </i>
                         </a>
                         <ul class="sub-nav collapse" id="sidebar-user" data-bs-parent="#sidebar-menu">
+                        @can('departemen_hrga')
                             <li class="nav-item">
-                                <a class="nav-link " href="{{route('departemen.index')}}">
+                                <a class="nav-link " href="{{route('departemen_hrga.index')}}">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">

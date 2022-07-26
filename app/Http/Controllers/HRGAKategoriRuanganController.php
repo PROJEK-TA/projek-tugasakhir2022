@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Gate;
 use PDF;
 use DB;
 
-class KategoriRuanganController extends Controller
+class HRGAKategoriRuanganController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class KategoriRuanganController extends Controller
     public function index()
     {
         $kategori=RoomCategory::orderBy('id','desc')->paginate();
-        return view('ruangan.kategoriruangan', compact('kategori'));
+        return view('ruangan.kategoriruangan_hrga', compact('kategori'));
     }
 
     /**
@@ -125,7 +125,7 @@ class KategoriRuanganController extends Controller
     {
         //$this->middleware('auth');
         $this->middleware(function($request, $next){
-        if(Gate::allows('kategruangan')) return $next($request);
+        if(Gate::allows('kategruangan_hrga')) return $next($request);
         abort(403, 'Anda tidak memiliki cukup hak akses!');
         });
     }

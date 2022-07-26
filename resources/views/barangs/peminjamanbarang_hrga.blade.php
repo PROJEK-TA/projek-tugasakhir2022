@@ -69,29 +69,10 @@
                                     @if($rp->status=='disetujui')
                                     <div class="flex align-items-center list-user-action">
                                         @if($rp->tanggal_pengembalian==null)
-                                        <a class="btn btn-sm btn-icon">
-                                            <form action="{{ route('riwayatpinjambarang.return', $rp->id) }}"
-                                                method="POST">
-                                                @csrf
-                                                <input type="hidden" name="id_product" value="{{$rp->id_product}}">
-                                                <button type="submit" class="btn btn-sm btn-icon btn-warning"
-                                                    onclick="return confirm('Are you sure to return this product ?')">
-                                                    <span class="btn-inner">
-                                                        kembalikan
-                                                    </span>
-                                                </button>
-                                            </form>
-                                        </a>
+                                    
                                         @endif
                                         @elseif($rp->status=="sudah dikembalikan")
-                                        <a class="btn btn-sm btn-icon"
-                                            href="/riwayatpinjambarang/buktipengembalian_create/{{$rp->id}}">
-                                            <button type="submit" class="btn btn-sm btn-icon btn-warning">
-                                                <span class="btn-inner">
-                                                    upload bukti pengembalian
-                                                </span>
-                                            </button>
-                                        </a>
+                                        
                                         @elseif($rp->status=="ditolak")
                                         @else
                                         <a class="btn btn-sm btn-icon"

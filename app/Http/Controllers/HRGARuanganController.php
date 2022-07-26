@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Gate;
 use PDF;
 use DB;
 
-class RuanganController extends Controller
+class HRGARuanganController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class RuanganController extends Controller
         }
 
         $ruangan = Room::orderBy('id','desc')->paginate();
-        return view('ruangan.index', compact('ruangan', 'kd'));
+        return view('ruangan.index_hrga', compact('ruangan', 'kd'));
     }
 
     /**
@@ -153,7 +153,7 @@ class RuanganController extends Controller
     {
         //$this->middleware('auth');
         $this->middleware(function($request, $next){
-        if(Gate::allows('ruangan')) return $next($request);
+        if(Gate::allows('ruangan_hrga')) return $next($request);
         abort(403, 'Anda tidak memiliki cukup hak akses!');
         });
     }

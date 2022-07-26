@@ -16,10 +16,14 @@ use App\Http\Controllers\KategoriBarangController;
 use App\Http\Controllers\LokasiBarangController;
 use App\Http\Controllers\MerkBarangController;
 use App\Http\Controllers\RuanganController;
+use App\Http\Controllers\HRGARuanganController;
+use App\Http\Controllers\HRGAKategoriRuanganController;
 use App\Http\Controllers\RuanganRequestorController;
 use App\Http\Controllers\KategoriRuanganController;
+use App\Http\Controllers\HRGAGedungController;
 use App\Http\Controllers\GedungController;
 use App\Http\Controllers\DepartemenController;
+use App\Http\Controllers\HRGADepartemenController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\JabatanController;
@@ -28,6 +32,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\StatusBarangController;
 use App\Http\Controllers\PinjamBarangController;
 use App\Http\Controllers\PinjamRuanganController;
+use App\Http\Controllers\HRGAPinjamRuanganController;
 use App\Http\Controllers\ServisBarangController;
 use App\Http\Controllers\NonaktifBarangController;
 /*
@@ -259,7 +264,7 @@ Route::get('/editdepartemen', function () {
 
 //CRUD
 
-//Halaman HRGA
+//Halaman HRGA BARANG
 Route::resource('hrgabarang', HRGABarangController::class);
 Route::resource('hrgakategbarang', HRGAKategoriBarangController::class);
 Route::resource('lokasibarang_hrga', HRGALokasiBarangController::class);
@@ -270,6 +275,15 @@ Route::resource('statuspinjambarang_hrga', HRGAPinjamBarangController::class);
 Route::get('peminjamanbaranghrga/approval',[HRGAPinjamBarangController::class,'index_approval']);
 Route::resource('servis_hrga', HRGAServisBarangController::class);
 Route::resource('nonaktif_hrga', HRGANonaktifBarangController::class);
+
+//Halaman HRGA RUANGAN
+Route::resource('ruangan_hrga', HRGARuanganController::class);
+Route::resource('kategoriruangan_hrga', HRGAKategoriRuanganController::class);
+Route::resource('gedung_hrga', HRGAGedungController::class);
+Route::resource('departemen_hrga', HRGADepartemenController::class);
+Route::resource('ajukanpinjamruangan_hrga', HRGAPinjamRuanganController::class);
+Route::resource('statuspinjamruangan_hrga', HRGAPinjamRuanganController::class);
+Route::get('peminjamanruangan_hrga/approval',[HRGAPinjamRuanganController::class,'index_approval']);
 
 
 //barang
