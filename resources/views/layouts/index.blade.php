@@ -192,8 +192,40 @@
                                 @endcan
                             </li>
                             <li class="nav-item">
+                                @can('kategbarang_hrga')
+                                <a class="nav-link " href="{{route('hrgakategbarang.index')}}">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> C </i>
+                                    <span class="item-name">Kategori Barang</span>
+                                </a>
+                                @endcan
+                            </li>
+                            <li class="nav-item">
                                 @can('lokbarang')
                                 <a class="nav-link " href="{{route('lokasibarang.index')}}">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> C </i>
+                                    <span class="item-name">Lokasi Barang</span>
+                                </a>
+                                @endcan
+                            </li>
+                            <li class="nav-item">
+                                @can('lokbarang_hrga')
+                                <a class="nav-link " href="{{route('lokasibarang_hrga.index')}}">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -224,8 +256,40 @@
                                 @endcan
                             </li>
                             <li class="nav-item">
+                                @can('merkbarang_hrga')
+                                <a class="nav-link " href="{{route('merkbarang_hrga.index')}}">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> C </i>
+                                    <span class="item-name">Merek Barang</span>
+                                </a>
+                                @endcan
+                            </li>
+                            <li class="nav-item">
                                 @can('statusbarang')
                                 <a class="nav-link " href="{{route('statusbarang.index')}}">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> K </i>
+                                    <span class="item-name">Status Barang</span>
+                                </a>
+                                @endcan
+                            </li>
+                            <li class="nav-item">
+                                @can('statusbarang_hrga')
+                                <a class="nav-link " href="{{route('statusbarang_hrga.index')}}">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -256,8 +320,40 @@
                                 @endcan
                             </li>
                             <li class="nav-item">
+                                @can('ajukanpinjambarang_hrga')
+                                <a class="nav-link " href="{{route('ajukanpinjambarang_hrga.create')}}">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> K </i>
+                                    <span class="item-name">Ajukan Peminjaman</span>
+                                </a>
+                                @endcan
+                            </li>
+                            <li class="nav-item">
                                 @can('statuspinjambarang')
                                 <a class="nav-link " href="{{route('statuspinjambarang.index')}}">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> K </i>
+                                    <span class="item-name">Status Peminjaman</span>
+                                </a>
+                                @endcan
+                            </li>
+                            <li class="nav-item">
+                                @can('statuspinjambarang_hrga')
+                                <a class="nav-link " href="{{route('statuspinjambarang_hrga.index')}}">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">
@@ -288,6 +384,22 @@
                                 @endcan
                             </li>
                             <li class="nav-item">
+                                @can('peminjamanbarang_hrga')
+                                <a class="nav-link " href="/peminjamanbaranghrga/approval">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> P </i>
+                                    <span class="item-name">Riwayat Peminjaman</span>
+                                </a>
+                                @endcan
+                            </li>
+                            <li class="nav-item">
                                 @can('servis')
                                 <a class="nav-link " href="{{route('servis.index')}}">
                                     <i class="icon">
@@ -304,8 +416,40 @@
                                 @endcan
                             </li>
                             <li class="nav-item">
+                                @can('servis_hrga')
+                                <a class="nav-link " href="{{route('servis_hrga.index')}}">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> R </i>
+                                    <span class="item-name">Servis</span>
+                                </a>
+                                @endcan
+                            </li>
+                            <li class="nav-item">
                                 @can('nonaktif')
                                 <a class="nav-link " href="{{route('nonaktif.index')}}">
+                                    <i class="icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
+                                            fill="currentColor">
+                                            <g>
+                                                <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                            </g>
+                                        </svg>
+                                    </i>
+                                    <i class="sidenav-mini-icon"> T </i>
+                                    <span class="item-name">Nonaktif</span>
+                                </a>
+                                @endcan
+                            </li>
+                            <li class="nav-item">
+                                @can('nonaktif_hrga')
+                                <a class="nav-link " href="{{route('nonaktif_hrga.index')}}">
                                     <i class="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
                                             fill="currentColor">

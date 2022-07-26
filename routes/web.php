@@ -3,6 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\HRGABarangController;
+use App\Http\Controllers\HRGAKategoriBarangController;
+use App\Http\Controllers\HRGALokasiBarangController;
+use App\Http\Controllers\HRGAMerkBarangController;
+use App\Http\Controllers\HRGAPinjamBarangController;
+use App\Http\Controllers\HRGAStatusBarangController;
+use App\Http\Controllers\HRGAServisBarangController;
+use App\Http\Controllers\HRGANonaktifBarangController;
 use App\Http\Controllers\BarangRequestorController;
 use App\Http\Controllers\BuktiPengembalianController;
 use App\Http\Controllers\KategoriBarangController;
@@ -248,12 +255,22 @@ Route::get('/editdepartemen', function () {
 //     return view('ruangan.statuspeminjamanruangan');
 // });
 
-//Halaman HRGA
-Route::resource('hrgabarang', HRGABarangController::class);
-
 
 
 //CRUD
+
+//Halaman HRGA
+Route::resource('hrgabarang', HRGABarangController::class);
+Route::resource('hrgakategbarang', HRGAKategoriBarangController::class);
+Route::resource('lokasibarang_hrga', HRGALokasiBarangController::class);
+Route::resource('merkbarang_hrga', HRGAMerkBarangController::class);
+Route::resource('statusbarang_hrga', HRGAStatusBarangController::class);
+Route::resource('ajukanpinjambarang_hrga', HRGAPinjamBarangController::class);
+Route::resource('statuspinjambarang_hrga', HRGAPinjamBarangController::class);
+Route::get('peminjamanbaranghrga/approval',[HRGAPinjamBarangController::class,'index_approval']);
+Route::resource('servis_hrga', HRGAServisBarangController::class);
+Route::resource('nonaktif_hrga', HRGANonaktifBarangController::class);
+
 
 //barang
 

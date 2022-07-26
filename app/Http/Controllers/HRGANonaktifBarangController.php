@@ -12,7 +12,7 @@ use App\Models\StatusProduct;
 use PDF;
 use DB;
 
-class NonaktifBarangController extends Controller
+class HRGANonaktifBarangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +23,7 @@ class NonaktifBarangController extends Controller
     {
          
         $barang = Product::orderBy('id','desc')->where('id_statusproduct', '=' , 9)->orwhere('id_statusproduct', '=' , 10)->get();
-        return view('barangs.nonaktif', compact('barang'));
+        return view('barangs.nonaktif_hrga', compact('barang'));
     }
 
     /**
@@ -159,7 +159,7 @@ class NonaktifBarangController extends Controller
     {
         //$this->middleware('auth');
         $this->middleware(function($request, $next){
-        if(Gate::allows('nonaktif')) return $next($request);
+        if(Gate::allows('nonaktif_hrga')) return $next($request);
         abort(403, 'Anda tidak memiliki cukup hak akses!');
         });
     }

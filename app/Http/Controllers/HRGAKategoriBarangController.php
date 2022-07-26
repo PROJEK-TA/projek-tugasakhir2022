@@ -10,7 +10,7 @@ use PDF;
 use DB;
 
 
-class KategoriBarangController extends Controller
+class HRGAKategoriBarangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +20,7 @@ class KategoriBarangController extends Controller
     public function index()
     {
         $kategori=ProductCategory::orderBy('id','desc')->paginate();
-        return view('barangs.kategoribarang', compact('kategori'));
+        return view('barangs.kategoribarang_hrga', compact('kategori'));
 
     }
 
@@ -129,7 +129,7 @@ class KategoriBarangController extends Controller
     {
         //$this->middleware('auth');
         $this->middleware(function($request, $next){
-        if(Gate::allows('kategbarang')) return $next($request);
+        if(Gate::allows('kategbarang_hrga')) return $next($request);
         abort(403, 'Anda tidak memiliki cukup hak akses!');
         });
     }

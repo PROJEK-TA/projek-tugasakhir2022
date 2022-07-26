@@ -10,10 +10,10 @@
             </div>
         </div>
         <div class="card-body">
-            <form action="{{route('lokasibarang.create')}}" method="GET">
+            <!-- <form action="{{route('lokasibarang.create')}}" method="GET">
                 <button type="submit" class="btn btn-success">Tambah Lokasi</button>
             </form>
-            <br><br>
+            <br><br> -->
             <div class="table-responsive">
                 <table id="datatable" class="table table-striped" data-toggle="data-table">
                     <thead>
@@ -21,7 +21,7 @@
                             <th>NO</th>
                             <th>KODE LOKASI</th>
                             <th>LOKASI</th>
-                            <th>AKSI</th>
+                            <!-- <th>AKSI</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -30,7 +30,7 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$l->kode_lokasi}}</td>
                             <td>{{$l->nama_lokasibarang}}</td>
-                            <td>
+                            <!-- <td>
                                 <div class="flex align-items-center list-user-action">
                                     <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip"
                                         data-placement="top" title="" data-original-title="Edit"
@@ -78,13 +78,13 @@
                                         </form>
                                     </a>
                                 </div>
-                            </td>
+                            </td> -->
                         </tr>
                         @endforeach
 
                 </table>
                 <br>
-                <a href="/cetak_lokasibarang" button type="button" class="btn btn-primary">Print</button></a>
+                <!-- <a href="/cetak_lokasibarang" button type="button" class="btn btn-primary">Print</button></a> -->
             </div>
         </div>
     </div>

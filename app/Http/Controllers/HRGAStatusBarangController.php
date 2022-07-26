@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Gate;
 use PDF;
 use DB;
 
-class StatusBarangController extends Controller
+class HRGAStatusBarangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class StatusBarangController extends Controller
     public function index()
     {
         $status=StatusProduct::all();
-        return view('barangs.statusbarang', compact('status'));
+        return view('barangs.statusbarang_hrga', compact('status'));
     }
 
     /**
@@ -125,7 +125,7 @@ class StatusBarangController extends Controller
     {
         //$this->middleware('auth');
         $this->middleware(function($request, $next){
-        if(Gate::allows('statusbarang')) return $next($request);
+        if(Gate::allows('statusbarang_hrga')) return $next($request);
         abort(403, 'Anda tidak memiliki cukup hak akses!');
         });
     }

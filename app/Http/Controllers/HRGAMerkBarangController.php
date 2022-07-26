@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Gate;
 use PDF;
 use DB;
 
-class MerkBarangController extends Controller
+class HRGAMerkBarangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +18,7 @@ class MerkBarangController extends Controller
     public function index()
     {
         $merk=MerkProduct::orderBy('id','desc')->paginate();
-        return view('barangs.merk', compact('merk'));
+        return view('barangs.merk_hrga', compact('merk'));
     }
 
     /**
@@ -129,7 +129,7 @@ class MerkBarangController extends Controller
     {
         //$this->middleware('auth');
         $this->middleware(function($request, $next){
-        if(Gate::allows('merkbarang')) return $next($request);
+        if(Gate::allows('merkbarang_hrga')) return $next($request);
         abort(403, 'Anda tidak memiliki cukup hak akses!');
         });
     }

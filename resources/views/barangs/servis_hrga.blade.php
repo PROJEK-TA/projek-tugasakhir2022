@@ -10,10 +10,10 @@
             </div>
         </div>
         <div class="card-body">
-            <form action="{{ route('servis.create')}}" method="GET">
+            <!-- <form action="{{ route('servis.create')}}" method="GET">
                 <button type="submit" class="btn btn-success">Tambah Servis</button>
-            </form>
-            <br><br>
+            </form> -->
+          
             <div class="table-responsive">
                 <table id="datatable" class="table table-striped" data-toggle="data-table">
                     <thead>
@@ -26,7 +26,7 @@
                             <th>NAMA PETUGAS</th>
                             <th>TANGGAL SERVIS</th>
                             <th>TANGGAL KEMBALI</th>
-                            <th>AKSI</th>
+                            <!-- <th>AKSI</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -40,7 +40,7 @@
                             <td>{{$s->nama_petugas}}</td>
                             <td>{{$s->tanggal_servis}}</td>
                             <td>{{$s->tanggal_kembali}}</td>
-                            <td>
+                            <!-- <td>
                                 <div class="flex align-items-center list-user-action">
                                     <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip"
                                         data-placement="top" title="" data-original-title="Edit"
@@ -88,13 +88,13 @@
                                         </form>
                                     </a>
                                 </div>
-                            </td>
+                            </td> -->
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div><br>
-            <a href="/cetak_servisbarang" button type="button" class="btn btn-primary">Print</button></a>
+            <!-- <a href="/cetak_servisbarang" button type="button" class="btn btn-primary">Print</button></a> -->
         </div>
     </div>
 </div>

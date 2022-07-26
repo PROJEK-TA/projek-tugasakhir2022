@@ -10,10 +10,10 @@
             </div>
         </div>
         <div class="card-body">
-            <form action="{{route('kategoribarang.create')}}" method="GET">
+            <!-- <form action="{{route('kategoribarang.create')}}" method="GET">
                 <button type="submit" class="btn btn-success">Tambah Kategori</button>
-            </form>
-            <br><br>
+            </form> -->
+            <!-- <br><br> -->
             <div class="table-responsive">
                 <table id="datatable" class="table table-striped" data-toggle="data-table">
                     <thead>
@@ -21,7 +21,7 @@
                             <th>NO</th>
                             <th>KODE KATEGORI</th>
                             <th>KATEGORI</th>
-                            <th>AKSI</th>
+                            <!-- <th>AKSI</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -30,7 +30,7 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$k->kode_kategori}}</td>
                             <td>{{$k->nama_kategbarang}}</td>
-                            <td>
+                            <!-- <td>
                                 <div class="flex align-items-center list-user-action">
                                     <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip"
                                         data-placement="top" title="" data-original-title="Edit"
@@ -78,13 +78,13 @@
                                         </form>
                                     </a>
                                 </div>
-                            </td>
+                            </td> -->
                         </tr>
                         @endforeach
 
                 </table>
                 <br>
-                <a href="/cetak_kategbarang" button type="button" class="btn btn-primary">Print</button></a>
+                <!-- <a href="/cetak_kategbarang" button type="button" class="btn btn-primary">Print</button></a> -->
             </div>
         </div>
     </div>

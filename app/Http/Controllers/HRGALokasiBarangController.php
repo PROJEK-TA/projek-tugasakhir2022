@@ -9,7 +9,7 @@ use PDF;
 use DB;
 
 
-class LokasiBarangController extends Controller
+class HRGALokasiBarangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class LokasiBarangController extends Controller
     public function index()
     {
         $lokasi=LocationProduct::orderBy('id','desc')->paginate();
-        return view('barangs.lokasi', compact('lokasi'));
+        return view('barangs.lokasi_hrga', compact('lokasi'));
     }
 
     /**
@@ -131,7 +131,7 @@ class LokasiBarangController extends Controller
     {
         //$this->middleware('auth');
         $this->middleware(function($request, $next){
-        if(Gate::allows('lokbarang')) return $next($request);
+        if(Gate::allows('lokbarang_hrga')) return $next($request);
         abort(403, 'Anda tidak memiliki cukup hak akses!');
         });
     }

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Gate;
 use PDF;
 use DB;
 
-class BarangController extends Controller
+class HRGABarangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -29,8 +29,8 @@ class BarangController extends Controller
         $jrusak = Product::where('id_statusproduct', '=', 9)->count();
         $jdiservis = Product::where('id_statusproduct', '=', 12)->count();
         $jhilang = Product::where('id_statusproduct', '=', 10)->count();
-        $barang = Product::orderBy('id','desc')->get();
-        return view('barangs.index_hrga', compact('barang','jtersedia','jdipinjam','jrusak','jhilang','jdiservis'));
+        $barang_hrga = Product::orderBy('id','desc')->get();
+        return view('barangs.index_hrga', compact('barang_hrga','jtersedia','jdipinjam','jrusak','jhilang','jdiservis'));
     }
 
   

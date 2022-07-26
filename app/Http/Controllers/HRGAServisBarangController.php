@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use PDF;
 use DB;
 
-class ServisBarangController extends Controller
+class HRGAServisBarangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,7 +22,7 @@ class ServisBarangController extends Controller
     public function index()
     {
         $servis=ServiceProduct::orderBy('id','desc')->paginate();
-        return view('barangs.servis', compact('servis'));
+        return view('barangs.servis_hrga', compact('servis'));
 
     }
 
@@ -175,7 +175,7 @@ class ServisBarangController extends Controller
     {
         //$this->middleware('auth');
         $this->middleware(function($request, $next){
-        if(Gate::allows('servis')) return $next($request);
+        if(Gate::allows('servis_hrga')) return $next($request);
         abort(403, 'Anda tidak memiliki cukup hak akses!');
         });
     }

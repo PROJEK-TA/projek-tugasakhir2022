@@ -1,39 +1,79 @@
 @extends('layouts.index')
-@section('title','Data Status Barang')
+@section('title','Status Peminjaman Barang')
 
 @section('content')
 <div class="col-sm-12">
     <div class="card">
         <div class="card-header d-flex justify-content-between">
             <div class="header-title">
-                <h4 class="card-title">Daftar Status Barang</h4>
+                <h4 class="card-title">Daftar Status Peminjaman Barang</h4>
             </div>
         </div>
         <div class="card-body">
-            <!-- <form action="{{route('statusbarang.create')}}" method="GET">
-                <button type="submit" class="btn btn-success">Tambah Status</button><br><br>
-            </form> -->
+
             <div class="table-responsive">
                 <table id="datatable" class="table table-striped" data-toggle="data-table">
                     <thead>
                         <tr>
                             <th>NO</th>
-                            <th>KODE STATUS</th>
+                            <th>KODE PINJAM</th>
+                            <th>NAMA PEMINJAM</th>
+                            <th>PETUGAS ASET IT</th>
+                            <th>NAMA BARANG</th>
+                            <th>LOKASI</th>
+                            <th>MILIK</th>
+                            <!-- <th>JUMLAH</th> -->
+                            <th>DESKRIPSI</th>
+                            <th>TANGGAL PINJAM</th>
+                            <th>JATUH TEMPO</th>
+                            <th>TANGGAL PENGEMBALIAN</th>
                             <th>STATUS</th>
-                            <!-- <th>AKSI</th> -->
+                            <th>AKSI</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($status as $s)
+                        @foreach($reqpinjam as $rp )
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$s->kode_status}}</td>
-                            <td>{{$s->nama_statusbarang}}</td>
-                            <!-- <td>
-                                <div class="flex align-items-center list-user-action">
-                                    <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip"
+                            <td>{{$rp->kode_peminjaman}}</td>
+                            <td>{{Auth::user()->name}}</td>
+                            <td>{{$rp->admin->name}}</td>
+                            <td>{{$rp->barang->kode_barang}} - {{$rp->barang->nama_barang}} ({{$rp->merk->nama_merkbarang}})</td>
+                            <td>{{$rp->lokasi->nama_lokasibarang}} ({{$rp->gudang->nama_gedung}})</td>
+                            <td>{{$rp->departemen->nama_departemen}}</td>
+                            <!-- <td>{{$rp->jumlah}}</td> -->
+                            <td>{{$rp->deskripsi}}</td>
+                            <td>{{$rp->tanggal_pinjam}}</td>
+                            <td>{{$rp->tanggal_kembali}}</td>
+                            <td>
+                                @if($rp->tanggal_pengembalian!=null)
+                                {{$rp->tanggal_pengembalian}}
+                                @elseif($rp->status=='ditolak')
+                                <span class="badge bg-secondary">tidak ada</span>
+                                @elseif($rp->status=='diajukan')
+                                <span class="badge bg-success">sedang diajukan</span>
+                                @else
+                                <span class="badge bg-info">sedang dipinjam</span>
+                                @endif
+                            </td>
+                            <td>
+                            @if ($rp->status=='disetujui')
+                                <span class="badge bg-primary">sudah disetujui</span>
+                                @elseif ($rp->status=='sudah dikembalikan')
+                                <span class="badge bg-warning">sudah dikembalikan</span>
+                                @elseif ($rp->status=='sudah dikembalikan dengan bukti')
+                                <span class="badge bg-warning">sudah dikembalikan dengan bukti</span>
+                                @elseif ($rp->status=='diajukan')
+                                <span class="badge bg-success">sedang diajukan</span>
+                                @else
+                                <span class="badge bg-danger">request ditolak</span>
+                            @endif
+                            </td>
+                            <td>
+                                @if($rp->status=='diajukan')
+                                <a class="btn btn-sm btn-icon btn-success" data-toggle="tooltip"
                                         data-placement="top" title="" data-original-title="Edit"
-                                        href="{{ route('statusbarang.edit', $s->id) }}">
+                                        href="{{ route('statuspinjambarang.edit', $rp->id) }}">
                                         <span class="btn-inner">
                                             <svg width="20" viewBox="0 0 24 24" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -52,11 +92,11 @@
                                         </span>
                                     </a>
                                     <a class="btn btn-sm btn-icon">
-                                        <form action="{{ route('statusbarang.destroy', $s->id) }}" method="POST">
+                                        <form action="{{ route('statuspinjambarang.destroy', $rp->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button type="submit" class="btn btn-sm btn-icon btn-danger"
-                                                onclick="return confirm('Are you sure you want to delete this item')">
+                                                onclick="return confirm('Are you sure you want to delete this item ?')">
                                                 <span class="btn-inner">
                                                     <svg width="20" viewBox="0 0 24 24" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg" stroke="currentColor">
@@ -75,15 +115,17 @@
                                                 </span>
                                             </button>
                                         </form>
-                                    </a>
+                               
+                                @else
                                 </div>
-                            </td> -->
+                                @endif
+                            </td>
                         </tr>
                         @endforeach
-
+                    </tbody>
                 </table>
                 <br>
-                <!-- <a href="/cetak_statusbarang" button type="button" class="btn btn-primary">Print</button></a> -->
+                <a href="/cetak_pinjambarang" button type="button" class="btn btn-primary">Print</button></a>
             </div>
         </div>
     </div>
