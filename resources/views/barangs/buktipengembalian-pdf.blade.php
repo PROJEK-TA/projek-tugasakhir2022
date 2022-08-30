@@ -27,7 +27,7 @@
 </head>
 <div style="margin-left: 20px">
     <center>
-        <div style="font-size: 20px; margin-bottom: 5px;">SISTEM INFORMASI MANAJEMEN INVENTARIS ASET</div>
+        <div style="font-size: 20px; margin-bottom: 5px;">UNIVERSAL LEAF TOBACCO COMPANY</div>
         <div style="font-size: 24px; margin-bottom: 5px;"><b>PT. Tempu Rejo</b></div>
         <div style="font-size: 14px">Jl. P.B. Sudirman No.110 Kec. Pakusari, Kab. Jember || No. Telp 08xxxxxxxxxx</div>
     </center>
