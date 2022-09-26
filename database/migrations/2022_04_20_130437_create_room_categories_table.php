@@ -15,6 +15,7 @@ class CreateRoomCategoriesTable extends Migration
     {
         Schema::create('room_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_kategruangan');
             $table->string('nama_kategruangan');
             $table->timestamps();
         });

@@ -15,6 +15,7 @@ class CreateStatusProductsTable extends Migration
     {
         Schema::create('status_products', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_status');
             $table->string('nama_statusbarang');
             $table->timestamps();
         });

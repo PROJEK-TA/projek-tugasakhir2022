@@ -15,15 +15,17 @@ class CreateServiceProductsTable extends Migration
     {
         Schema::create('service_products', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_servis');
             $table->string('deskripsi');
-            $table->double('jumlah');
-            $table->string('nama_petugas');
             $table->date('tanggal_servis');
             $table->date('tanggal_kembali');
             $table->unsignedBigInteger('id_product');
             $table->foreign('id_product')->references('id')->on('products');
-            $table->unsignedBigInteger('id_merk');
-            $table->foreign('id_merk')->references('id')->on('merk_products');
+            $table->unsignedBigInteger('id_lokasi');
+            $table->foreign('id_lokasi')->references('id')->on('location_products');
+            $table->unsignedBigInteger('id_gudang');
+            $table->foreign('id_gudang')->references('id')->on('buildings');
+            $table->timestamps();
         });
     }
 

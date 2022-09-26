@@ -15,16 +15,22 @@ class CreateBorrowRoomsTable extends Migration
     {
         Schema::create('borrow_rooms', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_ruangan');
-            $table->string('nama_gudang');
+            $table->string('kode_peminjaman');
             $table->string('deskripsi');
+            $table->string('status');
             $table->string('nama_peminjam');
             $table->date('tanggal_pinjam');
-            $table->date('tanggal_kembali');
+            $table->date('tanggal_selesai');
+            $table->date('tgl_selesai');
+            $table->timestamps();
+            $table->unsignedBigInteger('petugas');
             $table->unsignedBigInteger('id_room');
-            $table->unsignedBigInteger('id_warehouse');
+            $table->unsignedBigInteger('id_building');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('petugas')->references('id')->on('users');
             $table->foreign('id_room')->references('id')->on('rooms');
-            $table->foreign('id_warehouse')->references('id')->on('warehouses');
+            $table->foreign('id_building')->references('id')->on('buildings');
+            $table->foreign('id_user')->references('id')->on('users');
           
         });
     }

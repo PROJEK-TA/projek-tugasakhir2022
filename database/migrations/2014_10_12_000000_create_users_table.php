@@ -21,8 +21,10 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('kontak');
             $table->string('alamat');
-            $table->string('jabatan');
+            $table->string('image');
             $table->string('role');
+            $table->unsignedBigInteger('id_jabatan');
+            $table->foreign('jabatan')->references('id')->on('jabatan');
             $table->rememberToken();
             $table->timestamps();
         });

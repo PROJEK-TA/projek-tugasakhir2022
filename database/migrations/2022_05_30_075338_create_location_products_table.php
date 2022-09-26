@@ -15,6 +15,7 @@ class CreateLocationProductsTable extends Migration
     {
         Schema::create('location_products', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_lokasi');
             $table->string('nama_lokasibarang');
             $table->timestamps();
         });

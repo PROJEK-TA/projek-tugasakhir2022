@@ -15,6 +15,7 @@ class CreateMerkProductsTable extends Migration
     {
         Schema::create('merk_products', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_merk');
             $table->string('nama_merkbarang');
             $table->timestamps();
         });
